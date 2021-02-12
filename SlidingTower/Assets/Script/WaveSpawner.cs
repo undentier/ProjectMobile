@@ -13,6 +13,8 @@ public class WaveSpawner : MonoBehaviour
 
     public Text uiCounter;
 
+    public static List<Transform> enemyList = new List<Transform>();
+
     [HideInInspector]
     public float timeCounter;
 
@@ -26,6 +28,7 @@ public class WaveSpawner : MonoBehaviour
 
     private void Update()
     {
+        enemyList.RemoveAll(list_item => list_item == null);
 
         if (timeCounter <= 0f)
         {
@@ -51,6 +54,7 @@ public class WaveSpawner : MonoBehaviour
 
     void SpawnEnemy()
     {
-        Instantiate(enemyPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
+        Transform enemy = Instantiate(enemyPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
+        enemyList.Add(enemy);
     }
 }

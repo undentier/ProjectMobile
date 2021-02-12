@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class WaveSpawner : MonoBehaviour
 
     public float timeBfStart;
     public float timeBtwWave;
+
+    public Text uiCounter;
 
     [HideInInspector]
     public float timeCounter;
@@ -23,6 +26,7 @@ public class WaveSpawner : MonoBehaviour
 
     private void Update()
     {
+
         if (timeCounter <= 0f)
         {
             timeCounter = timeBtwWave;
@@ -30,6 +34,8 @@ public class WaveSpawner : MonoBehaviour
         }
 
         timeCounter -= Time.deltaTime;
+
+        uiCounter.text = Mathf.Round(timeCounter).ToString();
     }
 
     IEnumerator SpawnWave()

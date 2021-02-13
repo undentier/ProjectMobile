@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    [Header ("Stats")]
     public float speed;
+
+    [Header ("Effect")]
     public GameObject impactEffect;
 
     private Transform target;
@@ -39,7 +42,7 @@ public class Bullet : MonoBehaviour
         GameObject effect = Instantiate(impactEffect, transform.position, transform.rotation);
         Destroy(effect, 2f);
 
-        Destroy(target.gameObject);
+        //Destroy(target.gameObject);
         Destroy(gameObject);
     }
 }

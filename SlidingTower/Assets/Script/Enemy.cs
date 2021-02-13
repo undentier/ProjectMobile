@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [Header ("Stats")]
     public float speed = 10f;
 
     private Transform target;
     private int wavePointsIndex = 0;
 
-
     private void Start()
     {
         target = WayPoints.points[0];
     }
-
 
     private void Update()
     {

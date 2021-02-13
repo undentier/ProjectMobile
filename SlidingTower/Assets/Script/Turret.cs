@@ -4,11 +4,20 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
+    [Header ("Turret Stats")]
     public float range;
     public float rotationSpeed;
-    public Transform partToRotate;
+    public float fireRate;
 
+    [Header ("Unity Setup")]
+    public Transform partToRotate;
+    public GameObject bulletPrefab;
+    public Transform shootPoint;
+
+
+    private float fireCooldown;
     private Transform target;
+
 
     private void Update()
     {
@@ -22,6 +31,14 @@ public class Turret : MonoBehaviour
         {
             AimTarget();
         }
+
+        if (fireCooldown <= 0f)
+        {
+            Shoot();
+            fireCooldown = 1f / fireRate;
+        }
+        fireCooldown -= Time.deltaTime;
+
 
     }
 
@@ -61,6 +78,18 @@ public class Turret : MonoBehaviour
         Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * rotationSpeed).eulerAngles;
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
     }
+
+    void Shoot()
+    {
+        GameObject actualBullet =  Instantiate(bulletPrefab, shootPoint.position, shootPoint.rotation);
+        Bullet bulletScript = actualBullet.GetComponent<Bullet>();
+        
+        if (bulletScript != null)
+        {
+            bulletScript.GetTarget(target);
+        }
+    }   
+
 
     private void OnDrawGizmosSelected()
     {

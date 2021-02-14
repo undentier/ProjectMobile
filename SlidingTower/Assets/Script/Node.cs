@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Node : MonoBehaviour
 {
@@ -19,6 +20,16 @@ public class Node : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
+
+        if (BuildManager.instance.GetTurretToBuild() == null)
+        {
+            return;
+        }
+
         if (turret != null)
         {
             Debug.Log("Can't build there");
@@ -30,10 +41,13 @@ public class Node : MonoBehaviour
     }
 
 
-
-
     private void OnMouseEnter()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
+
         rend.material.color = hoverColor;
     }
 

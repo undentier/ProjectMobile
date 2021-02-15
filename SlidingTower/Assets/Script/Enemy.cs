@@ -4,22 +4,21 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [Header ("Stats")]
     public float speed = 10f;
 
     private Transform target;
     private int wavePointsIndex = 0;
-
 
     private void Start()
     {
         target = WayPoints.points[0];
     }
 
-
     private void Update()
     {
         Vector3 dir = target.position - transform.position;
-        transform.Translate(dir.normalized * speed * Time.fixedDeltaTime, Space.World);
+        transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
 
         if (Vector3.Distance(target.position, transform.position) <= 0.2f)
         {

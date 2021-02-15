@@ -5,19 +5,20 @@ using UnityEngine.UI;
 
 public class WaveSpawner : MonoBehaviour
 {
-    public Transform enemyPrefab;
-    public Transform spawnPoint;
-
+    [Header ("Stats")]
     public float timeBfStart;
     public float timeBtwWave;
 
+    [Header ("Unity Setup")]
+    public Transform enemyPrefab;
+    public Transform spawnPoint;
     public Text uiCounter;
+
+    public static List<Transform> enemyList = new List<Transform>();
 
     [HideInInspector]
     public float timeCounter;
-
     private int waveIndex;
-
 
     private void Start()
     {
@@ -26,6 +27,7 @@ public class WaveSpawner : MonoBehaviour
 
     private void Update()
     {
+        enemyList.RemoveAll(list_item => list_item == null);
 
         if (timeCounter <= 0f)
         {
@@ -51,6 +53,7 @@ public class WaveSpawner : MonoBehaviour
 
     void SpawnEnemy()
     {
-        Instantiate(enemyPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
+        Transform enemy = Instantiate(enemyPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
+        enemyList.Add(enemy);
     }
 }

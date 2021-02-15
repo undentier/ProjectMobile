@@ -11,7 +11,6 @@ public class WaveSpawner : MonoBehaviour
 
     [Header ("Unity Setup")]
     public Transform enemyPrefab;
-    public Transform spawnPoint;
     public Text uiCounter;
 
     public static List<Transform> enemyList = new List<Transform>();
@@ -20,8 +19,12 @@ public class WaveSpawner : MonoBehaviour
     public float timeCounter;
     private int waveIndex;
 
+    private Transform spawnPoint;
+
+
     private void Start()
     {
+        spawnPoint = SpawnPoint.startpoint;
         timeCounter = timeBfStart;
     }
 

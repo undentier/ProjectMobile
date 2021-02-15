@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Lab/_Scenes/Guillaume_Scene.unity
+    guid: abd16a5d1d3250845a03b12fbc137a87
   m_configObjects: {}

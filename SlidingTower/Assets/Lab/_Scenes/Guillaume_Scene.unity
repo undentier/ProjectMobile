@@ -156,7 +156,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -182.08044, y: 0}
+  m_AnchoredPosition: {x: -182.08203, y: 0}
   m_SizeDelta: {x: 364.1609, y: 263.42328}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &42965922
@@ -1353,6 +1353,7 @@ GameObject:
   - component: {fileID: 641225980}
   - component: {fileID: 641225979}
   - component: {fileID: 641225981}
+  - component: {fileID: 641225982}
   m_Layer: 0
   m_Name: Level Manager
   m_TagString: Untagged
@@ -1376,7 +1377,6 @@ MonoBehaviour:
   timeBtwWave: 4.5
   enemyPrefab: {fileID: 6895374269467792445, guid: 52dfdf81d5f4b9042aebfb4a1ad7490f,
     type: 3}
-  spawnPoint: {fileID: 680126876}
   uiCounter: {fileID: 42965922}
   timeCounter: 0
 --- !u!4 &641225980
@@ -1409,6 +1409,22 @@ MonoBehaviour:
     type: 3}
   speedBlock: {fileID: 1437501445353532660, guid: 146cf4b384f8c394996470f8570f373f,
     type: 3}
+--- !u!114 &641225982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641225978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4412ecd91a9d4449831e83d30f29c1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slidingMode: 0
+  startNode: {fileID: 0}
+  nearNode: []
+  selectedTower: {fileID: 0}
 --- !u!1001 &647418784
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1599,12 +1615,6 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!4 &680126876 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4695387698788736198, guid: 8debd5bf216fc82479e0a8d2d5a88608,
-    type: 3}
-  m_PrefabInstance: {fileID: 4695387699199309146}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &700755071
 PrefabInstance:
   m_ObjectHideFlags: 0

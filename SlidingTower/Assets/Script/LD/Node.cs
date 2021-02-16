@@ -9,37 +9,103 @@ public class Node : MonoBehaviour
     private Color startColor;
     public Vector3 buildOffSet;
 
+    public string layerName;
+    private LayerMask mask;
+
+    public List<GameObject> hitNode = new List<GameObject>();
+
     private Renderer rend;
-    private GameObject turret;
+
+    
+    public GameObject turret;
 
     private void Start()
     {
+        mask = LayerMask.GetMask(layerName);
         rend = GetComponent<Renderer>();
         startColor = rend.material.color;
+
+        FindClosestNode();
     }
+
+    void FindClosestNode()
+    {
+        RaycastHit hit;
+
+        if (Physics.Raycast(transform.position, Vector3.forward, out hit, Mathf.Infinity, mask) == true)
+        {
+            Debug.DrawRay(transform.position, Vector3.forward, Color.yellow, 100f);
+            hitNode.Add(hit.transform.gameObject);
+        }
+        else
+        {
+            hitNode.Add(null);
+        }
+
+        if (Physics.Raycast(transform.position, Vector3.right, out hit, Mathf.Infinity, mask) == true)
+        {
+            Debug.DrawRay(transform.position, Vector3.right, Color.yellow, 100f);
+            hitNode.Add(hit.transform.gameObject);
+        }
+        else
+        {
+            hitNode.Add(null);
+        }
+
+        if (Physics.Raycast(transform.position, Vector3.back, out hit, Mathf.Infinity, mask) == true)
+        {
+            Debug.DrawRay(transform.position, Vector3.back, Color.yellow, 100f);
+            hitNode.Add(hit.transform.gameObject);
+        }
+        else
+        {
+            hitNode.Add(null);
+        }
+
+        if (Physics.Raycast(transform.position, Vector3.left, out hit, Mathf.Infinity, mask) == true)
+        {
+            Debug.DrawRay(transform.position, Vector3.left, Color.yellow, 100f);
+            hitNode.Add(hit.transform.gameObject);
+        }
+        else
+        {
+            hitNode.Add(null);
+        }
+    }
+    
 
     private void OnMouseDown()
     {
-        if (EventSystem.current.IsPointerOverGameObject())
+        if (SlidingManager.slidingInstance.slidingMode)
         {
-            return;
+            if (turret != null)
+            {
+                SlidingManager.slidingInstance.InfoStartNode(gameObject, turret, hitNode);
+            }
         }
-
-        if (BuildManager.instance.GetTurretToBuild() == null)
+        else
         {
-            return;
-        }
+            if (EventSystem.current.IsPointerOverGameObject())
+            {
+                return;
+            }
 
-        if (turret != null)
-        {
-            Debug.Log("Can't build there");
-            return;
-        }
+            if (BuildManager.instance.GetTurretToBuild() == null)
+            {
+                return;
+            }
 
-        GameObject turretToBuild = BuildManager.instance.GetTurretToBuild();
-        turret = Instantiate(turretToBuild, transform.position + buildOffSet, transform.rotation);
+            if (turret != null)
+            {
+                Debug.Log("Can't build there");
+                return;
+            }
+
+
+            GameObject turretToBuild = BuildManager.instance.GetTurretToBuild();
+            turret = Instantiate(turretToBuild, transform.position + buildOffSet, transform.rotation);
+        }
     }
-
 
     private void OnMouseEnter()
     {

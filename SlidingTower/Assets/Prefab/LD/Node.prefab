@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5217896905363594984}
   - component: {fileID: 5217896905363594985}
   - component: {fileID: -6333302895726068279}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Node
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,3 +108,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.9339623, g: 0.44495374, b: 0.44495374, a: 1}
   buildOffSet: {x: 0, y: 0.5, z: 0}
+  layerName: Node
+  hitNode: []

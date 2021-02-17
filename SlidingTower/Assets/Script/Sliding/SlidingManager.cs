@@ -7,10 +7,12 @@ public class SlidingManager : MonoBehaviour
     public static SlidingManager slidingInstance;
 
     public bool slidingMode;
-
     public GameObject startNode;
     public List<GameObject> nearNode = new List<GameObject>();
     public GameObject selectedTower;
+
+
+    public float mZCoord;
 
     public void InfoStartNode(GameObject _startNode, GameObject _selectedTower,List<GameObject> _nearNode)
     {
@@ -39,15 +41,16 @@ public class SlidingManager : MonoBehaviour
         {
             if (selectedTower != null)
             {
-                //selectedTower.GetComponent<Renderer>().material.color = Color.blue;
+                selectedTower.GetComponent<Animator>().SetBool("Selected", true);
 
                 if (Input.GetKeyDown(KeyCode.P))
                 {
-                    //selectedTower.GetComponent<Renderer>().material.color = Color.white;
+                    selectedTower.GetComponent<Animator>().SetBool("Selected", false);
                     InfoStartNode(null, null, null);
+                    return;
                 }
 
-                if (Input.GetKeyDown(KeyCode.UpArrow))
+                if (Input.GetKeyDown(KeyCode.UpArrow) || MousePos().z >= startNode.transform.position.z + 2f)
                 {
                     if (nearNode[0] != null)
                     {
@@ -62,7 +65,7 @@ public class SlidingManager : MonoBehaviour
                     }
                 }
 
-                if (Input.GetKeyDown(KeyCode.RightArrow))
+                if (Input.GetKeyDown(KeyCode.RightArrow) || MousePos().x >= startNode.transform.position.x + 2f)
                 {
                     if (nearNode[1] != null)
                     {
@@ -77,7 +80,7 @@ public class SlidingManager : MonoBehaviour
                     }
                 }
 
-                if (Input.GetKeyDown(KeyCode.DownArrow))
+                if (Input.GetKeyDown(KeyCode.DownArrow) || MousePos().z <= startNode.transform.position.z - 2f)
                 {
                     if (nearNode[2] != null)
                     {
@@ -92,7 +95,7 @@ public class SlidingManager : MonoBehaviour
                     }
                 }
 
-                if (Input.GetKeyDown(KeyCode.LeftArrow))
+                if (Input.GetKeyDown(KeyCode.LeftArrow) || MousePos().x <= startNode.transform.position.x - 2f)
                 {
                     if (nearNode[3] != null)
                     {
@@ -109,5 +112,13 @@ public class SlidingManager : MonoBehaviour
             }
         }
 
+    }
+
+    private Vector3 MousePos()
+    {
+        mZCoord = Camera.main.WorldToScreenPoint(startNode.transform.position).z;
+        Vector3 mousePoint = Input.mousePosition;
+        mousePoint.z = mZCoord;
+        return Camera.main.ScreenToWorldPoint(mousePoint);
     }
 }

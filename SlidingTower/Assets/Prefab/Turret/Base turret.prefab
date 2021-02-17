@@ -153,6 +153,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3327612468709746265}
   - component: {fileID: 6822905758236967501}
+  - component: {fileID: 3296990418832453268}
   m_Layer: 0
   m_Name: Base turret
   m_TagString: Untagged
@@ -195,6 +196,25 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1664552637349654473, guid: 56f0414ef2f2f6f41a681196bd36719e,
     type: 3}
   shootPoint: {fileID: 6260471162307806566}
+--- !u!95 &3296990418832453268
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2694803238077250787}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e9f6a6a9f7cdb5e43bef2aa0a0227898, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5816143655786568775
 GameObject:
   m_ObjectHideFlags: 0

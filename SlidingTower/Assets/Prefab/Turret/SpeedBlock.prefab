@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1437501445353532664}
   - component: {fileID: 1437501445353532663}
   - component: {fileID: 1437501445353532662}
-  - component: {fileID: 1437501445353532661}
+  - component: {fileID: 6821829474605490934}
   m_Layer: 0
   m_Name: SpeedBlock
   m_TagString: Untagged
@@ -80,16 +80,22 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &1437501445353532661
-BoxCollider:
+--- !u!95 &6821829474605490934
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1437501445353532660}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 78b2a635b54b7934ea07cba75d952ec9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

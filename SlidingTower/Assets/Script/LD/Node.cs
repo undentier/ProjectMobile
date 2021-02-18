@@ -76,11 +76,13 @@ public class Node : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (SlidingManager.slidingInstance.slidingMode)
+        if (SlidingManager.slidingInstance.slidingMode && !SlidingManager.slidingInstance.isSliding)
         {
             if (turret != null)
             {
+                SlidingManager.slidingInstance.isSliding = true;
                 SlidingManager.slidingInstance.InfoStartNode(gameObject, turret, hitNode);
+                return;
             }
         }
         else

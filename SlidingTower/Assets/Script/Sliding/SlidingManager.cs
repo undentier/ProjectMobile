@@ -6,13 +6,14 @@ public class SlidingManager : MonoBehaviour
 {
     public static SlidingManager slidingInstance;
 
+    [Header ("Don't fill this")]
     public bool slidingMode;
     public GameObject startNode;
-    public List<GameObject> nearNode = new List<GameObject>();
     public GameObject selectedTower;
+    public List<GameObject> nearNode = new List<GameObject>();
+    public bool isSliding;
 
-
-    public float mZCoord;
+    private float mZCoord;
 
     public void InfoStartNode(GameObject _startNode, GameObject _selectedTower,List<GameObject> _nearNode)
     {
@@ -45,6 +46,7 @@ public class SlidingManager : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.P))
                 {
+                    isSliding = false;
                     selectedTower.GetComponent<Animator>().SetBool("Selected", false);
                     InfoStartNode(null, null, null);
                     return;

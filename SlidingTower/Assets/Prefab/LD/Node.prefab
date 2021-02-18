@@ -107,6 +107,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.9339623, g: 0.44495374, b: 0.44495374, a: 1}
+  selectedNode: {r: 0, g: 0, b: 0, a: 0}
+  cube: {fileID: 1437501445353532660, guid: 146cf4b384f8c394996470f8570f373f, type: 3}
   buildOffSet: {x: 0, y: 0.5, z: 0}
   layerName: Node
   hitNode: []
+  turret: {fileID: 0}

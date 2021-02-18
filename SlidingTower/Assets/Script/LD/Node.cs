@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 public class Node : MonoBehaviour
 {
     public Color hoverColor;
+    public Color selectedNode;
+    public GameObject cube;
     private Color startColor;
     public Vector3 buildOffSet;
 
@@ -26,6 +28,11 @@ public class Node : MonoBehaviour
         startColor = rend.material.color;
 
         FindClosestNode();
+    }
+
+    private void Update()
+    {
+       
     }
 
     void FindClosestNode()
@@ -76,13 +83,16 @@ public class Node : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (SlidingManager.slidingInstance.slidingMode && !SlidingManager.slidingInstance.isSliding)
+        if (SlidingManager.slidingInstance.slidingMode)
         {
-            if (turret != null)
+            if (!SlidingManager.slidingInstance.isSliding)
             {
-                SlidingManager.slidingInstance.isSliding = true;
-                SlidingManager.slidingInstance.InfoStartNode(gameObject, turret, hitNode);
-                return;
+                if (turret != null)
+                {
+                    SlidingManager.slidingInstance.isSliding = true;
+                    SlidingManager.slidingInstance.InfoStartNode(gameObject, turret, hitNode);
+                    return;
+                }
             }
         }
         else

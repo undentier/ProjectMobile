@@ -7,11 +7,11 @@ public class SlidingManager : MonoBehaviour
     public static SlidingManager slidingInstance;
 
     [Header ("Don't fill this")]
-    public bool slidingMode;
     public GameObject startNode;
     public GameObject selectedTower;
     public List<GameObject> nearNode = new List<GameObject>();
     public bool isSliding;
+    public Vector3 offset;
 
     private float mZCoord;
 
@@ -33,47 +33,33 @@ public class SlidingManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            slidingMode = !slidingMode;
-        }
-
-        if (slidingMode)
-        {
+        
             if (selectedTower != null)
             {
                 selectedTower.GetComponent<Animator>().SetBool("Selected", true);
 
-                if (Input.GetKeyDown(KeyCode.P))
-                {
-                    isSliding = false;
-                    selectedTower.GetComponent<Animator>().SetBool("Selected", false);
-                    InfoStartNode(null, null, null);
-                    return;
-                }
-
-                if (Input.GetKeyDown(KeyCode.UpArrow) || MousePos().z >= startNode.transform.position.z + 2f)
+                if (MousePos().z >= startNode.transform.position.z + 2f)
                 {
                     if (nearNode[0] != null)
                     {
                         if (nearNode[0].gameObject.transform.GetComponent<Node>().turret == null)
                         {
-                            selectedTower.transform.position = nearNode[0].transform.position;
-                            startNode.GetComponent<Node>().turret = null;
+                            selectedTower.transform.position = (nearNode[0].transform.position + offset);
                             nearNode[0].gameObject.transform.GetComponent<Node>().turret = selectedTower;
+                            startNode.GetComponent<Node>().turret = null;
 
                             InfoStartNode(nearNode[0], selectedTower, nearNode[0].GetComponent<Node>().hitNode);
                         }
                     }
                 }
 
-                if (Input.GetKeyDown(KeyCode.RightArrow) || MousePos().x >= startNode.transform.position.x + 2f)
+                if (MousePos().x >= startNode.transform.position.x + 2f)
                 {
                     if (nearNode[1] != null)
                     {
                         if (nearNode[1].gameObject.transform.GetComponent<Node>().turret == null)
                         {
-                            selectedTower.transform.position = nearNode[1].transform.position;
+                            selectedTower.transform.position = (nearNode[1].transform.position + offset);
                             startNode.GetComponent<Node>().turret = null;
                             nearNode[1].gameObject.transform.GetComponent<Node>().turret = selectedTower;
 
@@ -82,13 +68,13 @@ public class SlidingManager : MonoBehaviour
                     }
                 }
 
-                if (Input.GetKeyDown(KeyCode.DownArrow) || MousePos().z <= startNode.transform.position.z - 2f)
+                if (MousePos().z <= startNode.transform.position.z - 2f)
                 {
                     if (nearNode[2] != null)
                     {
                         if (nearNode[2].gameObject.transform.GetComponent<Node>().turret == null)
                         {
-                            selectedTower.transform.position = nearNode[2].transform.position;
+                            selectedTower.transform.position = (nearNode[2].transform.position + offset);
                             startNode.GetComponent<Node>().turret = null;
                             nearNode[2].gameObject.transform.GetComponent<Node>().turret = selectedTower;
 
@@ -97,13 +83,13 @@ public class SlidingManager : MonoBehaviour
                     }
                 }
 
-                if (Input.GetKeyDown(KeyCode.LeftArrow) || MousePos().x <= startNode.transform.position.x - 2f)
+                if (MousePos().x <= startNode.transform.position.x - 2f)
                 {
                     if (nearNode[3] != null)
                     {
                         if (nearNode[3].gameObject.transform.GetComponent<Node>().turret == null)
                         {
-                            selectedTower.transform.position = nearNode[3].transform.position;
+                            selectedTower.transform.position = (nearNode[3].transform.position + offset);
                             startNode.GetComponent<Node>().turret = null;
                             nearNode[3].gameObject.transform.GetComponent<Node>().turret = selectedTower;
 
@@ -112,8 +98,6 @@ public class SlidingManager : MonoBehaviour
                     }
                 }
             }
-        }
-
     }
 
     private Vector3 MousePos()

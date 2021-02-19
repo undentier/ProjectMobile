@@ -36,7 +36,6 @@ public class Enemy : MonoBehaviour
         actualHealth -= amount;
 
         healhtBar.fillAmount = actualHealth / startHealth;
-        Debug.Log(actualHealth / startHealth);
 
         if (actualHealth <= 0f)
         {

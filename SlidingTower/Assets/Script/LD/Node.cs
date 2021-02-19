@@ -30,11 +30,6 @@ public class Node : MonoBehaviour
         FindClosestNode();
     }
 
-    private void Update()
-    {
-       
-    }
-
     void FindClosestNode()
     {
         RaycastHit hit;
@@ -83,20 +78,18 @@ public class Node : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (SlidingManager.slidingInstance.slidingMode)
-        {
+        
             if (!SlidingManager.slidingInstance.isSliding)
             {
                 if (turret != null)
                 {
+                    turret.GetComponent<Animator>().SetBool("Selected", true);
                     SlidingManager.slidingInstance.isSliding = true;
                     SlidingManager.slidingInstance.InfoStartNode(gameObject, turret, hitNode);
                     return;
                 }
             }
-        }
-        else
-        {
+        
             if (EventSystem.current.IsPointerOverGameObject())
             {
                 return;
@@ -116,6 +109,17 @@ public class Node : MonoBehaviour
 
             GameObject turretToBuild = BuildManager.instance.GetTurretToBuild();
             turret = Instantiate(turretToBuild, transform.position + buildOffSet, transform.rotation);
+        
+    }
+
+    private void OnMouseUp()
+    {
+        if (SlidingManager.slidingInstance.isSliding)
+        {
+            SlidingManager.slidingInstance.isSliding = false;
+            SlidingManager.slidingInstance.selectedTower.GetComponent<Animator>().SetBool("Selected", false); // Nul à chier à changer
+            SlidingManager.slidingInstance.InfoStartNode(null, null, null);
+            return;
         }
     }
 

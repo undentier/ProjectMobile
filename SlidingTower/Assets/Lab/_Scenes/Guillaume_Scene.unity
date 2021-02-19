@@ -1421,11 +1421,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4412ecd91a9d4449831e83d30f29c1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slidingMode: 0
   startNode: {fileID: 0}
   selectedTower: {fileID: 0}
   nearNode: []
   isSliding: 0
+  offset: {x: 0, y: 0.5, z: 0}
 --- !u!1001 &647418784
 PrefabInstance:
   m_ObjectHideFlags: 0

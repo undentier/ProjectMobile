@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     public float startHealth;
     [HideInInspector]
     public float actualHealth;
+    public int damageToNexus;
 
     [Header ("Unity Setup")]
     public NavMeshAgent agent;
@@ -26,6 +27,7 @@ public class Enemy : MonoBehaviour
     {
         if (gameObject.transform.position.z == WayPoints.points.position.z)
         {
+            LifeManager.lifeInstance.DamagePlayer(damageToNexus);
             Destroy(gameObject);
             return;
         }

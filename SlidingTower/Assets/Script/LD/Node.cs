@@ -6,8 +6,6 @@ using UnityEngine.EventSystems;
 public class Node : MonoBehaviour
 {
     public Color hoverColor;
-    public Color selectedNode;
-    public GameObject cube;
     private Color startColor;
     public Vector3 buildOffSet;
 
@@ -17,8 +15,6 @@ public class Node : MonoBehaviour
     public List<GameObject> hitNode = new List<GameObject>();
 
     private Renderer rend;
-
-    
     public GameObject turret;
 
     private void Start()

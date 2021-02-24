@@ -5,23 +5,51 @@ using UnityEngine.EventSystems;
 
 public class Node : MonoBehaviour
 {
+    [Header ("Unity Setup")]
+    public string layerName;
     public Color hoverColor;
-    private Color startColor;
     public Vector3 buildOffSet;
 
-    public string layerName;
-    private LayerMask mask;
+    [Space]
 
-    public List<GameObject> hitNode = new List<GameObject>();
+    [Header("Boost Stats")]
+    public bool lazerMode;
+    public bool doubleShootMode;
+    public bool explosionMode;
 
-    private Renderer rend;
+    [Space]
+
+    public int slowBonus;
+    public int poisonDamage;
+
+    [Space]
+
+    public int fireRateBonus;
+    public int damageBonus;
+    public int rangeBonus;
+
+    [Space]
+
+    [Header ("BoostEffect")]
+    public GameObject speedEffect;
+
+    [HideInInspector]
     public GameObject turret;
+    [HideInInspector]
+    public List<GameObject> hitNode = new List<GameObject>();
+    private Renderer rend;
+    private LayerMask mask;
+    private Color startColor;
 
     private void Start()
     {
         mask = LayerMask.GetMask(layerName);
         rend = GetComponent<Renderer>();
         startColor = rend.material.color;
+
+
+
+
 
         FindClosestNode();
     }

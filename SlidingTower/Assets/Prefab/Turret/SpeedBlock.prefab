@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1437501445353532663}
   - component: {fileID: 1437501445353532662}
   - component: {fileID: 6821829474605490934}
+  - component: {fileID: 6892888704610447532}
   m_Layer: 0
   m_Name: SpeedBlock
   m_TagString: Untagged
@@ -99,3 +100,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6892888704610447532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437501445353532660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8794c70a13e41d648831f25d6c1c6744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wichShoot: 0
+  wichBullet: 0
+  slowValue: 0
+  poisonValue: 0
+  wichBoost: 1
+  fireRateBoost: 5
+  damageBoost: 0
+  rangeBoost: 0

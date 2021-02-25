@@ -4,18 +4,23 @@ using UnityEngine;
 
 public class BuildSelecteur : MonoBehaviour
 {
-
-    private void Start()
-    {
-    }
-
     public void BasiqueTurretSelected()
     {
         BuildManager.instance.SetTurretToBuild(BuildManager.instance.basiqueTurretPrefab);
     }
 
-    public void SpeedBlockSelected()
+    public void FireRateBlockSelected()
     {
-        BuildManager.instance.SetTurretToBuild(BuildManager.instance.speedBlock);
+        BuildManager.instance.SetTurretToBuild(BuildManager.instance.fireRateBlock);
+    }
+
+    public void DamageBlockSelected()
+    {
+        BuildManager.instance.SetTurretToBuild(BuildManager.instance.damageBlock);
+    }
+
+    public void RangeBlockSelected()
+    {
+        BuildManager.instance.SetTurretToBuild(BuildManager.instance.rangeBlock);
     }
 }

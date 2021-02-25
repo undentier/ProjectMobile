@@ -31,13 +31,15 @@ public class Node : MonoBehaviour
     [Space]
 
     [Header ("SFX")]
-    public GameObject speedEffect;
+    public GameObject fireRateEffect;
+    public GameObject damageEffect;
+    public GameObject rangeEffect;
 
-    public BoostBlock boostScript;
 
-    //[HideInInspector]
+    private BoostBlock boostScript;
+    [HideInInspector]
     public GameObject turret;
-    //[HideInInspector]
+    [HideInInspector]
     public List<GameObject> hitNode = new List<GameObject>();
     private Renderer rend;
     private LayerMask mask;
@@ -97,45 +99,75 @@ public class Node : MonoBehaviour
         }
     }
 
-    public void ShareBoost()
-    {
-        if (boostScript != null)
-        {
-            GetBoost();
-        }
-    }
-
     void GetBoost()
-    {
-        GetShootType();
-        GetBulletType();
-        GetBoostType();
-
-    }
-    void GetShootType()
     {
         lazerMode += boostScript.lazer;
         doubleShootMode += boostScript.doubleShoot;
         explosionMode += boostScript.explosion;
-    }
-    void GetBulletType()
-    {
+
         slowBonus += boostScript.slowValue;
         poisonDamage += boostScript.poisonValue;
-    }
-    void GetBoostType()
-    {
+
         fireRateBonus += boostScript.fireRateBoost;
         damageBonus += boostScript.damageBoost;
         rangeBonus += boostScript.rangeBoost;
     }
 
+    void DelBoost()
+    {
+        lazerMode -= boostScript.lazer;
+        doubleShootMode -= boostScript.doubleShoot;
+        explosionMode -= boostScript.explosion;
+
+        slowBonus -= boostScript.slowValue;
+        poisonDamage -= boostScript.poisonValue;
+
+        fireRateBonus -= boostScript.fireRateBoost;
+        damageBonus -= boostScript.damageBoost;
+        rangeBonus -= boostScript.rangeBoost;
+    }
+
+    void SetEffect()
+    {
+        if (fireRateBonus > 0)
+        {
+            fireRateEffect.SetActive(true);
+        }
+        else
+        {
+            fireRateEffect.SetActive(false);
+        }
+
+        if (damageBonus > 0)
+        {
+            damageEffect.SetActive(true);
+        }
+        else
+        {
+            damageEffect.SetActive(false);
+        }
+
+        if (rangeBonus > 0)
+        {
+            rangeEffect.SetActive(true);
+        }
+        else
+        {
+            rangeEffect.SetActive(false);
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == 9)
         {
-            speedEffect.SetActive(true);
+            if (boostScript == null)
+            {
+                boostScript = other.GetComponent<BoostBlock>();
+                GetBoost();
+                SetEffect();
+                boostScript = null;
+            }
         }
     }
 
@@ -143,7 +175,13 @@ public class Node : MonoBehaviour
     {
         if (other.gameObject.layer == 9)
         {
-            speedEffect.SetActive(false);
+            if (boostScript == null)
+            {
+                boostScript = other.GetComponent<BoostBlock>();
+                DelBoost();
+                SetEffect();
+                boostScript = null;
+            }
         }
     }
 

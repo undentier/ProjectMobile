@@ -48,7 +48,6 @@ public class SlidingManager : MonoBehaviour
                         startNode.GetComponent<Node>().turret = null;
 
                         InfoStartNode(nearNode[0], selectedTower, nearNode[0].GetComponent<Node>().hitNode);
-                        startNode.GetComponent<Node>().ShareBoost();
                     }
                 }
             }
@@ -64,7 +63,6 @@ public class SlidingManager : MonoBehaviour
                         nearNode[1].gameObject.transform.GetComponent<Node>().turret = selectedTower;
 
                         InfoStartNode(nearNode[1], selectedTower, nearNode[1].GetComponent<Node>().hitNode);
-                        startNode.GetComponent<Node>().ShareBoost();
                     }
                 }
             }
@@ -80,7 +78,6 @@ public class SlidingManager : MonoBehaviour
                         nearNode[2].gameObject.transform.GetComponent<Node>().turret = selectedTower;
 
                         InfoStartNode(nearNode[2], selectedTower, nearNode[2].GetComponent<Node>().hitNode);
-                        startNode.GetComponent<Node>().ShareBoost();
                     }
                 }
             }
@@ -96,7 +93,6 @@ public class SlidingManager : MonoBehaviour
                         nearNode[3].gameObject.transform.GetComponent<Node>().turret = selectedTower;
 
                         InfoStartNode(nearNode[3], selectedTower, nearNode[3].GetComponent<Node>().hitNode);
-                        startNode.GetComponent<Node>().ShareBoost();
                     }
                 }
             }

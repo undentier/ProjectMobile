@@ -6,16 +6,16 @@ using UnityEngine.EventSystems;
 public class Node : MonoBehaviour
 {
     [Header ("Unity Setup")]
-    public string layerName;
+    public string nodelayerName;
     public Color hoverColor;
     public Vector3 buildOffSet;
 
     [Space]
 
     [Header("Boost Stats")]
-    public bool lazerMode;
-    public bool doubleShootMode;
-    public bool explosionMode;
+    public int lazerMode;
+    public int doubleShootMode;
+    public int explosionMode;
 
     [Space]
 
@@ -30,12 +30,14 @@ public class Node : MonoBehaviour
 
     [Space]
 
-    [Header ("BoostEffect")]
+    [Header ("SFX")]
     public GameObject speedEffect;
 
-    [HideInInspector]
+    public BoostBlock boostScript;
+
+    //[HideInInspector]
     public GameObject turret;
-    [HideInInspector]
+    //[HideInInspector]
     public List<GameObject> hitNode = new List<GameObject>();
     private Renderer rend;
     private LayerMask mask;
@@ -43,13 +45,9 @@ public class Node : MonoBehaviour
 
     private void Start()
     {
-        mask = LayerMask.GetMask(layerName);
+        mask = LayerMask.GetMask(nodelayerName);
         rend = GetComponent<Renderer>();
         startColor = rend.material.color;
-
-
-
-
 
         FindClosestNode();
     }
@@ -98,42 +96,92 @@ public class Node : MonoBehaviour
             hitNode.Add(null);
         }
     }
-    
 
+    public void ShareBoost()
+    {
+        if (boostScript != null)
+        {
+            GetBoost();
+        }
+    }
+
+    void GetBoost()
+    {
+        GetShootType();
+        GetBulletType();
+        GetBoostType();
+
+    }
+    void GetShootType()
+    {
+        lazerMode += boostScript.lazer;
+        doubleShootMode += boostScript.doubleShoot;
+        explosionMode += boostScript.explosion;
+    }
+    void GetBulletType()
+    {
+        slowBonus += boostScript.slowValue;
+        poisonDamage += boostScript.poisonValue;
+    }
+    void GetBoostType()
+    {
+        fireRateBonus += boostScript.fireRateBoost;
+        damageBonus += boostScript.damageBoost;
+        rangeBonus += boostScript.rangeBoost;
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == 9)
+        {
+            speedEffect.SetActive(true);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.layer == 9)
+        {
+            speedEffect.SetActive(false);
+        }
+    }
+
+    #region Controler
     private void OnMouseDown()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
         
-            if (!SlidingManager.slidingInstance.isSliding)
-            {
-                if (turret != null)
-                {
-                    turret.GetComponent<Animator>().SetBool("Selected", true);
-                    SlidingManager.slidingInstance.isSliding = true;
-                    SlidingManager.slidingInstance.InfoStartNode(gameObject, turret, hitNode);
-                    return;
-                }
-            }
-        
-            if (EventSystem.current.IsPointerOverGameObject())
-            {
-                return;
-            }
-
-            if (BuildManager.instance.GetTurretToBuild() == null)
-            {
-                return;
-            }
-
+        if (!SlidingManager.slidingInstance.isSliding)
+        {
             if (turret != null)
             {
-                Debug.Log("Can't build there");
+                SlidingManager.slidingInstance.isSliding = true;
+                SlidingManager.slidingInstance.InfoStartNode(gameObject, turret, hitNode);
+                turret.GetComponent<Animator>().SetBool("Selected", true);
                 return;
             }
+        }
 
+        if (BuildManager.instance.GetTurretToBuild() == null)
+        {
+            return;
+        }
 
+        if (turret != null)
+        {
+            Debug.Log("Can't build there");
+            return;
+        }
+
+        if (turret == null)
+        {
             GameObject turretToBuild = BuildManager.instance.GetTurretToBuild();
             turret = Instantiate(turretToBuild, transform.position + buildOffSet, transform.rotation);
-        
+        }
     }
 
     private void OnMouseUp()
@@ -161,4 +209,6 @@ public class Node : MonoBehaviour
     {
         rend.material.color = startColor;
     }
+    #endregion
+
 }

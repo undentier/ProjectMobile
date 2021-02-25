@@ -21,9 +21,9 @@ public class BoostBlock : MonoBehaviour
 
 
     public ShootType wichShoot;
-    public bool lazer;
-    public bool doubleShoot;
-    public bool explosion;
+    public int lazer;
+    public int doubleShoot;
+    public int explosion;
 
     [Space]
     public BulletType wichBullet;
@@ -38,25 +38,23 @@ public class BoostBlock : MonoBehaviour
     public int damageBoost;
     public int rangeBoost;
 
-    public void GetShootType(bool _lazer, bool _doubleShoot, bool _explosion)
+    private void Start()
     {
-        _lazer = lazer;
-        _doubleShoot = doubleShoot;
-        _explosion = explosion;
-    }
-
-    public void GetBulletType(BulletType _bulletType, float _slowValue, int _poisonValue)
-    {
-        _bulletType = wichBullet;
-        _slowValue = slowValue;
-        _poisonValue = poisonValue;
-
-    }
-
-    public void GetBoostType(int _fireRateBoost, int _damageBoost, int _rangeBoost)
-    {
-        _fireRateBoost = fireRateBoost;
-        _damageBoost = damageBoost;
-        _rangeBoost = rangeBoost;
+        switch (wichShoot)
+        {
+            case ShootType.None:
+                break;
+            case ShootType.Lazer:
+                lazer = 1;
+                break;
+            case ShootType.DoubleShoot:
+                doubleShoot = 1;
+                break;
+            case ShootType.Explosion:
+                explosion = 1;
+                break;
+            default:
+                break;
+        }
     }
 }

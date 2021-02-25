@@ -33,71 +33,74 @@ public class SlidingManager : MonoBehaviour
 
     private void Update()
     {
-        
-            if (selectedTower != null)
+        if (selectedTower != null)
+        {
+            selectedTower.GetComponent<Animator>().SetBool("Selected", true);
+
+            if (MousePos().z >= startNode.transform.position.z + 2f)
             {
-                selectedTower.GetComponent<Animator>().SetBool("Selected", true);
-
-                if (MousePos().z >= startNode.transform.position.z + 2f)
+                if (nearNode[0] != null)
                 {
-                    if (nearNode[0] != null)
+                    if (nearNode[0].gameObject.transform.GetComponent<Node>().turret == null)
                     {
-                        if (nearNode[0].gameObject.transform.GetComponent<Node>().turret == null)
-                        {
-                            selectedTower.transform.position = (nearNode[0].transform.position + offset);
-                            nearNode[0].gameObject.transform.GetComponent<Node>().turret = selectedTower;
-                            startNode.GetComponent<Node>().turret = null;
+                        selectedTower.transform.position = (nearNode[0].transform.position + offset);
+                        nearNode[0].gameObject.transform.GetComponent<Node>().turret = selectedTower;
+                        startNode.GetComponent<Node>().turret = null;
 
-                            InfoStartNode(nearNode[0], selectedTower, nearNode[0].GetComponent<Node>().hitNode);
-                        }
-                    }
-                }
-
-                if (MousePos().x >= startNode.transform.position.x + 2f)
-                {
-                    if (nearNode[1] != null)
-                    {
-                        if (nearNode[1].gameObject.transform.GetComponent<Node>().turret == null)
-                        {
-                            selectedTower.transform.position = (nearNode[1].transform.position + offset);
-                            startNode.GetComponent<Node>().turret = null;
-                            nearNode[1].gameObject.transform.GetComponent<Node>().turret = selectedTower;
-
-                            InfoStartNode(nearNode[1], selectedTower, nearNode[1].GetComponent<Node>().hitNode);
-                        }
-                    }
-                }
-
-                if (MousePos().z <= startNode.transform.position.z - 2f)
-                {
-                    if (nearNode[2] != null)
-                    {
-                        if (nearNode[2].gameObject.transform.GetComponent<Node>().turret == null)
-                        {
-                            selectedTower.transform.position = (nearNode[2].transform.position + offset);
-                            startNode.GetComponent<Node>().turret = null;
-                            nearNode[2].gameObject.transform.GetComponent<Node>().turret = selectedTower;
-
-                            InfoStartNode(nearNode[2], selectedTower, nearNode[2].GetComponent<Node>().hitNode);
-                        }
-                    }
-                }
-
-                if (MousePos().x <= startNode.transform.position.x - 2f)
-                {
-                    if (nearNode[3] != null)
-                    {
-                        if (nearNode[3].gameObject.transform.GetComponent<Node>().turret == null)
-                        {
-                            selectedTower.transform.position = (nearNode[3].transform.position + offset);
-                            startNode.GetComponent<Node>().turret = null;
-                            nearNode[3].gameObject.transform.GetComponent<Node>().turret = selectedTower;
-
-                            InfoStartNode(nearNode[3], selectedTower, nearNode[3].GetComponent<Node>().hitNode);
-                        }
+                        InfoStartNode(nearNode[0], selectedTower, nearNode[0].GetComponent<Node>().hitNode);
+                        startNode.GetComponent<Node>().ShareBoost();
                     }
                 }
             }
+
+            if (MousePos().x >= startNode.transform.position.x + 2f)
+            {
+                if (nearNode[1] != null)
+                {
+                    if (nearNode[1].gameObject.transform.GetComponent<Node>().turret == null)
+                    {
+                        selectedTower.transform.position = (nearNode[1].transform.position + offset);
+                        startNode.GetComponent<Node>().turret = null;
+                        nearNode[1].gameObject.transform.GetComponent<Node>().turret = selectedTower;
+
+                        InfoStartNode(nearNode[1], selectedTower, nearNode[1].GetComponent<Node>().hitNode);
+                        startNode.GetComponent<Node>().ShareBoost();
+                    }
+                }
+            }
+
+            if (MousePos().z <= startNode.transform.position.z - 2f)
+            {
+                if (nearNode[2] != null)
+                {
+                    if (nearNode[2].gameObject.transform.GetComponent<Node>().turret == null)
+                    {
+                        selectedTower.transform.position = (nearNode[2].transform.position + offset);
+                        startNode.GetComponent<Node>().turret = null;
+                        nearNode[2].gameObject.transform.GetComponent<Node>().turret = selectedTower;
+
+                        InfoStartNode(nearNode[2], selectedTower, nearNode[2].GetComponent<Node>().hitNode);
+                        startNode.GetComponent<Node>().ShareBoost();
+                    }
+                }
+            }
+
+            if (MousePos().x <= startNode.transform.position.x - 2f)
+            {
+                if (nearNode[3] != null)
+                {
+                    if (nearNode[3].gameObject.transform.GetComponent<Node>().turret == null)
+                    {
+                        selectedTower.transform.position = (nearNode[3].transform.position + offset);
+                        startNode.GetComponent<Node>().turret = null;
+                        nearNode[3].gameObject.transform.GetComponent<Node>().turret = selectedTower;
+
+                        InfoStartNode(nearNode[3], selectedTower, nearNode[3].GetComponent<Node>().hitNode);
+                        startNode.GetComponent<Node>().ShareBoost();
+                    }
+                }
+            }
+        }
     }
 
     private Vector3 MousePos()

@@ -21,8 +21,11 @@ public class BoostBlock : MonoBehaviour
 
 
     public ShootType wichShoot;
+    [HideInInspector]
     public int lazer;
+    [HideInInspector]
     public int doubleShoot;
+    [HideInInspector]
     public int explosion;
 
     [Space]

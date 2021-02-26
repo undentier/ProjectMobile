@@ -4,10 +4,22 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
-    [Header ("Turret Stats")]
+    [Header ("Turret Basic Stats")]
     public float range;
-    public float rotationSpeed;
     public float fireRate;
+    public int damage;
+    public float rotationSpeed;
+
+    [Header("Upgrade Stats")]
+
+    public int lazerUpgrade;
+    public int doubleShootUpgrade;
+    public int explosionUpgrade;
+
+    [Space]
+
+    public int slowValueUpgrade;
+    public int poisonValueUpgrade;
 
     [Header ("Unity Setup")]
     public Transform partToRotate;
@@ -17,6 +29,7 @@ public class Turret : MonoBehaviour
 
     private float fireCooldown;
     private Transform target;
+    private BoostBlock boostScript;
 
 
     private void Update()
@@ -88,8 +101,56 @@ public class Turret : MonoBehaviour
         {
             bulletScript.GetTarget(target);
         }
-    }   
+    }
 
+    void GetUpgrade()
+    {
+        lazerUpgrade += boostScript.lazer;
+        doubleShootUpgrade += boostScript.doubleShoot;
+        explosionUpgrade += boostScript.explosion;
+
+        slowValueUpgrade += boostScript.slowValue;
+        poisonValueUpgrade += boostScript.poisonValue;
+
+        fireRate += boostScript.fireRateBoost;
+        damage += boostScript.damageBoost;
+        range += boostScript.rangeBoost;
+    }
+    void DelUpgrade()
+    {
+        lazerUpgrade -= boostScript.lazer;
+        doubleShootUpgrade -= boostScript.doubleShoot;
+        explosionUpgrade -= boostScript.explosion;
+
+        slowValueUpgrade -= boostScript.slowValue;
+        poisonValueUpgrade -= boostScript.poisonValue;
+
+        fireRate -= boostScript.fireRateBoost;
+        damage -= boostScript.damageBoost;
+        range -= boostScript.rangeBoost;
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Je rentre");
+        if (other.gameObject.layer == 9)
+        {
+            boostScript = other.GetComponent<BoostBlock>();
+            GetUpgrade();
+            boostScript = null;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.layer == 9)
+        {
+            boostScript = other.GetComponent<BoostBlock>();
+            DelUpgrade();
+            boostScript = null;
+        }
+    }
 
     private void OnDrawGizmosSelected()
     {

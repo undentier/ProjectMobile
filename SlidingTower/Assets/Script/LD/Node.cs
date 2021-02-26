@@ -157,6 +157,7 @@ public class Node : MonoBehaviour
         }
     }
 
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == 9)
@@ -184,6 +185,7 @@ public class Node : MonoBehaviour
             }
         }
     }
+
 
     #region Controler
     private void OnMouseDown()

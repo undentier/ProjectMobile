@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1664552637349654479}
   - component: {fileID: 6131799534406368508}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: Classique Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -94,5 +94,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 75
   damage: 25
+  explosionRadius: 0
   impactEffect: {fileID: 8426000529989753166, guid: ce72f2c56414fa54baa091e0f6c59f4f,
     type: 3}
+  enemyLayerName: Enemy

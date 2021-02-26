@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 879376131}
   - component: {fileID: 2781094757774148748}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Health Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -275,9 +275,10 @@ GameObject:
   - component: {fileID: 6895374269467792447}
   - component: {fileID: -3438453049640126229}
   - component: {fileID: -22901727225648796}
-  m_Layer: 0
+  - component: {fileID: 4335493878397704270}
+  m_Layer: 10
   m_Name: Enemy
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -386,3 +387,16 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 0
+--- !u!135 &4335493878397704270
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6895374269467792441}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}

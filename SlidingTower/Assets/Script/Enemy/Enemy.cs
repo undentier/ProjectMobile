@@ -21,8 +21,18 @@ public class Enemy : MonoBehaviour
     public GameObject deathEffect;
     public Image healhtBar;
 
+    [Header("Material")]
+    public Material slowMaterial;
+    public Material poisionMaterial;
+
+    private Material startMaterial;
+    private MeshRenderer rend;
+
+
     private void Start()
     {
+        rend = GetComponent<MeshRenderer>();
+        startMaterial = rend.material;
         actualHealth = startHealth;
         startMovSpeed = movSpeed;
         agent.speed = movSpeed;
@@ -58,9 +68,11 @@ public class Enemy : MonoBehaviour
 
     IEnumerator ApplySLow(int slowForce)
     {
+        rend.material = slowMaterial;
         agent.speed = movSpeed - slowForce;
         yield return new WaitForSeconds(slowTime);
         agent.speed = startMovSpeed;
+        rend.material = startMaterial;
     }
     
     void Die()

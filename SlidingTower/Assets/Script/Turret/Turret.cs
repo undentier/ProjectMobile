@@ -25,37 +25,29 @@ public class Turret : MonoBehaviour
     [Header ("Unity Setup")]
     public Transform partToRotate;
     public GameObject bulletPrefab;
+    public GameObject missilePrefab;
     public Transform shootPoint;
 
 
     private float fireCooldown;
     private Transform target;
     private BoostBlock boostScript;
+    private GameObject bulletToShoot;
     public List<Transform> enemyNearNexus = new List<Transform>();
 
+
+    private void Start()
+    {
+        bulletToShoot = bulletPrefab;    
+    }
 
     private void Update()
     {
         FindTargetNexus();
-        //FindTarget();
 
-        if (target == null)
-        {
-            return;
-        }
-        else
-        {
-            AimTarget();
-        }
+        CheckBulletType();
 
-        if (fireCooldown <= 0f)
-        {
-            Shoot();
-            fireCooldown = 1f / fireRate;
-        }
-        fireCooldown -= Time.deltaTime;
-
-
+        BasiqueTuretSysteme();
     }
 
     void FindTarget()
@@ -120,16 +112,46 @@ public class Turret : MonoBehaviour
         Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * rotationSpeed).eulerAngles;
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
     }
-
     void Shoot()
     {
-        GameObject actualBullet =  Instantiate(bulletPrefab, shootPoint.position, shootPoint.rotation);
+        GameObject actualBullet =  Instantiate(bulletToShoot, shootPoint.position, shootPoint.rotation);
         Bullet bulletScript = actualBullet.GetComponent<Bullet>();
         
         if (bulletScript != null)
         {
             bulletScript.GetTarget(target);
+            bulletScript.GetDamage(damage);
         }
+    }
+    void CheckBulletType()
+    {
+        if (explosionUpgrade > 0)
+        {
+            bulletToShoot = missilePrefab;
+        }
+        else
+        {
+            bulletToShoot = bulletPrefab;
+        }
+    }
+
+    void BasiqueTuretSysteme()
+    {
+        if (target == null)
+        {
+            return;
+        }
+        else
+        {
+            AimTarget();
+        }
+
+        if (fireCooldown <= 0f)
+        {
+            Shoot();
+            fireCooldown = 1f / fireRate;
+        }
+        fireCooldown -= Time.deltaTime;
     }
 
     void GetUpgrade()

@@ -6,8 +6,9 @@ public class Bullet : MonoBehaviour
 {
     [Header ("Stats")]
     public float speed;
-    public int damage;
     public float explosionRadius;
+    [HideInInspector]
+    public int damage;
 
     [Header ("Effect")]
     public GameObject impactEffect;
@@ -21,6 +22,11 @@ public class Bullet : MonoBehaviour
     public void GetTarget(Transform _target)
     {
         target = _target;
+    }
+
+    public void GetDamage(int _damage)
+    {
+        damage = _damage;
     }
 
     private void Start()
@@ -52,7 +58,7 @@ public class Bullet : MonoBehaviour
     void HitTarget()
     {
         GameObject effect = Instantiate(impactEffect, transform.position, transform.rotation);
-        Destroy(effect, 5f);
+        Destroy(effect, 3f);
 
         if (explosionRadius > 0f)
         {

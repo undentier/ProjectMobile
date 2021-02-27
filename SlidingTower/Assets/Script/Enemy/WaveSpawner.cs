@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.AI;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -21,7 +22,6 @@ public class WaveSpawner : MonoBehaviour
 
     private Transform spawnPoint;
 
-
     private void Start()
     {
         spawnPoint = SpawnPoint.startpoint;
@@ -39,8 +39,10 @@ public class WaveSpawner : MonoBehaviour
         }
 
         timeCounter -= Time.deltaTime;
-
         uiCounter.text = Mathf.Round(timeCounter).ToString();
+
+
+
     }
 
     IEnumerator SpawnWave()
@@ -59,4 +61,6 @@ public class WaveSpawner : MonoBehaviour
         Transform enemy = Instantiate(enemyPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
         enemyList.Add(enemy);
     }
+
+    
 }

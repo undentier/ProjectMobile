@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Turret : MonoBehaviour
 {
@@ -30,11 +31,13 @@ public class Turret : MonoBehaviour
     private float fireCooldown;
     private Transform target;
     private BoostBlock boostScript;
+    public List<Transform> enemyNearNexus = new List<Transform>();
 
 
     private void Update()
     {
-        FindTarget();
+        FindTargetNexus();
+        //FindTarget();
 
         if (target == null)
         {
@@ -81,6 +84,32 @@ public class Turret : MonoBehaviour
         else
         {
             target = null;
+        }
+    }
+
+    void FindTargetNexus()
+    {
+        if (target == null)
+        {
+            for (int i = 0; i < WaveSpawner.enemyList.Count; i++)
+            {
+                if (WaveSpawner.enemyList[i] != null)
+                {
+                    if (Vector3.Distance(transform.position, WaveSpawner.enemyList[i].position) < range)
+                    {
+                        target = WaveSpawner.enemyList[i];
+                        break;
+                    }
+
+                }
+            }
+        }
+        else
+        {
+            if (Vector3.Distance(transform.position, target.position) > range)
+            {
+                target = null;
+            }
         }
     }
 

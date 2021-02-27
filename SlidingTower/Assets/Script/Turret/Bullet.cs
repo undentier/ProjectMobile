@@ -7,8 +7,13 @@ public class Bullet : MonoBehaviour
     [Header ("Stats")]
     public float speed;
     public float explosionRadius;
+
     [HideInInspector]
     public int damage;
+    //[HideInInspector]
+    public int slowValue;
+    [HideInInspector]
+    public int poisonDamage;
 
     [Header ("Effect")]
     public GameObject impactEffect;
@@ -27,6 +32,12 @@ public class Bullet : MonoBehaviour
     public void GetDamage(int _damage)
     {
         damage = _damage;
+    }
+
+    public void GetNegatifEffect(int _slowValue, int _poisionDamage)
+    {
+        slowValue = _slowValue;
+        poisonDamage = _poisionDamage;
     }
 
     private void Start()
@@ -76,6 +87,11 @@ public class Bullet : MonoBehaviour
     {
         Enemy e = enemy.GetComponent<Enemy>();
         e.TakeDamage(damage);
+
+        if (slowValue > 0)
+        {
+            e.Slow(slowValue);
+        }
     }
 
     void Explosion()

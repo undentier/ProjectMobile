@@ -121,6 +121,7 @@ public class Turret : MonoBehaviour
         {
             bulletScript.GetTarget(target);
             bulletScript.GetDamage(damage);
+            bulletScript.GetNegatifEffect(slowValueUpgrade, poisonValueUpgrade);
         }
     }
     void CheckBulletType()

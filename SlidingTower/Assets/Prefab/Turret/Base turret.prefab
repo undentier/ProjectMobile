@@ -198,7 +198,7 @@ MonoBehaviour:
   doubleShootUpgrade: 0
   explosionUpgrade: 0
   slowValueUpgrade: 0
-  poisonValueUpgrade: 0
+  poisonValueUpgrade: 20
   partToRotate: {fileID: 9082681232691993889}
   bulletPrefab: {fileID: 1664552637349654473, guid: 56f0414ef2f2f6f41a681196bd36719e,
     type: 3}

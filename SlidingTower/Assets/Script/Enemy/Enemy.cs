@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
     public int damageToNexus;
 
     public float slowTime;
-    private float actualSlowTime;
+    public int poisonDuration;
 
     [Header ("Unity Setup")]
     public NavMeshAgent agent;
@@ -61,17 +61,35 @@ public class Enemy : MonoBehaviour
         }
     }
 
+
     public void Slow(int slowValue)
     {
         StartCoroutine(ApplySLow(slowValue));
     }
-
     IEnumerator ApplySLow(int slowForce)
     {
         rend.material = slowMaterial;
         agent.speed = movSpeed - slowForce;
         yield return new WaitForSeconds(slowTime);
         agent.speed = startMovSpeed;
+        rend.material = startMaterial;
+    }
+
+
+    public void Poison(int poisonDamage)
+    {
+        StartCoroutine(AppalyPoison(poisonDamage));
+    }
+    IEnumerator AppalyPoison(int poisonDamage)
+    {
+        rend.material = poisionMaterial;
+        int startPoisionDuration = poisonDuration;
+
+        for (int i = 0; i < startPoisionDuration; i++)
+        {
+            TakeDamage(poisonDamage);
+            yield return new WaitForSeconds(0.5f);
+        }
         rend.material = startMaterial;
     }
     

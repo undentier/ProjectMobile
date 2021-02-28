@@ -10,9 +10,9 @@ public class Bullet : MonoBehaviour
 
     [HideInInspector]
     public int damage;
-    //[HideInInspector]
-    public int slowValue;
     [HideInInspector]
+    public int slowValue;
+    //[HideInInspector]
     public int poisonDamage;
 
     [Header ("Effect")]
@@ -91,6 +91,10 @@ public class Bullet : MonoBehaviour
         if (slowValue > 0)
         {
             e.Slow(slowValue);
+        }
+        if (poisonDamage > 0)
+        {
+            e.Poison(poisonDamage);
         }
     }
 

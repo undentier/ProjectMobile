@@ -33,4 +33,9 @@ public class BuildSelecteur : MonoBehaviour
     {
         BuildManager.instance.SetTurretToBuild(BuildManager.instance.slowBlock);
     }
+
+    public void ExplosionBlockSelected()
+    {
+        BuildManager.instance.SetTurretToBuild(BuildManager.instance.explosionBlock);
+    }
 }

@@ -23,4 +23,14 @@ public class BuildSelecteur : MonoBehaviour
     {
         BuildManager.instance.SetTurretToBuild(BuildManager.instance.rangeBlock);
     }
+
+    public void PoisonBlockSelected()
+    {
+        BuildManager.instance.SetTurretToBuild(BuildManager.instance.poisonBlock);
+    }
+
+    public void SlowBlockSelected()
+    {
+        BuildManager.instance.SetTurretToBuild(BuildManager.instance.slowBlock);
+    }
 }

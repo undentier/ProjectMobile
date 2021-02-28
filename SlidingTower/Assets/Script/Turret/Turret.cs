@@ -185,7 +185,6 @@ public class Turret : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Je rentre");
         if (other.gameObject.layer == 9)
         {
             boostScript = other.GetComponent<BoostBlock>();

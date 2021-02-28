@@ -34,7 +34,8 @@ public class Node : MonoBehaviour
     public GameObject fireRateEffect;
     public GameObject damageEffect;
     public GameObject rangeEffect;
-
+    public GameObject poisonEffect;
+    public GameObject slowEffect;
 
     private BoostBlock boostScript;
     [HideInInspector]
@@ -129,6 +130,7 @@ public class Node : MonoBehaviour
 
     void SetEffect()
     {
+        #region Stats Boost
         if (fireRateBonus > 0)
         {
             fireRateEffect.SetActive(true);
@@ -155,6 +157,27 @@ public class Node : MonoBehaviour
         {
             rangeEffect.SetActive(false);
         }
+        #endregion
+
+        #region Negatif Effect
+        if (poisonDamage > 0)
+        {
+            poisonEffect.SetActive(true);
+        }
+        else
+        {
+            poisonEffect.SetActive(false);
+        }
+
+        if (slowBonus > 0)
+        {
+            slowEffect.SetActive(true);
+        }
+        else
+        {
+            slowEffect.SetActive(false);
+        }
+        #endregion
     }
 
 

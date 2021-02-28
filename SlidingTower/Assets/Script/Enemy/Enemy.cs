@@ -21,9 +21,11 @@ public class Enemy : MonoBehaviour
     public GameObject deathEffect;
     public Image healhtBar;
 
-    [Header("Material")]
+    [Header("Effect")]
     public Material slowMaterial;
     public Material poisionMaterial;
+
+    public GameObject poisonParticule;
 
     private Material startMaterial;
     private MeshRenderer rend;
@@ -83,6 +85,7 @@ public class Enemy : MonoBehaviour
     IEnumerator AppalyPoison(int poisonDamage)
     {
         rend.material = poisionMaterial;
+        poisonParticule.SetActive(true);
         int startPoisionDuration = poisonDuration;
 
         for (int i = 0; i < startPoisionDuration; i++)
@@ -91,6 +94,7 @@ public class Enemy : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
         }
         rend.material = startMaterial;
+        poisonParticule.SetActive(false);
     }
     
     void Die()

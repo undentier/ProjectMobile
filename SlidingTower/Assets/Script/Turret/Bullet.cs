@@ -12,7 +12,7 @@ public class Bullet : MonoBehaviour
     public int damage;
     [HideInInspector]
     public int slowValue;
-    //[HideInInspector]
+    [HideInInspector]
     public int poisonDamage;
 
     [Header ("Effect")]

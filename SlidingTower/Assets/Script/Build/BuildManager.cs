@@ -14,6 +14,10 @@ public class BuildManager : MonoBehaviour
     public GameObject damageBlock;
     public GameObject rangeBlock;
 
+    [Space]
+    public GameObject poisonBlock;
+    public GameObject slowBlock;
+
     private GameObject turretToBuild;
 
     public GameObject GetTurretToBuild()

@@ -9,7 +9,7 @@ public class Bullet : MonoBehaviour
     public float explosionRadius;
 
     [HideInInspector]
-    public int damage;
+    public float damage;
     [HideInInspector]
     public int slowValue;
     [HideInInspector]
@@ -29,7 +29,7 @@ public class Bullet : MonoBehaviour
         target = _target;
     }
 
-    public void GetDamage(int _damage)
+    public void GetDamage(float _damage)
     {
         damage = _damage;
     }

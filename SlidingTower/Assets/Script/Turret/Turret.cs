@@ -8,7 +8,7 @@ public class Turret : MonoBehaviour
     [Header ("Turret Basic Stats")]
     public float range;
     public float fireRate;
-    public int damage;
+    public float damage;
     public float rotationSpeed;
 
     [Header("Upgrade Stats")]
@@ -28,13 +28,14 @@ public class Turret : MonoBehaviour
     public GameObject missilePrefab;
     public Transform shootPoint;
 
+    public LineRenderer laserLineRenderer;
 
     private float fireCooldown;
     private Transform target;
     private BoostBlock boostScript;
     private GameObject bulletToShoot;
-    public List<Transform> enemyNearNexus = new List<Transform>();
-
+    private Enemy enemyscript;
+    private float increseLaserFireRate;
 
     private void Start()
     {
@@ -44,8 +45,6 @@ public class Turret : MonoBehaviour
     private void Update()
     {
         FindTargetNexus();
-
-        CheckBulletType();
 
         BasiqueTuretSysteme();
     }
@@ -124,6 +123,48 @@ public class Turret : MonoBehaviour
             bulletScript.GetNegatifEffect(slowValueUpgrade, poisonValueUpgrade);
         }
     }
+
+    void Laser()
+    {
+        if (!laserLineRenderer.enabled)
+        {
+            laserLineRenderer.enabled = true;
+        }
+        laserLineRenderer.SetPosition(0, shootPoint.position);
+        laserLineRenderer.SetPosition(1, target.position);
+
+        if (target != null)
+        {
+            if (enemyscript == null)
+            {
+                enemyscript = target.GetComponent<Enemy>();
+                increseLaserFireRate = 1f;
+            }
+            else
+            {
+                increseLaserFireRate += Time.deltaTime * 3;
+
+                if (fireCooldown <= 0f)
+                {
+                    enemyscript.TakeDamage(damage);
+
+                    if (slowValueUpgrade > 0)
+                    {
+                        enemyscript.Slow(slowValueUpgrade);
+                    }
+                    if (poisonValueUpgrade > 0)
+                    {
+                        enemyscript.Poison(poisonValueUpgrade);
+                    }
+
+
+                    fireCooldown = 1 / (fireRate * increseLaserFireRate);
+                }
+                fireCooldown -= Time.deltaTime;
+            }
+        }
+    }
+
     void CheckBulletType()
     {
         if (explosionUpgrade > 0)
@@ -138,8 +179,14 @@ public class Turret : MonoBehaviour
 
     void BasiqueTuretSysteme()
     {
+        CheckBulletType();
+
         if (target == null)
         {
+            if (laserLineRenderer.enabled)
+            {
+                laserLineRenderer.enabled = false;
+            }
             return;
         }
         else
@@ -147,12 +194,20 @@ public class Turret : MonoBehaviour
             AimTarget();
         }
 
-        if (fireCooldown <= 0f)
+        if (lazerUpgrade > 0)
         {
-            Shoot();
-            fireCooldown = 1f / fireRate;
+            Laser();
         }
-        fireCooldown -= Time.deltaTime;
+        else
+        {
+            if (fireCooldown <= 0f)
+            {
+                Shoot();
+                fireCooldown = 1f / fireRate;
+            }
+            fireCooldown -= Time.deltaTime;
+        }
+
     }
 
     void GetUpgrade()

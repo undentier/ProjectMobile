@@ -30,6 +30,7 @@ public class Enemy : MonoBehaviour
     private Material startMaterial;
     private MeshRenderer rend;
 
+    private bool isPoison;
 
     private void Start()
     {
@@ -51,7 +52,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(float amount)
     {
         actualHealth -= amount;
 
@@ -80,10 +81,14 @@ public class Enemy : MonoBehaviour
 
     public void Poison(int poisonDamage)
     {
-        StartCoroutine(AppalyPoison(poisonDamage));
+        if (!isPoison)
+        {
+            StartCoroutine(AppalyPoison(poisonDamage));
+        }
     }
     IEnumerator AppalyPoison(int poisonDamage)
     {
+        isPoison = true;
         rend.material = poisionMaterial;
         poisonParticule.SetActive(true);
         int startPoisionDuration = poisonDuration;
@@ -95,6 +100,7 @@ public class Enemy : MonoBehaviour
         }
         rend.material = startMaterial;
         poisonParticule.SetActive(false);
+        isPoison = false;
     }
     
     void Die()

@@ -3746,7 +3746,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1310097025}
-        m_MethodName: SlowBlockSelected
+        m_MethodName: ExplosionBlockSelected
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6396,6 +6396,85 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: 21.9, z: 0}
+--- !u!1001 &2705336531737704461
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2450503832913564036, guid: 4eb34735ddc322348a7e930d323af219,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2450503832913564036, guid: 4eb34735ddc322348a7e930d323af219,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2450503832913564036, guid: 4eb34735ddc322348a7e930d323af219,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2450503832913564036, guid: 4eb34735ddc322348a7e930d323af219,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2450503832913564036, guid: 4eb34735ddc322348a7e930d323af219,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2450503832913564036, guid: 4eb34735ddc322348a7e930d323af219,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2450503832913564036, guid: 4eb34735ddc322348a7e930d323af219,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2450503832913564036, guid: 4eb34735ddc322348a7e930d323af219,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2450503832913564036, guid: 4eb34735ddc322348a7e930d323af219,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2450503832913564036, guid: 4eb34735ddc322348a7e930d323af219,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2450503832913564036, guid: 4eb34735ddc322348a7e930d323af219,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2769040149842333848, guid: 4eb34735ddc322348a7e930d323af219,
+        type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2975226702541327166, guid: 4eb34735ddc322348a7e930d323af219,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Beamer
+      objectReference: {fileID: 0}
+    - target: {fileID: 2975226702541327166, guid: 4eb34735ddc322348a7e930d323af219,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4eb34735ddc322348a7e930d323af219, type: 3}
 --- !u!1001 &3632516982148604991
 PrefabInstance:
   m_ObjectHideFlags: 0

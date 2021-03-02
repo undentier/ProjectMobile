@@ -38,4 +38,9 @@ public class BuildSelecteur : MonoBehaviour
     {
         BuildManager.instance.SetTurretToBuild(BuildManager.instance.explosionBlock);
     }
+
+    public void LaserBlockSelected()
+    {
+        BuildManager.instance.SetTurretToBuild(BuildManager.instance.laserBlock);
+    }
 }

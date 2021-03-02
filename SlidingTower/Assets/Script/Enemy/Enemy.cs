@@ -52,11 +52,7 @@ public class Enemy : MonoBehaviour
             return;
         }
 
-        if (agent.pathPending)
-        {
-            agent.speed = movSpeed;
-        }
-        distFromNexus = agent.remainingDistance;
+        StartCoroutine(DistanceFromNexus());
     }
 
     public void TakeDamage(float amount)
@@ -69,6 +65,21 @@ public class Enemy : MonoBehaviour
         {
             Die();
         }
+    }
+
+
+    IEnumerator DistanceFromNexus()
+    {
+        if (agent.pathPending)
+        {
+            yield return null;
+        }
+        else
+        {
+            agent.speed = movSpeed;
+            distFromNexus = agent.remainingDistance;
+        } 
+       
     }
 
 

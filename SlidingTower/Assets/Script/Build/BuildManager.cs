@@ -6,9 +6,20 @@ public class BuildManager : MonoBehaviour
 {
     public static BuildManager instance;
 
+    [Header ("Basique Turret")]
     public GameObject basiqueTurretPrefab;
-    public GameObject speedBlock;
 
+    [Header ("Boost block")]
+    public GameObject fireRateBlock;
+    public GameObject damageBlock;
+    public GameObject rangeBlock;
+
+    [Space]
+    public GameObject poisonBlock;
+    public GameObject slowBlock;
+
+    [Space]
+    public GameObject explosionBlock;
 
     private GameObject turretToBuild;
 

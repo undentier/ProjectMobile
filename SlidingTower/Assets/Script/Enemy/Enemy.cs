@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
+    #region Variable
     [Header ("Stats")]
     public float movSpeed = 10f;
     private float startMovSpeed;
@@ -32,6 +33,7 @@ public class Enemy : MonoBehaviour
 
     private bool isPoison;
     public float distFromNexus;
+    #endregion
 
     private void Start()
     {
@@ -39,13 +41,14 @@ public class Enemy : MonoBehaviour
         startMaterial = rend.material;
         actualHealth = startHealth;
         startMovSpeed = movSpeed;
-        agent.SetDestination(WayPoints.points.position);
+        agent.SetDestination(WayPoints.endPoint.position);
     }
 
     private void Update()
     {
+        distFromNexus = Vector3.Distance(transform.position, WayPoints.endPoint.position);
 
-        if (gameObject.transform.position.z == WayPoints.points.position.z)
+        if (gameObject.transform.position.z == WayPoints.endPoint.position.z)
         {
             LifeManager.lifeInstance.DamagePlayer(damageToNexus);
             Destroy(gameObject);

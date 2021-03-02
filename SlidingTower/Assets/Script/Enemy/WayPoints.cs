@@ -2,10 +2,10 @@
 
 public class WayPoints : MonoBehaviour
 {
-    public static Transform points;
+    public static Transform endPoint;
 
     private void Awake()
     {
-        points = gameObject.transform;
+        endPoint = gameObject.transform;
     }
 }

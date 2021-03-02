@@ -144,20 +144,18 @@ public class Turret : MonoBehaviour
             {
                 increseLaserFireRate += Time.deltaTime * 3;
 
+                if (slowValueUpgrade > 0)
+                {
+                    enemyscript.Slow(slowValueUpgrade);
+                }
+                if (poisonValueUpgrade > 0)
+                {
+                    enemyscript.Poison(poisonValueUpgrade);
+                }
+
                 if (fireCooldown <= 0f)
                 {
-                    enemyscript.TakeDamage(damage);
-
-                    if (slowValueUpgrade > 0)
-                    {
-                        enemyscript.Slow(slowValueUpgrade);
-                    }
-                    if (poisonValueUpgrade > 0)
-                    {
-                        enemyscript.Poison(poisonValueUpgrade);
-                    }
-
-
+                    enemyscript.TakeDamage(damage/2);
                     fireCooldown = 1 / (fireRate * increseLaserFireRate);
                 }
                 fireCooldown -= Time.deltaTime;

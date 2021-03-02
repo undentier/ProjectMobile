@@ -108,8 +108,8 @@ NavMeshSettings:
     agentTypeID: 0
     agentRadius: 1.5
     agentHeight: 2
-    agentSlope: 45
-    agentClimb: 0.3
+    agentSlope: 20
+    agentClimb: 0.75
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
@@ -5392,7 +5392,7 @@ PrefabInstance:
     - target: {fileID: 3200617079735679614, guid: eec166288c9b40c44a70801588c463af,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3200617079735679614, guid: eec166288c9b40c44a70801588c463af,
         type: 3}
@@ -6152,7 +6152,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2027513083
 PrefabInstance:
@@ -6559,7 +6559,7 @@ PrefabInstance:
     - target: {fileID: 2450503832913564036, guid: 4eb34735ddc322348a7e930d323af219,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2450503832913564036, guid: 4eb34735ddc322348a7e930d323af219,
         type: 3}

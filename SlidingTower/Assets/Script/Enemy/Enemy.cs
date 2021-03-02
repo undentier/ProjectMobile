@@ -31,6 +31,7 @@ public class Enemy : MonoBehaviour
     private MeshRenderer rend;
 
     private bool isPoison;
+    public float distFromNexus;
 
     private void Start()
     {
@@ -38,18 +39,24 @@ public class Enemy : MonoBehaviour
         startMaterial = rend.material;
         actualHealth = startHealth;
         startMovSpeed = movSpeed;
-        agent.speed = movSpeed;
         agent.SetDestination(WayPoints.points.position);
     }
 
     private void Update()
     {
+
         if (gameObject.transform.position.z == WayPoints.points.position.z)
         {
             LifeManager.lifeInstance.DamagePlayer(damageToNexus);
             Destroy(gameObject);
             return;
         }
+
+        if (agent.pathPending)
+        {
+            agent.speed = movSpeed;
+        }
+        distFromNexus = agent.remainingDistance;
     }
 
     public void TakeDamage(float amount)

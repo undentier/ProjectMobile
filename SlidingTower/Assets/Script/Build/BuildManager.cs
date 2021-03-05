@@ -20,6 +20,7 @@ public class BuildManager : MonoBehaviour
 
     [Space]
     public GameObject explosionBlock;
+    public GameObject laserBlock;
 
     private GameObject turretToBuild;
 

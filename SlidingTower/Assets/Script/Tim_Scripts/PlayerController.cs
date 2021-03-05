@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        agent.SetDestination(WayPoints.points.position);
+        agent.SetDestination(WayPoints.endPoint.position);
     }
 
 }

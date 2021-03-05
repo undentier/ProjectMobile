@@ -5125,6 +5125,7 @@ MonoBehaviour:
   slowMaterial: {fileID: 2100000, guid: 4417a1d6b8363f04a906d765aa2fd1e9, type: 2}
   poisionMaterial: {fileID: 2100000, guid: 4586efa51d554b6448094787877102c3, type: 2}
   poisonParticule: {fileID: 4301944453146388890}
+  distFromNexus: 0
 --- !u!195 &-22901727225648796
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -5135,7 +5136,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 7
+  m_Speed: 0
   m_Acceleration: 100
   avoidancePriority: 50
   m_AngularSpeed: 240

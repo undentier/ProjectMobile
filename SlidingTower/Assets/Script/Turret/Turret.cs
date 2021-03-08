@@ -33,11 +33,14 @@ public class Turret : MonoBehaviour
     public LineRenderer[] laserLineRenderers;
 
     private float fireCooldown;
+    private float[] fireCooldowns;
     private Transform target;
     public Transform[] targets;
     private BoostBlock boostScript;
     private GameObject bulletToShoot;
     private Enemy enemyscript;
+    private Enemy[] enemyScripts;
+    private float[] increseLaserFireRates;
     private float increseLaserFireRate;
     #endregion
 
@@ -204,7 +207,51 @@ public class Turret : MonoBehaviour
 
     void MultiLaser()
     {
-        
+        for (int i = 0; i < targets.Length; i++)
+        {
+            if (targets[i] != null)
+            {
+                if (!laserLineRenderers[i].enabled)
+                {
+                    laserLineRenderers[i].enabled = true;
+                    laserLineRenderers[0].SetPosition(0, shootPoint.position);
+                    laserLineRenderers[0].SetPosition(1, targets[i].position);
+                }
+            }
+            else
+            {
+                laserLineRenderers[i].enabled = false;
+            }
+
+            if (targets[i] != null)
+            {
+                if (enemyScripts[i] == null)
+                {
+                    enemyScripts[i] = enemyScripts[i].GetComponent<Enemy>();
+                    increseLaserFireRates[i] = 1f;
+                }
+            }
+            else
+            {
+                increseLaserFireRates[i] += Time.deltaTime * 3;
+
+                if (slowValueUpgrade > 0)
+                {
+                    enemyScripts[i].Slow(slowValueUpgrade);
+                }
+                if (poisonValueUpgrade > 0)
+                {
+                    enemyScripts[i].Poison(poisonValueUpgrade);
+                }
+
+                if (fireCooldowns[i] <= 0f)
+                {
+                    enemyScripts[i].TakeDamage(damage / 2);
+                    fireCooldowns[i] = 1 / (fireRate * increseLaserFireRates[i]);
+                }
+                fireCooldowns[i] -= Time.deltaTime;
+            }
+        }
     }
 
     void CheckBulletType()

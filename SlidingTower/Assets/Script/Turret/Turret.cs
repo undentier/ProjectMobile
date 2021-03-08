@@ -33,14 +33,14 @@ public class Turret : MonoBehaviour
     public LineRenderer[] laserLineRenderers;
 
     private float fireCooldown;
-    private float[] fireCooldowns;
+    public float[] fireCooldowns;
     private Transform target;
     public Transform[] targets;
     private BoostBlock boostScript;
     private GameObject bulletToShoot;
     private Enemy enemyscript;
-    private Enemy[] enemyScripts;
-    private float[] increseLaserFireRates;
+    public Enemy[] enemyScripts;
+    public float[] increseLaserFireRates;
     private float increseLaserFireRate;
     #endregion
 
@@ -227,7 +227,7 @@ public class Turret : MonoBehaviour
             {
                 if (enemyScripts[i] == null)
                 {
-                    enemyScripts[i] = enemyScripts[i].GetComponent<Enemy>();
+                    enemyScripts[i] = targets[i].GetComponent<Enemy>();
                     increseLaserFireRates[i] = 1f;
                 }
             }
@@ -283,9 +283,13 @@ public class Turret : MonoBehaviour
             AimTarget();
         }
 
-        if (lazerUpgrade > 0)
+        if (lazerUpgrade > 0 && explosionUpgrade == 0)
         {
             Laser();
+        }
+        else if (lazerUpgrade > 0 && explosionUpgrade > 0)
+        {
+            MultiLaser();
         }
         else
         {

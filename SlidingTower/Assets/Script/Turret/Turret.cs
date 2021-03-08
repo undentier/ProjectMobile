@@ -116,9 +116,12 @@ public class Turret : MonoBehaviour
     {
         for (int i = 0; i < targets.Length; i++)
         {
-            if (Vector3.Distance(transform.position, targets[i].transform.position) > range)
+            if (targets[i] != null)
             {
-                targets[i] = null;
+                if (Vector3.Distance(transform.position, targets[i].transform.position) > range)
+                {
+                    targets[i] = null;
+                }
             }
         }
 
@@ -126,11 +129,14 @@ public class Turret : MonoBehaviour
         {
             if (targets[i] == null)
             {
-                if (i <= WaveSpawner.instance.enemyList.Count)
+                for (int r = i; r < WaveSpawner.instance.enemyList.Count; r++)
                 {
-                    if (Vector3.Distance(transform.position, WaveSpawner.instance.enemyList[i].transform.position) < range)
+                    if (WaveSpawner.instance.enemyList[r] != null)
                     {
-                        targets[i] = WaveSpawner.instance.enemyList[i];
+                        if (Vector3.Distance(transform.position, WaveSpawner.instance.enemyList[r].transform.position) < range)
+                        {
+                            targets[i] = WaveSpawner.instance.enemyList[r];
+                        }
                     }
                 }
             }

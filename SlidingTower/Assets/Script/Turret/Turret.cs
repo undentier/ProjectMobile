@@ -283,13 +283,9 @@ public class Turret : MonoBehaviour
             AimTarget();
         }
 
-        if (lazerUpgrade > 0 && explosionUpgrade == 0)
+        if (lazerUpgrade > 0)
         {
             Laser();
-        }
-        else if (lazerUpgrade > 0 && explosionUpgrade > 0)
-        {
-            MultiLaser();
         }
         else
         {

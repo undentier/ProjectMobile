@@ -5030,6 +5030,7 @@ GameObject:
   - component: {fileID: 6895374269467792447}
   - component: {fileID: -3438453049640126229}
   - component: {fileID: -22901727225648796}
+  - component: {fileID: 6043980466526666835}
   m_Layer: 10
   m_Name: EnemyStonks
   m_TagString: Untagged
@@ -5113,7 +5114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05dcf020a848da84b9100f29496bf416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movSpeed: 10
+  movSpeed: 7
   startHealth: 100
   actualHealth: 0
   damageToNexus: 1
@@ -5149,6 +5150,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 0
+--- !u!65 &6043980466526666835
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6895374269467792441}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.46772343, y: 0.43466598, z: 0.33932343}
+  m_Center: {x: 0.042102862, y: 0.32737824, z: -0.018630296}
 --- !u!1001 &3034004010112180149
 PrefabInstance:
   m_ObjectHideFlags: 0

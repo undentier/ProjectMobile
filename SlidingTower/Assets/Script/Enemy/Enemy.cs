@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour
     {
         distFromNexus = WaveSpawner.GetPathRemainingDistance(agent);
 
-        if (gameObject.transform.position.z == WayPoints.endPoint.position.z)
+        if (distFromNexus <= 0.5f)
         {
             LifeManager.lifeInstance.DamagePlayer(damageToNexus);
             Destroy(gameObject);

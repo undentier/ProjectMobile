@@ -1459,18 +1459,18 @@ Transform:
   - {fileID: 1432082822}
   - {fileID: 1332365748}
   - {fileID: 194973769}
-  - {fileID: 1328406279}
   - {fileID: 1036573691}
+  - {fileID: 1328406279}
   - {fileID: 1624332922}
-  - {fileID: 647418785}
   - {fileID: 776589078}
-  - {fileID: 122149922}
-  - {fileID: 513283431}
   - {fileID: 1345311923}
+  - {fileID: 513283431}
   - {fileID: 1917988420}
-  - {fileID: 984390321}
-  - {fileID: 2098114315}
+  - {fileID: 647418785}
   - {fileID: 1573152524}
+  - {fileID: 122149922}
+  - {fileID: 2098114315}
+  - {fileID: 984390321}
   - {fileID: 1133888075}
   - {fileID: 1970722825}
   - {fileID: 1238006877}
@@ -1510,11 +1510,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8d14f4b76369ee49ac15f3266c74a2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBfStart: 2
+  timeBfStart: 8
   timeBtwWave: 4.5
   enemyPrefab: {fileID: 6895374269467792445, guid: 52dfdf81d5f4b9042aebfb4a1ad7490f,
     type: 3}
   uiCounter: {fileID: 42965922}
+  enemyList: []
   timeCounter: 0
 --- !u!4 &641225980
 Transform:

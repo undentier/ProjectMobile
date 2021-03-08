@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
 {
     #region Variable
     [Header ("Stats")]
-    public float movSpeed = 10f;
+    public float movSpeed;
     private float startMovSpeed;
     public float startHealth;
     [HideInInspector]
@@ -42,11 +42,12 @@ public class Enemy : MonoBehaviour
         actualHealth = startHealth;
         startMovSpeed = movSpeed;
         agent.SetDestination(WayPoints.endPoint.position);
+        agent.speed = startMovSpeed;
     }
 
     private void Update()
     {
-        distFromNexus = Vector3.Distance(transform.position, WayPoints.endPoint.position);
+        distFromNexus = WaveSpawner.GetPathRemainingDistance(agent);
 
         if (gameObject.transform.position.z == WayPoints.endPoint.position.z)
         {
@@ -54,8 +55,6 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
-        StartCoroutine(DistanceFromNexus());
     }
 
     public void TakeDamage(float amount)
@@ -70,22 +69,6 @@ public class Enemy : MonoBehaviour
         }
     }
 
-
-    IEnumerator DistanceFromNexus()
-    {
-        if (agent.pathPending)
-        {
-            yield return null;
-        }
-        else
-        {
-            agent.speed = movSpeed;
-            distFromNexus = agent.remainingDistance;
-        } 
-       
-    }
-
-
     public void Slow(int slowValue)
     {
         StartCoroutine(ApplySLow(slowValue));
@@ -95,7 +78,7 @@ public class Enemy : MonoBehaviour
         rend.material = slowMaterial;
         agent.speed = movSpeed - slowForce;
         yield return new WaitForSeconds(slowTime);
-        agent.speed = startMovSpeed;
+        movSpeed = startMovSpeed;
         rend.material = startMaterial;
     }
 

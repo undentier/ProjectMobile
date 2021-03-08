@@ -119,7 +119,7 @@ MonoBehaviour:
   doubleShoot: 0
   explosion: 0
   wichBullet: 1
-  slowValue: 5
+  slowValue: 3
   poisonValue: 0
   wichBoost: 0
   fireRateBoost: 0

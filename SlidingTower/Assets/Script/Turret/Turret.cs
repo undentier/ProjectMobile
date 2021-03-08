@@ -5,11 +5,13 @@ using UnityEngine.AI;
 
 public class Turret : MonoBehaviour
 {
+    #region Variable
     [Header ("Turret Basic Stats")]
     public float range;
     public float fireRate;
     public float damage;
     public float rotationSpeed;
+    public int maxLaser;
 
     [Header("Upgrade Stats")]
 
@@ -28,23 +30,33 @@ public class Turret : MonoBehaviour
     public GameObject missilePrefab;
     public Transform shootPoint;
 
-    public LineRenderer laserLineRenderer;
+    public LineRenderer[] laserLineRenderers;
 
     private float fireCooldown;
+    public float[] fireCooldowns;
     private Transform target;
+    public Transform[] targets;
     private BoostBlock boostScript;
     private GameObject bulletToShoot;
     private Enemy enemyscript;
+    public Enemy[] enemyScripts;
+    public float[] increseLaserFireRates;
     private float increseLaserFireRate;
+    #endregion
 
     private void Start()
     {
-        bulletToShoot = bulletPrefab;    
+        bulletToShoot = bulletPrefab;
+        for (int i = 0; i < laserLineRenderers.Length; i++)
+        {
+            laserLineRenderers[i].enabled = false;
+        }
     }
 
     private void Update()
     {
         FindTargetNexus();
+        FindMultipleTarget();
 
         BasiqueTuretSysteme();
     }
@@ -54,7 +66,7 @@ public class Turret : MonoBehaviour
         float shortestDistance = Mathf.Infinity;
         Transform nearestEnemy = null;
 
-        foreach (Transform enemy in WaveSpawner.enemyList)
+        foreach (Transform enemy in WaveSpawner.instance.enemyList)
         {
             if (enemy != null)
             {
@@ -82,16 +94,15 @@ public class Turret : MonoBehaviour
     {
         if (target == null)
         {
-            for (int i = 0; i < WaveSpawner.enemyList.Count; i++)
+            for (int i = 0; i < WaveSpawner.instance.enemyList.Count; i++)
             {
-                if (WaveSpawner.enemyList[i] != null)
+                if (WaveSpawner.instance.enemyList[i] != null)
                 {
-                    if (Vector3.Distance(transform.position, WaveSpawner.enemyList[i].position) < range)
+                    if (Vector3.Distance(transform.position, WaveSpawner.instance.enemyList[i].position) < range)
                     {
-                        target = WaveSpawner.enemyList[i];
+                        target = WaveSpawner.instance.enemyList[i];
                         break;
                     }
-
                 }
             }
         }
@@ -100,6 +111,37 @@ public class Turret : MonoBehaviour
             if (Vector3.Distance(transform.position, target.position) > range)
             {
                 target = null;
+            }
+        }
+    }
+
+    void FindMultipleTarget()
+    {
+        for (int i = 0; i < targets.Length; i++)
+        {
+            if (targets[i] != null)
+            {
+                if (Vector3.Distance(transform.position, targets[i].transform.position) > range)
+                {
+                    targets[i] = null;
+                }
+            }
+        }
+
+        for (int i = 0; i < targets.Length; i++)
+        {
+            if (targets[i] == null)
+            {
+                for (int r = i; r < WaveSpawner.instance.enemyList.Count; r++)
+                {
+                    if (WaveSpawner.instance.enemyList[r] != null)
+                    {
+                        if (Vector3.Distance(transform.position, WaveSpawner.instance.enemyList[r].transform.position) < range)
+                        {
+                            targets[i] = WaveSpawner.instance.enemyList[r];
+                        }
+                    }
+                }
             }
         }
     }
@@ -126,12 +168,12 @@ public class Turret : MonoBehaviour
 
     void Laser()
     {
-        if (!laserLineRenderer.enabled)
+        if (!laserLineRenderers[0].enabled)
         {
-            laserLineRenderer.enabled = true;
+            laserLineRenderers[0].enabled = true;
         }
-        laserLineRenderer.SetPosition(0, shootPoint.position);
-        laserLineRenderer.SetPosition(1, target.position);
+        laserLineRenderers[0].SetPosition(0, shootPoint.position);
+        laserLineRenderers[0].SetPosition(1, target.position);
 
         if (target != null)
         {
@@ -163,6 +205,55 @@ public class Turret : MonoBehaviour
         }
     }
 
+    void MultiLaser()
+    {
+        for (int i = 0; i < targets.Length; i++)
+        {
+            if (targets[i] != null)
+            {
+                if (!laserLineRenderers[i].enabled)
+                {
+                    laserLineRenderers[i].enabled = true;
+                    laserLineRenderers[0].SetPosition(0, shootPoint.position);
+                    laserLineRenderers[0].SetPosition(1, targets[i].position);
+                }
+            }
+            else
+            {
+                laserLineRenderers[i].enabled = false;
+            }
+
+            if (targets[i] != null)
+            {
+                if (enemyScripts[i] == null)
+                {
+                    enemyScripts[i] = targets[i].GetComponent<Enemy>();
+                    increseLaserFireRates[i] = 1f;
+                }
+            }
+            else
+            {
+                increseLaserFireRates[i] += Time.deltaTime * 3;
+
+                if (slowValueUpgrade > 0)
+                {
+                    enemyScripts[i].Slow(slowValueUpgrade);
+                }
+                if (poisonValueUpgrade > 0)
+                {
+                    enemyScripts[i].Poison(poisonValueUpgrade);
+                }
+
+                if (fireCooldowns[i] <= 0f)
+                {
+                    enemyScripts[i].TakeDamage(damage / 2);
+                    fireCooldowns[i] = 1 / (fireRate * increseLaserFireRates[i]);
+                }
+                fireCooldowns[i] -= Time.deltaTime;
+            }
+        }
+    }
+
     void CheckBulletType()
     {
         if (explosionUpgrade > 0)
@@ -181,9 +272,9 @@ public class Turret : MonoBehaviour
 
         if (target == null)
         {
-            if (laserLineRenderer.enabled)
+            if (laserLineRenderers[0].enabled)
             {
-                laserLineRenderer.enabled = false;
+                laserLineRenderers[0].enabled = false;
             }
             return;
         }
@@ -192,9 +283,13 @@ public class Turret : MonoBehaviour
             AimTarget();
         }
 
-        if (lazerUpgrade > 0)
+        if (lazerUpgrade > 0 && explosionUpgrade == 0)
         {
             Laser();
+        }
+        else if (lazerUpgrade > 0 && explosionUpgrade > 0)
+        {
+            MultiLaser();
         }
         else
         {
@@ -208,6 +303,7 @@ public class Turret : MonoBehaviour
 
     }
 
+    #region BoostSysteme
     void GetUpgrade()
     {
         lazerUpgrade += boostScript.lazer;
@@ -234,7 +330,7 @@ public class Turret : MonoBehaviour
         damage -= boostScript.damageBoost;
         range -= boostScript.rangeBoost;
     }
-
+    #endregion
 
     private void OnTriggerEnter(Collider other)
     {

@@ -1648,7 +1648,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffa7ba2cae64331408907fa3c28ebd5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 10
+  life: 20
   lifeCounter: {fileID: 527169089}
   gameOverMenu: {fileID: 1126090125}
 --- !u!1001 &647418784

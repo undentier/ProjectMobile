@@ -41,7 +41,8 @@ public class Turret : MonoBehaviour
 
     private void Start()
     {
-        bulletToShoot = bulletPrefab;    
+        bulletToShoot = bulletPrefab;
+        laserLineRenderer.enabled = false;
     }
 
     private void Update()
@@ -56,7 +57,7 @@ public class Turret : MonoBehaviour
         float shortestDistance = Mathf.Infinity;
         Transform nearestEnemy = null;
 
-        foreach (Transform enemy in WaveSpawner.enemyList)
+        foreach (Transform enemy in WaveSpawner.instance.enemyList)
         {
             if (enemy != null)
             {
@@ -84,13 +85,13 @@ public class Turret : MonoBehaviour
     {
         if (target == null)
         {
-            for (int i = 0; i < WaveSpawner.enemyList.Count; i++)
+            for (int i = 0; i < WaveSpawner.instance.enemyList.Count; i++)
             {
-                if (WaveSpawner.enemyList[i] != null)
+                if (WaveSpawner.instance.enemyList[i] != null)
                 {
-                    if (Vector3.Distance(transform.position, WaveSpawner.enemyList[i].position) < range)
+                    if (Vector3.Distance(transform.position, WaveSpawner.instance.enemyList[i].position) < range)
                     {
-                        target = WaveSpawner.enemyList[i];
+                        target = WaveSpawner.instance.enemyList[i];
                         break;
                     }
 
@@ -210,6 +211,7 @@ public class Turret : MonoBehaviour
 
     }
 
+    #region BoostSysteme
     void GetUpgrade()
     {
         lazerUpgrade += boostScript.lazer;
@@ -236,7 +238,7 @@ public class Turret : MonoBehaviour
         damage -= boostScript.damageBoost;
         range -= boostScript.rangeBoost;
     }
-
+    #endregion
 
     private void OnTriggerEnter(Collider other)
     {

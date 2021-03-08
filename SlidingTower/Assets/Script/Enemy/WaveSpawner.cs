@@ -7,6 +7,8 @@ using System;
 
 public class WaveSpawner : MonoBehaviour
 {
+    public static WaveSpawner instance;
+
     [Header ("Stats")]
     public float timeBfStart;
     public float timeBtwWave;
@@ -15,14 +17,21 @@ public class WaveSpawner : MonoBehaviour
     public Transform enemyPrefab;
     public Text uiCounter;
 
-    public static List<Transform> enemyList = new List<Transform>();
-    public List<Enemy> testList = new List<Enemy>();
+    public List<Transform> enemyList = new List<Transform>();
 
     [HideInInspector]
     public float timeCounter;
     private int waveIndex;
 
     private Transform spawnPoint;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
 
     private void Start()
     {
@@ -33,8 +42,6 @@ public class WaveSpawner : MonoBehaviour
     private void Update()
     {
         enemyList.RemoveAll(list_item => list_item == null);
-
-        //enemyList.Sort(SortFonction);
 
         if (timeCounter <= 0f)
         {

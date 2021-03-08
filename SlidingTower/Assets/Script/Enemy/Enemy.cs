@@ -46,7 +46,7 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        distFromNexus = Vector3.Distance(transform.position, WayPoints.endPoint.position);
+        distFromNexus = WaveSpawner.GetPathRemainingDistance(agent);
 
         if (gameObject.transform.position.z == WayPoints.endPoint.position.z)
         {

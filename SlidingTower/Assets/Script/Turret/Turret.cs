@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class Turret : MonoBehaviour
 {
+    #region Variable
     [Header ("Turret Basic Stats")]
     public float range;
     public float fireRate;
@@ -36,6 +37,7 @@ public class Turret : MonoBehaviour
     private GameObject bulletToShoot;
     private Enemy enemyscript;
     private float increseLaserFireRate;
+    #endregion
 
     private void Start()
     {

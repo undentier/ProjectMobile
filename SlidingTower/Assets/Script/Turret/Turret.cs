@@ -11,6 +11,7 @@ public class Turret : MonoBehaviour
     public float fireRate;
     public float damage;
     public float rotationSpeed;
+    public int maxLaser;
 
     [Header("Upgrade Stats")]
 
@@ -29,10 +30,11 @@ public class Turret : MonoBehaviour
     public GameObject missilePrefab;
     public Transform shootPoint;
 
-    public LineRenderer laserLineRenderer;
+    public LineRenderer[] laserLineRenderers;
 
     private float fireCooldown;
     private Transform target;
+    public Transform[] targets;
     private BoostBlock boostScript;
     private GameObject bulletToShoot;
     private Enemy enemyscript;
@@ -42,12 +44,16 @@ public class Turret : MonoBehaviour
     private void Start()
     {
         bulletToShoot = bulletPrefab;
-        laserLineRenderer.enabled = false;
+        for (int i = 0; i < laserLineRenderers.Length; i++)
+        {
+            laserLineRenderers[i].enabled = false;
+        }
     }
 
     private void Update()
     {
         FindTargetNexus();
+        FindMultipleTarget();
 
         BasiqueTuretSysteme();
     }
@@ -94,7 +100,6 @@ public class Turret : MonoBehaviour
                         target = WaveSpawner.instance.enemyList[i];
                         break;
                     }
-
                 }
             }
         }
@@ -103,6 +108,31 @@ public class Turret : MonoBehaviour
             if (Vector3.Distance(transform.position, target.position) > range)
             {
                 target = null;
+            }
+        }
+    }
+
+    void FindMultipleTarget()
+    {
+        for (int i = 0; i < targets.Length; i++)
+        {
+            if (Vector3.Distance(transform.position, targets[i].transform.position) > range)
+            {
+                targets[i] = null;
+            }
+        }
+
+        for (int i = 0; i < targets.Length; i++)
+        {
+            if (targets[i] == null)
+            {
+                if (i <= WaveSpawner.instance.enemyList.Count)
+                {
+                    if (Vector3.Distance(transform.position, WaveSpawner.instance.enemyList[i].transform.position) < range)
+                    {
+                        targets[i] = WaveSpawner.instance.enemyList[i];
+                    }
+                }
             }
         }
     }
@@ -129,12 +159,12 @@ public class Turret : MonoBehaviour
 
     void Laser()
     {
-        if (!laserLineRenderer.enabled)
+        if (!laserLineRenderers[0].enabled)
         {
-            laserLineRenderer.enabled = true;
+            laserLineRenderers[0].enabled = true;
         }
-        laserLineRenderer.SetPosition(0, shootPoint.position);
-        laserLineRenderer.SetPosition(1, target.position);
+        laserLineRenderers[0].SetPosition(0, shootPoint.position);
+        laserLineRenderers[0].SetPosition(1, target.position);
 
         if (target != null)
         {
@@ -166,6 +196,11 @@ public class Turret : MonoBehaviour
         }
     }
 
+    void MultiLaser()
+    {
+        
+    }
+
     void CheckBulletType()
     {
         if (explosionUpgrade > 0)
@@ -184,9 +219,9 @@ public class Turret : MonoBehaviour
 
         if (target == null)
         {
-            if (laserLineRenderer.enabled)
+            if (laserLineRenderers[0].enabled)
             {
-                laserLineRenderer.enabled = false;
+                laserLineRenderers[0].enabled = false;
             }
             return;
         }

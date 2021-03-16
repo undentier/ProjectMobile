@@ -40,7 +40,7 @@ public class Node : MonoBehaviour
     private BoostBlock boostScript;
     [HideInInspector]
     public GameObject turret;
-    [HideInInspector]
+    //[HideInInspector]
     public List<GameObject> hitNode = new List<GameObject>();
     private Renderer rend;
     private LayerMask mask;

@@ -5,40 +5,46 @@ using UnityEngine;
 public class NodeSysteme : MonoBehaviour
 {
     public List<NodeSysteme> closestNodes = new List<NodeSysteme>();
-    public Color selectedColor;
     public LayerMask nodeMask;
+    public Color selectedColor;
     private Color startColor;
+
+    public GameObject objBuild;
+    public Transform nodePos;
     private MeshRenderer rend;
 
-    public bool isSelected;
     private void Start()
     {
+        nodePos = GetComponent<Transform>();
         rend = GetComponent<MeshRenderer>();
         startColor = rend.material.color;
+
         FindCloseNodes();
     }
 
     private void Update()
     {
-        if (isSelected)
-        {
-            rend.material.color = selectedColor;
-        }
-        else
-        {
-            rend.material.color = startColor;
-        }
+        
     }
 
     public void TouchDetection()
     {
-        if (!isSelected)
+        if (objBuild == null)
         {
-            isSelected = true;
+            GameObject objToBuild = BuildManager.instance.GetTurretToBuild();
+            objBuild = Instantiate(objToBuild, transform.position, transform.rotation);
+            ObjTypeDetection();
         }
-        else
+        else if (objBuild != null)
         {
-            isSelected = false;
+            if (!SlideManager.instance.isSliding)
+            {
+                SlideManager.instance.StartSlide(this);
+            }
+            else if (SlideManager.instance.isSliding)
+            {
+                SlideManager.instance.EndSlide();
+            }
         }
     }
 
@@ -71,6 +77,21 @@ public class NodeSysteme : MonoBehaviour
             else
             {
                 closestNodes.Add(null);
+            }
+        }
+    }
+
+    void ObjTypeDetection()
+    {
+        if (objBuild != null)
+        {
+            if (objBuild.gameObject.layer == 9) // BoosBlock layer
+            {
+                // TakeBoost from block
+            }
+            else if (objBuild.gameObject.layer == 11) // Turret layer
+            {
+                // Give boost to turret;
             }
         }
     }

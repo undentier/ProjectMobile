@@ -5,18 +5,29 @@ using UnityEngine;
 public class SlideManager : MonoBehaviour
 {
     public static SlideManager instance;
-    public bool isSliding;
 
-    public List<NodeSysteme> nearNodes = new List<NodeSysteme>();
-    public NodeSysteme startNode;
-    public GameObject selectedObj;
-
+    #region Variable
+    [Header ("Mouvement stats")]
+    public float slidingSpeed;
+    [Space]
     public float offSetUp;
     public float offSetRight;
     public float offSetDown;
     public float offSetLeft;
 
+    [HideInInspector]
+    public bool isSliding;
+    [HideInInspector]
+    public List<NodeSysteme> nearNodes = new List<NodeSysteme>();
+    [HideInInspector]
+    public NodeSysteme startNode;
+    [HideInInspector]
+    public GameObject selectedObj;
+
     private float mZCoord;
+    private bool canSlide = true;
+    public NodeSysteme targetNode;
+    #endregion
 
     private void Awake()
     {
@@ -32,51 +43,58 @@ public class SlideManager : MonoBehaviour
 
     void Update()
     {
-        if (isSliding)
+        if (isSliding && canSlide)
         {
+            Debug.Log("switch");
             if (selectedObj != null)
             {
+                #region Up direction
                 if (MousePos().z >= startNode.transform.position.z + offSetUp)
                 {
                     if (nearNodes[0] != null && nearNodes[0].objBuild == null)
                     {
-                        Debug.Log("Up");
-                        selectedObj.transform.position = (nearNodes[0].transform.position);
+                        targetNode = nearNodes[0];
                         SwitchInformation(nearNodes[0]);
                     }
                 }
+                #endregion
 
-                if (MousePos().x >= startNode.transform.position.x + offSetRight)
+                #region Right direction
+                else if (MousePos().x >= startNode.transform.position.x + offSetRight)
                 {
                     if (nearNodes[1] != null && nearNodes[1].objBuild == null)
                     {
-                        Debug.Log("Right");
-                        selectedObj.transform.position = (nearNodes[1].transform.position);
+                        targetNode = nearNodes[1];
                         SwitchInformation(nearNodes[1]);
                     }
                 }
+                #endregion
 
-                if (MousePos().z <= startNode.transform.position.z - offSetDown)
+                #region Down direction
+                else if (MousePos().z <= startNode.transform.position.z - offSetDown)
                 {
                     if (nearNodes[2] != null && nearNodes[2].objBuild == null)
                     {
-                        Debug.Log("Down");
-                        selectedObj.transform.position = (nearNodes[2].transform.position);
+                        targetNode = nearNodes[2];
                         SwitchInformation(nearNodes[2]);
                     }
                 }
+                #endregion
 
-                if (MousePos().x <= startNode.transform.position.x - offSetLeft)
+                #region Left direction
+                else if (MousePos().x <= startNode.transform.position.x - offSetLeft)
                 {
                     if (nearNodes[3] != null && nearNodes[3].objBuild == null)
                     {
-                        Debug.Log("Left");
-                        selectedObj.transform.position = (nearNodes[3].transform.position);
+                        targetNode = nearNodes[3];
                         SwitchInformation(nearNodes[3]);
                     }
                 }
+                #endregion
             }
         }
+
+        SlideMouvement();
     }
 
     private Vector3 MousePos()
@@ -115,5 +133,28 @@ public class SlideManager : MonoBehaviour
         startNode = _nextStartNode;
         startNode.objBuild = selectedObj;
         nearNodes = startNode.closestNodes;
+    }
+
+    void SlideMouvement()
+    {
+        if (targetNode != null)
+        {
+            canSlide = false;
+            Vector3 dir = targetNode.transform.position - selectedObj.transform.position;
+            float distancePerFrame = Time.deltaTime * slidingSpeed;
+ 
+            if (dir.magnitude <= distancePerFrame)
+            {
+                Debug.Log("j'arrete");
+                selectedObj.transform.Translate(Vector3.zero);
+                targetNode = null;
+                canSlide = true;
+            }
+            else
+            {
+                selectedObj.transform.Translate(dir.normalized * distancePerFrame, Space.World);
+                Debug.Log("je déplace");
+            }
+        }
     }
 }

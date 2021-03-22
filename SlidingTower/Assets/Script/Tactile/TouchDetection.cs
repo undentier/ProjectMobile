@@ -33,17 +33,16 @@ public class TouchDetection : MonoBehaviour
 
                 else if (touch.phase == TouchPhase.Ended)
                 {
+                    if (SlideManager.instance.isSliding)
+                    {
+                        SlideManager.instance.EndSlide();
+                    }
+
                     ray = Camera.main.ScreenPointToRay(touch.position);
 
                     if (Physics.Raycast(ray, out hit))
                     {
-                        if (hit.transform.gameObject.layer == 8)
-                        {
-                            if (SlideManager.instance.isSliding)
-                            {
-                                hit.transform.GetComponent<NodeSysteme>().TouchDetection();
-                            }
-                        }
+                        
                     }
                 }
             }
@@ -62,14 +61,16 @@ public class TouchDetection : MonoBehaviour
         }
         else if (Input.GetButtonUp("LeftClick"))
         {
+            if (SlideManager.instance.isSliding)
+            {
+                SlideManager.instance.EndSlide();
+            }
+
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.transform.gameObject.layer == 8)
-                {
-                    hit.transform.GetComponent<NodeSysteme>().TouchDetection();
-                }
+                
             }
         }
     }

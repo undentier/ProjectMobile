@@ -4,27 +4,16 @@ using UnityEngine;
 
 public class NodeSysteme : MonoBehaviour
 {
+    #region variable
     public List<NodeSysteme> closestNodes = new List<NodeSysteme>();
     public LayerMask nodeMask;
-    public Color selectedColor;
-    private Color startColor;
 
     public GameObject objBuild;
-    public Transform nodePos;
-    private MeshRenderer rend;
+    #endregion
 
     private void Start()
     {
-        nodePos = GetComponent<Transform>();
-        rend = GetComponent<MeshRenderer>();
-        startColor = rend.material.color;
-
         FindCloseNodes();
-    }
-
-    private void Update()
-    {
-        
     }
 
     public void TouchDetection()
@@ -40,10 +29,6 @@ public class NodeSysteme : MonoBehaviour
             if (!SlideManager.instance.isSliding)
             {
                 SlideManager.instance.StartSlide(this);
-            }
-            else if (SlideManager.instance.isSliding)
-            {
-                SlideManager.instance.EndSlide();
             }
         }
     }
@@ -70,7 +55,7 @@ public class NodeSysteme : MonoBehaviour
                     break;
             }
 
-            if (Physics.Raycast(transform.position, dir, out hit, Mathf.Infinity, nodeMask))
+            if (Physics.Raycast(transform.position, dir, out hit, 2f, nodeMask))
             {
                 closestNodes.Add(hit.transform.gameObject.GetComponent<NodeSysteme>());
             }

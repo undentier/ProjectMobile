@@ -26,7 +26,9 @@ public class SlideManager : MonoBehaviour
 
     private float mZCoord;
     private bool canSlide = true;
-    public NodeSysteme targetNode;
+
+    private NodeSysteme targetNode;
+    private GameObject objToMove;
     #endregion
 
     private void Awake()
@@ -43,11 +45,40 @@ public class SlideManager : MonoBehaviour
 
     void Update()
     {
+        SlideDetection();
+
+        SlideMouvement();
+    }
+
+    void SlideMouvement()
+    {
+        if (targetNode != null)
+        {
+            canSlide = false;
+            Vector3 dir = targetNode.transform.position - objToMove.transform.position;
+            float distancePerFrame = Time.deltaTime * slidingSpeed;
+ 
+            if (dir.magnitude <= distancePerFrame)
+            {
+                objToMove.transform.Translate(Vector3.zero);
+                targetNode = null;
+                objToMove = null;
+                canSlide = true;
+            }
+            else
+            {
+                objToMove.transform.Translate(dir.normalized * distancePerFrame, Space.World);
+            }
+        }
+    }
+    void SlideDetection()
+    {
         if (isSliding && canSlide)
         {
-            Debug.Log("switch");
             if (selectedObj != null)
             {
+                objToMove = selectedObj;
+
                 #region Up direction
                 if (MousePos().z >= startNode.transform.position.z + offSetUp)
                 {
@@ -93,17 +124,8 @@ public class SlideManager : MonoBehaviour
                 #endregion
             }
         }
-
-        SlideMouvement();
     }
 
-    private Vector3 MousePos()
-    {
-        mZCoord = Camera.main.WorldToScreenPoint(startNode.transform.position).z;
-        Vector3 mousePoint = Input.mousePosition;
-        mousePoint.z = mZCoord;
-        return Camera.main.ScreenToWorldPoint(mousePoint);
-    }
 
     public void StartSlide(NodeSysteme _startNode)
     {
@@ -113,17 +135,21 @@ public class SlideManager : MonoBehaviour
             startNode = _startNode;
             nearNodes = _startNode.closestNodes;
             selectedObj = _startNode.objBuild;
+
+            selectedObj.GetComponent<Animator>().SetBool("Selected", true);
         }
     }
-
     public void EndSlide()
     {
         if (isSliding)
         {
+            selectedObj.GetComponent<Animator>().SetBool("Selected", false);
+
             isSliding = false;
             startNode = null;
             selectedObj = null;
             nearNodes = null;
+
         }
     }
 
@@ -135,26 +161,11 @@ public class SlideManager : MonoBehaviour
         nearNodes = startNode.closestNodes;
     }
 
-    void SlideMouvement()
+    private Vector3 MousePos()
     {
-        if (targetNode != null)
-        {
-            canSlide = false;
-            Vector3 dir = targetNode.transform.position - selectedObj.transform.position;
-            float distancePerFrame = Time.deltaTime * slidingSpeed;
- 
-            if (dir.magnitude <= distancePerFrame)
-            {
-                Debug.Log("j'arrete");
-                selectedObj.transform.Translate(Vector3.zero);
-                targetNode = null;
-                canSlide = true;
-            }
-            else
-            {
-                selectedObj.transform.Translate(dir.normalized * distancePerFrame, Space.World);
-                Debug.Log("je déplace");
-            }
-        }
+        mZCoord = Camera.main.WorldToScreenPoint(startNode.transform.position).z;
+        Vector3 mousePoint = Input.mousePosition;
+        mousePoint.z = mZCoord;
+        return Camera.main.ScreenToWorldPoint(mousePoint);
     }
 }

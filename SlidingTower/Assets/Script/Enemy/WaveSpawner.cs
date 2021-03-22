@@ -14,10 +14,10 @@ public class WaveSpawner : MonoBehaviour
     public float timeBtwWave;
 
     [Header ("Unity Setup")]
-    public Transform enemyPrefab;
+    public GameObject enemyPrefab;
     public Text uiCounter;
 
-    public List<Transform> enemyList = new List<Transform>();
+    public List<Enemy> enemyList = new List<Enemy>();
 
     [HideInInspector]
     public float timeCounter;
@@ -60,17 +60,17 @@ public class WaveSpawner : MonoBehaviour
         for (int i = 0; i < waveIndex; i++)
         {
             SpawnEnemy();
-            yield return new WaitForSeconds(0.6f);
+            yield return new WaitForSeconds(0.2f);
         }
     }
 
     void SpawnEnemy()
     {
-        Transform enemy = Instantiate(enemyPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
-        enemyList.Add(enemy);
+        GameObject enemy = Instantiate(enemyPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
+        enemyList.Add(enemy.GetComponent<Enemy>());
     }
 
-    public static float GetPathRemainingDistance(NavMeshAgent navMeshAgent)
+    public float GetPathRemainingDistance(NavMeshAgent navMeshAgent)
     {
         if (navMeshAgent.pathPending ||
             navMeshAgent.pathStatus == NavMeshPathStatus.PathInvalid ||

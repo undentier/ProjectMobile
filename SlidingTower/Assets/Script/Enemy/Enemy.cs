@@ -47,7 +47,7 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        distFromNexus = WaveSpawner.GetPathRemainingDistance(agent);
+        distFromNexus = WaveSpawner.instance.GetPathRemainingDistance(agent);
 
         if (distFromNexus <= 0.5f)
         {

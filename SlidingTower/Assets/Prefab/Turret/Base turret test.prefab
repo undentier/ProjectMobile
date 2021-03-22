@@ -856,15 +856,12 @@ MonoBehaviour:
   range: 10
   fireRate: 0
   damage: 0
-  rotationSpeed: 0
+  rotationSpeed: 7
   numMaxTargets: 5
-  targets:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  partToRotate: {fileID: 4157377765548304516}
   basicBullet: {fileID: 0}
+  target: {fileID: 0}
+  targets: []
 --- !u!1 &7146513205639681617
 GameObject:
   m_ObjectHideFlags: 0
@@ -891,7 +888,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7146513205639681617}
   m_LocalRotation: {x: 0.00000014901161, y: 0.000000059604645, z: -0.7071068, w: -0.7071068}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children: []
   m_Father: {fileID: 4157377765548304516}

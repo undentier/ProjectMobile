@@ -10,8 +10,12 @@ public class Turret1 : MonoBehaviour
     public float rotationSpeed;
     public int numMaxTargets = 5;
 
-    public Enemy[] targets;
+    public Transform partToRotate;
+
     public GameObject basicBullet;
+    public Transform target;
+    [HideInInspector]
+    public Enemy[] targets;
 
     private GameObject bulletToShoot;
     private List<Enemy> copyList = new List<Enemy>();
@@ -25,6 +29,11 @@ public class Turret1 : MonoBehaviour
     void Update()
     {
         FindTargets();
+
+        if (targets[0] != null)
+        {
+            AimTarget();
+        }
     }
 
     void FindTargets()
@@ -54,6 +63,13 @@ public class Turret1 : MonoBehaviour
         }
     }
 
+    void AimTarget()
+    {
+        Vector3 dir = targets[0].transform.position - transform.position;
+        Quaternion lookRotation = Quaternion.LookRotation(dir);
+        Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * rotationSpeed).eulerAngles;
+        partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+    }
 
     private void OnDrawGizmosSelected()
     {

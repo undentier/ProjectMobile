@@ -13,12 +13,13 @@ public class Turret1 : MonoBehaviour
     public Transform partToRotate;
 
     public GameObject basicBullet;
-    public Transform target;
+    public Transform shootPoint;
     [HideInInspector]
     public Enemy[] targets;
 
     private GameObject bulletToShoot;
     private List<Enemy> copyList = new List<Enemy>();
+    private float fireCoolDown;
 
     void Start()
     {
@@ -26,13 +27,20 @@ public class Turret1 : MonoBehaviour
         targets = new Enemy[numMaxTargets];
     }
 
-    void Update()
+    void FixedUpdate()
     {
         FindTargets();
 
         if (targets[0] != null)
         {
             AimTarget();
+
+            if (fireCoolDown <= 0f)
+            {
+                Shoot();
+                fireCoolDown = 1f / fireRate;
+            }
+            fireCoolDown -= Time.deltaTime;
         }
     }
 
@@ -46,10 +54,13 @@ public class Turret1 : MonoBehaviour
             {
                 if (copyList.Count >= i + 1)
                 {
-                    if (Vector3.Distance(transform.position, copyList[i].transform.position) < range)
+                    if (copyList[i] != null)
                     {
-                        targets[i] = copyList[i];
-                        copyList.Remove(copyList[i]);
+                        if (Vector3.Distance(transform.position, copyList[i].transform.position) < range)
+                        {
+                            targets[i] = copyList[i];
+                            copyList.Remove(copyList[i]);
+                        }
                     }
                 }
             }
@@ -62,7 +73,6 @@ public class Turret1 : MonoBehaviour
             }
         }
     }
-
     void AimTarget()
     {
         Vector3 dir = targets[0].transform.position - transform.position;
@@ -70,6 +80,18 @@ public class Turret1 : MonoBehaviour
         Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * rotationSpeed).eulerAngles;
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
     }
+    void Shoot()
+    {
+        GameObject actualBullet = Instantiate(bulletToShoot, shootPoint.position, shootPoint.rotation);
+        Bullet bulletScript = actualBullet.GetComponent<Bullet>();
+
+        if (bulletScript != null)
+        {
+            bulletScript.GetTarget(targets[0].transform);
+            bulletScript.GetDamage(damage);
+        }
+    }
+
 
     private void OnDrawGizmosSelected()
     {

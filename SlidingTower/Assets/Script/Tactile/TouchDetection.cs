@@ -14,6 +14,7 @@ public class TouchDetection : MonoBehaviour
 
     void TestDetection()
     {
+        #region Mobile Input
         if (Input.touchCount > 0)
         {
             foreach (Touch touch in Input.touches)
@@ -47,7 +48,10 @@ public class TouchDetection : MonoBehaviour
                 }
             }
         }
-        else if (Input.GetButtonDown("LeftClick"))
+        #endregion
+
+        #region Mouse Input
+        if (Input.GetButtonDown("LeftClick"))
         {
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
@@ -73,5 +77,6 @@ public class TouchDetection : MonoBehaviour
                 
             }
         }
+        #endregion
     }
 }

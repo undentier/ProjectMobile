@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
-    public List<GameObject> levels;
+    public List<LevelDisplay> levels;
     int starTotal;
     int starCount;
     public GameObject totalScoreText;
@@ -27,14 +27,14 @@ public class LevelManager : MonoBehaviour
     void StarNumber()
     {
         starTotal = 0;
-        foreach(GameObject level in levels)
+        for (int i = 0; i < levels.Count; i++)
         {
-            starCount = level.GetComponent<LevelDisplay>().score;
+            starCount = levels[i].score;
             starTotal += starCount;
         }
-        Bruh();
+        Write();
     }
-    void Bruh()
+    void Write()
     {
         totalScoreText.GetComponent<Text>().text = "Nombre d'étoiles:" + starTotal.ToString();
     }

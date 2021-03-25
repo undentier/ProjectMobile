@@ -15,6 +15,8 @@ public class LevelDisplay : MonoBehaviour
 
     public Text levelNumberText;
 
+    public int score;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,10 +28,18 @@ public class LevelDisplay : MonoBehaviour
 
         levelNumberText.text = level.levelNumber.ToString();
         Debug.Log(level.name);
+        SpriteDisplay();
+        score = level.score;
     }
     public void ScoreTracker()
     {
         level.score = Random.Range(0, 4);
+        SpriteDisplay();
+        score = level.score;
+
+    }
+    public void SpriteDisplay()
+    {
         if (level.score == 0)
         {
             scoreImage.sprite = level.scoreSpriteZero;
@@ -46,6 +56,5 @@ public class LevelDisplay : MonoBehaviour
         {
             scoreImage.sprite = level.scoreSpriteThree;
         }
-
     }
 }

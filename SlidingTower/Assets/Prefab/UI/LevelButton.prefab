@@ -260,7 +260,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6777313581318212155}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -356,7 +356,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6777313581318212150}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6777313581318212145}
+        m_MethodName: ScoreTracker
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6777313581318212144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,6 +406,7 @@ MonoBehaviour:
   thumbnailImage: {fileID: 6777313581468005364}
   scoreImage: {fileID: 6777313580136547186}
   levelNumberText: {fileID: 6777313581265828013}
+  score: 0
 --- !u!1 &6777313581468005370
 GameObject:
   m_ObjectHideFlags: 0

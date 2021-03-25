@@ -858,6 +858,7 @@ MonoBehaviour:
   damage: 25
   rotationSpeed: 7
   numMaxTargets: 5
+  numOfCanon: 3
   partToRotate: {fileID: 4157377765548304516}
   basicBullet: {fileID: 1664552637349654473, guid: 56f0414ef2f2f6f41a681196bd36719e,
     type: 3}

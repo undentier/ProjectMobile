@@ -1,9 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    #region Variable
     [Header ("Stats")]
     public float speed;
     public float explosionRadius;
@@ -19,11 +18,13 @@ public class Bullet : MonoBehaviour
     public GameObject impactEffect;
 
     [Header("Unity SetUp")]
-    public string enemyLayerName;
-
+    public LayerMask enemyLayerMask;
 
     private Transform target;
-    private LayerMask enemyLayerMask;
+    private float distanceThisFrame;
+    private Vector3 dir;
+    #endregion
+
     public void GetTarget(Transform _target)
     {
         target = _target;
@@ -40,32 +41,30 @@ public class Bullet : MonoBehaviour
         poisonDamage = _poisionDamage;
     }
 
-    private void Start()
-    {
-        enemyLayerMask = LayerMask.GetMask(enemyLayerName);
-    }
-
-    void Update()
+   
+    void FixedUpdate()
     {
         if (target == null)
         {
             Destroy(gameObject);
             return;
-        }
+        } // Auto destroy if no more target
 
-        Vector3 dir = target.position - transform.position;
-        float distanceThisFrame = speed * Time.deltaTime;
+        Mouvement(); 
 
-        if (dir.magnitude <= distanceThisFrame)
+        if (dir.magnitude <= distanceThisFrame) 
         {
             HitTarget();
-        }
-
-        transform.Translate(dir.normalized * distanceThisFrame, Space.World);
-        transform.LookAt(target);
-
+        } // If the bullet touch the target
     }
 
+    void Mouvement()
+    {
+        dir = target.position - transform.position;
+        distanceThisFrame = speed * Time.deltaTime;
+        transform.Translate(dir.normalized * distanceThisFrame, Space.World);
+        transform.LookAt(target);
+    } // Translate the bullet to the target
     void HitTarget()
     {
         GameObject effect = Instantiate(impactEffect, transform.position, transform.rotation);
@@ -81,7 +80,7 @@ public class Bullet : MonoBehaviour
         }
 
         Destroy(gameObject);
-    }
+    } // Call when bullet hit the target
 
     void Damage(Transform enemy)
     {
@@ -96,7 +95,7 @@ public class Bullet : MonoBehaviour
         {
             e.Poison(poisonDamage);
         }
-    }
+    } // Apply damage and negatif effect on target
 
     void Explosion()
     {
@@ -106,9 +105,9 @@ public class Bullet : MonoBehaviour
         {
             Damage(enemyIn.transform);
         }
-    }
+    } // If explosion radius > 0 Create a sphere detection around the target and apply damage and negatif effect to all enemies 
 
-    private void OnDrawGizmosSelected()
+    private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, explosionRadius);

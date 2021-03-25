@@ -2,24 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Turret1 : MonoBehaviour
+public class Turret : MonoBehaviour
 {
+    #region Variable
+    [Header ("Basic stats")]
     public float range;
     public float fireRate;
     public float damage;
     public float rotationSpeed;
     public int numMaxTargets = 5;
+    public int numOfCanon = 1;
 
+    [Header ("Unity setup")]
     public Transform partToRotate;
-
     public GameObject basicBullet;
     public Transform shootPoint;
+
     [HideInInspector]
     public Enemy[] targets;
-
     private GameObject bulletToShoot;
     private List<Enemy> copyList = new List<Enemy>();
     private float fireCoolDown;
+    #endregion
 
     void Start()
     {
@@ -30,18 +34,7 @@ public class Turret1 : MonoBehaviour
     void FixedUpdate()
     {
         FindTargets();
-
-        if (targets[0] != null)
-        {
-            AimTarget();
-
-            if (fireCoolDown <= 0f)
-            {
-                Shoot();
-                fireCoolDown = 1f / fireRate;
-            }
-            fireCoolDown -= Time.deltaTime;
-        }
+        MultiShoot();
     }
 
     void FindTargets()
@@ -80,20 +73,40 @@ public class Turret1 : MonoBehaviour
         Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * rotationSpeed).eulerAngles;
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
     }
-    void Shoot()
+    void Fire(Enemy target)
     {
         GameObject actualBullet = Instantiate(bulletToShoot, shootPoint.position, shootPoint.rotation);
         Bullet bulletScript = actualBullet.GetComponent<Bullet>();
 
         if (bulletScript != null)
         {
-            bulletScript.GetTarget(targets[0].transform);
+            bulletScript.GetTarget(target.transform);
             bulletScript.GetDamage(damage);
         }
     }
 
+    void MultiShoot()
+    {
+        if (targets[0] != null)
+        {
+            AimTarget();
 
-    private void OnDrawGizmosSelected()
+            if (fireCoolDown <= 0f)
+            {
+                for (int i = 0; i < numOfCanon; i++)
+                {
+                    if (targets[i] != null)
+                    {
+                        Fire(targets[i]);
+                    }
+                }
+                fireCoolDown = 1f / fireRate;
+            }
+            fireCoolDown -= Time.deltaTime;
+        }
+    }
+ 
+    private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, range);

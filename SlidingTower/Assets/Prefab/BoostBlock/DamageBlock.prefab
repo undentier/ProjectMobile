@@ -117,14 +117,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wichShoot: 0
   lazer: 0
-  doubleShoot: 0
   explosion: 0
-  wichBullet: 0
   slowValue: 0
   poisonValue: 0
-  wichBoost: 2
   fireRateBoost: 0
-  damageBoost: 2
+  damageBoost: 1
   rangeBoost: 0
 --- !u!54 &3286973131283341186
 Rigidbody:

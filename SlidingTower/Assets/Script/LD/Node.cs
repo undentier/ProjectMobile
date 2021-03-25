@@ -103,7 +103,6 @@ public class Node : MonoBehaviour
     void GetBoost()
     {
         lazerMode += boostScript.lazer;
-        doubleShootMode += boostScript.doubleShoot;
         explosionMode += boostScript.explosion;
 
         slowBonus += boostScript.slowValue;
@@ -117,7 +116,6 @@ public class Node : MonoBehaviour
     void DelBoost()
     {
         lazerMode -= boostScript.lazer;
-        doubleShootMode -= boostScript.doubleShoot;
         explosionMode -= boostScript.explosion;
 
         slowBonus -= boostScript.slowValue;

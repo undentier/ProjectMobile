@@ -9,34 +9,17 @@ public class BoostBlock : MonoBehaviour
         None, Lazer, DoubleShoot, Explosion
     }
 
-    public enum BulletType
-    {
-        None, Slow, Poison
-    }
-
-    public enum BoostType
-    {
-        None, FireRate, Damage, Range
-    }
-
-
     public ShootType wichShoot;
     [HideInInspector]
     public int lazer;
     [HideInInspector]
-    public int doubleShoot;
-    [HideInInspector]
     public int explosion;
 
-    [Space]
-    public BulletType wichBullet;
-
+    [Header ("Negative effect")]
     public int slowValue;
     public int poisonValue;
 
-    [Space]
-    public BoostType wichBoost;
-
+    [Header("Stats boost")]
     public int fireRateBoost;
     public int damageBoost;
     public int rangeBoost;
@@ -49,9 +32,6 @@ public class BoostBlock : MonoBehaviour
                 break;
             case ShootType.Lazer:
                 lazer = 1;
-                break;
-            case ShootType.DoubleShoot:
-                doubleShoot = 1;
                 break;
             case ShootType.Explosion:
                 explosion = 1;

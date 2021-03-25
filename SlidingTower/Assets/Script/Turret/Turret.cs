@@ -23,6 +23,17 @@ public class Turret : MonoBehaviour
     private GameObject bulletToShoot;
     private List<Enemy> copyList = new List<Enemy>();
     private float fireCoolDown;
+
+    [Header("Upgrade")]
+    public int laserUpgrade;
+    public int explosionUpgrade;
+    [Space]
+    public int slowUpgrade;
+    public int poisonUpgrade;
+    [Space]
+    public int fireRateUpgrade;
+    public int damageUpgrade;
+    public int rangeUpgrade;
     #endregion
 
     void Start()
@@ -106,6 +117,32 @@ public class Turret : MonoBehaviour
         }
     }
  
+    public void GetNodeUpgrade(NodeSysteme node)
+    {
+        Debug.Log("Upgrade");
+        laserUpgrade = node.laserUpgrade;
+        explosionUpgrade = node.explosionUpgrade;
+
+        slowUpgrade = node.slowUpgrade;
+        poisonUpgrade = node.poisonUpgrade;
+
+        fireRateUpgrade = node.fireRateUpgrade;
+        damageUpgrade = node.damageUpgrade;
+        rangeUpgrade = node.rangeUpgrade;
+    }
+    public void ResetUpgrade()
+    {
+        laserUpgrade = 0;
+        explosionUpgrade = 0;
+
+        slowUpgrade = 0;
+        poisonUpgrade = 0;
+
+        fireRateUpgrade = 0;
+        damageUpgrade = 0;
+        rangeUpgrade = 0;
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;

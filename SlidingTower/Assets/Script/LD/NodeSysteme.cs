@@ -13,17 +13,22 @@ public class NodeSysteme : MonoBehaviour
     public GameObject damageEffect;
     public GameObject rangeEffect;
 
-    [Header ("Upgrade")]
+    [HideInInspector]
     public int laserUpgrade;
+    [HideInInspector]
     public int explosionUpgrade;
-    [Space]
-    public int slowUpgrade;
-    public int poisonUpgrade;
-    [Space]
-    public int fireRateUpgrade;
-    public int damageUpgrade;
-    public int rangeUpgrade;
 
+    [HideInInspector]
+    public int slowUpgrade;
+    [HideInInspector]
+    public int poisonUpgrade;
+
+    [HideInInspector]
+    public int fireRateUpgrade;
+    [HideInInspector]
+    public int damageUpgrade;
+    [HideInInspector]
+    public int rangeUpgrade;
 
     [HideInInspector]
     public GameObject objBuild;
@@ -56,8 +61,12 @@ public class NodeSysteme : MonoBehaviour
             {
                 GetUpgrade(boostBlockScript);
                 UpgradeNeighbour(boostBlockScript);
+                TurretNeighbour();
             }
-
+            else if (turretScript != null)
+            {
+                turretScript.GetNodeUpgrade(this);
+            }
         } // Condition for build
 
         else if (objBuild != null)
@@ -70,13 +79,18 @@ public class NodeSysteme : MonoBehaviour
                 {
                     DeleteUpgrade(boostBlockScript);
                     DownGradeNeighbour(boostBlockScript);
-
                     boostBlockScript = null;
+                    TurretNeighbour();
+                }
+                else if (turretScript != null)
+                {
+                    turretScript.ResetUpgrade();
+                    turretScript = null;
                 }
 
                 SlideManager.instance.StartSlide(this);
             }
-        }
+        } // Condition for start sliding
     }
 
     void FindCloseNodes()
@@ -213,6 +227,20 @@ public class NodeSysteme : MonoBehaviour
             }
         }
         SetEffect();
+    }
+
+    public void TurretNeighbour()
+    {
+        for (int i = 0; i < closestNodes.Count; i++)
+        {
+            if (closestNodes[i] != null)
+            {
+                if (closestNodes[i].turretScript != null)
+                {
+                    closestNodes[i].turretScript.GetNodeUpgrade(closestNodes[i]);
+                }
+            }
+        }
     }
     #endregion
 }

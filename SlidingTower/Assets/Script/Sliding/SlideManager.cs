@@ -150,10 +150,17 @@ public class SlideManager : MonoBehaviour
         {
             selectedObj.GetComponent<Animator>().SetBool("Selected", false);
 
+            startNode.ObjTypeDetection();
+
             if (boostBlockScript != null)
             {
                 startNode.GetUpgrade(boostBlockScript);
                 startNode.UpgradeNeighbour(boostBlockScript);
+                startNode.TurretNeighbour();
+            }
+            else if (turretScript != null)
+            {
+                turretScript.GetNodeUpgrade(startNode);
             }
 
             isSliding = false;
@@ -168,6 +175,7 @@ public class SlideManager : MonoBehaviour
     void SwitchInformation(NodeSysteme _nextStartNode)
     {
         startNode.objBuild = null;
+
         startNode = _nextStartNode;
         startNode.objBuild = selectedObj;
         nearNodes = startNode.closestNodes;

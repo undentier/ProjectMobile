@@ -29,6 +29,9 @@ public class SlideManager : MonoBehaviour
 
     private NodeSysteme targetNode;
     private GameObject objToMove;
+
+    private BoostBlock boostBlockScript;
+    private Turret turretScript;
     #endregion
 
     private void Awake()
@@ -137,6 +140,8 @@ public class SlideManager : MonoBehaviour
             selectedObj = _startNode.objBuild;
 
             selectedObj.GetComponent<Animator>().SetBool("Selected", true);
+
+            ObjectDetection();
         }
     }
     public void EndSlide()
@@ -145,11 +150,18 @@ public class SlideManager : MonoBehaviour
         {
             selectedObj.GetComponent<Animator>().SetBool("Selected", false);
 
+            if (boostBlockScript != null)
+            {
+                startNode.GetUpgrade(boostBlockScript);
+                startNode.UpgradeNeighbour(boostBlockScript);
+            }
+
             isSliding = false;
             startNode = null;
             selectedObj = null;
             nearNodes = null;
 
+            ObjectDetection();
         }
     }
 
@@ -167,5 +179,22 @@ public class SlideManager : MonoBehaviour
         Vector3 mousePoint = Input.mousePosition;
         mousePoint.z = mZCoord;
         return Camera.main.ScreenToWorldPoint(mousePoint);
+    }
+
+    void ObjectDetection()
+    {
+        if (selectedObj == null)
+        {
+            boostBlockScript = null;
+            turretScript = null;
+        }
+        else if (selectedObj.layer == 9)
+        {
+            boostBlockScript = selectedObj.GetComponent<BoostBlock>();
+        }
+        else if (selectedObj.layer == 11)
+        {
+            turretScript = selectedObj.GetComponent<Turret>();
+        }
     }
 }

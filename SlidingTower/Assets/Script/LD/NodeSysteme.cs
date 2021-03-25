@@ -27,6 +27,9 @@ public class NodeSysteme : MonoBehaviour
 
     [HideInInspector]
     public GameObject objBuild;
+
+    private BoostBlock boostBlockScript;
+    private Turret turretScript;
     #endregion
 
     private void Start()
@@ -48,12 +51,29 @@ public class NodeSysteme : MonoBehaviour
             objBuild = Instantiate(objToBuild, transform.position, transform.rotation);
 
             ObjTypeDetection();
+
+            if (boostBlockScript != null)
+            {
+                GetUpgrade(boostBlockScript);
+                UpgradeNeighbour(boostBlockScript);
+            }
+
         } // Condition for build
 
         else if (objBuild != null)
         {
             if (!SlideManager.instance.isSliding)
             {
+                ObjTypeDetection();
+
+                if (boostBlockScript != null)
+                {
+                    DeleteUpgrade(boostBlockScript);
+                    DownGradeNeighbour(boostBlockScript);
+
+                    boostBlockScript = null;
+                }
+
                 SlideManager.instance.StartSlide(this);
             }
         }
@@ -92,19 +112,22 @@ public class NodeSysteme : MonoBehaviour
         }
     }
 
-    void ObjTypeDetection()
+    public void ObjTypeDetection()
     {
         if (objBuild != null)
         {
             if (objBuild.gameObject.layer == 9) // BoosBlock layer
             {
-                BoostBlock boostBlockScript = objBuild.GetComponent<BoostBlock>();
-                GetUpgrade(boostBlockScript);
-                UpgradeNeighbour(boostBlockScript);
+                boostBlockScript = objBuild.GetComponent<BoostBlock>();
             }
             else if (objBuild.gameObject.layer == 11) // Turret layer
             {
-                // Give boost to turret;
+                turretScript = objBuild.GetComponent<Turret>();
+            }
+            else
+            {
+                boostBlockScript = null;
+                turretScript = null;
             }
         }
     }
@@ -140,7 +163,7 @@ public class NodeSysteme : MonoBehaviour
     }
 
     #region Upgrade control
-    void GetUpgrade(BoostBlock boostBlock)
+    public void GetUpgrade(BoostBlock boostBlock)
     {
         laserUpgrade += boostBlock.lazer;
         explosionUpgrade += boostBlock.explosion;
@@ -154,7 +177,7 @@ public class NodeSysteme : MonoBehaviour
 
         SetEffect();
     }
-    void DeleteUpgrade(BoostBlock boostBlock)
+    public void DeleteUpgrade(BoostBlock boostBlock)
     {
         laserUpgrade -= boostBlock.lazer;
         explosionUpgrade -= boostBlock.explosion;
@@ -169,7 +192,7 @@ public class NodeSysteme : MonoBehaviour
         SetEffect();
     }
 
-    void UpgradeNeighbour(BoostBlock boostBlock)
+    public void UpgradeNeighbour(BoostBlock boostBlock)
     {
         for (int i = 0; i < closestNodes.Count; i++)
         {
@@ -180,7 +203,7 @@ public class NodeSysteme : MonoBehaviour
         }
         SetEffect();
     }
-    void DownGradeNeighbour(BoostBlock boostBlock)
+    public void DownGradeNeighbour(BoostBlock boostBlock)
     {
         for (int i = 0; i < closestNodes.Count; i++)
         {

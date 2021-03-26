@@ -2835,6 +2835,7 @@ MonoBehaviour:
   levelButton: {fileID: 6777313581318212145, guid: 107feb286b0881649a88685d61376d19,
     type: 3}
   levelSelectionPanelTransform: {fileID: 2058584044}
+  levelDisplays: []
 --- !u!114 &1602317668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2847,8 +2848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 984530f1402a7c7448b48ff18d0344a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelmanager: {fileID: 1602317667}
-  levelSO: []
+  _levelmanager: {fileID: 1602317667}
 --- !u!1 &1610032832
 GameObject:
   m_ObjectHideFlags: 0

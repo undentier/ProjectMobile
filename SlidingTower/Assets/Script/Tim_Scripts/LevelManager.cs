@@ -10,9 +10,11 @@ public class LevelManager : MonoBehaviour
     public GameObject totalScoreText;
     public LevelDisplay levelButton;
     public RectTransform levelSelectionPanelTransform;
+    public List<LevelDisplay> levelDisplays;
     // Start is called before the first frame update
     void Start()
     {
+        levelDisplays = new List<LevelDisplay>();
         StarNumber();
         InitializeSelectionPanel();
     }
@@ -46,6 +48,7 @@ public class LevelManager : MonoBehaviour
         {
             LevelDisplay newleveldisplay = Instantiate(levelButton, levelSelectionPanelTransform);
             newleveldisplay.level = levels[i];
+            levelDisplays.Add(newleveldisplay);
         }
         levelSelectionPanelTransform.sizeDelta = new Vector2((levels.Count-1)*(levelButton.GetComponent<RectTransform>().sizeDelta.x+levelSelectionPanelTransform.GetComponent<HorizontalLayoutGroup>().spacing), levelSelectionPanelTransform.sizeDelta.y);
         levelSelectionPanelTransform.GetComponent<ScrollRect>().normalizedPosition = Vector2.zero;

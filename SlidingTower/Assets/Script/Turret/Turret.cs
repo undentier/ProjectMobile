@@ -14,7 +14,7 @@ public class Turret : MonoBehaviour
     public int numOfCanon = 1;
 
 
-    [Header ("Valuer of eache upgrade")]
+    [Header ("Value of stat upgrade")]
     public int[] fireRateBonus;
     public int[] damageBonus;
     public int[] rangeBonus;
@@ -22,11 +22,19 @@ public class Turret : MonoBehaviour
     private float actualFireRate;
     private float actualDamage;
     private float actualRange;
-    [Space]
+
+    [Header ("Value of negatif effect")]
     public float[] slowForceBonus;
     public float[] slowDurationBonus;
     private float actualSlowForce;
     private float actualSlowDuration;
+    [Space]
+    public float[] poisonDamageBonus;
+    public float[] poisonDurationBonus;
+    public float[] poisonTickBonus;
+    private float actualpoisonDamage;
+    private float actualPoisonDuration;
+    private float actualPoisonTick;
 
     [Header ("Unity setup")]
     public Transform partToRotate;
@@ -118,6 +126,7 @@ public class Turret : MonoBehaviour
             bulletScript.GetTarget(target.transform);
             bulletScript.GetDamage(actualDamage);
             bulletScript.GetSlowInfo(actualSlowForce, actualSlowDuration);
+            bulletScript.GetPoisonInfo(actualpoisonDamage, actualPoisonDuration, actualPoisonTick);
         }
     }
 
@@ -232,6 +241,7 @@ public class Turret : MonoBehaviour
         }
         #endregion
 
+        #region Negatif effect boost
         switch (slowUpgrade)
         {
             case 0:
@@ -255,6 +265,37 @@ public class Turret : MonoBehaviour
                 actualSlowDuration = slowDurationBonus[3];
                 break;
         }
+
+        switch (poisonUpgrade)
+        {
+            case 0:
+                actualpoisonDamage = 0f;
+                actualPoisonDuration = 0f;
+                actualPoisonTick = 0f;
+                break;
+            case 1:
+                actualpoisonDamage = poisonDamageBonus[0];
+                actualPoisonDuration = poisonDurationBonus[0];
+                actualPoisonTick = poisonTickBonus[0];
+                break;
+            case 2:
+                actualpoisonDamage = poisonDamageBonus[1];
+                actualPoisonDuration = poisonDurationBonus[1];
+                actualPoisonTick = poisonTickBonus[1];
+                break;
+            case 3:
+                actualpoisonDamage = poisonDamageBonus[2];
+                actualPoisonDuration = poisonDurationBonus[2];
+                actualPoisonTick = poisonTickBonus[2];
+                break;
+            case 4:
+                actualpoisonDamage = poisonDamageBonus[3];
+                actualPoisonDuration = poisonDurationBonus[3];
+                actualPoisonTick = poisonTickBonus[3];
+                break;
+        }
+        #endregion
+
     }
 
     private void OnDrawGizmos()

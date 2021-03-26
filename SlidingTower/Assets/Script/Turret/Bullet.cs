@@ -7,12 +7,14 @@ public class Bullet : MonoBehaviour
     public float speed;
     public float explosionRadius;
 
-    [HideInInspector]
-    public float damage;
-    public float slowForce;
-    public float slowDuration;
-    [HideInInspector]
-    public int poisonDamage;
+    private float damage;
+
+    private float slowForce;
+    private float slowDuration;
+
+    private float poisonDamage;
+    private float poisonDuration;
+    private float poisonTick;
 
     [Header ("Effect")]
     public GameObject impactEffect;
@@ -35,9 +37,11 @@ public class Bullet : MonoBehaviour
         damage = _damage;
     }
 
-    public void GetNegatifEffect(int _poisionDamage)
+    public void GetPoisonInfo(float _poisonDamage, float _poisonDuration, float _poisonTick)
     {
-        poisonDamage = _poisionDamage;
+        poisonDamage = _poisonDamage;
+        poisonDuration = _poisonDuration;
+        poisonTick = _poisonTick;
     }
     public void GetSlowInfo(float _slowForce, float _slowDuration)
     {
@@ -97,7 +101,7 @@ public class Bullet : MonoBehaviour
         }
         if (poisonDamage > 0)
         {
-            e.Poison(poisonDamage);
+            e.Poison(poisonDamage, poisonDuration, poisonTick);
         }
     } // Apply damage and negatif effect on target
 

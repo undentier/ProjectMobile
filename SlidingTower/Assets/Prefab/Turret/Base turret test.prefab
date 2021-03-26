@@ -854,7 +854,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startFireRate: 3
-  startDamage: 1
+  startDamage: 10
   startRange: 10
   rotationSpeed: 7
   numMaxTargets: 5
@@ -872,6 +872,21 @@ MonoBehaviour:
   - 3
   - 4
   - 6
+  poisonDamageBonus:
+  - 3
+  - 6
+  - 9
+  - 12
+  poisonDurationBonus:
+  - 2
+  - 4
+  - 6
+  - 8
+  poisonTickBonus:
+  - 5
+  - 10
+  - 15
+  - 20
   partToRotate: {fileID: 4157377765548304516}
   basicBullet: {fileID: 1664552637349654473, guid: 56f0414ef2f2f6f41a681196bd36719e,
     type: 3}

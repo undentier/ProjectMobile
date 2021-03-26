@@ -15,6 +15,11 @@ public class DataSave : MonoBehaviour
     {
         instance = this;
     }
+
+    private void Start()
+    {
+
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -24,19 +29,31 @@ public class DataSave : MonoBehaviour
             {
                 levelSO.Add(level);
             }
-              SaveLevel(levelSO);
+
+            SaveLevel(levelSO);
+        }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            LoadSave();
+            Debug.Log("A");
         }
     }
 
-    public static void SaveLevel(LevelsSO level)
+    public static void SaveLevel(List<LevelsSO> listSO)
     {
+
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/save.bin";
         FileStream stream = new FileStream(path, FileMode.Create);
-        LevelSave save = new LevelSave(level);
+        foreach (LevelsSO level in listSO)
 
-        formatter.Serialize(stream, save);
+        {
+            LevelSave save = new LevelSave(level);
+            formatter.Serialize(stream, save);
+        }
+
         stream.Close();
+        Debug.Log(path);
     }
 
     public static LevelSave LoadSave()

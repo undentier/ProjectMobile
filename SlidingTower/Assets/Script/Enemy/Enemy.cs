@@ -7,8 +7,8 @@ public class Enemy : MonoBehaviour
 {
     #region Variable
     [Header ("Stats")]
-    public float movSpeed;
-    private float startMovSpeed;
+    private float actualMovSpeed;
+    public float startMovSpeed;
     public float startHealth;
     [HideInInspector]
     public float actualHealth;
@@ -33,6 +33,7 @@ public class Enemy : MonoBehaviour
 
     private bool isPoison;
     public float distFromNexus;
+    private IEnumerator slowCoroutine;
     #endregion
 
     private void Start()
@@ -40,7 +41,6 @@ public class Enemy : MonoBehaviour
         rend = GetComponent<MeshRenderer>();
         startMaterial = rend.material;
         actualHealth = startHealth;
-        startMovSpeed = movSpeed;
         agent.SetDestination(WayPoints.endPoint.position);
         agent.speed = startMovSpeed;
     }
@@ -48,6 +48,8 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
         distFromNexus = WaveSpawner.instance.GetPathRemainingDistance(agent);
+
+        
 
         if (distFromNexus <= 0.5f)
         {
@@ -69,16 +71,22 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void Slow(int slowValue)
+    public void StartSlow(float _slowForce, float _slowDuration)
     {
-        StartCoroutine(ApplySLow(slowValue));
+        if (slowCoroutine != null)
+        {
+            StopCoroutine(slowCoroutine);
+        }
+        slowCoroutine = ApplySLow(_slowForce, _slowDuration);
+        StartCoroutine(slowCoroutine);
     }
-    IEnumerator ApplySLow(int slowForce)
+
+    IEnumerator ApplySLow(float _slowForce, float _slowDuration)
     {
         rend.material = slowMaterial;
-        agent.speed = movSpeed - slowForce;
-        yield return new WaitForSeconds(slowTime);
-        movSpeed = startMovSpeed;
+        agent.speed = actualMovSpeed - _slowForce;
+        yield return new WaitForSeconds(_slowDuration);
+        actualMovSpeed = startMovSpeed;
         rend.material = startMaterial;
     }
 

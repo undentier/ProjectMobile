@@ -9,8 +9,8 @@ public class Bullet : MonoBehaviour
 
     [HideInInspector]
     public float damage;
-    [HideInInspector]
-    public int slowValue;
+    public float slowForce;
+    public float slowDuration;
     [HideInInspector]
     public int poisonDamage;
 
@@ -35,10 +35,14 @@ public class Bullet : MonoBehaviour
         damage = _damage;
     }
 
-    public void GetNegatifEffect(int _slowValue, int _poisionDamage)
+    public void GetNegatifEffect(int _poisionDamage)
     {
-        slowValue = _slowValue;
         poisonDamage = _poisionDamage;
+    }
+    public void GetSlowInfo(float _slowForce, float _slowDuration)
+    {
+        slowForce = _slowForce;
+        slowDuration = _slowDuration;
     }
 
    
@@ -87,9 +91,9 @@ public class Bullet : MonoBehaviour
         Enemy e = enemy.GetComponent<Enemy>();
         e.TakeDamage(damage);
 
-        if (slowValue > 0)
+        if (slowForce > 0)
         {
-            e.Slow(slowValue);
+            e.StartSlow(slowForce, slowDuration);
         }
         if (poisonDamage > 0)
         {

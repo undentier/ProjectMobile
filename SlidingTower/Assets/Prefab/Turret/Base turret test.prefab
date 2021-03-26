@@ -854,17 +854,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startFireRate: 3
-  startDamage: 10
+  startDamage: 1
   startRange: 10
   rotationSpeed: 7
   numMaxTargets: 5
   numOfCanon: 1
-  actualFireRate: 0
-  actualDamage: 0
-  actualRange: 0
   fireRateBonus: 06000000090000000c0000000f000000
   damageBonus: 140000001e000000280000003c000000
   rangeBonus: 0e000000150000001c00000028000000
+  slowForceBonus:
+  - 3
+  - 5
+  - 7
+  - 9
+  slowDurationBonus:
+  - 2
+  - 3
+  - 4
+  - 6
   partToRotate: {fileID: 4157377765548304516}
   basicBullet: {fileID: 1664552637349654473, guid: 56f0414ef2f2f6f41a681196bd36719e,
     type: 3}

@@ -13,15 +13,20 @@ public class Turret : MonoBehaviour
     public int numMaxTargets = 5;
     public int numOfCanon = 1;
 
-    private float actualFireRate;
-    private float actualDamage;
-    private float actualRange;
 
     [Header ("Valuer of eache upgrade")]
     public int[] fireRateBonus;
     public int[] damageBonus;
     public int[] rangeBonus;
 
+    private float actualFireRate;
+    private float actualDamage;
+    private float actualRange;
+    [Space]
+    public float[] slowForceBonus;
+    public float[] slowDurationBonus;
+    private float actualSlowForce;
+    private float actualSlowDuration;
 
     [Header ("Unity setup")]
     public Transform partToRotate;
@@ -112,6 +117,7 @@ public class Turret : MonoBehaviour
         {
             bulletScript.GetTarget(target.transform);
             bulletScript.GetDamage(actualDamage);
+            bulletScript.GetSlowInfo(actualSlowForce, actualSlowDuration);
         }
     }
 
@@ -167,6 +173,7 @@ public class Turret : MonoBehaviour
 
     void ApplyUpgrade()
     {
+        #region Stats boost
         switch (fireRateUpgrade)
         {
             case 0:
@@ -221,6 +228,31 @@ public class Turret : MonoBehaviour
                 break;
             case 4:
                 actualRange = rangeBonus[3];
+                break;
+        }
+        #endregion
+
+        switch (slowUpgrade)
+        {
+            case 0:
+                actualSlowForce = 0;
+                actualSlowDuration = 0;
+                break;
+            case 1:
+                actualSlowForce = slowForceBonus[0];
+                actualSlowDuration = slowDurationBonus[0];
+                break;
+            case 2:
+                actualSlowForce = slowForceBonus[1];
+                actualSlowDuration = slowDurationBonus[1];
+                break;
+            case 3:
+                actualSlowForce = slowForceBonus[2];
+                actualSlowDuration = slowDurationBonus[2];
+                break;
+            case 4:
+                actualSlowForce = slowForceBonus[3];
+                actualSlowDuration = slowDurationBonus[3];
                 break;
         }
     }

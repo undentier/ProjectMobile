@@ -12,6 +12,9 @@ public class NodeSysteme : MonoBehaviour
     public GameObject fireRateEffect;
     public GameObject damageEffect;
     public GameObject rangeEffect;
+    [Space]
+    public GameObject slowEffect;
+    public GameObject poisonEffect;
 
     [HideInInspector]
     public int laserUpgrade;
@@ -148,6 +151,7 @@ public class NodeSysteme : MonoBehaviour
 
     void SetEffect()
     {
+        #region Stats effect
         if (fireRateUpgrade > 0)
         {
             fireRateEffect.SetActive(true);
@@ -174,6 +178,27 @@ public class NodeSysteme : MonoBehaviour
         {
             rangeEffect.SetActive(false);
         }
+        #endregion
+
+        #region Negatif effect
+        if (slowUpgrade > 0)
+        {
+            slowEffect.SetActive(true);
+        }
+        else
+        {
+            slowEffect.SetActive(false);
+        }
+
+        if (poisonUpgrade > 0)
+        {
+            poisonEffect.SetActive(true);
+        }
+        else
+        {
+            poisonEffect.SetActive(false);
+        }
+        #endregion
     }
 
     #region Upgrade control

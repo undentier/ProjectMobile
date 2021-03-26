@@ -41,6 +41,7 @@ public class Enemy : MonoBehaviour
         actualHealth = startHealth;
         agent.SetDestination(WayPoints.endPoint.position);
         agent.speed = startMovSpeed;
+        actualMovSpeed = startMovSpeed;
     }
 
     private void Update()

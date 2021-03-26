@@ -6,12 +6,22 @@ public class Turret : MonoBehaviour
 {
     #region Variable
     [Header ("Basic stats")]
-    public float range;
-    public float fireRate;
-    public float damage;
+    public float startFireRate = 3;
+    public float startDamage;
+    public float startRange;
     public float rotationSpeed;
     public int numMaxTargets = 5;
     public int numOfCanon = 1;
+
+    private float actualFireRate;
+    private float actualDamage;
+    private float actualRange;
+
+    [Header ("Valuer of eache upgrade")]
+    public int[] fireRateBonus;
+    public int[] damageBonus;
+    public int[] rangeBonus;
+
 
     [Header ("Unity setup")]
     public Transform partToRotate;
@@ -24,16 +34,25 @@ public class Turret : MonoBehaviour
     private List<Enemy> copyList = new List<Enemy>();
     private float fireCoolDown;
 
-    [Header("Upgrade")]
+    #region Upgrade variable
+    [HideInInspector]
     public int laserUpgrade;
+    [HideInInspector]
     public int explosionUpgrade;
-    [Space]
+
+    [HideInInspector]
     public int slowUpgrade;
+    [HideInInspector]
     public int poisonUpgrade;
-    [Space]
+
+    [HideInInspector]
     public int fireRateUpgrade;
+    [HideInInspector]
     public int damageUpgrade;
+    [HideInInspector]
     public int rangeUpgrade;
+    #endregion
+
     #endregion
 
     void Start()
@@ -60,7 +79,7 @@ public class Turret : MonoBehaviour
                 {
                     if (copyList[i] != null)
                     {
-                        if (Vector3.Distance(transform.position, copyList[i].transform.position) < range)
+                        if (Vector3.Distance(transform.position, copyList[i].transform.position) < actualRange)
                         {
                             targets[i] = copyList[i];
                             copyList.Remove(copyList[i]);
@@ -70,7 +89,7 @@ public class Turret : MonoBehaviour
             }
             if (targets[i] != null)
             {
-                if (Vector3.Distance(transform.position ,targets[i].transform.position) > range)
+                if (Vector3.Distance(transform.position ,targets[i].transform.position) > actualRange)
                 {
                     targets[i] = null;
                 }
@@ -92,7 +111,7 @@ public class Turret : MonoBehaviour
         if (bulletScript != null)
         {
             bulletScript.GetTarget(target.transform);
-            bulletScript.GetDamage(damage);
+            bulletScript.GetDamage(actualDamage);
         }
     }
 
@@ -111,15 +130,14 @@ public class Turret : MonoBehaviour
                         Fire(targets[i]);
                     }
                 }
-                fireCoolDown = 1f / fireRate;
+                fireCoolDown = 1f / actualFireRate;
             }
             fireCoolDown -= Time.deltaTime;
         }
     }
- 
+
     public void GetNodeUpgrade(NodeSysteme node)
     {
-        Debug.Log("Upgrade");
         laserUpgrade = node.laserUpgrade;
         explosionUpgrade = node.explosionUpgrade;
 
@@ -129,6 +147,8 @@ public class Turret : MonoBehaviour
         fireRateUpgrade = node.fireRateUpgrade;
         damageUpgrade = node.damageUpgrade;
         rangeUpgrade = node.rangeUpgrade;
+
+        ApplyUpgrade();
     }
     public void ResetUpgrade()
     {
@@ -141,11 +161,73 @@ public class Turret : MonoBehaviour
         fireRateUpgrade = 0;
         damageUpgrade = 0;
         rangeUpgrade = 0;
+
+        ApplyUpgrade();
+    }
+
+    void ApplyUpgrade()
+    {
+        switch (fireRateUpgrade)
+        {
+            case 0:
+                actualFireRate = startFireRate;
+                break;
+            case 1:
+                actualFireRate = fireRateBonus[0];
+                break;
+            case 2:
+                actualFireRate = fireRateBonus[1];
+                break;
+            case 3:
+                actualFireRate = fireRateBonus[2];
+                break;
+            case 4:
+                actualFireRate = fireRateBonus[3];
+                break;
+        }
+
+        switch (damageUpgrade)
+        {
+            case 0:
+                actualDamage = startDamage;
+                break;
+            case 1:
+                actualDamage = damageBonus[0];
+                break;
+            case 2:
+                actualDamage = damageBonus[1];
+                break;
+            case 3:
+                actualDamage = damageBonus[2];
+                break;
+            case 4:
+                actualDamage = damageBonus[3];
+                break;
+        }
+
+        switch (rangeUpgrade)
+        {
+            case 0:
+                actualRange = startRange;
+                break;
+            case 1:
+                actualRange = rangeBonus[0];
+                break;
+            case 2:
+                actualRange = rangeBonus[1];
+                break;
+            case 3:
+                actualRange = rangeBonus[2];
+                break;
+            case 4:
+                actualRange = rangeBonus[3];
+                break;
+        }
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, range);
+        Gizmos.DrawWireSphere(transform.position, actualRange);
     }
 }

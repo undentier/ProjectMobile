@@ -853,17 +853,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2af98c4e2e2553c4c990d618c8c97718, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 10
-  fireRate: 3
-  damage: 25
+  startFireRate: 3
+  startDamage: 10
+  startRange: 10
   rotationSpeed: 7
   numMaxTargets: 5
-  numOfCanon: 3
+  numOfCanon: 1
+  actualFireRate: 0
+  actualDamage: 0
+  actualRange: 0
+  fireRateBonus: 06000000090000000c0000000f000000
+  damageBonus: 140000001e000000280000003c000000
+  rangeBonus: 0e000000150000001c00000028000000
   partToRotate: {fileID: 4157377765548304516}
   basicBullet: {fileID: 1664552637349654473, guid: 56f0414ef2f2f6f41a681196bd36719e,
     type: 3}
   shootPoint: {fileID: 1251009086603178179}
   targets: []
+  laserUpgrade: 0
+  explosionUpgrade: 0
+  slowUpgrade: 0
+  poisonUpgrade: 0
+  fireRateUpgrade: 0
+  damageUpgrade: 0
+  rangeUpgrade: 0
 --- !u!1 &7146513205639681617
 GameObject:
   m_ObjectHideFlags: 0

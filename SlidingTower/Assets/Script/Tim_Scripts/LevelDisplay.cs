@@ -14,6 +14,7 @@ public class LevelDisplay : MonoBehaviour
     public Image scoreImage;
 
     public Text levelNumberText;
+    public int levelNumber;
 
     public int score;
 
@@ -56,7 +57,8 @@ public class LevelDisplay : MonoBehaviour
         thumbnailImage.sprite = level.blocks;
         scoreImage.sprite = level.scoreSpriteZero;
 
-        levelNumberText.text = level.levelNumber.ToString();
+        levelNumber = level.levelNumber;
+        levelNumberText.text = levelNumber.ToString();
         Debug.Log(level.name);
         SpriteDisplay();
         score = level.score;

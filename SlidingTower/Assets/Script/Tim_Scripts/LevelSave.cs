@@ -5,4 +5,10 @@ public class LevelSave
     public string name;
     public string description;
     public int score;
+
+    public LevelSave (LevelsSO level)
+    {
+        levelNumber = level.levelNumber;
+        score = level.score;
+    }
 }

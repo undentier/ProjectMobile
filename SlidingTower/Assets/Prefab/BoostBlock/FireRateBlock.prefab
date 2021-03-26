@@ -13,8 +13,6 @@ GameObject:
   - component: {fileID: 1437501445353532662}
   - component: {fileID: 6821829474605490934}
   - component: {fileID: 6892888704610447532}
-  - component: {fileID: 1610897344}
-  - component: {fileID: -2641857966699509888}
   m_Layer: 9
   m_Name: FireRateBlock
   m_TagString: Untagged
@@ -123,35 +121,6 @@ MonoBehaviour:
   fireRateBoost: 1
   damageBoost: 0
   rangeBoost: 0
---- !u!65 &1610897344
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1437501445353532660}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 15.7, y: 0.18694258, z: 15.7}
-  m_Center: {x: 0, y: -0.4065287, z: -0.017733574}
---- !u!54 &-2641857966699509888
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1437501445353532660}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1001 &2070339056769418799
 PrefabInstance:
   m_ObjectHideFlags: 0

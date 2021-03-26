@@ -45,11 +45,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 30
-  damage: 75
-  explosionRadius: 10
   impactEffect: {fileID: 4829044461585173677, guid: 18d43689326a1d74786e177b4c51bfb3,
     type: 3}
-  enemyLayerName: Enemy
+  enemyLayerMask:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!1 &9053160937404364133
 GameObject:
   m_ObjectHideFlags: 0

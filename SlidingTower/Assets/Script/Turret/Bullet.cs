@@ -5,7 +5,6 @@ public class Bullet : MonoBehaviour
     #region Variable
     [Header ("Stats")]
     public float speed;
-    public float explosionRadius;
 
     private float damage;
 
@@ -15,6 +14,8 @@ public class Bullet : MonoBehaviour
     private float poisonDamage;
     private float poisonDuration;
     private float poisonTick;
+
+    private float explosionRadius;
 
     [Header ("Effect")]
     public GameObject impactEffect;
@@ -49,7 +50,11 @@ public class Bullet : MonoBehaviour
         slowDuration = _slowDuration;
     }
 
-   
+    public void GetExplosiveInfo(float _explosionRadius)
+    {
+        explosionRadius = _explosionRadius;
+    }
+
     void FixedUpdate()
     {
         if (target == null)

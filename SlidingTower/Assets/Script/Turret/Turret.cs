@@ -36,9 +36,14 @@ public class Turret : MonoBehaviour
     private float actualPoisonDuration;
     private float actualPoisonTick;
 
+    [Header("Value of shooting type")]
+    public float[] explosionRadiusBonus;
+    private float actualExplosionRadius;
+
     [Header ("Unity setup")]
     public Transform partToRotate;
     public GameObject basicBullet;
+    public GameObject explosiveBullet;
     public Transform shootPoint;
 
     [HideInInspector]
@@ -109,26 +114,6 @@ public class Turret : MonoBehaviour
             }
         }
     }
-    void AimTarget()
-    {
-        Vector3 dir = targets[0].transform.position - transform.position;
-        Quaternion lookRotation = Quaternion.LookRotation(dir);
-        Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * rotationSpeed).eulerAngles;
-        partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
-    }
-    void Fire(Enemy target)
-    {
-        GameObject actualBullet = Instantiate(bulletToShoot, shootPoint.position, shootPoint.rotation);
-        Bullet bulletScript = actualBullet.GetComponent<Bullet>();
-
-        if (bulletScript != null)
-        {
-            bulletScript.GetTarget(target.transform);
-            bulletScript.GetDamage(actualDamage);
-            bulletScript.GetSlowInfo(actualSlowForce, actualSlowDuration);
-            bulletScript.GetPoisonInfo(actualpoisonDamage, actualPoisonDuration, actualPoisonTick);
-        }
-    }
 
     void MultiShoot()
     {
@@ -148,6 +133,27 @@ public class Turret : MonoBehaviour
                 fireCoolDown = 1f / actualFireRate;
             }
             fireCoolDown -= Time.deltaTime;
+        }
+    }
+    void AimTarget()
+    {
+        Vector3 dir = targets[0].transform.position - transform.position;
+        Quaternion lookRotation = Quaternion.LookRotation(dir);
+        Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * rotationSpeed).eulerAngles;
+        partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+    }
+    void Fire(Enemy target)
+    {
+        GameObject actualBullet = Instantiate(bulletToShoot, shootPoint.position, shootPoint.rotation);
+        Bullet bulletScript = actualBullet.GetComponent<Bullet>();
+
+        if (bulletScript != null)
+        {
+            bulletScript.GetTarget(target.transform);
+            bulletScript.GetDamage(actualDamage);
+            bulletScript.GetSlowInfo(actualSlowForce, actualSlowDuration);
+            bulletScript.GetPoisonInfo(actualpoisonDamage, actualPoisonDuration, actualPoisonTick);
+            bulletScript.GetExplosiveInfo(actualExplosionRadius);
         }
     }
 
@@ -295,6 +301,30 @@ public class Turret : MonoBehaviour
                 break;
         }
         #endregion
+
+        switch (explosionUpgrade)
+        {
+            case 0:
+                bulletToShoot = basicBullet;
+                actualExplosionRadius = 0f;
+                break;
+            case 1:
+                bulletToShoot = explosiveBullet;
+                actualExplosionRadius = explosionRadiusBonus[0];
+                break;
+            case 2:
+                bulletToShoot = explosiveBullet;
+                actualExplosionRadius = explosionRadiusBonus[1];
+                break;
+            case 3:
+                bulletToShoot = explosiveBullet;
+                actualExplosionRadius = explosionRadiusBonus[2];
+                break;
+            case 4:
+                bulletToShoot = explosiveBullet;
+                actualExplosionRadius = explosionRadiusBonus[3];
+                break;
+        }
 
     }
 

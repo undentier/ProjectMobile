@@ -887,8 +887,15 @@ MonoBehaviour:
   - 10
   - 15
   - 20
+  explosionRadiusBonus:
+  - 3
+  - 6
+  - 9
+  - 12
   partToRotate: {fileID: 4157377765548304516}
   basicBullet: {fileID: 1664552637349654473, guid: 56f0414ef2f2f6f41a681196bd36719e,
+    type: 3}
+  explosiveBullet: {fileID: 5313701829970321685, guid: de307c2911076144188c8ecbc36b7cac,
     type: 3}
   shootPoint: {fileID: 1251009086603178179}
   targets: []

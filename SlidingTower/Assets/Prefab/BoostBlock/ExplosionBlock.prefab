@@ -13,8 +13,6 @@ GameObject:
   - component: {fileID: 7859341925428138486}
   - component: {fileID: 2328075025060765686}
   - component: {fileID: 2398887962244369836}
-  - component: {fileID: 9143145232871107264}
-  - component: {fileID: 2717014216577251968}
   m_Layer: 9
   m_Name: ExplosionBlock
   m_TagString: Untagged
@@ -115,46 +113,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8794c70a13e41d648831f25d6c1c6744, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wichShoot: 3
-  lazer: 0
-  doubleShoot: 0
-  explosion: 0
-  wichBullet: 0
-  slowValue: 0
-  poisonValue: 0
-  wichBoost: 0
   fireRateBoost: 0
   damageBoost: 0
   rangeBoost: 0
---- !u!65 &9143145232871107264
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7859341925428138484}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 15.7, y: 0.18694258, z: 15.7}
-  m_Center: {x: 0, y: -0.4065287, z: -0.017733892}
---- !u!54 &2717014216577251968
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7859341925428138484}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  slowValue: 0
+  poisonValue: 0
+  lazer: 0
+  explosion: 1
 --- !u!1001 &7584977315580100859
 PrefabInstance:
   m_ObjectHideFlags: 0

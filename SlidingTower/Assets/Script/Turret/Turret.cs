@@ -11,8 +11,6 @@ public class Turret : MonoBehaviour
     public float startRange;
     public float rotationSpeed;
     public int numMaxTargets = 5;
-    public int numOfCanon = 1;
-
 
     [Header ("Value of stat upgrade")]
     public int[] fireRateBonus;
@@ -26,31 +24,48 @@ public class Turret : MonoBehaviour
     [Header ("Value of negatif effect")]
     public float[] slowForceBonus;
     public float[] slowDurationBonus;
+
     private float actualSlowForce;
     private float actualSlowDuration;
     [Space]
     public float[] poisonDamageBonus;
     public float[] poisonDurationBonus;
     public float[] poisonTickBonus;
+
     private float actualpoisonDamage;
     private float actualPoisonDuration;
     private float actualPoisonTick;
 
     [Header("Value of shooting type")]
     public float[] explosionRadiusBonus;
+    public int[] numOfCanonBonus;
+
     private float actualExplosionRadius;
+    private int actualNumOfCanon;
+    [Space]
+    public float[] laserDamageReductionBonus;
+    public float[] laserFirerateMultiplierBonus;
+    public float[] microLaserDamageReductionBonus;
+
+    private float actualLaserDamageReduction;
+    private float actualLaserFireRateMultiplier;
+    private float actualMicroLaserDamageReduction;
+    
 
     [Header ("Unity setup")]
     public Transform partToRotate;
     public GameObject basicBullet;
     public GameObject explosiveBullet;
     public Transform shootPoint;
+    public LineRenderer[] laserLines;
 
     [HideInInspector]
     public Enemy[] targets;
     private GameObject bulletToShoot;
     private List<Enemy> copyList = new List<Enemy>();
     private float fireCoolDown;
+    private float[] laserMultiplier;
+    private float[] laserCoolDown;
 
     #region Upgrade variable
     [HideInInspector]
@@ -77,12 +92,27 @@ public class Turret : MonoBehaviour
     {
         bulletToShoot = basicBullet;
         targets = new Enemy[numMaxTargets];
+        laserMultiplier = new float[numMaxTargets];
+        laserCoolDown = new float[numMaxTargets];
+
+        for (int i = 0; i < laserLines.Length; i++)
+        {
+            laserLines[i].enabled = false;
+        }
     }
 
     void FixedUpdate()
     {
         FindTargets();
-        MultiShoot();
+
+        if (laserUpgrade > 0)
+        {
+            Laser();
+        }
+        else
+        {
+            MultiShoot();
+        }
     }
 
     void FindTargets()
@@ -123,24 +153,60 @@ public class Turret : MonoBehaviour
 
             if (fireCoolDown <= 0f)
             {
-                for (int i = 0; i < numOfCanon; i++)
-                {
-                    if (targets[i] != null)
-                    {
-                        Fire(targets[i]);
-                    }
-                }
+                Fire(targets[0]);
                 fireCoolDown = 1f / actualFireRate;
             }
             fireCoolDown -= Time.deltaTime;
         }
     }
+    void Laser()
+    {
+        AimTarget();
+
+        for (int i = 0; i < actualNumOfCanon; i++)
+        {
+            if (targets[i] != null)
+            {
+                laserLines[i].enabled = true;
+                laserLines[i].SetPosition(0, shootPoint.position);
+                laserLines[i].SetPosition(1, targets[i].transform.position);
+
+                laserMultiplier[i] += Time.deltaTime * actualLaserFireRateMultiplier;
+
+                if (laserCoolDown[i] <= 0f)
+                {
+                    if (slowUpgrade > 0)
+                    {
+                        targets[i].StartSlow(actualSlowForce, actualSlowDuration);
+                    }
+                    if (poisonUpgrade > 0)
+                    {
+                        targets[i].Poison(actualpoisonDamage, actualPoisonDuration, actualPoisonTick);
+                    }
+                            
+                    targets[i].TakeDamage(actualDamage / actualLaserDamageReduction);
+                    laserCoolDown[i] = 1 / (actualFireRate * laserMultiplier[i]);
+                }
+                laserCoolDown[i] -= Time.deltaTime;
+            }
+            else
+            {
+                laserLines[i].enabled = false;
+                laserMultiplier[i] = 1f;
+                laserCoolDown[i] = 0f;
+            }
+        }
+    }
+
     void AimTarget()
     {
-        Vector3 dir = targets[0].transform.position - transform.position;
-        Quaternion lookRotation = Quaternion.LookRotation(dir);
-        Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * rotationSpeed).eulerAngles;
-        partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+        if (targets[0] != null)
+        {
+            Vector3 dir = targets[0].transform.position - transform.position;
+            Quaternion lookRotation = Quaternion.LookRotation(dir);
+            Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * rotationSpeed).eulerAngles;
+            partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+        }
     }
     void Fire(Enemy target)
     {
@@ -302,30 +368,65 @@ public class Turret : MonoBehaviour
         }
         #endregion
 
+        #region Shoot type boost
         switch (explosionUpgrade)
         {
             case 0:
                 bulletToShoot = basicBullet;
                 actualExplosionRadius = 0f;
+                actualNumOfCanon = 1;
                 break;
             case 1:
                 bulletToShoot = explosiveBullet;
                 actualExplosionRadius = explosionRadiusBonus[0];
+                actualNumOfCanon = numOfCanonBonus[0];
                 break;
             case 2:
                 bulletToShoot = explosiveBullet;
                 actualExplosionRadius = explosionRadiusBonus[1];
+                actualNumOfCanon = numOfCanonBonus[1];
                 break;
             case 3:
                 bulletToShoot = explosiveBullet;
                 actualExplosionRadius = explosionRadiusBonus[2];
+                actualNumOfCanon = numOfCanonBonus[2];
                 break;
             case 4:
                 bulletToShoot = explosiveBullet;
                 actualExplosionRadius = explosionRadiusBonus[3];
+                actualNumOfCanon = numOfCanonBonus[3];
                 break;
         }
 
+        switch (laserUpgrade)
+        {
+            case 0:
+                actualLaserDamageReduction = 0;
+                actualLaserFireRateMultiplier = 0;
+                actualMicroLaserDamageReduction = 0;
+                break;
+            case 1:
+                actualLaserDamageReduction = laserDamageReductionBonus[0];
+                actualLaserFireRateMultiplier = laserFirerateMultiplierBonus[0];
+                actualMicroLaserDamageReduction = microLaserDamageReductionBonus[0];
+                break;
+            case 2:
+                actualLaserDamageReduction = laserDamageReductionBonus[1];
+                actualLaserFireRateMultiplier = laserFirerateMultiplierBonus[1];
+                actualMicroLaserDamageReduction = microLaserDamageReductionBonus[1];
+                break;
+            case 3:
+                actualLaserDamageReduction = laserDamageReductionBonus[2];
+                actualLaserFireRateMultiplier = laserFirerateMultiplierBonus[2];
+                actualMicroLaserDamageReduction = microLaserDamageReductionBonus[2];
+                break;
+            case 4:
+                actualLaserDamageReduction = laserDamageReductionBonus[3];
+                actualLaserFireRateMultiplier = laserFirerateMultiplierBonus[3];
+                actualMicroLaserDamageReduction = microLaserDamageReductionBonus[3];
+                break;
+        }
+        #endregion
     }
 
     private void OnDrawGizmos()

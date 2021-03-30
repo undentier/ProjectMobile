@@ -13,9 +13,9 @@ public class Turret : MonoBehaviour
     public int numMaxTargets = 5;
 
     [Header ("Value of stat upgrade")]
-    public int[] fireRateBonus;
+    public float[] fireRateBonus;
     public int[] damageBonus;
-    public int[] rangeBonus;
+    public float[] rangeBonus;
 
     private float actualFireRate;
     private float actualDamage;

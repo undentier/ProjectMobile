@@ -1014,14 +1014,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2af98c4e2e2553c4c990d618c8c97718, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startFireRate: 3
-  startDamage: 10
+  startFireRate: 2
+  startDamage: 35
   startRange: 10
   rotationSpeed: 7
   numMaxTargets: 7
-  fireRateBonus: 06000000090000000c0000000f000000
-  damageBonus: 140000001e000000280000003c000000
-  rangeBonus: 0e000000150000001c00000028000000
+  fireRateBonus:
+  - 2.5
+  - 3.2
+  - 4.2
+  - 5.3
+  damageBonus: 320000003c0000005a00000082000000
+  rangeBonus: []
   slowForceBonus:
   - 3
   - 5
@@ -1033,20 +1037,20 @@ MonoBehaviour:
   - 4
   - 6
   poisonDamageBonus:
-  - 3
-  - 6
-  - 9
-  - 12
-  poisonDurationBonus:
-  - 2
-  - 4
-  - 6
-  - 8
-  poisonTickBonus:
   - 5
   - 10
+  - 10
   - 15
-  - 20
+  poisonDurationBonus:
+  - 2
+  - 2
+  - 3
+  - 4
+  poisonTickBonus:
+  - 3
+  - 3
+  - 4
+  - 5
   explosionRadiusBonus:
   - 3
   - 6

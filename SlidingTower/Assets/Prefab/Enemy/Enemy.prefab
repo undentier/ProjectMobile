@@ -5113,7 +5113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startMovSpeed: 10
-  startHealth: 100
+  startHealth: 120
   actualHealth: 0
   damageToNexus: 1
   agent: {fileID: -22901727225648796}

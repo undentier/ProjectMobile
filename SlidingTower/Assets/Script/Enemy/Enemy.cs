@@ -7,16 +7,13 @@ public class Enemy : MonoBehaviour
 {
     #region Variable
     [Header ("Stats")]
-    public float movSpeed;
-    private float startMovSpeed;
+    private float actualMovSpeed;
+    public float startMovSpeed;
     public float startHealth;
     [HideInInspector]
     public float actualHealth;
     public int damageToNexus;
-
-    public float slowTime;
-    public int poisonDuration;
-
+    
     [Header ("Unity Setup")]
     public NavMeshAgent agent;
     public GameObject deathEffect;
@@ -24,15 +21,17 @@ public class Enemy : MonoBehaviour
 
     [Header("Effect")]
     public Material slowMaterial;
-    public Material poisionMaterial;
+    public Material poisonMaterial;
 
     public GameObject poisonParticule;
 
     private Material startMaterial;
     private MeshRenderer rend;
 
-    private bool isPoison;
     public float distFromNexus;
+    private IEnumerator slowCoroutine;
+    private IEnumerator poisonCoroutine;
+    private float actualPoisonDuration;
     #endregion
 
     private void Start()
@@ -40,20 +39,25 @@ public class Enemy : MonoBehaviour
         rend = GetComponent<MeshRenderer>();
         startMaterial = rend.material;
         actualHealth = startHealth;
-        startMovSpeed = movSpeed;
         agent.SetDestination(WayPoints.endPoint.position);
         agent.speed = startMovSpeed;
+        actualMovSpeed = startMovSpeed;
     }
 
     private void Update()
     {
-        distFromNexus = WaveSpawner.GetPathRemainingDistance(agent);
+        distFromNexus = WaveSpawner.instance.GetPathRemainingDistance(agent);
 
         if (distFromNexus <= 0.5f)
         {
             LifeManager.lifeInstance.DamagePlayer(damageToNexus);
             Destroy(gameObject);
             return;
+        }
+
+        if (actualPoisonDuration > 0)
+        {
+            actualPoisonDuration -= Time.deltaTime;
         }
     }
 
@@ -69,42 +73,49 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void Slow(int slowValue)
+    public void StartSlow(float _slowForce, float _slowDuration)
     {
-        StartCoroutine(ApplySLow(slowValue));
+        if (slowCoroutine != null)
+        {
+            StopCoroutine(slowCoroutine);
+        }
+        slowCoroutine = ApplySLow(_slowForce, _slowDuration);
+        StartCoroutine(slowCoroutine);
     }
-    IEnumerator ApplySLow(int slowForce)
+
+    IEnumerator ApplySLow(float slowForce, float slowDuration)
     {
         rend.material = slowMaterial;
-        agent.speed = movSpeed - slowForce;
-        yield return new WaitForSeconds(slowTime);
-        movSpeed = startMovSpeed;
+        agent.speed = actualMovSpeed - slowForce;
+        yield return new WaitForSeconds(slowDuration);
+        actualMovSpeed = startMovSpeed;
         rend.material = startMaterial;
     }
 
 
-    public void Poison(int poisonDamage)
+    public void Poison(float _poisonDamage, float _poisonDuration, float _poisonTick)
     {
-        if (!isPoison)
+        if (poisonCoroutine != null)
         {
-            StartCoroutine(AppalyPoison(poisonDamage));
+            StopCoroutine(poisonCoroutine);
         }
-    }
-    IEnumerator AppalyPoison(int poisonDamage)
-    {
-        isPoison = true;
-        rend.material = poisionMaterial;
-        poisonParticule.SetActive(true);
-        int startPoisionDuration = poisonDuration;
 
-        for (int i = 0; i < startPoisionDuration; i++)
+        poisonCoroutine = ApplyPoison(_poisonDamage, _poisonDuration, _poisonTick);
+        StartCoroutine(poisonCoroutine);
+    }
+
+    IEnumerator ApplyPoison(float poisonDamage, float poisonDuration, float poisonTick)
+    {
+        actualPoisonDuration = poisonDuration;
+        rend.material = poisonMaterial;
+
+        while (actualPoisonDuration > 0)
         {
+            yield return new WaitForSeconds(1/poisonTick);
             TakeDamage(poisonDamage);
-            yield return new WaitForSeconds(0.5f);
         }
+
         rend.material = startMaterial;
-        poisonParticule.SetActive(false);
-        isPoison = false;
     }
     
     void Die()

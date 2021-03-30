@@ -1,356 +1,457 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class Turret : MonoBehaviour
 {
     #region Variable
-    [Header ("Turret Basic Stats")]
-    public float range;
-    public float fireRate;
-    public float damage;
+    [Header ("Basic stats")]
+    public float startFireRate = 3;
+    public float startDamage;
+    public float startRange;
     public float rotationSpeed;
-    public int maxLaser;
+    public int numMaxTargets = 5;
 
-    [Header("Upgrade Stats")]
+    [Header ("Value of stat upgrade")]
+    public int[] fireRateBonus;
+    public int[] damageBonus;
+    public int[] rangeBonus;
 
-    public int lazerUpgrade;
-    public int doubleShootUpgrade;
+    private float actualFireRate;
+    private float actualDamage;
+    private float actualRange;
+
+    [Header ("Value of negatif effect")]
+    public float[] slowForceBonus;
+    public float[] slowDurationBonus;
+
+    private float actualSlowForce;
+    private float actualSlowDuration;
+    [Space]
+    public float[] poisonDamageBonus;
+    public float[] poisonDurationBonus;
+    public float[] poisonTickBonus;
+
+    private float actualpoisonDamage;
+    private float actualPoisonDuration;
+    private float actualPoisonTick;
+
+    [Header("Value of shooting type")]
+    public float[] explosionRadiusBonus;
+    public int[] numOfCanonBonus;
+
+    private float actualExplosionRadius;
+    private int actualNumOfCanon;
+    [Space]
+    public float[] laserDamageReductionBonus;
+    public float[] laserFirerateMultiplierBonus;
+    public float[] microLaserDamageReductionBonus;
+
+    private float actualLaserDamageReduction;
+    private float actualLaserFireRateMultiplier;
+    private float actualMicroLaserDamageReduction;
+    
+
+    [Header ("Unity setup")]
+    public Transform partToRotate;
+    public GameObject basicBullet;
+    public GameObject explosiveBullet;
+    public Transform shootPoint;
+    public LineRenderer[] laserLines;
+
+    [HideInInspector]
+    public Enemy[] targets;
+    private GameObject bulletToShoot;
+    private List<Enemy> copyList = new List<Enemy>();
+    private float fireCoolDown;
+    private float[] laserMultiplier;
+    private float[] laserCoolDown;
+
+    #region Upgrade variable
+    [HideInInspector]
+    public int laserUpgrade;
+    [HideInInspector]
     public int explosionUpgrade;
 
-    [Space]
+    [HideInInspector]
+    public int slowUpgrade;
+    [HideInInspector]
+    public int poisonUpgrade;
 
-    public int slowValueUpgrade;
-    public int poisonValueUpgrade;
-
-    [Header ("Unity Setup")]
-    public Transform partToRotate;
-    public GameObject bulletPrefab;
-    public GameObject missilePrefab;
-    public Transform shootPoint;
-
-    public LineRenderer[] laserLineRenderers;
-
-    private float fireCooldown;
-    public float[] fireCooldowns;
-    private Transform target;
-    public Transform[] targets;
-    private BoostBlock boostScript;
-    private GameObject bulletToShoot;
-    private Enemy enemyscript;
-    public Enemy[] enemyScripts;
-    public float[] increseLaserFireRates;
-    private float increseLaserFireRate;
+    [HideInInspector]
+    public int fireRateUpgrade;
+    [HideInInspector]
+    public int damageUpgrade;
+    [HideInInspector]
+    public int rangeUpgrade;
     #endregion
 
-    private void Start()
+    #endregion
+
+    void Awake()
     {
-        bulletToShoot = bulletPrefab;
-        for (int i = 0; i < laserLineRenderers.Length; i++)
-        {
-            laserLineRenderers[i].enabled = false;
-        }
+        bulletToShoot = basicBullet;
+        targets = new Enemy[numMaxTargets];
+        laserMultiplier = new float[numMaxTargets];
+        laserCoolDown = new float[numMaxTargets];
     }
 
-    private void Update()
+    void FixedUpdate()
     {
-        FindTargetNexus();
-        FindMultipleTarget();
+        FindTargets();
 
-        BasiqueTuretSysteme();
-    }
-
-    void FindTarget()
-    {
-        float shortestDistance = Mathf.Infinity;
-        Transform nearestEnemy = null;
-
-        foreach (Transform enemy in WaveSpawner.instance.enemyList)
+        if (laserUpgrade > 0)
         {
-            if (enemy != null)
-            {
-                float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-
-                if (distanceToEnemy < shortestDistance)
-                {
-                    shortestDistance = distanceToEnemy;
-                    nearestEnemy = enemy;
-                }
-            }
-        }
-
-        if (nearestEnemy != null && shortestDistance <= range)
-        {
-            target = nearestEnemy.transform;
+            Laser();
         }
         else
         {
-            target = null;
+            MultiShoot();
         }
     }
 
-    void FindTargetNexus()
+    void FindTargets()
     {
-        if (target == null)
-        {
-            for (int i = 0; i < WaveSpawner.instance.enemyList.Count; i++)
-            {
-                if (WaveSpawner.instance.enemyList[i] != null)
-                {
-                    if (Vector3.Distance(transform.position, WaveSpawner.instance.enemyList[i].position) < range)
-                    {
-                        target = WaveSpawner.instance.enemyList[i];
-                        break;
-                    }
-                }
-            }
-        }
-        else
-        {
-            if (Vector3.Distance(transform.position, target.position) > range)
-            {
-                target = null;
-            }
-        }
-    }
-
-    void FindMultipleTarget()
-    {
-        for (int i = 0; i < targets.Length; i++)
-        {
-            if (targets[i] != null)
-            {
-                if (Vector3.Distance(transform.position, targets[i].transform.position) > range)
-                {
-                    targets[i] = null;
-                }
-            }
-        }
+        copyList = new List<Enemy>(WaveSpawner.instance.enemyList);
 
         for (int i = 0; i < targets.Length; i++)
         {
             if (targets[i] == null)
             {
-                for (int r = i; r < WaveSpawner.instance.enemyList.Count; r++)
+                if (copyList.Count >= i + 1)
                 {
-                    if (WaveSpawner.instance.enemyList[r] != null)
+                    if (copyList[i] != null)
                     {
-                        if (Vector3.Distance(transform.position, WaveSpawner.instance.enemyList[r].transform.position) < range)
+                        if (Vector3.Distance(transform.position, copyList[i].transform.position) < actualRange)
                         {
-                            targets[i] = WaveSpawner.instance.enemyList[r];
+                            targets[i] = copyList[i];
+                            copyList.Remove(copyList[i]);
                         }
                     }
                 }
+            }
+            if (targets[i] != null)
+            {
+                if (Vector3.Distance(transform.position ,targets[i].transform.position) > actualRange)
+                {
+                    targets[i] = null;
+                }
+            }
+        }
+    }
+
+    void MultiShoot()
+    {
+        if (targets[0] != null)
+        {
+            AimTarget();
+
+            if (fireCoolDown <= 0f)
+            {
+                Fire(targets[0]);
+                fireCoolDown = 1f / actualFireRate;
+            }
+            fireCoolDown -= Time.deltaTime;
+        }
+    }
+    void Laser()
+    {
+        AimTarget();
+
+        for (int i = 0; i < actualNumOfCanon; i++)
+        {
+            if (targets[i] != null)
+            {
+                laserLines[i].enabled = true;
+                laserLines[i].SetPosition(0, shootPoint.position);
+                laserLines[i].SetPosition(1, targets[i].transform.position);
+
+                if (actualNumOfCanon > 1)
+                {
+                    laserMultiplier[i] += Time.deltaTime * (actualLaserFireRateMultiplier / actualMicroLaserDamageReduction);
+                }
+                else
+                {
+                    laserMultiplier[i] += Time.deltaTime * actualLaserFireRateMultiplier;
+
+                    for (int t = 1; t < laserLines.Length; t++)
+                    {
+                        laserLines[t].enabled = false;
+                    }
+                }
+
+                if (laserCoolDown[i] <= 0f)
+                {
+                    if (slowUpgrade > 0)
+                    {
+                        targets[i].StartSlow(actualSlowForce, actualSlowDuration);
+                    }
+                    if (poisonUpgrade > 0)
+                    {
+                        targets[i].Poison(actualpoisonDamage, actualPoisonDuration, actualPoisonTick);
+                    }
+                    targets[i].TakeDamage(actualDamage / actualLaserDamageReduction);
+                    laserCoolDown[i] = 1 / (actualFireRate * laserMultiplier[i]);
+                }
+                laserCoolDown[i] -= Time.deltaTime;
+            }
+            else
+            {
+                laserLines[i].enabled = false;
+                laserMultiplier[i] = 1f;
+                laserCoolDown[i] = 0f;
             }
         }
     }
 
     void AimTarget()
     {
-        Vector3 dir = target.position - transform.position;
-        Quaternion lookRotation = Quaternion.LookRotation(dir);
-        Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * rotationSpeed).eulerAngles;
-        partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+        if (targets[0] != null)
+        {
+            Vector3 dir = targets[0].transform.position - transform.position;
+            Quaternion lookRotation = Quaternion.LookRotation(dir);
+            Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * rotationSpeed).eulerAngles;
+            partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+        }
     }
-    void Shoot()
+    void Fire(Enemy target)
     {
-        GameObject actualBullet =  Instantiate(bulletToShoot, shootPoint.position, shootPoint.rotation);
+        GameObject actualBullet = Instantiate(bulletToShoot, shootPoint.position, shootPoint.rotation);
         Bullet bulletScript = actualBullet.GetComponent<Bullet>();
-        
+
         if (bulletScript != null)
         {
-            bulletScript.GetTarget(target);
-            bulletScript.GetDamage(damage);
-            bulletScript.GetNegatifEffect(slowValueUpgrade, poisonValueUpgrade);
+            bulletScript.GetTarget(target.transform);
+            bulletScript.GetDamage(actualDamage);
+            bulletScript.GetSlowInfo(actualSlowForce, actualSlowDuration);
+            bulletScript.GetPoisonInfo(actualpoisonDamage, actualPoisonDuration, actualPoisonTick);
+            bulletScript.GetExplosiveInfo(actualExplosionRadius);
         }
     }
 
-    void Laser()
+    public void GetNodeUpgrade(NodeSysteme node)
     {
-        if (!laserLineRenderers[0].enabled)
-        {
-            laserLineRenderers[0].enabled = true;
-        }
-        laserLineRenderers[0].SetPosition(0, shootPoint.position);
-        laserLineRenderers[0].SetPosition(1, target.position);
+        laserUpgrade = node.laserUpgrade;
+        explosionUpgrade = node.explosionUpgrade;
 
-        if (target != null)
-        {
-            if (enemyscript == null)
-            {
-                enemyscript = target.GetComponent<Enemy>();
-                increseLaserFireRate = 1f;
-            }
-            else
-            {
-                increseLaserFireRate += Time.deltaTime * 3;
+        slowUpgrade = node.slowUpgrade;
+        poisonUpgrade = node.poisonUpgrade;
 
-                if (slowValueUpgrade > 0)
-                {
-                    enemyscript.Slow(slowValueUpgrade);
-                }
-                if (poisonValueUpgrade > 0)
-                {
-                    enemyscript.Poison(poisonValueUpgrade);
-                }
+        fireRateUpgrade = node.fireRateUpgrade;
+        damageUpgrade = node.damageUpgrade;
+        rangeUpgrade = node.rangeUpgrade;
 
-                if (fireCooldown <= 0f)
-                {
-                    enemyscript.TakeDamage(damage/2);
-                    fireCooldown = 1 / (fireRate * increseLaserFireRate);
-                }
-                fireCooldown -= Time.deltaTime;
-            }
-        }
+        ApplyUpgrade();
     }
-
-    void MultiLaser()
+    public void ResetUpgrade()
     {
-        for (int i = 0; i < targets.Length; i++)
-        {
-            if (targets[i] != null)
-            {
-                if (!laserLineRenderers[i].enabled)
-                {
-                    laserLineRenderers[i].enabled = true;
-                    laserLineRenderers[0].SetPosition(0, shootPoint.position);
-                    laserLineRenderers[0].SetPosition(1, targets[i].position);
-                }
-            }
-            else
-            {
-                laserLineRenderers[i].enabled = false;
-            }
+        laserUpgrade = 0;
+        explosionUpgrade = 0;
 
-            if (targets[i] != null)
-            {
-                if (enemyScripts[i] == null)
-                {
-                    enemyScripts[i] = targets[i].GetComponent<Enemy>();
-                    increseLaserFireRates[i] = 1f;
-                }
-            }
-            else
-            {
-                increseLaserFireRates[i] += Time.deltaTime * 3;
+        slowUpgrade = 0;
+        poisonUpgrade = 0;
 
-                if (slowValueUpgrade > 0)
-                {
-                    enemyScripts[i].Slow(slowValueUpgrade);
-                }
-                if (poisonValueUpgrade > 0)
-                {
-                    enemyScripts[i].Poison(poisonValueUpgrade);
-                }
+        fireRateUpgrade = 0;
+        damageUpgrade = 0;
+        rangeUpgrade = 0;
 
-                if (fireCooldowns[i] <= 0f)
-                {
-                    enemyScripts[i].TakeDamage(damage / 2);
-                    fireCooldowns[i] = 1 / (fireRate * increseLaserFireRates[i]);
-                }
-                fireCooldowns[i] -= Time.deltaTime;
-            }
-        }
+        ApplyUpgrade();
     }
 
-    void CheckBulletType()
+    void ApplyUpgrade()
     {
-        if (explosionUpgrade > 0)
+        #region Stats boost
+        switch (fireRateUpgrade)
         {
-            bulletToShoot = missilePrefab;
+            case 0:
+                actualFireRate = startFireRate;
+                break;
+            case 1:
+                actualFireRate = fireRateBonus[0];
+                break;
+            case 2:
+                actualFireRate = fireRateBonus[1];
+                break;
+            case 3:
+                actualFireRate = fireRateBonus[2];
+                break;
+            case 4:
+                actualFireRate = fireRateBonus[3];
+                break;
         }
-        else
+
+        switch (damageUpgrade)
         {
-            bulletToShoot = bulletPrefab;
+            case 0:
+                actualDamage = startDamage;
+                break;
+            case 1:
+                actualDamage = damageBonus[0];
+                break;
+            case 2:
+                actualDamage = damageBonus[1];
+                break;
+            case 3:
+                actualDamage = damageBonus[2];
+                break;
+            case 4:
+                actualDamage = damageBonus[3];
+                break;
         }
+
+        switch (rangeUpgrade)
+        {
+            case 0:
+                actualRange = startRange;
+                break;
+            case 1:
+                actualRange = rangeBonus[0];
+                break;
+            case 2:
+                actualRange = rangeBonus[1];
+                break;
+            case 3:
+                actualRange = rangeBonus[2];
+                break;
+            case 4:
+                actualRange = rangeBonus[3];
+                break;
+        }
+        #endregion
+
+        #region Negatif effect boost
+        switch (slowUpgrade)
+        {
+            case 0:
+                actualSlowForce = 0;
+                actualSlowDuration = 0;
+                break;
+            case 1:
+                actualSlowForce = slowForceBonus[0];
+                actualSlowDuration = slowDurationBonus[0];
+                break;
+            case 2:
+                actualSlowForce = slowForceBonus[1];
+                actualSlowDuration = slowDurationBonus[1];
+                break;
+            case 3:
+                actualSlowForce = slowForceBonus[2];
+                actualSlowDuration = slowDurationBonus[2];
+                break;
+            case 4:
+                actualSlowForce = slowForceBonus[3];
+                actualSlowDuration = slowDurationBonus[3];
+                break;
+        }
+
+        switch (poisonUpgrade)
+        {
+            case 0:
+                actualpoisonDamage = 0f;
+                actualPoisonDuration = 0f;
+                actualPoisonTick = 0f;
+                break;
+            case 1:
+                actualpoisonDamage = poisonDamageBonus[0];
+                actualPoisonDuration = poisonDurationBonus[0];
+                actualPoisonTick = poisonTickBonus[0];
+                break;
+            case 2:
+                actualpoisonDamage = poisonDamageBonus[1];
+                actualPoisonDuration = poisonDurationBonus[1];
+                actualPoisonTick = poisonTickBonus[1];
+                break;
+            case 3:
+                actualpoisonDamage = poisonDamageBonus[2];
+                actualPoisonDuration = poisonDurationBonus[2];
+                actualPoisonTick = poisonTickBonus[2];
+                break;
+            case 4:
+                actualpoisonDamage = poisonDamageBonus[3];
+                actualPoisonDuration = poisonDurationBonus[3];
+                actualPoisonTick = poisonTickBonus[3];
+                break;
+        }
+        #endregion
+
+        #region Shoot type boost
+        switch (explosionUpgrade)
+        {
+            case 0:
+                bulletToShoot = basicBullet;
+                actualExplosionRadius = 0f;
+                actualNumOfCanon = 1;
+                break;
+            case 1:
+                bulletToShoot = explosiveBullet;
+                actualExplosionRadius = explosionRadiusBonus[0];
+                actualNumOfCanon = numOfCanonBonus[0];
+                break;
+            case 2:
+                bulletToShoot = explosiveBullet;
+                actualExplosionRadius = explosionRadiusBonus[1];
+                actualNumOfCanon = numOfCanonBonus[1];
+                break;
+            case 3:
+                bulletToShoot = explosiveBullet;
+                actualExplosionRadius = explosionRadiusBonus[2];
+                actualNumOfCanon = numOfCanonBonus[2];
+                break;
+            case 4:
+                bulletToShoot = explosiveBullet;
+                actualExplosionRadius = explosionRadiusBonus[3];
+                actualNumOfCanon = numOfCanonBonus[3];
+                break;
+        }
+
+        switch (laserUpgrade)
+        {
+            case 0:
+                actualLaserDamageReduction = 0;
+                actualLaserFireRateMultiplier = 0;
+                actualMicroLaserDamageReduction = 0;
+                ResetLaser();
+                break;
+            case 1:
+                actualLaserDamageReduction = laserDamageReductionBonus[0];
+                actualLaserFireRateMultiplier = laserFirerateMultiplierBonus[0];
+                actualMicroLaserDamageReduction = microLaserDamageReductionBonus[0];
+                break;
+            case 2:
+                actualLaserDamageReduction = laserDamageReductionBonus[1];
+                actualLaserFireRateMultiplier = laserFirerateMultiplierBonus[1];
+                actualMicroLaserDamageReduction = microLaserDamageReductionBonus[1];
+                break;
+            case 3:
+                actualLaserDamageReduction = laserDamageReductionBonus[2];
+                actualLaserFireRateMultiplier = laserFirerateMultiplierBonus[2];
+                actualMicroLaserDamageReduction = microLaserDamageReductionBonus[2];
+                break;
+            case 4:
+                actualLaserDamageReduction = laserDamageReductionBonus[3];
+                actualLaserFireRateMultiplier = laserFirerateMultiplierBonus[3];
+                actualMicroLaserDamageReduction = microLaserDamageReductionBonus[3];
+                break;
+        }
+        #endregion
     }
 
-    void BasiqueTuretSysteme()
+    void ResetLaser()
     {
-        CheckBulletType();
-
-        if (target == null)
+        if (laserUpgrade < 1)
         {
-            if (laserLineRenderers[0].enabled)
+            for (int i = 0; i < laserLines.Length; i++)
             {
-                laserLineRenderers[0].enabled = false;
+                laserLines[i].enabled = false;
+                laserMultiplier[i] = 1f;
+                laserCoolDown[i] = 0f;
             }
-            return;
-        }
-        else
-        {
-            AimTarget();
-        }
-
-        if (lazerUpgrade > 0)
-        {
-            Laser();
-        }
-        else
-        {
-            if (fireCooldown <= 0f)
-            {
-                Shoot();
-                fireCooldown = 1f / fireRate;
-            }
-            fireCooldown -= Time.deltaTime;
-        }
-
-    }
-
-    #region BoostSysteme
-    void GetUpgrade()
-    {
-        lazerUpgrade += boostScript.lazer;
-        doubleShootUpgrade += boostScript.doubleShoot;
-        explosionUpgrade += boostScript.explosion;
-
-        slowValueUpgrade += boostScript.slowValue;
-        poisonValueUpgrade += boostScript.poisonValue;
-
-        fireRate += boostScript.fireRateBoost;
-        damage += boostScript.damageBoost;
-        range += boostScript.rangeBoost;
-    }
-    void DelUpgrade()
-    {
-        lazerUpgrade -= boostScript.lazer;
-        doubleShootUpgrade -= boostScript.doubleShoot;
-        explosionUpgrade -= boostScript.explosion;
-
-        slowValueUpgrade -= boostScript.slowValue;
-        poisonValueUpgrade -= boostScript.poisonValue;
-
-        fireRate -= boostScript.fireRateBoost;
-        damage -= boostScript.damageBoost;
-        range -= boostScript.rangeBoost;
-    }
-    #endregion
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.layer == 9)
-        {
-            boostScript = other.GetComponent<BoostBlock>();
-            GetUpgrade();
-            boostScript = null;
         }
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.layer == 9)
-        {
-            boostScript = other.GetComponent<BoostBlock>();
-            DelUpgrade();
-            boostScript = null;
-        }
-    }
-
-    private void OnDrawGizmosSelected()
+    private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, range);
+        Gizmos.DrawWireSphere(transform.position, actualRange);
     }
 }

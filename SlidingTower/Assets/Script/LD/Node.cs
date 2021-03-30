@@ -40,7 +40,7 @@ public class Node : MonoBehaviour
     private BoostBlock boostScript;
     [HideInInspector]
     public GameObject turret;
-    [HideInInspector]
+    //[HideInInspector]
     public List<GameObject> hitNode = new List<GameObject>();
     private Renderer rend;
     private LayerMask mask;
@@ -103,7 +103,6 @@ public class Node : MonoBehaviour
     void GetBoost()
     {
         lazerMode += boostScript.lazer;
-        doubleShootMode += boostScript.doubleShoot;
         explosionMode += boostScript.explosion;
 
         slowBonus += boostScript.slowValue;
@@ -117,7 +116,6 @@ public class Node : MonoBehaviour
     void DelBoost()
     {
         lazerMode -= boostScript.lazer;
-        doubleShootMode -= boostScript.doubleShoot;
         explosionMode -= boostScript.explosion;
 
         slowBonus -= boostScript.slowValue;

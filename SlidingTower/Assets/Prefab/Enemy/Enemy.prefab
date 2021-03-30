@@ -5112,18 +5112,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05dcf020a848da84b9100f29496bf416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movSpeed: 10
+  startMovSpeed: 10
   startHealth: 100
   actualHealth: 0
   damageToNexus: 1
-  slowTime: 3
-  poisonDuration: 4
   agent: {fileID: -22901727225648796}
   deathEffect: {fileID: 6349644078730903099, guid: 59901bc0cd50be14fb4252ee1a62e2a2,
     type: 3}
   healhtBar: {fileID: 2084251078}
   slowMaterial: {fileID: 2100000, guid: 4417a1d6b8363f04a906d765aa2fd1e9, type: 2}
-  poisionMaterial: {fileID: 2100000, guid: 4586efa51d554b6448094787877102c3, type: 2}
+  poisonMaterial: {fileID: 2100000, guid: 4586efa51d554b6448094787877102c3, type: 2}
   poisonParticule: {fileID: 4301944453146388890}
   distFromNexus: 0
 --- !u!195 &-22901727225648796

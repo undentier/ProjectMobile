@@ -1,29 +1,33 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    #region Variable
     [Header ("Stats")]
     public float speed;
-    public float explosionRadius;
 
-    [HideInInspector]
-    public float damage;
-    [HideInInspector]
-    public int slowValue;
-    [HideInInspector]
-    public int poisonDamage;
+    private float damage;
+
+    private float slowForce;
+    private float slowDuration;
+
+    private float poisonDamage;
+    private float poisonDuration;
+    private float poisonTick;
+
+    private float explosionRadius;
 
     [Header ("Effect")]
     public GameObject impactEffect;
 
     [Header("Unity SetUp")]
-    public string enemyLayerName;
-
+    public LayerMask enemyLayerMask;
 
     private Transform target;
-    private LayerMask enemyLayerMask;
+    private float distanceThisFrame;
+    private Vector3 dir;
+    #endregion
+
     public void GetTarget(Transform _target)
     {
         target = _target;
@@ -34,38 +38,46 @@ public class Bullet : MonoBehaviour
         damage = _damage;
     }
 
-    public void GetNegatifEffect(int _slowValue, int _poisionDamage)
+    public void GetPoisonInfo(float _poisonDamage, float _poisonDuration, float _poisonTick)
     {
-        slowValue = _slowValue;
-        poisonDamage = _poisionDamage;
+        poisonDamage = _poisonDamage;
+        poisonDuration = _poisonDuration;
+        poisonTick = _poisonTick;
+    }
+    public void GetSlowInfo(float _slowForce, float _slowDuration)
+    {
+        slowForce = _slowForce;
+        slowDuration = _slowDuration;
     }
 
-    private void Start()
+    public void GetExplosiveInfo(float _explosionRadius)
     {
-        enemyLayerMask = LayerMask.GetMask(enemyLayerName);
+        explosionRadius = _explosionRadius;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (target == null)
         {
             Destroy(gameObject);
             return;
-        }
+        } // Auto destroy if no more target
 
-        Vector3 dir = target.position - transform.position;
-        float distanceThisFrame = speed * Time.deltaTime;
+        Mouvement(); 
 
-        if (dir.magnitude <= distanceThisFrame)
+        if (dir.magnitude <= distanceThisFrame) 
         {
             HitTarget();
-        }
-
-        transform.Translate(dir.normalized * distanceThisFrame, Space.World);
-        transform.LookAt(target);
-
+        } // If the bullet touch the target
     }
 
+    void Mouvement()
+    {
+        dir = target.position - transform.position;
+        distanceThisFrame = speed * Time.deltaTime;
+        transform.Translate(dir.normalized * distanceThisFrame, Space.World);
+        transform.LookAt(target);
+    } // Translate the bullet to the target
     void HitTarget()
     {
         GameObject effect = Instantiate(impactEffect, transform.position, transform.rotation);
@@ -81,22 +93,22 @@ public class Bullet : MonoBehaviour
         }
 
         Destroy(gameObject);
-    }
+    } // Call when bullet hit the target
 
     void Damage(Transform enemy)
     {
         Enemy e = enemy.GetComponent<Enemy>();
         e.TakeDamage(damage);
 
-        if (slowValue > 0)
+        if (slowForce > 0)
         {
-            e.Slow(slowValue);
+            e.StartSlow(slowForce, slowDuration);
         }
         if (poisonDamage > 0)
         {
-            e.Poison(poisonDamage);
+            e.Poison(poisonDamage, poisonDuration, poisonTick);
         }
-    }
+    } // Apply damage and negatif effect on target
 
     void Explosion()
     {
@@ -106,9 +118,9 @@ public class Bullet : MonoBehaviour
         {
             Damage(enemyIn.transform);
         }
-    }
+    } // If explosion radius > 0 Create a sphere detection around the target and apply damage and negatif effect to all enemies 
 
-    private void OnDrawGizmosSelected()
+    private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, explosionRadius);

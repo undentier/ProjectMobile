@@ -910,7 +910,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6353790558281966934}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.41}
+  m_LocalPosition: {x: -0, y: 0, z: 1.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4157377765548304516}
@@ -1064,10 +1064,10 @@ MonoBehaviour:
   - 4
   - 2
   microLaserDamageReductionBonus:
-  - 0
-  - 0
-  - 0
-  - 0
+  - 4
+  - 3
+  - 2
+  - 1
   partToRotate: {fileID: 4157377765548304516}
   basicBullet: {fileID: 1664552637349654473, guid: 56f0414ef2f2f6f41a681196bd36719e,
     type: 3}

@@ -88,17 +88,12 @@ public class Turret : MonoBehaviour
 
     #endregion
 
-    void Start()
+    void Awake()
     {
         bulletToShoot = basicBullet;
         targets = new Enemy[numMaxTargets];
         laserMultiplier = new float[numMaxTargets];
         laserCoolDown = new float[numMaxTargets];
-
-        for (int i = 0; i < laserLines.Length; i++)
-        {
-            laserLines[i].enabled = false;
-        }
     }
 
     void FixedUpdate()
@@ -171,7 +166,19 @@ public class Turret : MonoBehaviour
                 laserLines[i].SetPosition(0, shootPoint.position);
                 laserLines[i].SetPosition(1, targets[i].transform.position);
 
-                laserMultiplier[i] += Time.deltaTime * actualLaserFireRateMultiplier;
+                if (actualNumOfCanon > 1)
+                {
+                    laserMultiplier[i] += Time.deltaTime * (actualLaserFireRateMultiplier / actualMicroLaserDamageReduction);
+                }
+                else
+                {
+                    laserMultiplier[i] += Time.deltaTime * actualLaserFireRateMultiplier;
+
+                    for (int t = 1; t < laserLines.Length; t++)
+                    {
+                        laserLines[t].enabled = false;
+                    }
+                }
 
                 if (laserCoolDown[i] <= 0f)
                 {
@@ -183,7 +190,6 @@ public class Turret : MonoBehaviour
                     {
                         targets[i].Poison(actualpoisonDamage, actualPoisonDuration, actualPoisonTick);
                     }
-                            
                     targets[i].TakeDamage(actualDamage / actualLaserDamageReduction);
                     laserCoolDown[i] = 1 / (actualFireRate * laserMultiplier[i]);
                 }
@@ -404,6 +410,7 @@ public class Turret : MonoBehaviour
                 actualLaserDamageReduction = 0;
                 actualLaserFireRateMultiplier = 0;
                 actualMicroLaserDamageReduction = 0;
+                ResetLaser();
                 break;
             case 1:
                 actualLaserDamageReduction = laserDamageReductionBonus[0];
@@ -427,6 +434,19 @@ public class Turret : MonoBehaviour
                 break;
         }
         #endregion
+    }
+
+    void ResetLaser()
+    {
+        if (laserUpgrade < 1)
+        {
+            for (int i = 0; i < laserLines.Length; i++)
+            {
+                laserLines[i].enabled = false;
+                laserMultiplier[i] = 1f;
+                laserCoolDown[i] = 0f;
+            }
+        }
     }
 
     private void OnDrawGizmos()

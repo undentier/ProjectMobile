@@ -11,7 +11,6 @@ public class WaveSO : ScriptableObject
     [Serializable]
     public struct Enemy
     {
-        public int number;
         public EnemyEnum wichEnemy;
         public float timeBeforeNextSpawn;
     }
@@ -22,5 +21,7 @@ public class WaveSO : ScriptableObject
         public Enemy[] enemies;
     }
 
+    public float timeBeforeStartWave;
+    public float timeBeforeEndWave;
     public Wave[] waves;
 }

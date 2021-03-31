@@ -2,28 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.AI;
-using System;
 
 public class WaveSpawner : MonoBehaviour
 {
     public static WaveSpawner instance;
 
-    [Header ("Stats")]
-    public float timeBfStart;
-    public float timeBtwWave;
+    public int waveIndex;
+    public bool enemyAlive;
+    public bool waveSpawn;
 
-    [Header ("Unity Setup")]
-    public GameObject enemyPrefab;
+    [Header("Unity setup")]
+    public GameObject smallEnemy;
+    public GameObject mediumEnemy;
+    public GameObject bigEnemy;
+    public WaveSO levelWaves;
+    public Transform spawnPoint;
     public Text uiCounter;
 
-    public List<Enemy> enemyList = new List<Enemy>();
-
     [HideInInspector]
-    public float timeCounter;
-    private int waveIndex;
-
-    private Transform spawnPoint;
+    public List<Enemy> enemyList = new List<Enemy>();
+    private float timeCounter;
 
     private void Awake()
     {
@@ -33,65 +31,74 @@ public class WaveSpawner : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        spawnPoint = SpawnPoint.startpoint;
-        timeCounter = timeBfStart;
-    }
-
-    private void Update()
+    void Update()
     {
         enemyList.RemoveAll(list_item => list_item == null);
 
-        if (timeCounter <= 0f)
+        if (Input.GetKeyDown(KeyCode.Space) && !waveSpawn)
         {
-            timeCounter = timeBtwWave;
             StartCoroutine(SpawnWave());
+            timeCounter = levelWaves.timeBeforeStartWave;
         }
-
-        timeCounter -= Time.deltaTime;
-        uiCounter.text = Mathf.Round(timeCounter).ToString();
+        CheckIfEnemyAlive();
+        UiSysteme();
     }
 
     IEnumerator SpawnWave()
     {
+        waveSpawn = true;
+        yield return new WaitForSeconds(levelWaves.timeBeforeStartWave);
+        enemyAlive = true;
+
+        for (int i = 0; i < levelWaves.waves[waveIndex].enemies.Length; i++)
+        {
+            GameObject enemyToSpawn = GetEnemyToSpawn(levelWaves.waves[waveIndex].enemies[i].wichEnemy);
+            GameObject actualEnemy = Instantiate(enemyToSpawn, spawnPoint.position, spawnPoint.rotation);
+            enemyList.Add(actualEnemy.GetComponent<Enemy>());
+            yield return new WaitForSeconds(levelWaves.waves[waveIndex].enemies[i].timeBeforeNextSpawn);
+        }
         waveIndex++;
+    }
 
-        for (int i = 0; i < waveIndex; i++)
+    IEnumerator WaitBfrEndWave()
+    {
+        yield return new WaitForSeconds(levelWaves.timeBeforeEndWave);
+        waveSpawn = false;
+    }
+
+    void CheckIfEnemyAlive()
+    {
+        if (enemyAlive && enemyList.Count == 0)
         {
-            SpawnEnemy();
-            yield return new WaitForSeconds(0.2f);
+            enemyAlive = false;
+            StartCoroutine(WaitBfrEndWave());
         }
     }
 
-    void SpawnEnemy()
+    private GameObject GetEnemyToSpawn(WaveSO.EnemyEnum wichEnemy)
     {
-        GameObject enemy = Instantiate(enemyPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
-        enemyList.Add(enemy.GetComponent<Enemy>());
-    }
-
-    public float GetPathRemainingDistance(NavMeshAgent navMeshAgent)
-    {
-        if (navMeshAgent.pathPending ||
-            navMeshAgent.pathStatus == NavMeshPathStatus.PathInvalid ||
-            navMeshAgent.path.corners.Length == 0)
-            return -1f;
-
-        float distance = 0.0f;
-        for (int i = 0; i < navMeshAgent.path.corners.Length - 1; ++i)
+        switch (wichEnemy)
         {
-            distance += Vector3.Distance(navMeshAgent.path.corners[i], navMeshAgent.path.corners[i + 1]);
+            case WaveSO.EnemyEnum.small:
+                return smallEnemy;
+            case WaveSO.EnemyEnum.medium:
+                return mediumEnemy;
+            case WaveSO.EnemyEnum.big:
+                return bigEnemy;
         }
-
-        return distance;
+        return null;
     }
 
-    private float SortFonction(Transform a, Transform b)
+    void UiSysteme()
     {
-        float distA = a.gameObject.GetComponent<Enemy>().distFromNexus;
-        float distB = b.gameObject.GetComponent<Enemy>().distFromNexus;
-
-        return distA.CompareTo(distB);
+        if (timeCounter >= 0)
+        {
+            timeCounter -= Time.deltaTime;
+        }
+        else
+        {
+            timeCounter = 0f;
+        }
+        uiCounter.text = Mathf.Round(timeCounter).ToString();
     }
-
 }

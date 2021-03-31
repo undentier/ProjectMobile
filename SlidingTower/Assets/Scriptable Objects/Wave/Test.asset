@@ -12,4 +12,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7848afaf6fed3214a97be772b36be002, type: 3}
   m_Name: Test
   m_EditorClassIdentifier: 
-  waves: []
+  waves:
+  - enemies:
+    - number: 0
+      wichEnemy: 0
+      timeBeforeNextSpawn: 1
+    - number: 0
+      wichEnemy: 1
+      timeBeforeNextSpawn: 1
+    - number: 0
+      wichEnemy: 0
+      timeBeforeNextSpawn: 1
+    - number: 0
+      wichEnemy: 1
+      timeBeforeNextSpawn: 1
+    - number: 0
+      wichEnemy: 0
+      timeBeforeNextSpawn: 1
+  - enemies:
+    - number: 0
+      wichEnemy: 0
+      timeBeforeNextSpawn: 0.5
+    - number: 0
+      wichEnemy: 0
+      timeBeforeNextSpawn: 0.5
+    - number: 0
+      wichEnemy: 0
+      timeBeforeNextSpawn: 0.5
+    - number: 0
+      wichEnemy: 0
+      timeBeforeNextSpawn: 0.5
+    - number: 0
+      wichEnemy: 0
+      timeBeforeNextSpawn: 0.5
+    - number: 0
+      wichEnemy: 0
+      timeBeforeNextSpawn: 0.5
+    - number: 0
+      wichEnemy: 0
+      timeBeforeNextSpawn: 0.5
+    - number: 0
+      wichEnemy: 0
+      timeBeforeNextSpawn: 0.5
+    - number: 0
+      wichEnemy: 0
+      timeBeforeNextSpawn: 0.5
+    - number: 0
+      wichEnemy: 0
+      timeBeforeNextSpawn: 0.5
+  - enemies: []
+  - enemies: []
+  - enemies: []

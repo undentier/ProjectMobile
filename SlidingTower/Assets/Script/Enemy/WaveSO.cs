@@ -11,7 +11,6 @@ public class WaveSO : ScriptableObject
     [Serializable]
     public struct Enemy
     {
-
         public EnemyEnum wichEnemy;
         public float timeBeforeNextSpawn;
         [Space]

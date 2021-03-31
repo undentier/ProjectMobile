@@ -52,9 +52,14 @@ public class WaveSpawner : MonoBehaviour
 
         for (int i = 0; i < levelWaves.waves[waveIndex].enemies.Length; i++)
         {
-            GameObject enemyToSpawn = GetEnemyToSpawn(levelWaves.waves[waveIndex].enemies[i].wichEnemy);
-            GameObject actualEnemy = Instantiate(enemyToSpawn, spawnPoint.position, spawnPoint.rotation);
-            enemyList.Add(actualEnemy.GetComponent<Enemy>());
+            for (int t = 0; t < levelWaves.waves[waveIndex].enemies[i].number; t++)
+            {
+                GameObject enemyToSpawn = GetEnemyToSpawn(levelWaves.waves[waveIndex].enemies[i].wichEnemy);
+                GameObject actualEnemy = Instantiate(enemyToSpawn, spawnPoint.position, spawnPoint.rotation);
+                enemyList.Add(actualEnemy.GetComponent<Enemy>());
+                yield return new WaitForSeconds(levelWaves.waves[waveIndex].enemies[i].timeBtwSpawn);
+            }
+
             yield return new WaitForSeconds(levelWaves.waves[waveIndex].enemies[i].timeBeforeNextSpawn);
         }
         waveIndex++;

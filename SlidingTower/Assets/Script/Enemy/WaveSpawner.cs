@@ -7,16 +7,13 @@ public class WaveSpawner : MonoBehaviour
 {
     public static WaveSpawner instance;
 
-    public int waveIndex;
-    public bool enemyAlive;
-    public bool waveSpawn;
+    [Header ("Put waveSO here")]
+    public WaveSO levelWaves;
 
     [Header("Unity setup")]
     public GameObject smallEnemy;
     public GameObject mediumEnemy;
     public GameObject bigEnemy;
-    public WaveSO levelWaves;
-    private Transform spawnPoint;
 
     [Header ("UI")]
     public Text counterBfrWaveSpawn;
@@ -25,8 +22,15 @@ public class WaveSpawner : MonoBehaviour
     public GameObject counterNextWave;
 
     [HideInInspector]
+    public int waveIndex;
+    [HideInInspector]
+    public bool enemyAlive;
+    [HideInInspector]
+    public bool waveSpawn;
+    [HideInInspector]
     public List<Enemy> enemyList = new List<Enemy>();
     private float timeCounter;
+    private Transform spawnPoint;
 
     private void Awake()
     {

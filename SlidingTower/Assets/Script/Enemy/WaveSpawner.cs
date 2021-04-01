@@ -16,7 +16,7 @@ public class WaveSpawner : MonoBehaviour
     public GameObject mediumEnemy;
     public GameObject bigEnemy;
     public WaveSO levelWaves;
-    public Transform spawnPoint;
+    private Transform spawnPoint;
 
     [Header ("UI")]
     public Text counterBfrWaveSpawn;
@@ -39,6 +39,7 @@ public class WaveSpawner : MonoBehaviour
     private void Start()
     {
         counterNextWave.SetActive(false);
+        spawnPoint = StartInfo.startPoint;
     }
     void Update()
     {

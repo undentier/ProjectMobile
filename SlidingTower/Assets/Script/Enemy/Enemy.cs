@@ -39,7 +39,7 @@ public class Enemy : MonoBehaviour
         rend = GetComponent<MeshRenderer>();
         startMaterial = rend.material;
         actualHealth = startHealth;
-        agent.SetDestination(WayPoints.endPoint.position);
+        agent.SetDestination(EndInfo.endPoint.position);
         agent.speed = startMovSpeed;
         actualMovSpeed = startMovSpeed;
     }

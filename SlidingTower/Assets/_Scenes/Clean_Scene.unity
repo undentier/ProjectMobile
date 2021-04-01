@@ -2524,7 +2524,6 @@ MonoBehaviour:
     type: 3}
   bigEnemy: {fileID: 0}
   levelWaves: {fileID: 11400000, guid: da90eaabbfd539345affee182e7d1200, type: 2}
-  spawnPoint: {fileID: 1469586623}
   counterBfrWaveSpawn: {fileID: 1622537303}
   counterActualWaveCounter: {fileID: 325258179}
   counterTotalWave: {fileID: 1177452409}
@@ -8289,8 +8288,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3632516983892265151, guid: 74ccf60e9462170498cfe68a22c93764, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74ccf60e9462170498cfe68a22c93764, type: 3}
 --- !u!4 &1812410638 stripped
 Transform:

@@ -5,10 +5,11 @@ public class LifeManager : MonoBehaviour
 {
     public static LifeManager lifeInstance;
 
-    [Header ("Stats")]
+    [Header("Stats")]
     public int life;
+    public int buildToken;
 
-    [Header ("Unity Setup")]
+    [Header("Unity Setup")]
     public Text lifeCounter;
     public GameObject gameOverMenu;
 
@@ -35,7 +36,7 @@ public class LifeManager : MonoBehaviour
         lifeCounter.text = life.ToString();
     }
 
-    public void DamagePlayer (int damage)
+    public void DamagePlayer(int damage)
     {
         life -= damage;
 
@@ -43,6 +44,15 @@ public class LifeManager : MonoBehaviour
         {
             gameOverMenu.SetActive(true);
             Time.timeScale = 0f;
+        }
+    }
+
+    public void ChangeToken(int tokenNumber)
+    {
+        buildToken += tokenNumber;
+        if (buildToken <= 0)
+        {
+            WavePanel.instance.DisableBuildMode();
         }
     }
 }

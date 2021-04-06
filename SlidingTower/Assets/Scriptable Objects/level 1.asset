@@ -21,3 +21,9 @@ MonoBehaviour:
   scoreSpriteTwo: {fileID: 21300000, guid: b539a765c0400a7499f5bc586feece24, type: 3}
   scoreSpriteThree: {fileID: 21300000, guid: 1d0160202fdb0f7478bdd1a3a4075b9c, type: 3}
   score: 0
+  blockChoice:
+  - block: 1
+  - block: 3
+  - block: 2
+  - block: 6
+  - block: 5

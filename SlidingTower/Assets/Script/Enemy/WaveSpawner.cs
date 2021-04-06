@@ -7,7 +7,7 @@ public class WaveSpawner : MonoBehaviour
 {
     public static WaveSpawner instance;
 
-    [Header ("Put waveSO here")]
+    [Header("Put waveSO here")]
     public WaveSO levelWaves;
 
     [Header("Unity setup")]
@@ -53,11 +53,7 @@ public class WaveSpawner : MonoBehaviour
     {
         enemyList.RemoveAll(list_item => list_item == null);
 
-        if (Input.GetKeyDown(KeyCode.Space) && !waveSpawn)
-        {
-            StartCoroutine(SpawnWave());
-            timeCounter = levelWaves.timeBeforeStartWave;
-        }
+
         CheckIfEnemyAlive();
         UiSysteme();
     }
@@ -97,6 +93,8 @@ public class WaveSpawner : MonoBehaviour
         yield return new WaitForSeconds(levelWaves.timeBeforeEndWave);
         waveIndex++;
         waveSpawn = false;
+
+        WavePanel.instance.ActiveBuildMode();
     }
 
     void CheckIfEnemyAlive()
@@ -137,6 +135,14 @@ public class WaveSpawner : MonoBehaviour
             counterBfrWaveSpawn.text = Mathf.Round(timeCounter).ToString();
             counterActualWaveCounter.text = waveIndex.ToString();
             counterTotalWave.text = levelWaves.waves.Length.ToString();
+        }
+    }
+    public void StartWave()
+    {
+        if (!waveSpawn)
+        {
+            StartCoroutine(SpawnWave());
+            timeCounter = levelWaves.timeBeforeStartWave;
         }
     }
 }

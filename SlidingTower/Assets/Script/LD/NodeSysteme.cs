@@ -8,7 +8,7 @@ public class NodeSysteme : MonoBehaviour
     public List<NodeSysteme> closestNodes = new List<NodeSysteme>();
     public LayerMask nodeMask;
 
-    [Header ("FeedBack upgrade")]
+    [Header("FeedBack upgrade")]
     public GameObject fireRateEffect;
     public GameObject damageEffect;
     public GameObject rangeEffect;
@@ -47,7 +47,7 @@ public class NodeSysteme : MonoBehaviour
 
     public void TouchDetection()
     {
-        if (objBuild == null && !SlideManager.instance.isSliding) 
+        if (objBuild == null && !SlideManager.instance.isSliding && LifeManager.lifeInstance.buildToken > 0)
         {
             GameObject objToBuild = BuildManager.instance.GetTurretToBuild();
 
@@ -57,6 +57,7 @@ public class NodeSysteme : MonoBehaviour
             }
 
             objBuild = Instantiate(objToBuild, transform.position, transform.rotation);
+            LifeManager.lifeInstance.ChangeToken(-1);
 
             ObjTypeDetection();
 

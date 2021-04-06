@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Shader Graphs_Slow
+  m_Shader: {fileID: -6465566751694194690, guid: 964b4cd5f37a0144aafb495c0064fabd,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _SampleTexture2D_666181F_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 5f8e94a4bf94082428ff348454c78ca1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_93EF3AB7_Texture_1:
+        m_Texture: {fileID: 2800000, guid: ece6d8f544bd3bc4e99c2c06e55a7c91, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_D9408421_Texture_1:
+        m_Texture: {fileID: 2800000, guid: cfecfb198af63a9428b8080bae309295, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_F064505F_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 634d0109299cc3d41b15c8169d7641ef, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_38AA6B94_Out_0:
+        m_Texture: {fileID: 2800000, guid: cfe7038495bc152439892a434ba96697, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_EA2C8A6_Out_0:
+        m_Texture: {fileID: 2800000, guid: cfe7038495bc152439892a434ba96697, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_1B843681: 0.79
+    - Vector1_6BFDE5E6: 1.42
+    - Vector1_7E8429F2: 0
+    - Vector1_D29EBB19: 1.22
+    - Vector1_DB7BD97E: 0.5
+    - Vector1_DFA807D0: 0.37
+    m_Colors:
+    - Color_C5F96A99: {r: 0.64705884, g: 0.8601058, b: 1, a: 1}
+    - Color_DEDE9F43: {r: 0.32805273, g: 0.55258876, b: 0.7169812, a: 1}

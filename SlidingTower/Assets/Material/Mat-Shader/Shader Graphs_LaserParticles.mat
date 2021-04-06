@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_Laser
+  m_Name: Shader Graphs_LaserParticles
   m_Shader: {fileID: -6465566751694194690, guid: 39725a31fb207d241867df3223f570b3,
     type: 3}
   m_ShaderKeywords: 
@@ -21,7 +21,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_351719EE:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_B76398E3_Texture_1:
@@ -33,9 +33,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_127030BF: -2
+    - Vector1_127030BF: 1
     m_Colors:
-    - Color_AFF59544: {r: 0.24261308, g: 1.2536321, b: 1.7735848, a: 1}
-    - Color_B523D876: {r: 0, g: 0.4990935, b: 1, a: 1}
-    - Vector2_6C580C6C: {r: 1, g: 0.05, b: 0, a: 0}
+    - Color_AFF59544: {r: 0.23910028, g: 1.3148379, b: 1.8773799, a: 1}
+    - Color_B523D876: {r: 0, g: 0.70004034, b: 1, a: 1}
+    - Vector2_6C580C6C: {r: 0.5, g: 0.05, b: 0, a: 0}
     - Vector2_D11B4FFA: {r: 0.5, g: 0.1, b: 0, a: 0}

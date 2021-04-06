@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7848afaf6fed3214a97be772b36be002, type: 3}
-  m_Name: 1Level
+  m_Name: CH1_LVL2
   m_EditorClassIdentifier: 
   timeBeforeStartWave: 0
   timeBeforeEndWave: 0
@@ -18,50 +18,45 @@ MonoBehaviour:
   - enemies:
     - wichEnemy: 0
       timeBeforeNextSpawn: 0
+      number: 2
+      timeBtwSpawn: 1.5
+  - enemies:
+    - wichEnemy: 1
+      timeBeforeNextSpawn: 2
+      number: 2
+      timeBtwSpawn: 2
+    - wichEnemy: 0
+      timeBeforeNextSpawn: 0
+      number: 3
+      timeBtwSpawn: 1.5
+  - enemies:
+    - wichEnemy: 2
+      timeBeforeNextSpawn: 0
+      number: 1
+      timeBtwSpawn: 0
+  - enemies:
+    - wichEnemy: 0
+      timeBeforeNextSpawn: 2
+      number: 3
+      timeBtwSpawn: 1
+    - wichEnemy: 1
+      timeBeforeNextSpawn: 0
+      number: 2
+      timeBtwSpawn: 1
+  - enemies:
+    - wichEnemy: 2
+      timeBeforeNextSpawn: 0
       number: 1
       timeBtwSpawn: 0
     - wichEnemy: 0
-      timeBeforeNextSpawn: 0
-      number: 0
+      timeBeforeNextSpawn: 3
+      number: 2
       timeBtwSpawn: 0
+    - wichEnemy: 1
+      timeBeforeNextSpawn: 0
+      number: 4
+      timeBtwSpawn: 1
     - wichEnemy: 0
       timeBeforeNextSpawn: 0
-      number: 0
-      timeBtwSpawn: 0
-    - wichEnemy: 0
-      timeBeforeNextSpawn: 0
-      number: 0
-      timeBtwSpawn: 0
-    - wichEnemy: 0
-      timeBeforeNextSpawn: 0
-      number: 0
-      timeBtwSpawn: 0
-    - wichEnemy: 0
-      timeBeforeNextSpawn: 0
-      number: 0
-      timeBtwSpawn: 0
-    - wichEnemy: 0
-      timeBeforeNextSpawn: 0
-      number: 0
-      timeBtwSpawn: 0
-    - wichEnemy: 0
-      timeBeforeNextSpawn: 0
-      number: 0
-      timeBtwSpawn: 0
-    - wichEnemy: 0
-      timeBeforeNextSpawn: 0
-      number: 0
-      timeBtwSpawn: 0
-    - wichEnemy: 0
-      timeBeforeNextSpawn: 0
-      number: 0
-      timeBtwSpawn: 0
-  - enemies: []
-  - enemies: []
-  - enemies: []
-  - enemies: []
-  - enemies: []
-  - enemies: []
-  - enemies: []
-  - enemies: []
-  - enemies: []
+      number: 2
+      timeBtwSpawn: 0.5

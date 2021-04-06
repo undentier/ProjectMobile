@@ -39,14 +39,14 @@ public class Enemy : MonoBehaviour
         rend = GetComponent<MeshRenderer>();
         startMaterial = rend.material;
         actualHealth = startHealth;
-        agent.SetDestination(WayPoints.endPoint.position);
+        agent.SetDestination(EndInfo.endPoint.position);
         agent.speed = startMovSpeed;
         actualMovSpeed = startMovSpeed;
     }
 
     private void Update()
     {
-        distFromNexus = WaveSpawner.instance.GetPathRemainingDistance(agent);
+        distFromNexus = GetPathRemainingDistance(agent);
 
         if (distFromNexus <= 0.5f)
         {
@@ -123,5 +123,21 @@ public class Enemy : MonoBehaviour
         GameObject effect = Instantiate(deathEffect, transform.position, transform.rotation);
         Destroy(effect, 2f);
         Destroy(gameObject);
+    }
+
+    public float GetPathRemainingDistance(NavMeshAgent navMeshAgent)
+    {
+        if (navMeshAgent.pathPending ||
+            navMeshAgent.pathStatus == NavMeshPathStatus.PathInvalid ||
+            navMeshAgent.path.corners.Length == 0)
+            return -1f;
+
+        float distance = 0.0f;
+        for (int i = 0; i < navMeshAgent.path.corners.Length - 1; ++i)
+        {
+            distance += Vector3.Distance(navMeshAgent.path.corners[i], navMeshAgent.path.corners[i + 1]);
+        }
+
+        return distance;
     }
 }

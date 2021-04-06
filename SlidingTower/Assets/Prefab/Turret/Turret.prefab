@@ -1042,7 +1042,7 @@ GameObject:
   - component: {fileID: 7673166374196501297}
   - component: {fileID: 6211956119614899035}
   m_Layer: 11
-  m_Name: Base turret test
+  m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1115,10 +1115,10 @@ MonoBehaviour:
   - 7
   - 9
   slowDurationBonus:
+  - 1
   - 2
   - 3
-  - 4
-  - 6
+  - 5
   poisonDamageBonus:
   - 5
   - 10
@@ -1136,9 +1136,9 @@ MonoBehaviour:
   - 5
   explosionRadiusBonus:
   - 3
-  - 6
-  - 9
-  - 12
+  - 5
+  - 7
+  - 10
   numOfCanonBonus: 03000000040000000500000007000000
   laserDamageReductionBonus:
   - 3

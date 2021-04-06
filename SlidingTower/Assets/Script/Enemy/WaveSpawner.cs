@@ -15,7 +15,8 @@ public class WaveSpawner : MonoBehaviour
     public GameObject mediumEnemy;
     public GameObject bigEnemy;
 
-    [Header ("UI")]
+    [Header("UI")]
+    public bool activateUI;
     public Text counterBfrWaveSpawn;
     public Text counterActualWaveCounter;
     public Text counterTotalWave;
@@ -42,7 +43,10 @@ public class WaveSpawner : MonoBehaviour
 
     private void Start()
     {
-        counterNextWave.SetActive(false);
+        if (activateUI)
+        {
+            counterNextWave.SetActive(false);
+        }
         spawnPoint = StartInfo.startPoint;
     }
     void Update()
@@ -61,9 +65,17 @@ public class WaveSpawner : MonoBehaviour
     IEnumerator SpawnWave()
     {
         waveSpawn = true;
-        counterNextWave.SetActive(true);
+        if (activateUI)
+        {
+            counterNextWave.SetActive(true);
+        }
         yield return new WaitForSeconds(levelWaves.timeBeforeStartWave);
-        counterNextWave.SetActive(false);
+
+        if (activateUI)
+        {
+            counterNextWave.SetActive(false);
+        }
+
         enemyAlive = true;
 
         for (int i = 0; i < levelWaves.waves[waveIndex].enemies.Length; i++)
@@ -112,16 +124,19 @@ public class WaveSpawner : MonoBehaviour
 
     void UiSysteme()
     {
-        if (timeCounter >= 0)
+        if (activateUI)
         {
-            timeCounter -= Time.deltaTime;
+            if (timeCounter >= 0)
+            {
+                timeCounter -= Time.deltaTime;
+            }
+            else
+            {
+                timeCounter = 0f;
+            }
+            counterBfrWaveSpawn.text = Mathf.Round(timeCounter).ToString();
+            counterActualWaveCounter.text = waveIndex.ToString();
+            counterTotalWave.text = levelWaves.waves.Length.ToString();
         }
-        else
-        {
-            timeCounter = 0f;
-        }
-        counterBfrWaveSpawn.text = Mathf.Round(timeCounter).ToString();
-        counterActualWaveCounter.text = waveIndex.ToString();
-        counterTotalWave.text = levelWaves.waves.Length.ToString();
     }
 }

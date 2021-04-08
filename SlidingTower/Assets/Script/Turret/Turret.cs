@@ -111,36 +111,6 @@ public class Turret : MonoBehaviour
         }
     }
 
-    /*void FindTargets()
-    {
-        copyList = new List<Enemy>(WaveSpawner.instance.enemyList);
-
-        for (int i = 0; i < targets.Length; i++)
-        {
-            if (targets[i] == null)
-            {
-                if (copyList.Count >= i + 1)
-                {
-                    if (copyList[i] != null)
-                    {
-                        if (Vector3.Distance(transform.position, copyList[i].transform.position) < actualRange)
-                        {
-                            targets[i] = copyList[i];
-                            copyList.Remove(copyList[i]);
-                        }
-                    }
-                }
-            }
-            if (targets[i] != null)
-            {
-                if (Vector3.Distance(transform.position ,targets[i].transform.position) > actualRange)
-                {
-                    targets[i] = null;
-                }
-            }
-        }
-    }*/
-
     void FindTargets()
     {
         for (int i = 0; i < WaveSpawner.instance.enemyList.Count; i++)
@@ -209,11 +179,6 @@ public class Turret : MonoBehaviour
                 else
                 {
                     laserMultiplier[i] += Time.deltaTime * actualLaserFireRateMultiplier;
-
-                    for (int t = 1; t < laserLines.Length; t++)
-                    {
-                        laserLines[t].enabled = false;
-                    }
                 }
 
                 if (laserCoolDown[i] <= 0f)
@@ -227,6 +192,13 @@ public class Turret : MonoBehaviour
                         targetList[i].Poison(actualpoisonDamage, actualPoisonDuration, actualPoisonTick);
                     }
                     targetList[i].TakeDamage(actualDamage / actualLaserDamageReduction);
+
+                    if (targetList[i].actualHealth <= 0)
+                    {
+                        laserMultiplier[i] = 1f;
+                        laserCoolDown[i] = 0f;
+                    }
+
                     laserCoolDown[i] = 1 / (actualFireRate * laserMultiplier[i]);
                 }
                 laserCoolDown[i] -= Time.deltaTime;
@@ -239,7 +211,6 @@ public class Turret : MonoBehaviour
             }
         }
     }
-
     void AimTarget()
     {
         if (targetList.Count > 0)
@@ -485,6 +456,17 @@ public class Turret : MonoBehaviour
                 laserMultiplier[i] = 1f;
                 laserCoolDown[i] = 0f;
             }
+        }
+    }
+    void SetEffect()
+    {
+        if (laserUpgrade > 0)
+        {
+
+        }
+        else
+        {
+
         }
     }
 

@@ -59,11 +59,17 @@ public class Turret : MonoBehaviour
     public GameObject explosiveBullet;
     public Transform shootPoint;
     public LineRenderer[] laserLines;
+    public MeshFilter canonRenderer;
+
+    [Header("Mesh")]
+    public Mesh basicCanonMesh;
+    public Mesh explosionCanonMesh;
+    public Mesh laserCanonMesh;
+    public Mesh multiLaserCanonMesh;
 
     [HideInInspector]
     public List<Enemy> targetList = new List<Enemy>();
     private GameObject bulletToShoot;
-    private List<Enemy> copyList = new List<Enemy>();
     private float fireCoolDown;
     private float[] laserMultiplier;
     private float[] laserCoolDown;
@@ -86,7 +92,6 @@ public class Turret : MonoBehaviour
     [HideInInspector]
     public int rangeUpgrade;
     #endregion
-
     #endregion
 
     void Awake()
@@ -444,6 +449,8 @@ public class Turret : MonoBehaviour
                 break;
         }
         #endregion
+
+        SetEffect();
     }
 
     void ResetLaser()
@@ -458,15 +465,24 @@ public class Turret : MonoBehaviour
             }
         }
     }
+
     void SetEffect()
     {
-        if (laserUpgrade > 0)
+        if (explosionUpgrade > 0 && laserUpgrade== 0)
         {
-
+            canonRenderer.mesh = explosionCanonMesh;
+        }
+        else if (laserUpgrade > 0 && explosionUpgrade == 0)
+        {
+            canonRenderer.mesh = laserCanonMesh;
+        }
+        else if (laserUpgrade > 0 && explosionUpgrade > 0)
+        {
+            canonRenderer.mesh = multiLaserCanonMesh;
         }
         else
         {
-
+            canonRenderer.mesh = basicCanonMesh;
         }
     }
 

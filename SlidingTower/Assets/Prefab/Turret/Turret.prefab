@@ -996,7 +996,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4157377765548304516}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6694807069199032976
 GameObject:
@@ -1025,8 +1025,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 4.47, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 11475530333494120}
   - {fileID: 1251009086603178179}
+  - {fileID: 11475530333494120}
   m_Father: {fileID: 7607668907657221116}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1169,7 +1169,16 @@ MonoBehaviour:
   - {fileID: 3877877180703927976}
   - {fileID: 6396407392588064014}
   - {fileID: 8801671219447044494}
-  targets: []
+  canonRenderer: {fileID: 5669794617481453903}
+  basicCanonMesh: {fileID: -793987620497431792, guid: af44cac122241904f905f0063e9b2d28,
+    type: 3}
+  explosionCanonMesh: {fileID: -8783511247439342555, guid: bcac63d7840a48846973e75aa587713b,
+    type: 3}
+  laserCanonMesh: {fileID: 938762473992563870, guid: 0bb673fdb4588b84db07a4d6988b4a03,
+    type: 3}
+  multiLaserCanonMesh: {fileID: -3283163065587079804, guid: 2264467a0fa69914ba1432b8f012c9b6,
+    type: 3}
+  targetList: []
   laserUpgrade: 0
   explosionUpgrade: 0
   slowUpgrade: 0
@@ -1207,7 +1216,7 @@ Transform:
   m_LocalScale: {x: 20, y: 20, z: 20}
   m_Children: []
   m_Father: {fileID: 4157377765548304516}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90, y: -90, z: 0}
 --- !u!33 &5669794617481453903
 MeshFilter:
@@ -1216,7 +1225,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7146513205639681617}
-  m_Mesh: {fileID: -793987620497431792, guid: f3c4ed03ee6d45e439623620971b58ee, type: 3}
+  m_Mesh: {fileID: -793987620497431792, guid: af44cac122241904f905f0063e9b2d28, type: 3}
 --- !u!23 &6011545344137853140
 MeshRenderer:
   m_ObjectHideFlags: 0

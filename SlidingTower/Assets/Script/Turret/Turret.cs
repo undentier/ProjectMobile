@@ -12,6 +12,7 @@ public class Turret : MonoBehaviour
     public float rotationSpeed;
     public int numMaxTargets = 5;
 
+    #region Upgrade Value
     [Header ("Value of stat upgrade")]
     public float[] fireRateBonus;
     public int[] damageBonus;
@@ -50,7 +51,7 @@ public class Turret : MonoBehaviour
     private float actualLaserDamageReduction;
     private float actualLaserFireRateMultiplier;
     private float actualMicroLaserDamageReduction;
-    
+    #endregion
 
     [Header ("Unity setup")]
     public Transform partToRotate;
@@ -59,8 +60,8 @@ public class Turret : MonoBehaviour
     public Transform shootPoint;
     public LineRenderer[] laserLines;
 
-    [HideInInspector]
-    public Enemy[] targets;
+    //[HideInInspector]
+    public List<Enemy> targetList = new List<Enemy>();
     private GameObject bulletToShoot;
     private List<Enemy> copyList = new List<Enemy>();
     private float fireCoolDown;
@@ -91,13 +92,13 @@ public class Turret : MonoBehaviour
     void Awake()
     {
         bulletToShoot = basicBullet;
-        targets = new Enemy[numMaxTargets];
         laserMultiplier = new float[numMaxTargets];
         laserCoolDown = new float[numMaxTargets];
     }
 
     void FixedUpdate()
     {
+        targetList.RemoveAll(list_item => list_item == null);
         FindTargets();
 
         if (laserUpgrade > 0)
@@ -110,7 +111,7 @@ public class Turret : MonoBehaviour
         }
     }
 
-    void FindTargets()
+    /*void FindTargets()
     {
         copyList = new List<Enemy>(WaveSpawner.instance.enemyList);
 
@@ -138,17 +139,52 @@ public class Turret : MonoBehaviour
                 }
             }
         }
+    }*/
+
+    void FindTargets()
+    {
+        for (int i = 0; i < WaveSpawner.instance.enemyList.Count; i++)
+        {
+            if (targetList.Count < numMaxTargets)
+            {
+                if (WaveSpawner.instance.enemyList[i] != null)
+                {
+                    if (Vector3.Distance(transform.position, WaveSpawner.instance.enemyList[i].transform.position) < actualRange)
+                    {
+                        if (!targetList.Contains(WaveSpawner.instance.enemyList[i]))
+                        {
+                            targetList.Add(WaveSpawner.instance.enemyList[i]);
+                        }
+                    }
+                }
+
+            }
+        }
+
+        for (int i = 0; i < targetList.Count; i++)
+        {
+            if (targetList.Count > 0)
+            {
+                if (targetList[i] != null)
+                {
+                    if (Vector3.Distance(transform.position, targetList[i].transform.position) > actualRange)
+                    {
+                        targetList.Remove(targetList[i]);
+                    }
+                }
+            }
+        }
     }
 
     void MultiShoot()
     {
-        if (targets[0] != null)
+        if (targetList.Count > 0)
         {
             AimTarget();
 
             if (fireCoolDown <= 0f)
             {
-                Fire(targets[0]);
+                Fire(targetList[0]);
                 fireCoolDown = 1f / actualFireRate;
             }
             fireCoolDown -= Time.deltaTime;
@@ -160,11 +196,11 @@ public class Turret : MonoBehaviour
 
         for (int i = 0; i < actualNumOfCanon; i++)
         {
-            if (targets[i] != null)
+            if (targetList.Count > i)
             {
                 laserLines[i].enabled = true;
                 laserLines[i].SetPosition(0, shootPoint.position);
-                laserLines[i].SetPosition(1, targets[i].transform.position);
+                laserLines[i].SetPosition(1, targetList[i].transform.position);
 
                 if (actualNumOfCanon > 1)
                 {
@@ -184,18 +220,18 @@ public class Turret : MonoBehaviour
                 {
                     if (slowUpgrade > 0)
                     {
-                        targets[i].StartSlow(actualSlowForce, actualSlowDuration);
+                        targetList[i].StartSlow(actualSlowForce, actualSlowDuration);
                     }
                     if (poisonUpgrade > 0)
                     {
-                        targets[i].Poison(actualpoisonDamage, actualPoisonDuration, actualPoisonTick);
+                        targetList[i].Poison(actualpoisonDamage, actualPoisonDuration, actualPoisonTick);
                     }
-                    targets[i].TakeDamage(actualDamage / actualLaserDamageReduction);
+                    targetList[i].TakeDamage(actualDamage / actualLaserDamageReduction);
                     laserCoolDown[i] = 1 / (actualFireRate * laserMultiplier[i]);
                 }
                 laserCoolDown[i] -= Time.deltaTime;
             }
-            else
+            else if (laserLines[i].enabled)
             {
                 laserLines[i].enabled = false;
                 laserMultiplier[i] = 1f;
@@ -206,12 +242,15 @@ public class Turret : MonoBehaviour
 
     void AimTarget()
     {
-        if (targets[0] != null)
+        if (targetList.Count > 0)
         {
-            Vector3 dir = targets[0].transform.position - transform.position;
-            Quaternion lookRotation = Quaternion.LookRotation(dir);
-            Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * rotationSpeed).eulerAngles;
-            partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+            if (targetList[0] != null)
+            {
+                Vector3 dir = targetList[0].transform.position - transform.position;
+                Quaternion lookRotation = Quaternion.LookRotation(dir);
+                Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * rotationSpeed).eulerAngles;
+                partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+            }
         }
     }
     void Fire(Enemy target)

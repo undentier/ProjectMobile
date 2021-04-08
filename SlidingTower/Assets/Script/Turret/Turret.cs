@@ -60,7 +60,7 @@ public class Turret : MonoBehaviour
     public Transform shootPoint;
     public LineRenderer[] laserLines;
 
-    //[HideInInspector]
+    [HideInInspector]
     public List<Enemy> targetList = new List<Enemy>();
     private GameObject bulletToShoot;
     private List<Enemy> copyList = new List<Enemy>();

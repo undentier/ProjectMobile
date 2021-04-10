@@ -28,7 +28,7 @@ public class WaveSpawner : MonoBehaviour
     public bool enemyAlive;
     [HideInInspector]
     public bool waveSpawn;
-    [HideInInspector]
+    //[HideInInspector]
     public List<Enemy> enemyList = new List<Enemy>();
     private float timeCounter;
     private Transform spawnPoint;

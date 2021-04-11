@@ -1074,7 +1074,7 @@ Animator:
   m_GameObject: {fileID: 7122458465355761990}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e9f6a6a9f7cdb5e43bef2aa0a0227898, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1106,7 +1106,11 @@ MonoBehaviour:
   - 4.2
   - 5.3
   damageBonus: 320000003c0000005a00000082000000
-  rangeBonus: []
+  rangeBonus:
+  - 5
+  - 10
+  - 15
+  - 20
   slowForceBonus:
   - 3
   - 5

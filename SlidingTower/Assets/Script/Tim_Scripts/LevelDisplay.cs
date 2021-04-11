@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LevelDisplay : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class LevelDisplay : MonoBehaviour
     {
         level.score = Random.Range(0, 4);
         UpdateScoreDisplay();
+        SceneManager.LoadScene(level.levelSceneName);
 
     }
     public void UpdateScoreDisplay()

@@ -11,7 +11,6 @@ public class LifeManager : MonoBehaviour
 
     [Header("Unity Setup")]
     public Text lifeCounter;
-    public GameObject gameOverMenu;
 
     private void Awake()
     {
@@ -26,11 +25,6 @@ public class LifeManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        gameOverMenu.SetActive(false);
-    }
-
     private void Update()
     {
         lifeCounter.text = life.ToString();
@@ -42,7 +36,7 @@ public class LifeManager : MonoBehaviour
 
         if (life <= 0)
         {
-            gameOverMenu.SetActive(true);
+            UIManager.instance.gameOverMenu.SetActive(true);
             Time.timeScale = 0f;
         }
     }

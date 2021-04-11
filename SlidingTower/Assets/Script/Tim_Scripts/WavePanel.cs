@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class WavePanel : MonoBehaviour
 {
+    #region variable
     public static WavePanel instance;
+
     public LevelsSO level;
     public GameObject panel;
 
@@ -15,10 +17,11 @@ public class WavePanel : MonoBehaviour
     public GameObject basicTurret;
     public GameObject startWaveButton;
     public bool isBuildMode;
+    #endregion
 
     private void Awake()
     {
-        instance = this;
+         instance = this;
     }
     private void Start()
     {
@@ -57,13 +60,8 @@ public class WavePanel : MonoBehaviour
         ActiveBuildMode();
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            DisplayPanel();
-        }
-    }
+
+
     void DisplayPanel()
     {
         panel.SetActive(true);

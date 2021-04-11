@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
+using UnityEngine.EventSystems;
 
 public class TouchDetection : MonoBehaviour
 {
@@ -37,7 +37,6 @@ public class TouchDetection : MonoBehaviour
                         }
                     }
                 }
-
                 else if (touch.phase == TouchPhase.Ended)
                 {
                     if (SlideManager.instance.isSliding)
@@ -80,9 +79,10 @@ public class TouchDetection : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                
+
             }
         }
+        //EventSystem.current.IsPointerOverGameObject()
         #endregion
     }
 }

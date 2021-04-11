@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class TouchDetection : MonoBehaviour
 {
@@ -25,6 +26,11 @@ public class TouchDetection : MonoBehaviour
 
                     if (Physics.Raycast(ray, out hit))
                     {
+                        if (hit.transform.gameObject.layer == 5)
+                        {
+                            return;
+                        }
+
                         if (hit.transform.gameObject.layer == 8)
                         {
                             hit.transform.GetComponent<NodeSysteme>().TouchDetection();

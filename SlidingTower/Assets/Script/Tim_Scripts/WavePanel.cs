@@ -17,11 +17,12 @@ public class WavePanel : MonoBehaviour
     public GameObject basicTurret;
     public GameObject startWaveButton;
     public bool isBuildMode;
+    public bool isFirstWave = true;
     #endregion
 
     private void Awake()
     {
-         instance = this;
+        instance = this;
     }
     private void Start()
     {
@@ -66,22 +67,30 @@ public class WavePanel : MonoBehaviour
     {
         panel.SetActive(true);
         basicTurret.SetActive(true);
-        startWaveButton.SetActive(true);
-        for (int i = 0; i < 2; i++)
+       // startWaveButton.SetActive(true);
+        if(isFirstWave == true)
         {
-            if (usedButtons.Count > 0)
-            {
-                int random = Random.Range(0, usedButtons.Count);
-                usedButtons[random].SetActive(true);
-                usedButtons[random].transform.position = slots[i].position;
-                cacheButtons.Add(usedButtons[random]);
-                usedButtons.Remove(usedButtons[random]);
-            }
+            isFirstWave = false;
         }
-        for (int i = 0; i < cacheButtons.Count; i++)
+
+        else
         {
-            usedButtons.Add(cacheButtons[i]);
-            cacheButtons.Remove(cacheButtons[i]);
+            for (int i = 0; i < 2; i++)
+            {
+                if (usedButtons.Count > 0)
+                {
+                    int random = Random.Range(0, usedButtons.Count);
+                    usedButtons[random].SetActive(true);
+                    usedButtons[random].transform.position = slots[i].position;
+                    cacheButtons.Add(usedButtons[random]);
+                    usedButtons.Remove(usedButtons[random]);
+                }
+            }
+            for (int i = 0; i < cacheButtons.Count; i++)
+            {
+                usedButtons.Add(cacheButtons[i]);
+                cacheButtons.Remove(cacheButtons[i]);
+            }
         }
     }
     public void ActiveBuildMode()

@@ -28,7 +28,7 @@ public class WaveSpawner : MonoBehaviour
     public bool enemyAlive;
     [HideInInspector]
     public bool waveSpawn;
-    //[HideInInspector]
+    [HideInInspector]
     public List<Enemy> enemyList = new List<Enemy>();
     private float timeCounter;
     private Transform spawnPoint;
@@ -96,7 +96,7 @@ public class WaveSpawner : MonoBehaviour
         waveIndex++;
         waveSpawn = false;
 
-        WavePanel.instance.ActiveBuildMode();
+        VictoryDetection();
     }
 
     void CheckIfEnemyAlive()
@@ -142,10 +142,22 @@ public class WaveSpawner : MonoBehaviour
     }
     public void StartWave()
     {
-        if (!waveSpawn)
+        if (!waveSpawn && waveIndex < levelWaves.waves.Length)
         {
             StartCoroutine(SpawnWave());
             timeCounter = levelWaves.timeBeforeStartWave;
+        }
+    }
+
+    void VictoryDetection()
+    {
+        if (waveIndex >= levelWaves.waves.Length && !enemyAlive)
+        {
+            UIManager.instance.DisplayVictoryMenu();
+        }
+        else
+        {
+            WavePanel.instance.ActiveBuildMode();
         }
     }
 }

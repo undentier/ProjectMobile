@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
     public GameObject pauseMenu;
 
     public GameObject gameOverMenu;
+    public GameObject victoryMenu;
 
     private void Awake()
     {
@@ -26,6 +27,14 @@ public class UIManager : MonoBehaviour
 
         pauseButton.SetActive(true);
     }
+
+
+    public void DisplayVictoryMenu()
+    {
+        victoryMenu.SetActive(true);
+    }
+
+
 
     public void PauseButton()
     {
@@ -44,12 +53,12 @@ public class UIManager : MonoBehaviour
     public void MainMenuButton()
     {
         SceneManager.LoadScene("MainMenu_Scene");
+        Time.timeScale = 1f;
     }
-
-
     public void TryAgainButton()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1f;
     }
+
 }

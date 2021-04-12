@@ -17,7 +17,6 @@ public class WaveSpawner : MonoBehaviour
 
     [Header("UI")]
     public bool activateUI;
-    public Text counterBfrWaveSpawn;
     public Text counterActualWaveCounter;
     public Text counterTotalWave;
     public GameObject counterNextWave;
@@ -30,7 +29,6 @@ public class WaveSpawner : MonoBehaviour
     public bool waveSpawn;
     [HideInInspector]
     public List<Enemy> enemyList = new List<Enemy>();
-    private float timeCounter;
     private Transform spawnPoint;
     private bool canCheck;
 
@@ -44,10 +42,6 @@ public class WaveSpawner : MonoBehaviour
 
     private void Start()
     {
-        if (activateUI)
-        {
-            counterNextWave.SetActive(false);
-        }
         spawnPoint = StartInfo.startPoint;
     }
     void Update()
@@ -62,16 +56,7 @@ public class WaveSpawner : MonoBehaviour
     IEnumerator SpawnWave()
     {
         waveSpawn = true;
-        if (activateUI)
-        {
-            counterNextWave.SetActive(true);
-        }
         yield return new WaitForSeconds(levelWaves.timeBeforeStartWave);
-
-        if (activateUI)
-        {
-            counterNextWave.SetActive(false);
-        }
 
         enemyAlive = true;
 
@@ -127,15 +112,6 @@ public class WaveSpawner : MonoBehaviour
     {
         if (activateUI)
         {
-            if (timeCounter >= 0)
-            {
-                timeCounter -= Time.deltaTime;
-            }
-            else
-            {
-                timeCounter = 0f;
-            }
-            counterBfrWaveSpawn.text = Mathf.Round(timeCounter).ToString();
             counterActualWaveCounter.text = waveIndex.ToString();
             counterTotalWave.text = levelWaves.waves.Length.ToString();
         }
@@ -145,7 +121,6 @@ public class WaveSpawner : MonoBehaviour
         if (!waveSpawn && waveIndex < levelWaves.waves.Length)
         {
             StartCoroutine(SpawnWave());
-            timeCounter = levelWaves.timeBeforeStartWave;
         }
     }
 

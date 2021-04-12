@@ -1860,7 +1860,6 @@ MonoBehaviour:
   bigEnemy: {fileID: 6895374269467792441, guid: ea1fb89321b0ef74787e949a4dd75e98,
     type: 3}
   activateUI: 1
-  counterBfrWaveSpawn: {fileID: 1622537303}
   counterActualWaveCounter: {fileID: 1549365887}
   counterTotalWave: {fileID: 1966351520}
   counterNextWave: {fileID: 649418322}
@@ -3922,16 +3921,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaveDisplay
       objectReference: {fileID: 0}
-    - target: {fileID: 4999543011985502550, guid: d782c2745301fb24c91a60876922038b,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 979.60425
-      objectReference: {fileID: 0}
-    - target: {fileID: 4999543011985502550, guid: d782c2745301fb24c91a60876922038b,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d782c2745301fb24c91a60876922038b, type: 3}
 --- !u!224 &1290403002 stripped
@@ -3951,6 +3940,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 7518038181244266644, guid: 793a4bb2e3cdcfe48a02a6d96e9b1e4d,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7518038181244266644, guid: 793a4bb2e3cdcfe48a02a6d96e9b1e4d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967287
+      objectReference: {fileID: 0}
+    - target: {fileID: 7518038182007725726, guid: 793a4bb2e3cdcfe48a02a6d96e9b1e4d,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7518038182007725726, guid: 793a4bb2e3cdcfe48a02a6d96e9b1e4d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967287
       objectReference: {fileID: 0}
     - target: {fileID: 7649818041903500946, guid: 793a4bb2e3cdcfe48a02a6d96e9b1e4d,
         type: 3}
@@ -5778,7 +5787,7 @@ PrefabInstance:
     - target: {fileID: 3632516983892265148, guid: 74ccf60e9462170498cfe68a22c93764,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.07
+      value: 1.95
       objectReference: {fileID: 0}
     - target: {fileID: 3632516983892265148, guid: 74ccf60e9462170498cfe68a22c93764,
         type: 3}

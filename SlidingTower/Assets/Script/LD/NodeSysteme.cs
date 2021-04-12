@@ -33,7 +33,7 @@ public class NodeSysteme : MonoBehaviour
     [HideInInspector]
     public int rangeUpgrade;
 
-    [HideInInspector]
+    //[HideInInspector]
     public GameObject objBuild;
 
     private BoostBlock boostBlockScript;

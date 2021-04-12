@@ -61,8 +61,6 @@ public class WavePanel : MonoBehaviour
         ActiveBuildMode();
     }
 
-
-
     void DisplayPanel()
     {
         panel.SetActive(true);

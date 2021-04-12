@@ -32,6 +32,13 @@ public class WaveSpawner : MonoBehaviour
     private Transform spawnPoint;
     private bool canCheck;
 
+    [HideInInspector]
+    public int nextLowEnemyNumber;
+    [HideInInspector]
+    public int nextMidEnemyNumber;
+    [HideInInspector]
+    public int nextBigEnemyNumber;
+
     private void Awake()
     {
         if (instance == null)
@@ -47,8 +54,6 @@ public class WaveSpawner : MonoBehaviour
     void Update()
     {
         enemyList.RemoveAll(list_item => list_item == null);
-
-
         CheckIfEnemyAlive();
         UiSysteme();
     }
@@ -80,6 +85,8 @@ public class WaveSpawner : MonoBehaviour
         yield return new WaitForSeconds(levelWaves.timeBeforeEndWave);
         waveIndex++;
         waveSpawn = false;
+
+        RefreshNextWaveComposition();
 
         VictoryDetection();
     }
@@ -132,7 +139,33 @@ public class WaveSpawner : MonoBehaviour
         }
         else
         {
-            WavePanel.instance.ActiveBuildMode();
+            UIManager.instance.previewScript.ActualiseEnemy();
+        }
+    }
+
+    void RefreshNextWaveComposition()
+    {
+        if (waveIndex < levelWaves.waves.Length)
+        {
+            nextLowEnemyNumber = 0;
+            nextMidEnemyNumber = 0;
+            nextBigEnemyNumber = 0;
+
+            for (int i = 0; i < levelWaves.waves[waveIndex].enemies.Length; i++)
+            {
+                switch (levelWaves.waves[waveIndex].enemies[i].wichEnemy)
+                {
+                    case WaveSO.EnemyEnum.small:
+                        nextLowEnemyNumber += levelWaves.waves[waveIndex].enemies[i].number;
+                        break;
+                    case WaveSO.EnemyEnum.medium:
+                        nextMidEnemyNumber += levelWaves.waves[waveIndex].enemies[i].number;
+                        break;
+                    case WaveSO.EnemyEnum.big:
+                        nextBigEnemyNumber += levelWaves.waves[waveIndex].enemies[i].number;
+                        break;
+                }
+            }
         }
     }
 }

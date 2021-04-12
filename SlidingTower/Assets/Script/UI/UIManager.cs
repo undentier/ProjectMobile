@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
     public GameObject gameOverMenu;
     public GameObject victoryMenu;
 
+    public EnemyPreview previewScript;
     private void Awake()
     {
         instance = this;

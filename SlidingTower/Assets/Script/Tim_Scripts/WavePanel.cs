@@ -67,7 +67,7 @@ public class WavePanel : MonoBehaviour
     {
         panel.SetActive(true);
         basicTurret.SetActive(true);
-        startWaveButton.SetActive(true);
+       // startWaveButton.SetActive(true);
         if(isFirstWave == true)
         {
             isFirstWave = false;

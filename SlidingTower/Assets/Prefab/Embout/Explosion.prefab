@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4784563767063158099}
   - component: {fileID: 8487584285376516854}
   - component: {fileID: 5921393181674366524}
+  - component: {fileID: 9205514950020447437}
   m_Layer: 0
   m_Name: Explosion
   m_TagString: Untagged
@@ -80,3 +81,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!111 &9205514950020447437
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5273151981361383401}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: a113b031570d706458c5d8031f7940cd, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: a113b031570d706458c5d8031f7940cd, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0

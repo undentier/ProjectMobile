@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2332,7 +2332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8d14f4b76369ee49ac15f3266c74a2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelWaves: {fileID: 11400000, guid: da90eaabbfd539345affee182e7d1200, type: 2}
+  levelWaves: {fileID: 0}
   smallEnemy: {fileID: 6895374269467792441, guid: 52dfdf81d5f4b9042aebfb4a1ad7490f,
     type: 3}
   mediumEnemy: {fileID: 6895374269467792441, guid: ea1fb89321b0ef74787e949a4dd75e98,
@@ -2361,6 +2361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 1000
+  buildToken: 0
   lifeCounter: {fileID: 329250258}
   gameOverMenu: {fileID: 75389567}
 --- !u!1001 &601203853
@@ -5101,12 +5102,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 896dc86aa85a16c4ead90a77641c2576,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.4
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 896dc86aa85a16c4ead90a77641c2576,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.4
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 896dc86aa85a16c4ead90a77641c2576,
         type: 3}
@@ -7821,8 +7822,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 75ac217f27641cb4482ecbde61954a7f, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4

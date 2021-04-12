@@ -33,6 +33,10 @@ public class Enemy : MonoBehaviour
     private IEnumerator slowCoroutine;
     private IEnumerator poisonCoroutine;
     private float actualPoisonDuration;
+
+    public GameObject EnnemyAlive;
+    public GameObject EnnemyDead;
+    
     #endregion
 
     private void Start()
@@ -123,7 +127,9 @@ public class Enemy : MonoBehaviour
     {
         GameObject effect = Instantiate(deathEffect, transform.position, transform.rotation);
         Destroy(effect, 2f);
-        Destroy(gameObject);
+        EnnemyAlive.SetActive(false);
+        EnnemyDead.SetActive(true);
+        Destroy(gameObject, 8f);
     }
 
     public float GetPathRemainingDistance(NavMeshAgent navMeshAgent)

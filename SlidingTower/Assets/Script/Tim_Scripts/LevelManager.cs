@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
+    public GameObject[] chapters;
     public List<LevelsSO> levels;
     int starTotal;
     public GameObject totalScoreText;

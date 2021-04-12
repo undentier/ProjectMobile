@@ -4,43 +4,81 @@ using UnityEngine;
 
 public class BuildSelecteur : MonoBehaviour
 {
+    private Touch touch;
+    public enum TurretType { BASIC,FIRERATE,DAMAGE,RANGE,POISON,SLOW,EXPLOSION,LASER}
+    private TurretType selectedTurret;
     public void BasiqueTurretSelected()
     {
-        BuildManager.instance.SetTurretToBuild(BuildManager.instance.basiqueTurretPrefab);
+        selectedTurret = TurretType.BASIC;
     }
 
     public void FireRateBlockSelected()
     {
-        BuildManager.instance.SetTurretToBuild(BuildManager.instance.fireRateBlock);
+        selectedTurret = TurretType.FIRERATE;
     }
 
     public void DamageBlockSelected()
     {
-        BuildManager.instance.SetTurretToBuild(BuildManager.instance.damageBlock);
+        selectedTurret = TurretType.DAMAGE;
     }
 
     public void RangeBlockSelected()
     {
-        BuildManager.instance.SetTurretToBuild(BuildManager.instance.rangeBlock);
+        selectedTurret = TurretType.RANGE;
     }
 
     public void PoisonBlockSelected()
     {
-        BuildManager.instance.SetTurretToBuild(BuildManager.instance.poisonBlock);
+        selectedTurret = TurretType.POISON;
     }
 
     public void SlowBlockSelected()
     {
-        BuildManager.instance.SetTurretToBuild(BuildManager.instance.slowBlock);
+        selectedTurret = TurretType.SLOW;
     }
 
     public void ExplosionBlockSelected()
     {
-        BuildManager.instance.SetTurretToBuild(BuildManager.instance.explosionBlock);
+        selectedTurret = TurretType.EXPLOSION;
     }
 
     public void LaserBlockSelected()
     {
-        BuildManager.instance.SetTurretToBuild(BuildManager.instance.laserBlock);
+        selectedTurret = TurretType.LASER;
+    }
+
+    private void Update()
+    {
+        touch = Input.GetTouch(0);
+        if(touch.phase == TouchPhase.Ended)
+        {
+            switch(selectedTurret)
+            {
+                case TurretType.BASIC:
+                    BuildManager.instance.SetTurretToBuild(BuildManager.instance.basiqueTurretPrefab);
+                    break;
+                case TurretType.FIRERATE:
+                    BuildManager.instance.SetTurretToBuild(BuildManager.instance.fireRateBlock);
+                    break;
+                case TurretType.DAMAGE:
+                    BuildManager.instance.SetTurretToBuild(BuildManager.instance.damageBlock);
+                    break;
+                case TurretType.RANGE:
+                    BuildManager.instance.SetTurretToBuild(BuildManager.instance.rangeBlock);
+                    break;
+                case TurretType.POISON:
+                    BuildManager.instance.SetTurretToBuild(BuildManager.instance.poisonBlock);
+                    break;
+                case TurretType.SLOW:
+                    BuildManager.instance.SetTurretToBuild(BuildManager.instance.slowBlock);
+                    break;
+                case TurretType.EXPLOSION:
+                    BuildManager.instance.SetTurretToBuild(BuildManager.instance.explosionBlock);
+                    break;
+                case TurretType.LASER:
+                    BuildManager.instance.SetTurretToBuild(BuildManager.instance.laserBlock);
+                    break;
+            }
+        }
     }
 }

@@ -20,13 +20,14 @@ public class Enemy : MonoBehaviour
     public Image healhtBar;
 
     [Header("Effect")]
+    public GameObject ennemy;
     public Material slowMaterial;
     public Material poisonMaterial;
 
     public GameObject poisonParticule;
 
     private Material startMaterial;
-    private MeshRenderer rend;
+    private SkinnedMeshRenderer rend;
 
     public float distFromNexus;
     private IEnumerator slowCoroutine;
@@ -36,7 +37,7 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        rend = GetComponent<MeshRenderer>();
+        rend = ennemy.GetComponent<SkinnedMeshRenderer>();
         startMaterial = rend.material;
         actualHealth = startHealth;
         agent.SetDestination(EndInfo.endPoint.position);

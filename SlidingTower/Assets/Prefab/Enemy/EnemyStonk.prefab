@@ -5141,6 +5141,7 @@ MonoBehaviour:
   deathEffect: {fileID: 6349644078730903099, guid: 59901bc0cd50be14fb4252ee1a62e2a2,
     type: 3}
   healhtBar: {fileID: 2084251078}
+  ennemy: {fileID: 2225278652722171395}
   slowMaterial: {fileID: 2100000, guid: 4417a1d6b8363f04a906d765aa2fd1e9, type: 2}
   poisonMaterial: {fileID: 2100000, guid: 4586efa51d554b6448094787877102c3, type: 2}
   poisonParticule: {fileID: 4301944453146388890}
@@ -5268,6 +5269,12 @@ GameObject:
 --- !u!4 &1860400683560776929 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ec7fb6041b99cd74a8d83779906c92a1,
+    type: 3}
+  m_PrefabInstance: {fileID: 2187555271515427594}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2225278652722171395 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 52361805505633545, guid: ec7fb6041b99cd74a8d83779906c92a1,
     type: 3}
   m_PrefabInstance: {fileID: 2187555271515427594}
   m_PrefabAsset: {fileID: 0}

@@ -32,6 +32,7 @@ public class WaveSpawner : MonoBehaviour
     public List<Enemy> enemyList = new List<Enemy>();
     private float timeCounter;
     private Transform spawnPoint;
+    private bool canCheck;
 
     private void Awake()
     {
@@ -86,6 +87,7 @@ public class WaveSpawner : MonoBehaviour
 
             yield return new WaitForSeconds(levelWaves.waves[waveIndex].enemies[i].timeBeforeNextSpawn);
         }
+        canCheck = true;
     }
 
     IEnumerator WaitBfrEndWave()
@@ -99,9 +101,10 @@ public class WaveSpawner : MonoBehaviour
 
     void CheckIfEnemyAlive()
     {
-        if (enemyAlive && enemyList.Count == 0)
+        if (enemyAlive && enemyList.Count == 0 && canCheck)
         {
             enemyAlive = false;
+            canCheck = false;
             StartCoroutine(WaitBfrEndWave());
         }
     }

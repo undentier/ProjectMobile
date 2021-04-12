@@ -1107,10 +1107,10 @@ MonoBehaviour:
   - 5.3
   damageBonus: 320000003c0000005a00000082000000
   rangeBonus:
-  - 5
-  - 10
   - 15
   - 20
+  - 25
+  - 30
   slowForceBonus:
   - 3
   - 5

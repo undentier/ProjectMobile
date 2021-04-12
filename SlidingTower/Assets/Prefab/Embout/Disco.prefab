@@ -91,6 +91,7 @@ GameObject:
   - component: {fileID: 4784563767063158099}
   - component: {fileID: 7526677785813440413}
   - component: {fileID: 5802946922136057772}
+  - component: {fileID: 4163327642363599163}
   m_Layer: 0
   m_Name: Disco
   m_TagString: Untagged
@@ -131,7 +132,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5273151981361383401}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -163,6 +164,22 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!111 &4163327642363599163
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5273151981361383401}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: dbf00137c4793ad47b1ee27df7282c3b, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: dbf00137c4793ad47b1ee27df7282c3b, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1001 &605390809073635661
 PrefabInstance:
   m_ObjectHideFlags: 0

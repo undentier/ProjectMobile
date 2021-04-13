@@ -19,7 +19,6 @@ public class WaveSpawner : MonoBehaviour
     public bool activateUI;
     public Text counterActualWaveCounter;
     public Text counterTotalWave;
-    public GameObject counterNextWave;
 
     [HideInInspector]
     public int waveIndex;

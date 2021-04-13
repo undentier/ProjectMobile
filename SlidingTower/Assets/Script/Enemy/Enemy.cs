@@ -121,6 +121,7 @@ public class Enemy : MonoBehaviour
     
     void Die()
     {
+        LifeManager.lifeInstance.AddKillScore(1);
         GameObject effect = Instantiate(deathEffect, transform.position, transform.rotation);
         Destroy(effect, 2f);
         Destroy(gameObject);

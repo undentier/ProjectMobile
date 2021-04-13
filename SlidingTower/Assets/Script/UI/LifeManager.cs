@@ -12,6 +12,11 @@ public class LifeManager : MonoBehaviour
     [Header("Unity Setup")]
     public Text lifeCounter;
 
+    [HideInInspector]
+    public int numOfKill;
+    [HideInInspector]
+    public int startLife;
+
     private void Awake()
     {
         if (lifeInstance != null)
@@ -23,6 +28,11 @@ public class LifeManager : MonoBehaviour
         {
             lifeInstance = this;
         }
+    }
+
+    private void Start()
+    {
+        startLife = life;
     }
 
     private void Update()
@@ -48,5 +58,10 @@ public class LifeManager : MonoBehaviour
         {
             WavePanel.instance.DisableBuildMode();
         }
+    }
+
+    public void AddKillScore(int score)
+    {
+        numOfKill += score;
     }
 }

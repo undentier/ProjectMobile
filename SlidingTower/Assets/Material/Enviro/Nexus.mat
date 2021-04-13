@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-667560599580566491
+--- !u!114 &-8458392251230774733
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Bloc
+  m_Name: Nexus
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_ShaderKeywords: _METALLICSPECGLOSSMAP _NORMALMAP _OCCLUSIONMAP
   m_LightmapFlags: 4
@@ -34,11 +34,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: ceaa237c833bafc43b8ccd39f4333824, type: 3}
+        m_Texture: {fileID: 2800000, guid: bd21752d79f890f40bd89270da7eda69, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 41455a677e5cee245a1758189f5df6a9, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0584a03398a02fc40a4235ac7a825b10, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
@@ -46,15 +46,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: ceaa237c833bafc43b8ccd39f4333824, type: 3}
+        m_Texture: {fileID: 2800000, guid: bd21752d79f890f40bd89270da7eda69, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: d015bf07cff154b4889588b3907bb5d8, type: 3}
+        m_Texture: {fileID: 2800000, guid: 1d1780cef4d56284bbc4f961623b1c10, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
-        m_Texture: {fileID: 2800000, guid: 8db666b480919ed4dbda9701cd4adbcc, type: 3}
+        m_Texture: {fileID: 2800000, guid: b149d652e85f85945b0896d40411c221, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:

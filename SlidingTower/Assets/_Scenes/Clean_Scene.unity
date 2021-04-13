@@ -4233,6 +4233,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground
       objectReference: {fileID: 0}
+    - target: {fileID: 7518038182007725726, guid: 793a4bb2e3cdcfe48a02a6d96e9b1e4d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7649818041903500946, guid: 793a4bb2e3cdcfe48a02a6d96e9b1e4d,
         type: 3}
       propertyPath: m_RootOrder

@@ -5196,10 +5196,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05dcf020a848da84b9100f29496bf416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMovSpeed: 10
+  startMovSpeed: 8
   startHealth: 120
   actualHealth: 0
-  damageToNexus: 1
+  damageToNexus: 2
   agent: {fileID: -22901727225648796}
   deathEffect: {fileID: 6349644078730903099, guid: 59901bc0cd50be14fb4252ee1a62e2a2,
     type: 3}

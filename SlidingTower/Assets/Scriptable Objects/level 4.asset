@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cefeb85208766c647aa45e47f34b00db, type: 3}
-  m_Name: level 2
+  m_Name: level 4
   m_EditorClassIdentifier: 
   levelSceneName: 
-  levelNumber: 2
-  name: Ok tier
-  description: hehe
-  blocks: {fileID: 21300000, guid: 5db8aa3ea729b094680bd103e02b9dc1, type: 3}
+  levelNumber: 3
+  name: decent
+  description: woaw
+  blocks: {fileID: 21300000, guid: b91c0ef1743ec0a4f8d57f70930b6666, type: 3}
   scoreSpriteZero: {fileID: 21300000, guid: 9ddc4b274ed351a448d0003c040ee9a8, type: 3}
   scoreSpriteOne: {fileID: 21300000, guid: cf8297890298a1746962fe7c477b5957, type: 3}
   scoreSpriteTwo: {fileID: 21300000, guid: b539a765c0400a7499f5bc586feece24, type: 3}
@@ -24,5 +24,6 @@ MonoBehaviour:
   score: 0
   blockChoice:
   - block: 0
-  - block: 1
+  - block: 0
+  - block: 3
   - block: 6

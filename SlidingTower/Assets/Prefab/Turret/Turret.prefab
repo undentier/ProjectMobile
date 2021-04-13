@@ -1143,15 +1143,15 @@ MonoBehaviour:
   - 10
   numOfCanonBonus: 03000000040000000500000007000000
   laserDamageReductionBonus:
-  - 2.5
   - 2
+  - 1.75
   - 1.5
   - 1
   laserFirerateMultiplierBonus:
-  - 4
   - 6
   - 8
-  - 12
+  - 10
+  - 14
   microLaserDamageReductionBonus:
   - 4
   - 3

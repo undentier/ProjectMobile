@@ -5133,7 +5133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05dcf020a848da84b9100f29496bf416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMovSpeed: 7
+  startMovSpeed: 7.5
   startHealth: 120
   actualHealth: 0
   damageToNexus: 4

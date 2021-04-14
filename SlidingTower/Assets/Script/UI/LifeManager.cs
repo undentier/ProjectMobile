@@ -9,9 +9,6 @@ public class LifeManager : MonoBehaviour
     public int life;
     public int buildToken;
 
-    [Header("Unity Setup")]
-    public Text lifeCounter;
-
     [HideInInspector]
     public int numOfKill;
     [HideInInspector]
@@ -33,11 +30,6 @@ public class LifeManager : MonoBehaviour
     private void Start()
     {
         startLife = life;
-    }
-
-    private void Update()
-    {
-        lifeCounter.text = life.ToString();
     }
 
     public void DamagePlayer(int damage)

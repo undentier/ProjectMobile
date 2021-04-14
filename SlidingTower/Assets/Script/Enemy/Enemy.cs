@@ -55,6 +55,7 @@ public class Enemy : MonoBehaviour
 
         if (distFromNexus <= 0.5f)
         {
+            Debug.Log("damage player");
             LifeManager.lifeInstance.DamagePlayer(damageToNexus);
             Destroy(gameObject);
             return;
@@ -69,7 +70,6 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float amount)
     {
         actualHealth -= amount;
-
         healhtBar.fillAmount = actualHealth / startHealth;
 
         if (actualHealth <= 0f)
@@ -128,9 +128,11 @@ public class Enemy : MonoBehaviour
         LifeManager.lifeInstance.AddKillScore(1);
         GameObject effect = Instantiate(deathEffect, transform.position, transform.rotation);
         Destroy(effect, 2f);
+        /*
         EnnemyAlive.SetActive(false);
         EnnemyDead.SetActive(true);
-        Destroy(gameObject, 8f);
+        */
+        Destroy(gameObject);
     }
 
     public float GetPathRemainingDistance(NavMeshAgent navMeshAgent)

@@ -15,11 +15,6 @@ public class WaveSpawner : MonoBehaviour
     public GameObject mediumEnemy;
     public GameObject bigEnemy;
 
-    [Header("UI")]
-    public bool activateUI;
-    public Text counterActualWaveCounter;
-    public Text counterTotalWave;
-
     [HideInInspector]
     public int waveIndex;
     [HideInInspector]
@@ -54,7 +49,6 @@ public class WaveSpawner : MonoBehaviour
     {
         enemyList.RemoveAll(list_item => list_item == null);
         CheckIfEnemyAlive();
-        UiSysteme();
     }
 
     IEnumerator SpawnWave()
@@ -114,14 +108,6 @@ public class WaveSpawner : MonoBehaviour
         return null;
     }
 
-    void UiSysteme()
-    {
-        if (activateUI)
-        {
-            counterActualWaveCounter.text = waveIndex.ToString();
-            counterTotalWave.text = levelWaves.waves.Length.ToString();
-        }
-    }
     public void StartWave()
     {
         if (!waveSpawn && waveIndex < levelWaves.waves.Length)

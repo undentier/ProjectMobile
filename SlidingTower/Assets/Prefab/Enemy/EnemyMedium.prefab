@@ -5209,8 +5209,8 @@ MonoBehaviour:
   poisonMaterial: {fileID: 2100000, guid: 4586efa51d554b6448094787877102c3, type: 2}
   poisonParticule: {fileID: 4301944453146388890}
   distFromNexus: 0
-  EnnemyAlive: {fileID: 6895374269467792441}
-  EnnemyDead: {fileID: 6895374269467792441}
+  EnnemyAlive: {fileID: 0}
+  EnnemyDead: {fileID: 0}
 --- !u!195 &-22901727225648796
 NavMeshAgent:
   m_ObjectHideFlags: 0

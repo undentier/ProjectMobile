@@ -1161,6 +1161,7 @@ MonoBehaviour:
   buildToken: 0
   numOfKill: 0
   startLife: 0
+  cameraShake: {fileID: 0}
 --- !u!1001 &606313258
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3232,7 +3233,7 @@ PrefabInstance:
     - target: {fileID: 4023028802164488994, guid: 47fca9f7ef5c33b4588f8f175924424c,
         type: 3}
       propertyPath: m_Name
-      value: Canvas
+      value: Level UI
       objectReference: {fileID: 0}
     - target: {fileID: 4023028802164488998, guid: 47fca9f7ef5c33b4588f8f175924424c,
         type: 3}

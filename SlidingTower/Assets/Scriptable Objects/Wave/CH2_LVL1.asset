@@ -31,7 +31,7 @@ MonoBehaviour:
       timeBtwSpawn: 0.5
     - wichEnemy: 0
       timeBeforeNextSpawn: 0
-      number: 4
+      number: 3
       timeBtwSpawn: 0.2
   - enemies:
     - wichEnemy: 2

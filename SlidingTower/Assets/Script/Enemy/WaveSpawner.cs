@@ -17,10 +17,8 @@ public class WaveSpawner : MonoBehaviour
 
     [Header("UI")]
     public bool activateUI;
-    public Text counterBfrWaveSpawn;
     public Text counterActualWaveCounter;
     public Text counterTotalWave;
-    public GameObject counterNextWave;
 
     [HideInInspector]
     public int waveIndex;
@@ -30,9 +28,15 @@ public class WaveSpawner : MonoBehaviour
     public bool waveSpawn;
     [HideInInspector]
     public List<Enemy> enemyList = new List<Enemy>();
-    private float timeCounter;
     private Transform spawnPoint;
     private bool canCheck;
+
+    [HideInInspector]
+    public int nextLowEnemyNumber;
+    [HideInInspector]
+    public int nextMidEnemyNumber;
+    [HideInInspector]
+    public int nextBigEnemyNumber;
 
     private void Awake()
     {
@@ -44,17 +48,11 @@ public class WaveSpawner : MonoBehaviour
 
     private void Start()
     {
-        if (activateUI)
-        {
-            counterNextWave.SetActive(false);
-        }
         spawnPoint = StartInfo.startPoint;
     }
     void Update()
     {
         enemyList.RemoveAll(list_item => list_item == null);
-
-
         CheckIfEnemyAlive();
         UiSysteme();
     }
@@ -62,16 +60,7 @@ public class WaveSpawner : MonoBehaviour
     IEnumerator SpawnWave()
     {
         waveSpawn = true;
-        if (activateUI)
-        {
-            counterNextWave.SetActive(true);
-        }
         yield return new WaitForSeconds(levelWaves.timeBeforeStartWave);
-
-        if (activateUI)
-        {
-            counterNextWave.SetActive(false);
-        }
 
         enemyAlive = true;
 
@@ -95,6 +84,8 @@ public class WaveSpawner : MonoBehaviour
         yield return new WaitForSeconds(levelWaves.timeBeforeEndWave);
         waveIndex++;
         waveSpawn = false;
+
+        RefreshNextWaveComposition();
 
         VictoryDetection();
     }
@@ -127,15 +118,6 @@ public class WaveSpawner : MonoBehaviour
     {
         if (activateUI)
         {
-            if (timeCounter >= 0)
-            {
-                timeCounter -= Time.deltaTime;
-            }
-            else
-            {
-                timeCounter = 0f;
-            }
-            counterBfrWaveSpawn.text = Mathf.Round(timeCounter).ToString();
             counterActualWaveCounter.text = waveIndex.ToString();
             counterTotalWave.text = levelWaves.waves.Length.ToString();
         }
@@ -145,7 +127,6 @@ public class WaveSpawner : MonoBehaviour
         if (!waveSpawn && waveIndex < levelWaves.waves.Length)
         {
             StartCoroutine(SpawnWave());
-            timeCounter = levelWaves.timeBeforeStartWave;
         }
     }
 
@@ -157,7 +138,33 @@ public class WaveSpawner : MonoBehaviour
         }
         else
         {
-            WavePanel.instance.ActiveBuildMode();
+            UIManager.instance.previewScript.ActualiseEnemy();
+        }
+    }
+
+    void RefreshNextWaveComposition()
+    {
+        if (waveIndex < levelWaves.waves.Length)
+        {
+            nextLowEnemyNumber = 0;
+            nextMidEnemyNumber = 0;
+            nextBigEnemyNumber = 0;
+
+            for (int i = 0; i < levelWaves.waves[waveIndex].enemies.Length; i++)
+            {
+                switch (levelWaves.waves[waveIndex].enemies[i].wichEnemy)
+                {
+                    case WaveSO.EnemyEnum.small:
+                        nextLowEnemyNumber += levelWaves.waves[waveIndex].enemies[i].number;
+                        break;
+                    case WaveSO.EnemyEnum.medium:
+                        nextMidEnemyNumber += levelWaves.waves[waveIndex].enemies[i].number;
+                        break;
+                    case WaveSO.EnemyEnum.big:
+                        nextBigEnemyNumber += levelWaves.waves[waveIndex].enemies[i].number;
+                        break;
+                }
+            }
         }
     }
 }

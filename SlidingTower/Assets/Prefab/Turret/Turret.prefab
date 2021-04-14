@@ -1172,6 +1172,7 @@ MonoBehaviour:
   - {fileID: 6396407392588064014}
   - {fileID: 8801671219447044494}
   canonRenderer: {fileID: 5669794617481453903}
+  turretMeshRenderer: {fileID: 2154267079564832161}
   basicCanonMesh: {fileID: -793987620497431792, guid: af44cac122241904f905f0063e9b2d28,
     type: 3}
   explosionCanonMesh: {fileID: -8783511247439342555, guid: bcac63d7840a48846973e75aa587713b,

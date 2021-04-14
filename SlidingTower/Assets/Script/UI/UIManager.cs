@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
     public GameObject gameOverMenu;
     public GameObject victoryMenu;
 
+    public EnemyPreview previewScript;
     private void Awake()
     {
         instance = this;
@@ -38,6 +39,7 @@ public class UIManager : MonoBehaviour
 
     public void PauseButton()
     {
+        gamePause = true;
         pauseMenu.SetActive(true);
         pauseButton.SetActive(false);
 
@@ -45,6 +47,7 @@ public class UIManager : MonoBehaviour
     }
     public void ResumeButton()
     {
+        gamePause = false;
         pauseMenu.SetActive(false);
         pauseButton.SetActive(true);
 
@@ -52,6 +55,7 @@ public class UIManager : MonoBehaviour
     }
     public void MainMenuButton()
     {
+        gamePause = false;
         SceneManager.LoadScene("MainMenu_Scene");
         Time.timeScale = 1f;
     }

@@ -55,7 +55,6 @@ public class Enemy : MonoBehaviour
 
         if (distFromNexus <= 0.5f)
         {
-            Debug.Log("damage player");
             LifeManager.lifeInstance.DamagePlayer(damageToNexus);
             Destroy(gameObject);
             return;

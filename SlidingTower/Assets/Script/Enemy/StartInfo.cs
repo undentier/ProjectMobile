@@ -5,7 +5,7 @@ using UnityEngine;
 public class StartInfo : MonoBehaviour
 {
     public static Transform startPoint;
-    public GameObject wavePreview;
+    //public GameObject wavePreview;
 
     private bool uiActive = false;
     private void Awake()
@@ -15,7 +15,7 @@ public class StartInfo : MonoBehaviour
 
     private void Start()
     {
-        wavePreview.SetActive(false);
+        //wavePreview.SetActive(false);
     }
 
     public void GetingTouch()
@@ -23,12 +23,12 @@ public class StartInfo : MonoBehaviour
         if (!uiActive)
         {
             uiActive = true;
-            wavePreview.SetActive(true);
+            //wavePreview.SetActive(true);
         }
         else
         {
             uiActive = false;
-            wavePreview.SetActive(false);
+            //wavePreview.SetActive(false);
         }
     }
 }

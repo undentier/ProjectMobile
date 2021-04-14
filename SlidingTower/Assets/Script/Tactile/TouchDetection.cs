@@ -23,11 +23,6 @@ public class TouchDetection : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                /*if (hit.transform.gameObject.layer == 5)
-                {
-                    return;
-                }*/
-
                 if (hit.transform.gameObject.layer == 8)
                 {
                     for (int i = 0; i < NodeManager.allNodes.Count; i++)
@@ -38,6 +33,12 @@ public class TouchDetection : MonoBehaviour
                         }
                     }
                 }
+                /*
+                if (hit.transform.gameObject.layer == 12)
+                {
+                    Debug.Log("je rentre");
+                    hit.transform.gameObject.GetComponent<StartInfo>().GetingTouch();
+                }*/
             }
         }
         else
@@ -60,6 +61,12 @@ public class TouchDetection : MonoBehaviour
                             currentlyHoveredNode = NodeManager.allNodes[i];
                         }
                     }
+                }
+
+                if (hit.transform.gameObject.layer == 12)
+                {
+                    Debug.Log("je rentre");
+                    hit.transform.gameObject.GetComponent<StartInfo>().GetingTouch();
                 }
             }
         }

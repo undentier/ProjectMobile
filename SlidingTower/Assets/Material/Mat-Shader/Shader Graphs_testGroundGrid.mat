@@ -31,4 +31,5 @@ Material:
     m_Floats:
     - Vector1_B28EFA8C: 1
     - Vector1_D6EFA145: 0.25
-    m_Colors: []
+    m_Colors:
+    - _MainColor: {r: 1, g: 1, b: 1, a: 1}

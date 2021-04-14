@@ -14,6 +14,9 @@ public class LifeManager : MonoBehaviour
     [HideInInspector]
     public int startLife;
 
+    [Header("GA")]
+    public CameraShake cameraShake;
+
     private void Awake()
     {
         if (lifeInstance != null)
@@ -35,6 +38,7 @@ public class LifeManager : MonoBehaviour
     public void DamagePlayer(int damage)
     {
         life -= damage;
+        StartCoroutine(cameraShake.Shake(0.15f, 2f));
 
         if (life <= 0)
         {

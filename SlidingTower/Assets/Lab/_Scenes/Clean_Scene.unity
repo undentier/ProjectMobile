@@ -139,6 +139,8 @@ GameObject:
   - component: {fileID: 11101510}
   - component: {fileID: 11101509}
   - component: {fileID: 11101512}
+  - component: {fileID: 11101513}
+  - component: {fileID: 11101514}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -242,6 +244,34 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &11101513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11101508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec8ad1350b990c14cb5081f378ef0823, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11101514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11101508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c49b4cc203aa6414fae5c798d1d0e7d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EventMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_MaxRayIntersections: 1000
 --- !u!1 &37392279
 GameObject:
   m_ObjectHideFlags: 0
@@ -2146,7 +2176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffa7ba2cae64331408907fa3c28ebd5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 1
+  life: 20
   buildToken: 0
   lifeCounter: {fileID: 329250258}
   numOfKill: 0

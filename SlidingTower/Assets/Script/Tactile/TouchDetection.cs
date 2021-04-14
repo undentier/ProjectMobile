@@ -23,10 +23,10 @@ public class TouchDetection : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.transform.gameObject.layer == 5)
+                /*if (hit.transform.gameObject.layer == 5)
                 {
                     return;
-                }
+                }*/
 
                 if (hit.transform.gameObject.layer == 8)
                 {

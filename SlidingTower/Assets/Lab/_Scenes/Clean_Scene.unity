@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -251,7 +251,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 11101508}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec8ad1350b990c14cb5081f378ef0823, type: 3}
   m_Name: 
@@ -263,7 +263,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 11101508}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c49b4cc203aa6414fae5c798d1d0e7d6, type: 3}
   m_Name: 
@@ -2086,6 +2086,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   basiqueTurretPrefab: {fileID: 7122458465355761990, guid: e144a754f77db1348aa3e8870f279a11,
     type: 3}
+  basiqueTurretPrevisualizePrefab: {fileID: 2609717235347817975, guid: ca5ca142dda9b1b4d9505cf7b9f5e66f,
+    type: 3}
   fireRateBlock: {fileID: 1437501445353532660, guid: 146cf4b384f8c394996470f8570f373f,
     type: 3}
   damageBlock: {fileID: 7293746147738973430, guid: e8b36b426f9c57549b6ba97b239e7257,
@@ -2100,6 +2102,7 @@ MonoBehaviour:
     type: 3}
   laserBlock: {fileID: 5186712513458233651, guid: df20e587048a1564a846c6e971ab189b,
     type: 3}
+  isDraggingTurret: 0
 --- !u!4 &562596951
 Transform:
   m_ObjectHideFlags: 0
@@ -3025,49 +3028,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 767754175}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &769078983
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 769078985}
-  - component: {fileID: 769078984}
-  m_Layer: 0
-  m_Name: InputDetection
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &769078984
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 769078983}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b3034bff529c424b9014ab7a43cf720, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &769078985
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 769078983}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &781517264
 GameObject:
   m_ObjectHideFlags: 0
@@ -6786,6 +6746,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1660091591}
+  - component: {fileID: 1660091592}
   m_Layer: 0
   m_Name: Nodes
   m_TagString: Untagged
@@ -6837,6 +6798,18 @@ Transform:
   m_Father: {fileID: 2000737865}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1660091592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660091590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ec3693cfd2e2714982d547a010d9502, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1671866122
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7801,7 +7774,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 35.699997, y: -45}
+  m_AnchoredPosition: {x: 35.69995, y: -45}
   m_SizeDelta: {x: 56.039993, y: 56.039993}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1882980720
@@ -8644,6 +8617,49 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2087680462}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2108966221
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2108966223}
+  - component: {fileID: 2108966222}
+  m_Layer: 0
+  m_Name: InputDetection
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2108966222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2108966221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b3034bff529c424b9014ab7a43cf720, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &2108966223
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2108966221}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2111753161
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9338,6 +9354,7 @@ GameObject:
   - component: {fileID: 4999543010085031127}
   - component: {fileID: 4999543010085031124}
   - component: {fileID: 4999543010085031125}
+  - component: {fileID: 4999543010085031129}
   m_Layer: 5
   m_Name: Range button
   m_TagString: Untagged
@@ -9345,6 +9362,34 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!114 &4999543010085031129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4999543010085031128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4999543011125209830}
+          m_MethodName: RangeBlockSelected
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!224 &4999543010085031131
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9395,6 +9440,7 @@ GameObject:
   - component: {fileID: 4999543010334995055}
   - component: {fileID: 4999543010334995052}
   - component: {fileID: 4999543010334995053}
+  - component: {fileID: 4999543010334995028}
   m_Layer: 5
   m_Name: Basic Turret Button
   m_TagString: Untagged
@@ -9402,6 +9448,34 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!114 &4999543010334995028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4999543010334995027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4999543011125209830}
+          m_MethodName: BasiqueTurretSelected
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &4999543010334995052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9659,6 +9733,7 @@ GameObject:
   - component: {fileID: 4999543010876561162}
   - component: {fileID: 4999543010876561163}
   - component: {fileID: 4999543010876561160}
+  - component: {fileID: 4999543010876561168}
   m_Layer: 5
   m_Name: Slow button
   m_TagString: Untagged
@@ -9666,6 +9741,34 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!114 &4999543010876561168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4999543010876561167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4999543011125209830}
+          m_MethodName: SlowBlockSelected
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!224 &4999543010939078586
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9806,6 +9909,7 @@ GameObject:
   - component: {fileID: 4999543010955984723}
   - component: {fileID: 4999543010955984720}
   - component: {fileID: 4999543010955984721}
+  - component: {fileID: 4999543010955984725}
   m_Layer: 5
   m_Name: FirerSRate button
   m_TagString: Untagged
@@ -9813,6 +9917,34 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!114 &4999543010955984725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4999543010955984724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4999543011125209830}
+          m_MethodName: FireRateBlockSelected
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!224 &4999543010955984727
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10101,6 +10233,7 @@ GameObject:
   - component: {fileID: 4999543011255311877}
   - component: {fileID: 4999543011255311882}
   - component: {fileID: 4999543011255311883}
+  - component: {fileID: 4999543011255311887}
   m_Layer: 5
   m_Name: Explosion button
   m_TagString: Untagged
@@ -10108,6 +10241,34 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!114 &4999543011255311887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4999543011255311886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4999543011125209830}
+          m_MethodName: ExplosionBlockSelected
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!224 &4999543011292130994
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10139,6 +10300,7 @@ GameObject:
   - component: {fileID: 4999543011292131150}
   - component: {fileID: 4999543011292131151}
   - component: {fileID: 4999543011292131148}
+  - component: {fileID: 4999543011292130996}
   m_Layer: 5
   m_Name: 'Laser button '
   m_TagString: Untagged
@@ -10146,6 +10308,34 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!114 &4999543011292130996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4999543011292130995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4999543011125209830}
+          m_MethodName: LaserBlockSelected
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &4999543011292131148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10359,6 +10549,7 @@ GameObject:
   - component: {fileID: 4999543011480571169}
   - component: {fileID: 4999543011480571174}
   - component: {fileID: 4999543011480571175}
+  - component: {fileID: 4999543011480571179}
   m_Layer: 5
   m_Name: Poison button
   m_TagString: Untagged
@@ -10366,6 +10557,34 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!114 &4999543011480571179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4999543011480571178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4999543011125209830}
+          m_MethodName: PoisonBlockSelected
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!224 &4999543011988653377
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10480,6 +10699,7 @@ GameObject:
   - component: {fileID: 4999543011988653405}
   - component: {fileID: 4999543011988653378}
   - component: {fileID: 4999543011988653379}
+  - component: {fileID: 4999543011988653383}
   m_Layer: 5
   m_Name: Damage button
   m_TagString: Untagged
@@ -10487,6 +10707,34 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!114 &4999543011988653383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4999543011988653382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4999543011125209830}
+          m_MethodName: DamageBlockSelected
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!222 &4999543011988653405
 CanvasRenderer:
   m_ObjectHideFlags: 0

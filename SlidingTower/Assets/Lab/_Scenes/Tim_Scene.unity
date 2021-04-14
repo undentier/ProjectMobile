@@ -1783,6 +1783,40 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 690143105053416342}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &473221522 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4999543012103586797, guid: d782c2745301fb24c91a60876922038b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1290403001}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &473221528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473221522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1097909535}
+          m_MethodName: FireRateBlockSelected
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &546509841
 GameObject:
   m_ObjectHideFlags: 0
@@ -1854,6 +1888,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   basiqueTurretPrefab: {fileID: 7122458465355761990, guid: e144a754f77db1348aa3e8870f279a11,
     type: 3}
+  basiqueTurretPrevisualizePrefab: {fileID: 2609717235347817975, guid: ca5ca142dda9b1b4d9505cf7b9f5e66f,
+    type: 3}
   fireRateBlock: {fileID: 1437501445353532660, guid: 146cf4b384f8c394996470f8570f373f,
     type: 3}
   damageBlock: {fileID: 7293746147738973430, guid: e8b36b426f9c57549b6ba97b239e7257,
@@ -1868,6 +1904,7 @@ MonoBehaviour:
     type: 3}
   laserBlock: {fileID: 5186712513458233651, guid: df20e587048a1564a846c6e971ab189b,
     type: 3}
+  isDraggingTurret: 0
 --- !u!4 &562596951
 Transform:
   m_ObjectHideFlags: 0
@@ -2896,6 +2933,40 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 792734919}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &818476343 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4999543010971040255, guid: d782c2745301fb24c91a60876922038b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1290403001}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &818476349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818476343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1097909535}
+          m_MethodName: DamageBlockSelected
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &886012017
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3319,6 +3390,40 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 939136767}
   m_CullTransparentMesh: 0
+--- !u!1 &997098620 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4999543011615706858, guid: d782c2745301fb24c91a60876922038b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1290403001}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &997098625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997098620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1097909535}
+          m_MethodName: BasiqueTurretSelected
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &1011527328
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3534,6 +3639,40 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1025016110}
   m_CullTransparentMesh: 0
+--- !u!1 &1030697523 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4999543010472489363, guid: d782c2745301fb24c91a60876922038b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1290403001}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1030697529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030697523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1097909535}
+          m_MethodName: PoisonBlockSelected
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &1040675471
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3658,6 +3797,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1097909535 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4999543010255328863, guid: d782c2745301fb24c91a60876922038b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1290403001}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ee2060edaf516544b28176530fe5135, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1118514449
 GameObject:
   m_ObjectHideFlags: 0
@@ -3867,6 +4018,40 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1273991674 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4999543011362615393, guid: d782c2745301fb24c91a60876922038b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1290403001}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1273991680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273991674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1097909535}
+          m_MethodName: RangeBlockSelected
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &1290403001
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3992,6 +4177,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4999543011615706836, guid: d782c2745301fb24c91a60876922038b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d782c2745301fb24c91a60876922038b, type: 3}
@@ -4324,6 +4514,40 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 0.2, y: 0}
   m_UseGraphicAlpha: 1
+--- !u!1 &1372766064 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4999543012149980086, guid: d782c2745301fb24c91a60876922038b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1290403001}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1372766070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1372766064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1097909535}
+          m_MethodName: SlowBlockSelected
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &1377777421
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4871,6 +5095,40 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1533663746 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4999543010157089290, guid: d782c2745301fb24c91a60876922038b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1290403001}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1533663752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533663746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1097909535}
+          m_MethodName: LaserBlockSelected
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1581309467
 GameObject:
   m_ObjectHideFlags: 0
@@ -5190,6 +5448,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1660091591}
+  - component: {fileID: 1660091592}
   m_Layer: 0
   m_Name: Nodes
   m_TagString: Untagged
@@ -5241,6 +5500,18 @@ Transform:
   m_Father: {fileID: 2000737865}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1660091592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660091590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ec3693cfd2e2714982d547a010d9502, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1671866122
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5901,6 +6172,7 @@ MonoBehaviour:
   pauseButton: {fileID: 416088516}
   pauseMenu: {fileID: 1090198013}
   gameOverMenu: {fileID: 75389567}
+  victoryMenu: {fileID: 0}
 --- !u!1001 &1899362941
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6071,6 +6343,40 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1926692586}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1943350645 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4999543010124440247, guid: d782c2745301fb24c91a60876922038b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1290403001}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1943350651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1943350645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1097909535}
+          m_MethodName: ExplosionBlockSelected
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1946138335
 GameObject:
   m_ObjectHideFlags: 0

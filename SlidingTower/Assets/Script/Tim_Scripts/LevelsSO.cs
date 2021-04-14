@@ -10,6 +10,7 @@ public class LevelsSO : ScriptableObject
 {
     public string levelSceneName;
     public int levelNumber;
+    public int chapterNumber;
     public new string name;
     public string description;
     public Sprite blocks;

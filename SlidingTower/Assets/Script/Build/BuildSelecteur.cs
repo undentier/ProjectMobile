@@ -4,43 +4,76 @@ using UnityEngine;
 
 public class BuildSelecteur : MonoBehaviour
 {
+    //Changer les arguments des prefabs pour les différentes prévisualisation !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     public void BasiqueTurretSelected()
     {
-        BuildManager.instance.SetTurretToBuild(BuildManager.instance.basiqueTurretPrefab);
+        if (TouchDetection.currentlyHoveredNode != null)
+        {
+            BuildManager.instance.SetTurretToBuild(BuildManager.instance.basiqueTurretPrefab, BuildManager.instance.basiqueTurretPrevisualizePrefab);
+            BuildManager.instance.StartDragTurret();
+        }
     }
 
     public void FireRateBlockSelected()
     {
-        BuildManager.instance.SetTurretToBuild(BuildManager.instance.fireRateBlock);
+        if (TouchDetection.currentlyHoveredNode != null)
+        {
+            BuildManager.instance.SetTurretToBuild(BuildManager.instance.fireRateBlock, BuildManager.instance.basiqueTurretPrevisualizePrefab);
+            BuildManager.instance.StartDragTurret();
+        }
     }
 
     public void DamageBlockSelected()
     {
-        BuildManager.instance.SetTurretToBuild(BuildManager.instance.damageBlock);
+        if (TouchDetection.currentlyHoveredNode != null)
+        {
+            BuildManager.instance.SetTurretToBuild(BuildManager.instance.damageBlock, BuildManager.instance.basiqueTurretPrevisualizePrefab);
+            BuildManager.instance.StartDragTurret();
+        }
     }
 
     public void RangeBlockSelected()
     {
-        BuildManager.instance.SetTurretToBuild(BuildManager.instance.rangeBlock);
+        if (TouchDetection.currentlyHoveredNode != null)
+        {
+            BuildManager.instance.SetTurretToBuild(BuildManager.instance.rangeBlock, BuildManager.instance.basiqueTurretPrevisualizePrefab);
+            BuildManager.instance.StartDragTurret();
+        }
     }
 
     public void PoisonBlockSelected()
     {
-        BuildManager.instance.SetTurretToBuild(BuildManager.instance.poisonBlock);
+        if (TouchDetection.currentlyHoveredNode != null)
+        {
+            BuildManager.instance.SetTurretToBuild(BuildManager.instance.poisonBlock, BuildManager.instance.basiqueTurretPrevisualizePrefab);
+            BuildManager.instance.StartDragTurret();
+        }
     }
 
     public void SlowBlockSelected()
     {
-        BuildManager.instance.SetTurretToBuild(BuildManager.instance.slowBlock);
+        if (TouchDetection.currentlyHoveredNode != null)
+        {
+            BuildManager.instance.SetTurretToBuild(BuildManager.instance.slowBlock, BuildManager.instance.basiqueTurretPrevisualizePrefab);
+            BuildManager.instance.StartDragTurret();
+        }
     }
 
     public void ExplosionBlockSelected()
     {
-        BuildManager.instance.SetTurretToBuild(BuildManager.instance.explosionBlock);
+        if (TouchDetection.currentlyHoveredNode != null)
+        {
+            BuildManager.instance.SetTurretToBuild(BuildManager.instance.explosionBlock, BuildManager.instance.basiqueTurretPrevisualizePrefab);
+            BuildManager.instance.StartDragTurret();
+        }
     }
 
     public void LaserBlockSelected()
     {
-        BuildManager.instance.SetTurretToBuild(BuildManager.instance.laserBlock);
+        if (TouchDetection.currentlyHoveredNode != null)
+        {
+            BuildManager.instance.SetTurretToBuild(BuildManager.instance.laserBlock, BuildManager.instance.basiqueTurretPrevisualizePrefab);
+            BuildManager.instance.StartDragTurret();
+        }
     }
 }

@@ -1,88 +1,67 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class TouchDetection : MonoBehaviour
 {
-    private Ray ray;
-    private RaycastHit hit;
+    private static Ray ray;
+    private static RaycastHit hit;
+    public static NodeSysteme currentlyHoveredNode;
+    static Touch touch;
 
-    void Update()
+    private void Start()
     {
-        TestDetection();
+        currentlyHoveredNode = NodeManager.allNodes[0];
     }
 
-    void TestDetection()
+    public static void UpdateCurrentNode()
     {
-        #region Mobile Input
         if (Input.touchCount > 0)
         {
-            foreach (Touch touch in Input.touches)
-            {
-                if (touch.phase == TouchPhase.Began)
-                {
-                    ray = Camera.main.ScreenPointToRay(touch.position);
-
-                    if (Physics.Raycast(ray, out hit))
-                    {
-                        if (hit.transform.gameObject.layer == 5)
-                        {
-                            return;
-                        }
-
-                        if (hit.transform.gameObject.layer == 8)
-                        {
-                            hit.transform.GetComponent<NodeSysteme>().TouchDetection();
-                        }
-                    }
-                }
-                else if (touch.phase == TouchPhase.Ended)
-                {
-                    if (SlideManager.instance.isSliding)
-                    {
-                        SlideManager.instance.EndSlide();
-                    }
-
-                    ray = Camera.main.ScreenPointToRay(touch.position);
-
-                    if (Physics.Raycast(ray, out hit))
-                    {
-                        
-                    }
-                }
-            }
-        }
-        #endregion
-
-        #region Mouse Input
-        if (Input.GetButtonDown("LeftClick"))
-        {
-            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            touch = Input.GetTouch(0);
+            ray = Camera.main.ScreenPointToRay(touch.position);
 
             if (Physics.Raycast(ray, out hit))
             {
+                if (hit.transform.gameObject.layer == 5)
+                {
+                    return;
+                }
+
                 if (hit.transform.gameObject.layer == 8)
                 {
-                    hit.transform.GetComponent<NodeSysteme>().TouchDetection();
+                    for (int i = 0; i < NodeManager.allNodes.Count; i++)
+                    {
+                        if (hit.transform == NodeManager.allNodes[i].transform)
+                        {
+                            currentlyHoveredNode = NodeManager.allNodes[i];
+                        }
+                    }
                 }
             }
         }
-        else if (Input.GetButtonUp("LeftClick"))
+        else
         {
-            if (SlideManager.instance.isSliding)
-            {
-                SlideManager.instance.EndSlide();
-            }
-
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
             if (Physics.Raycast(ray, out hit))
             {
+                if (hit.transform.gameObject.layer == 5)
+                {
+                    return;
+                }
 
+                if (hit.transform.gameObject.layer == 8)
+                {
+                    for (int i = 0; i < NodeManager.allNodes.Count; i++)
+                    {
+                        if (hit.transform == NodeManager.allNodes[i].transform)
+                        {
+                            currentlyHoveredNode = NodeManager.allNodes[i];
+                        }
+                    }
+                }
             }
         }
-        //EventSystem.current.IsPointerOverGameObject()
-        #endregion
     }
 }

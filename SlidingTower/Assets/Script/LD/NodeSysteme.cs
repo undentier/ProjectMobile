@@ -58,7 +58,7 @@ public class NodeSysteme : MonoBehaviour
         }
     }
 
-    public void TouchDetection()
+    public void CreateTurret()
     {
         if (objBuild == null && !SlideManager.instance.isSliding && LifeManager.lifeInstance.buildToken > 0)
         {
@@ -85,9 +85,13 @@ public class NodeSysteme : MonoBehaviour
             {
                 turretScript.GetNodeUpgrade(this);
             }
-        } // Condition for build
+        } //Condition for build
 
-        else if (objBuild != null)
+    }
+
+    public void SlideTurret()
+    {
+        if (objBuild != null || SlideManager.instance.isSliding)
         {
             if (!SlideManager.instance.isSliding)
             {

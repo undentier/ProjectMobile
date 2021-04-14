@@ -6,8 +6,7 @@ public class CameraShake : MonoBehaviour
 {
     public IEnumerator Shake (float duration, float magnitude)
     {
-            Vector3 originalPos = transform.localPosition;
-        Debug.Log(originalPos);
+        Vector3 originalPos = transform.localPosition;
 
         float elapsed = 0.0f;
 
@@ -25,6 +24,5 @@ public class CameraShake : MonoBehaviour
         }
 
         transform.localPosition = originalPos;
-        Debug.Log(originalPos);
     }
 }

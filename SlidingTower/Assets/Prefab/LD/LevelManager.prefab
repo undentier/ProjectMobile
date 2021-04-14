@@ -1,0 +1,131 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3339626323251534458
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3339626323251534463}
+  - component: {fileID: 3339626323251534462}
+  - component: {fileID: 3339626323251534461}
+  - component: {fileID: 3339626323251534460}
+  - component: {fileID: 3339626323251534459}
+  m_Layer: 0
+  m_Name: LevelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3339626323251534463
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3339626323251534458}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3339626323251534462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3339626323251534458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8d14f4b76369ee49ac15f3266c74a2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelWaves: {fileID: 11400000, guid: 80218d4b5594dbc4f959ac09336cc9d5, type: 2}
+  smallEnemy: {fileID: 6895374269467792441, guid: 52dfdf81d5f4b9042aebfb4a1ad7490f,
+    type: 3}
+  mediumEnemy: {fileID: 6895374269467792441, guid: a3ea6ffd8380b104ca941a2252a03535,
+    type: 3}
+  bigEnemy: {fileID: 6895374269467792441, guid: ea1fb89321b0ef74787e949a4dd75e98,
+    type: 3}
+  waveIndex: 0
+  enemyAlive: 0
+  waveSpawn: 0
+  enemyList: []
+  nextLowEnemyNumber: 0
+  nextMidEnemyNumber: 0
+  nextBigEnemyNumber: 0
+--- !u!114 &3339626323251534461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3339626323251534458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8374885b441775843adda8d1a9c17372, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slidingSpeed: 60
+  offSetUp: 2
+  offSetRight: 2
+  offSetDown: 2
+  offSetLeft: 2
+  isSliding: 0
+  nearNodes: []
+  startNode: {fileID: 0}
+  selectedObj: {fileID: 0}
+--- !u!114 &3339626323251534460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3339626323251534458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffa7ba2cae64331408907fa3c28ebd5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: 20
+  buildToken: 0
+  numOfKill: 0
+  startLife: 0
+  cameraShake: {fileID: 0}
+--- !u!114 &3339626323251534459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3339626323251534458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc2ee93f1c1ac764184a99d62b1cc4f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basiqueTurretPrefab: {fileID: 7122458465355761990, guid: e144a754f77db1348aa3e8870f279a11,
+    type: 3}
+  basiqueTurretPrevisualizePrefab: {fileID: 2609717235347817975, guid: ca5ca142dda9b1b4d9505cf7b9f5e66f,
+    type: 3}
+  fireRateBlock: {fileID: 1437501445353532660, guid: 146cf4b384f8c394996470f8570f373f,
+    type: 3}
+  damageBlock: {fileID: 7293746147738973430, guid: e8b36b426f9c57549b6ba97b239e7257,
+    type: 3}
+  rangeBlock: {fileID: 1824516371659817390, guid: e38aaa28ea7ed544dbc989220c1d265e,
+    type: 3}
+  poisonBlock: {fileID: 3542309577940974953, guid: d07e45d5208bd9c48b2027cbc062f7a6,
+    type: 3}
+  slowBlock: {fileID: 3032868354518637624, guid: c62169a9344cddd428ce2a5495820dd3,
+    type: 3}
+  explosionBlock: {fileID: 7859341925428138484, guid: b5bc8e3188800f642b25779e546a7b2d,
+    type: 3}
+  laserBlock: {fileID: 5186712513458233651, guid: df20e587048a1564a846c6e971ab189b,
+    type: 3}
+  isDraggingTurret: 0

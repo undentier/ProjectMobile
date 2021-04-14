@@ -43,6 +43,19 @@ public class NodeSysteme : MonoBehaviour
     private void Start()
     {
         FindCloseNodes();
+
+        ObjTypeDetection();
+
+        if (boostBlockScript != null)
+        {
+            GetUpgrade(boostBlockScript);
+            UpgradeNeighbour(boostBlockScript);
+            TurretNeighbour();
+        }
+        else if (turretScript != null)
+        {
+            turretScript.GetNodeUpgrade(this);
+        }
     }
 
     public void TouchDetection()

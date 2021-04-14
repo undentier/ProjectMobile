@@ -1095,8 +1095,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2af98c4e2e2553c4c990d618c8c97718, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startFireRate: 2
-  startDamage: 35
+  startFireRate: 1.4
+  startDamage: 30
   startRange: 10
   rotationSpeed: 7
   numMaxTargets: 7
@@ -1112,13 +1112,13 @@ MonoBehaviour:
   - 25
   - 30
   slowForceBonus:
-  - 3
-  - 5
-  - 7
+  - 2
+  - 4
+  - 6
   - 9
   slowDurationBonus:
-  - 1
-  - 2
+  - 0.5
+  - 1.5
   - 3
   - 5
   poisonDamageBonus:
@@ -1143,15 +1143,15 @@ MonoBehaviour:
   - 10
   numOfCanonBonus: 03000000040000000500000007000000
   laserDamageReductionBonus:
-  - 3.5
-  - 3
   - 2
+  - 1.75
+  - 1.5
   - 1
   laserFirerateMultiplierBonus:
-  - 2
-  - 4
   - 6
   - 8
+  - 10
+  - 14
   microLaserDamageReductionBonus:
   - 4
   - 3

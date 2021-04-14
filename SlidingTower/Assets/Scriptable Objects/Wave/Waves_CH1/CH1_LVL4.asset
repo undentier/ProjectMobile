@@ -19,7 +19,7 @@ MonoBehaviour:
     - wichEnemy: 1
       timeBeforeNextSpawn: 0
       number: 2
-      timeBtwSpawn: 1
+      timeBtwSpawn: 1.2
   - enemies:
     - wichEnemy: 2
       timeBeforeNextSpawn: 0

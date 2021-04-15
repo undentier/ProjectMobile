@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7848afaf6fed3214a97be772b36be002, type: 3}
-  m_Name: CH2_LVL4
+  m_Name: CH2_LVL5
   m_EditorClassIdentifier: 
   timeBeforeStartWave: 0
   timeBeforeEndWave: 0
@@ -74,11 +74,11 @@ MonoBehaviour:
   - enemies:
     - wichEnemy: 0
       timeBeforeNextSpawn: 0.5
-      number: 6
+      number: 10
       timeBtwSpawn: 0.2
     - wichEnemy: 2
       timeBeforeNextSpawn: 1
-      number: 3
+      number: 5
       timeBtwSpawn: 1
     - wichEnemy: 1
       timeBeforeNextSpawn: 0
@@ -90,7 +90,7 @@ MonoBehaviour:
       timeBtwSpawn: 1.2
     - wichEnemy: 1
       timeBeforeNextSpawn: 0
-      number: 5
+      number: 8
       timeBtwSpawn: 0.8
   - enemies:
     - wichEnemy: 2

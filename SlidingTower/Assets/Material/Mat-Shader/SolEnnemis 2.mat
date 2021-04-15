@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_sol ennemis 2
+  m_Name: SolEnnemis 2
   m_Shader: {fileID: -6465566751694194690, guid: ff27868e06aefc842ae0d88fd22f0d0c,
     type: 3}
   m_ShaderKeywords: 

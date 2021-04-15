@@ -7,10 +7,10 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_ParticlesBackUI
-  m_Shader: {fileID: -6465566751694194690, guid: d8caa7febc6b336438c14bb587b88a1f,
+  m_Name: Hologramme(PreviTurret)
+  m_Shader: {fileID: -6465566751694194690, guid: 1e4ed97f7ffe82b48afc069082fe4a8a,
     type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -20,10 +20,14 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _Texture2DAsset_5E5B06FC_Out_0:
-        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
+    - Texture2D_8DD3BB06:
+        m_Texture: {fileID: 2800000, guid: 6aa6a17b7f885e34f98426e77298fe1d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_574830AA: 0.75
-    m_Colors: []
+    - Vector1_41AAC1C8: 1
+    - Vector1_EDE4E867: 7
+    - Vector1_FA146AD8: 10
+    m_Colors:
+    - Color_4B7946E9: {r: 0, g: 0.7079072, b: 1, a: 1}
+    - Vector2_F5805FC7: {r: 1, g: 1, b: 0, a: 0}

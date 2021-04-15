@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_Emissive
+  m_Name: Emissive
   m_Shader: {fileID: -6465566751694194690, guid: 46a8e6f328aaa324bb738414610e83b1,
     type: 3}
   m_ShaderKeywords: 
@@ -22,9 +22,13 @@ Material:
     m_TexEnvs: []
     m_Floats:
     - Vector1_2AA8AD1B: 0.5
+    - Vector1_32408988: 1
     - Vector1_5D358C0A: 3.73
     - Vector1_8B4E7097: 0.43
     - Vector1_A690897A: 0.5
+    - Vector1_B9DF4BC4: 15
+    - _inputColorEmissive: 6
     m_Colors:
-    - Color_4FD7C505: {r: 0, g: 0.5254902, b: 0.7490196, a: 1}
-    - Color_BAC1CE6D: {r: 0, g: 1.8666667, b: 2.9960785, a: 1}
+    - Color_4FD7C505: {r: 0.047058824, g: 1.4901961, b: 0.047058824, a: 1}
+    - Color_676DCBDD: {r: 1.9607843, g: 0.23529412, b: 0.09411765, a: 1}
+    - Color_BAC1CE6D: {r: 0, g: 1.1755408, b: 1.8867924, a: 1}

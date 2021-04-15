@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cefeb85208766c647aa45e47f34b00db, type: 3}
-  m_Name: CH2_LVL4
+  m_Name: CH3_LVL2
   m_EditorClassIdentifier: 
   levelSceneName: 
   levelNumber: 3
+  chapterNumber: 0
   name: decent
   description: woaw
   blocks: {fileID: 21300000, guid: b91c0ef1743ec0a4f8d57f70930b6666, type: 3}
@@ -23,7 +24,7 @@ MonoBehaviour:
   scoreSpriteThree: {fileID: 21300000, guid: 1d0160202fdb0f7478bdd1a3a4075b9c, type: 3}
   score: 0
   blockChoice:
-  - block: 4
-  - block: 1
-  - block: 5
+  - block: 6
   - block: 3
+  - block: 5
+  - block: 4

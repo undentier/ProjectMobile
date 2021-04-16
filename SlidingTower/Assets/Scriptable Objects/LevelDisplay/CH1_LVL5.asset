@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: CH1_LVL5
   m_EditorClassIdentifier: 
   levelSceneName: 
-  levelNumber: 3
+  levelNumber: 5
+  chapterNumber: 0
   name: decent
   description: woaw
   blocks: {fileID: 21300000, guid: b91c0ef1743ec0a4f8d57f70930b6666, type: 3}

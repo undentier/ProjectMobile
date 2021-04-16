@@ -10,6 +10,9 @@ public class WavePanel : MonoBehaviour
     public LevelsSO level;
     public GameObject panel;
 
+    public bool[] canBuildTurretWaves;
+    [HideInInspector]
+    public int canBuildTurretIndex;
     public Transform[] slots;
     public GameObject[] buttons;
     public List<GameObject> usedButtons = new List<GameObject>();
@@ -64,7 +67,11 @@ public class WavePanel : MonoBehaviour
     void DisplayPanel()
     {
         panel.SetActive(true);
+        if (canBuildTurretWaves[canBuildTurretIndex] == true)
+        {
         basicTurret.SetActive(true);
+        }
+        canBuildTurretIndex++;
        // startWaveButton.SetActive(true);
         if(isFirstWave == true)
         {

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cefeb85208766c647aa45e47f34b00db, type: 3}
   m_Name: CH1_LVL5
   m_EditorClassIdentifier: 
-  levelSceneName: 
+  levelSceneName: CH1_LVL5
   levelNumber: 5
   chapterNumber: 0
   name: decent

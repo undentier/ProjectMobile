@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cefeb85208766c647aa45e47f34b00db, type: 3}
   m_Name: CH1_LVL1
   m_EditorClassIdentifier: 
-  levelSceneName: Clean_Scene
+  levelSceneName: CH1_LVL1
   levelNumber: 1
   chapterNumber: 1
   name: Tutorial
@@ -22,7 +22,7 @@ MonoBehaviour:
   scoreSpriteOne: {fileID: 21300000, guid: cf8297890298a1746962fe7c477b5957, type: 3}
   scoreSpriteTwo: {fileID: 21300000, guid: b539a765c0400a7499f5bc586feece24, type: 3}
   scoreSpriteThree: {fileID: 21300000, guid: 1d0160202fdb0f7478bdd1a3a4075b9c, type: 3}
-  score: 3
+  score: 2
   blockChoice:
   - block: 1
   - block: 0

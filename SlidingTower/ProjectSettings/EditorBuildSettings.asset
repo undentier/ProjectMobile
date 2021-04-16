@@ -23,4 +23,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Level_Design/CH1/CH1_LVL5_Folder/CH1_LVL5.unity
     guid: 2d34a154abf679b44b65e0bac9155f80
+  - enabled: 1
+    path: Assets/_Scenes/Level_Design/CH2/CH2_LVL1_Folder/CH2_LVL1.unity
+    guid: 93cb020e54da2304590063c10e906bf6
+  - enabled: 1
+    path: Assets/_Scenes/Level_Design/CH2/CH2_LVL2.unity
+    guid: 9feef985c9e004f49aa33876c6702331
+  - enabled: 1
+    path: Assets/_Scenes/Level_Design/CH2/CH2_LVL3.unity
+    guid: 43cdc9dc07fc1554ab4637e21ae3b013
+  - enabled: 1
+    path: Assets/_Scenes/Level_Design/CH2/CH2_LVL4.unity
+    guid: e05b8b37a872b2f418560c4c21182bc5
   m_configObjects: {}

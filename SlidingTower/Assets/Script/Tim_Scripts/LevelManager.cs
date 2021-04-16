@@ -60,9 +60,9 @@ public class LevelManager : MonoBehaviour
     public void InitializeSelectionPanel(int chapter)
     {
         levelDisplays.Clear();
-        for (int i = 0; i < levelSelectionPanelTransform.childCount; i++)
+        while (levelSelectionPanelTransform.childCount != 0)
         {
-            DestroyImmediate(levelSelectionPanelTransform.GetChild(0).transform);
+            DestroyImmediate(levelSelectionPanelTransform.GetChild(0).gameObject);
         }
         chapterSelected = chapter;
         switch (chapter)
@@ -86,6 +86,14 @@ public class LevelManager : MonoBehaviour
         levelSelectionPanelTransform.sizeDelta = new Vector2((currentChapterLevels.Count-1)*(levelButton.GetComponent<RectTransform>().sizeDelta.x+levelSelectionPanelTransform.GetComponent<HorizontalLayoutGroup>().spacing), levelSelectionPanelTransform.sizeDelta.y);
         levelSelectionPanelTransform.GetComponent<ScrollRect>().normalizedPosition = Vector2.zero;
     }
+  /*  public void ClearList()
+    {
+        levelDisplays.Clear();
+        for (int i = 0; i < levelSelectionPanelTransform.childCount; i++)
+        {
+            DestroyImmediate(levelSelectionPanelTransform.GetChild(0).gameObject);
+        }
+    }*/
     
     void UnlockChapters()
     {

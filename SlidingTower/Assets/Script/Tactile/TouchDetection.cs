@@ -33,12 +33,11 @@ public class TouchDetection : MonoBehaviour
                         }
                     }
                 }
-                /*
+
                 if (hit.transform.gameObject.layer == 12)
                 {
-                    Debug.Log("je rentre");
-                    hit.transform.gameObject.GetComponent<StartInfo>().GetingTouch();
-                }*/
+                    hit.transform.gameObject.GetComponent<StartEnemyPreview>().GetingTouch();
+                }
             }
         }
         else
@@ -65,8 +64,7 @@ public class TouchDetection : MonoBehaviour
 
                 if (hit.transform.gameObject.layer == 12)
                 {
-                    Debug.Log("je rentre");
-                    hit.transform.gameObject.GetComponent<StartInfo>().GetingTouch();
+                    hit.transform.gameObject.GetComponent<StartEnemyPreview>().GetingTouch();
                 }
             }
         }

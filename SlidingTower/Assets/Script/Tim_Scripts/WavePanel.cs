@@ -64,7 +64,7 @@ public class WavePanel : MonoBehaviour
         ActiveBuildMode();
     }
 
-    void DisplayPanel()
+    public void DisplayPanel()
     {
         panel.SetActive(true);
         if (canBuildTurretWaves[canBuildTurretIndex] == true)
@@ -72,7 +72,7 @@ public class WavePanel : MonoBehaviour
         basicTurret.SetActive(true);
         }
         canBuildTurretIndex++;
-       // startWaveButton.SetActive(true);
+
         if(isFirstWave == true)
         {
             isFirstWave = false;
@@ -98,6 +98,7 @@ public class WavePanel : MonoBehaviour
             }
         }
     }
+
     public void ActiveBuildMode()
     {
         DisplayPanel();
@@ -106,7 +107,6 @@ public class WavePanel : MonoBehaviour
     }
     public void DisableBuildMode()
     {
-        isBuildMode = false;
         for (int i = 0; i < buttons.Length; i++)
         {
             buttons[i].SetActive(false);
@@ -116,6 +116,7 @@ public class WavePanel : MonoBehaviour
     }
     public void StartWaveButton()
     {
+        isBuildMode = false;
         DisableBuildMode();
         WaveSpawner.instance.StartWave();
         startWaveButton.SetActive(false);

@@ -50,6 +50,7 @@ public class LifeManager : MonoBehaviour
     public void ChangeToken(int tokenNumber)
     {
         buildToken += tokenNumber;
+
         if (buildToken <= 0)
         {
             WavePanel.instance.DisableBuildMode();

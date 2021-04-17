@@ -44,6 +44,7 @@ public class WaveSpawner : MonoBehaviour
     private void Start()
     {
         spawnPoint = StartInfo.startPoint;
+        RefreshNextWaveComposition();
     }
     void Update()
     {

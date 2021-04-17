@@ -107,7 +107,6 @@ public class BuildManager : MonoBehaviour
                 {
                     if (SlideManager.instance.isSliding)
                     {
-                        Debug.Log("EndSlide");
                         SlideManager.instance.EndSlide();
                     }
                 }

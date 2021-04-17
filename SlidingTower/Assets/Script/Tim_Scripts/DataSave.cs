@@ -18,7 +18,7 @@ public class DataSave : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {   
-            SaveLevel(levelmanager.levels);
+            SaveLevel(levelmanager.levelsChapter1);
         }
 
         if (Input.GetKeyDown(KeyCode.A))
@@ -34,7 +34,7 @@ public class DataSave : MonoBehaviour
         saves = LoadSave();
         foreach (LevelSave level in saves)
         {
-            levelmanager.levels[level.levelNumber - 1].score = level.score;
+            levelmanager.levelsChapter1[level.levelNumber - 1].score = level.score;
         }
 
         for (int i = 0; i < levelmanager.levelDisplays.Count; i++)

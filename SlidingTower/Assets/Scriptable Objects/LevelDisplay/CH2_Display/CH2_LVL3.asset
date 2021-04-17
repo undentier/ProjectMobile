@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cefeb85208766c647aa45e47f34b00db, type: 3}
   m_Name: CH2_LVL3
   m_EditorClassIdentifier: 
-  levelSceneName: 
+  levelSceneName: CH2_LVL3
   levelNumber: 3
+  chapterNumber: 0
   name: decent
   description: woaw
   blocks: {fileID: 21300000, guid: b91c0ef1743ec0a4f8d57f70930b6666, type: 3}

@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_Radius
+  m_Name: Radius
   m_Shader: {fileID: -6465566751694194690, guid: ec9147e88435bb14db038b8aef0568f5,
     type: 3}
   m_ShaderKeywords: 

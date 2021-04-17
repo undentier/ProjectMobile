@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_range
-  m_Shader: {fileID: -6465566751694194690, guid: 9d509c69416bea44b828f9f69e9c8c2a,
+  m_Name: Bullet
+  m_Shader: {fileID: -6465566751694194690, guid: 68e4ed8581c42a04dbfd3d3ff9c61c8b,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -20,7 +20,6 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs: []
-    m_Floats:
-    - Vector1_AA03E8F5: 0.5
+    m_Floats: []
     m_Colors:
-    - Color_A4045EE8: {r: 3.3584905, g: 0.6407454, b: 0.5544677, a: 1}
+    - Color_34193E1E: {r: 0, g: 1.372549, b: 2, a: 1}

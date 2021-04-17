@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_LaserParticles
+  m_Name: LaserParticles
   m_Shader: {fileID: -6465566751694194690, guid: 39725a31fb207d241867df3223f570b3,
     type: 3}
   m_ShaderKeywords: 

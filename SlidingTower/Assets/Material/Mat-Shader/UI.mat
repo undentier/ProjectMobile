@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_testGroundGrid
-  m_Shader: {fileID: -6465566751694194690, guid: f220f3d1b18446b4d8a654748a29889c,
+  m_Name: UI
+  m_Shader: {fileID: -6465566751694194690, guid: fe3ce521e50c5274097aa54727d1cefe,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -20,16 +20,19 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _SampleTexture2D_58092500_Texture_1:
-        m_Texture: {fileID: 2800000, guid: fcd7443b32ccc244a888951c2827ff73, type: 3}
+    - Texture2D_AE73AFD7:
+        m_Texture: {fileID: 2800000, guid: e035709f9d275bd4ba94af823cdb34c7, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_8EAD5D1D_Texture_1:
-        m_Texture: {fileID: 2800000, guid: b83c48e000c7ba3428b76a3562082610, type: 3}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 48fd065799931a1429c9a152a6074a6e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_B28EFA8C: 1
-    - Vector1_D6EFA145: 0.25
+    - Vector1_695291FB: 0.1
+    - Vector1_CEEEE13B: 0.98
+    - Vector1_FD120196: 0
+    - _monOpacityUI_: 0
     m_Colors:
-    - _MainColor: {r: 1, g: 1, b: 1, a: 1}
+    - Color_73A98B59: {r: 0, g: 0.6886792, b: 0.63570386, a: 1}
+    - Vector2_D7597A4A: {r: 0, g: 1.75, b: 0, a: 0}

@@ -33,11 +33,6 @@ public class TouchDetection : MonoBehaviour
                         }
                     }
                 }
-
-                if (hit.transform.gameObject.layer == 12)
-                {
-                    hit.transform.gameObject.GetComponent<StartEnemyPreview>().GetingTouch();
-                }
             }
         }
         else
@@ -61,7 +56,32 @@ public class TouchDetection : MonoBehaviour
                         }
                     }
                 }
+            }
+        }
+    }
 
+
+    private void Update()
+    {
+        if (Input.touchCount > 0)
+        {
+            touch = Input.GetTouch(0);
+            ray = Camera.main.ScreenPointToRay(touch.position);
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.transform.gameObject.layer == 12)
+                {
+                    hit.transform.gameObject.GetComponent<StartEnemyPreview>().GetingTouch();
+                }
+            }
+        }
+        else
+        {
+            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out hit))
+            {
                 if (hit.transform.gameObject.layer == 12)
                 {
                     hit.transform.gameObject.GetComponent<StartEnemyPreview>().GetingTouch();
@@ -69,4 +89,6 @@ public class TouchDetection : MonoBehaviour
             }
         }
     }
+
+
 }

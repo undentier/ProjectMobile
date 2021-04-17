@@ -59,13 +59,13 @@ public class Turret : MonoBehaviour
     public GameObject explosiveBullet;
     public Transform shootPoint;
     public LineRenderer[] laserLines;
-    public MeshFilter canonRenderer;
+
 
     [Header("Mesh")]
-    public Mesh basicCanonMesh;
-    public Mesh explosionCanonMesh;
-    public Mesh laserCanonMesh;
-    public Mesh multiLaserCanonMesh;
+    public GameObject basicCanon;
+    public GameObject explosionCanon;
+    public GameObject laserCanon;
+    public GameObject discoCanon;
 
     [HideInInspector]
     public List<Enemy> targetList = new List<Enemy>();
@@ -468,21 +468,26 @@ public class Turret : MonoBehaviour
 
     void SetEffect()
     {
-        if (explosionUpgrade > 0 && laserUpgrade== 0)
+        explosionCanon.SetActive(false);
+        laserCanon.SetActive(false);
+        discoCanon.SetActive(false);
+        basicCanon.SetActive(false);
+
+        if (explosionUpgrade > 0 && laserUpgrade == 0)
         {
-            canonRenderer.mesh = explosionCanonMesh;
+            explosionCanon.SetActive(true);
         }
         else if (laserUpgrade > 0 && explosionUpgrade == 0)
         {
-            canonRenderer.mesh = laserCanonMesh;
+            laserCanon.SetActive(true);
         }
         else if (laserUpgrade > 0 && explosionUpgrade > 0)
         {
-            canonRenderer.mesh = multiLaserCanonMesh;
+            discoCanon.SetActive(true);
         }
         else
         {
-            canonRenderer.mesh = basicCanonMesh;
+            basicCanon.SetActive(true);
         }
     }
 

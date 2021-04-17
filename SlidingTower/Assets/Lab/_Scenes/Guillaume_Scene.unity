@@ -2107,6 +2107,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7192525008006030374, guid: 3136da9772be55d408a376d4baa73a0a,
         type: 3}
+      propertyPath: level
+      value: 
+      objectReference: {fileID: 11400000, guid: 298aaa2f3f1219644a260460a423f1ed,
+        type: 2}
+    - target: {fileID: 7192525008006030374, guid: 3136da9772be55d408a376d4baa73a0a,
+        type: 3}
       propertyPath: canBuildTurretWaves.Array.size
       value: 6
       objectReference: {fileID: 0}

@@ -65,18 +65,23 @@ public class TouchDetection : MonoBehaviour
     {
         if (Input.touchCount > 0)
         {
-            touch = Input.GetTouch(0);
-            ray = Camera.main.ScreenPointToRay(touch.position);
-
-            if (Physics.Raycast(ray, out hit))
+            foreach (Touch touch in Input.touches)
             {
-                if (hit.transform.gameObject.layer == 12)
+                if (touch.phase == TouchPhase.Began)
                 {
-                    hit.transform.gameObject.GetComponent<StartEnemyPreview>().GetingTouch();
+                    ray = Camera.main.ScreenPointToRay(touch.position);
+
+                    if (Physics.Raycast(ray, out hit))
+                    {
+                        if (hit.transform.gameObject.layer == 12)
+                        {
+                            hit.transform.gameObject.GetComponent<StartEnemyPreview>().GetingTouch();
+                        }
+                    }
                 }
             }
         }
-        else
+        if (Input.GetButtonDown("LeftClick"))
         {
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
@@ -84,11 +89,9 @@ public class TouchDetection : MonoBehaviour
             {
                 if (hit.transform.gameObject.layer == 12)
                 {
-                    hit.transform.gameObject.GetComponent<StartEnemyPreview>().GetingTouch();
+                    hit.transform.GetComponent<StartEnemyPreview>().GetingTouch();
                 }
             }
         }
     }
-
-
 }

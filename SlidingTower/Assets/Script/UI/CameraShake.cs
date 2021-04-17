@@ -20,7 +20,6 @@ public class CameraShake : MonoBehaviour
             elapsed += Time.deltaTime;
 
             yield return null;
-            Debug.Log(originalPos);
         }
 
         transform.localPosition = originalPos;

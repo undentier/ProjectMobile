@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1006,6 +1006,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 3abc646e5c3112145b3ff2c3721891db,
         type: 2}
+    - target: {fileID: 7192525008006030374, guid: 3136da9772be55d408a376d4baa73a0a,
+        type: 3}
+      propertyPath: canBuildTurretWaves.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7192525008006030374, guid: 3136da9772be55d408a376d4baa73a0a,
+        type: 3}
+      propertyPath: canBuildTurretWaves.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7192525008006030374, guid: 3136da9772be55d408a376d4baa73a0a,
+        type: 3}
+      propertyPath: canBuildTurretWaves.Array.data[4]
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3136da9772be55d408a376d4baa73a0a, type: 3}
 --- !u!1001 &468967512

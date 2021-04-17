@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cefeb85208766c647aa45e47f34b00db, type: 3}
-  m_Name: CH3_LVL1
+  m_Name: CH3_LVL5
   m_EditorClassIdentifier: 
-  levelSceneName: CH3_LVL1
+  levelSceneName: CH3_LVL3
   levelNumber: 3
   chapterNumber: 0
   name: decent
@@ -25,6 +25,10 @@ MonoBehaviour:
   score: 0
   blockChoice:
   - block: 6
-  - block: 1
+  - block: 3
   - block: 5
+  - block: 4
   - block: 0
+  - block: 1
+  - block: 6
+  - block: 5

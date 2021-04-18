@@ -504,6 +504,7 @@ public class Turret : MonoBehaviour
         }
         #endregion
 
+        #region Negatif effect
         if (slowUpgrade > 0 && poisonUpgrade == 0)
         {
             shaderMat.SetFloat("inputColorEmissive", 1);
@@ -520,6 +521,7 @@ public class Turret : MonoBehaviour
         {
             shaderMat.SetFloat("inputColorEmissive", 0);
         }
+        #endregion
     }
 
     private void OnDrawGizmos()

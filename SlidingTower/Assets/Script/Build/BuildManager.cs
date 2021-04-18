@@ -25,7 +25,8 @@ public class BuildManager : MonoBehaviour
 
     private GameObject turretToBuild;
     private GameObject turretPreviToBuild;
-    [HideInInspector] public bool isDraggingTurret;
+    [Space]
+    public bool isDraggingTurret;
     private Touch touch;
     private GameObject currentPrevisualisationObject;
     private NodeSysteme selectedNodeToSlide;
@@ -90,39 +91,43 @@ public class BuildManager : MonoBehaviour
         TouchDetection.currentlyHoveredNode.CreateTurret();
         isDraggingTurret = false;
         Destroy(currentPrevisualisationObject);
+        TouchDetection.currentlyHoveredNode = NodeManager.allNodes[0];
     }
 
     void SlideDetection()
     {
-        if (Input.touchCount > 0)
+        if (!isDraggingTurret)
         {
-            foreach (Touch touch in Input.touches)
+            if (Input.touchCount > 0)
             {
-                if (touch.phase == TouchPhase.Began)
+                foreach (Touch touch in Input.touches)
                 {
-                    TouchDetection.UpdateCurrentNode();
-                    TouchDetection.currentlyHoveredNode.SlideTurret();
-                }
-                else if (touch.phase == TouchPhase.Ended)
-                {
-                    if (SlideManager.instance.isSliding)
+                    if (touch.phase == TouchPhase.Began)
                     {
-                        SlideManager.instance.EndSlide();
+                        TouchDetection.UpdateCurrentNode();
+                        TouchDetection.currentlyHoveredNode.SlideTurret();
+                    }
+                    else if (touch.phase == TouchPhase.Ended)
+                    {
+                        if (SlideManager.instance.isSliding)
+                        {
+                            SlideManager.instance.EndSlide();
+                        }
                     }
                 }
             }
-        }
 
-        if (Input.GetButtonDown("LeftClick"))
-        {
-            TouchDetection.UpdateCurrentNode();
-            TouchDetection.currentlyHoveredNode.SlideTurret();
-        }
-        else if (Input.GetButtonUp("LeftClick"))
-        {
-            if (SlideManager.instance.isSliding)
+            if (Input.GetButtonDown("LeftClick"))
             {
-                SlideManager.instance.EndSlide();
+                TouchDetection.UpdateCurrentNode();
+                TouchDetection.currentlyHoveredNode.SlideTurret();
+            }
+            else if (Input.GetButtonUp("LeftClick"))
+            {
+                if (SlideManager.instance.isSliding)
+                {
+                    SlideManager.instance.EndSlide();
+                }
             }
         }
     }

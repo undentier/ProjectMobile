@@ -46,7 +46,7 @@ public class SlideManager : MonoBehaviour
         }
     }
 
-    void Update()
+    void FixedUpdate()
     {
         SlideDetection();
 
@@ -60,9 +60,10 @@ public class SlideManager : MonoBehaviour
             canSlide = false;
             Vector3 dir = targetNode.transform.position - objToMove.transform.position;
             float distancePerFrame = Time.deltaTime * slidingSpeed;
- 
-            if (dir.magnitude <= distancePerFrame)
+
+            if (dir.magnitude <= 0.7f)
             {
+                dir = Vector3.zero;
                 objToMove.transform.Translate(Vector3.zero);
                 targetNode = null;
                 objToMove = null;

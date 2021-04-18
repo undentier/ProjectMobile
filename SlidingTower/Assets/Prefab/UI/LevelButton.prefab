@@ -405,6 +405,10 @@ MonoBehaviour:
   descriptionText: {fileID: 6777313580076503509}
   thumbnailImage: {fileID: 6777313581468005364}
   scoreImage: {fileID: 6777313580136547186}
+  zeroStarSprite: {fileID: 21300000, guid: 9ddc4b274ed351a448d0003c040ee9a8, type: 3}
+  oneStarSprite: {fileID: 21300000, guid: cf8297890298a1746962fe7c477b5957, type: 3}
+  twoStarSprite: {fileID: 21300000, guid: b539a765c0400a7499f5bc586feece24, type: 3}
+  threeStarSprite: {fileID: 21300000, guid: 1d0160202fdb0f7478bdd1a3a4075b9c, type: 3}
   levelNumberText: {fileID: 6777313581265828013}
   levelNumber: 0
 --- !u!1 &6777313581468005370

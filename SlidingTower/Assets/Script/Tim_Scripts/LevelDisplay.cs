@@ -13,6 +13,10 @@ public class LevelDisplay : MonoBehaviour
 
     public Image thumbnailImage;
     public Image scoreImage;
+    public Sprite zeroStarSprite;
+    public Sprite oneStarSprite;
+    public Sprite twoStarSprite;
+    public Sprite threeStarSprite;
 
     public Text levelNumberText;
     public int levelNumber;
@@ -33,19 +37,19 @@ public class LevelDisplay : MonoBehaviour
     {
         if (level.score == 0)
         {
-            scoreImage.sprite = level.scoreSpriteZero;
+            scoreImage.sprite = zeroStarSprite;
         }
         else if (level.score == 1)
         {
-            scoreImage.sprite = level.scoreSpriteOne;
+            scoreImage.sprite = oneStarSprite;
         }
         else if (level.score == 2)
         {
-            scoreImage.sprite = level.scoreSpriteTwo;
+            scoreImage.sprite = twoStarSprite;
         }
         else if (level.score == 3)
         {
-            scoreImage.sprite = level.scoreSpriteThree;
+            scoreImage.sprite = threeStarSprite;
         }
     }
     public void UpdateDisplay()

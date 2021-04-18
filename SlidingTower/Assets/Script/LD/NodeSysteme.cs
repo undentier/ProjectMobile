@@ -15,6 +15,9 @@ public class NodeSysteme : MonoBehaviour
     [Space]
     public GameObject slowEffect;
     public GameObject poisonEffect;
+    [Space]
+    public GameObject explosionEffect;
+    public GameObject laserEffect;
 
     [HideInInspector]
     public int laserUpgrade;
@@ -33,7 +36,7 @@ public class NodeSysteme : MonoBehaviour
     [HideInInspector]
     public int rangeUpgrade;
 
-    //[HideInInspector]
+    [Header ("Object build on")]
     public GameObject objBuild;
 
     private BoostBlock boostBlockScript;
@@ -216,6 +219,26 @@ public class NodeSysteme : MonoBehaviour
         else
         {
             poisonEffect.SetActive(false);
+        }
+        #endregion
+
+        #region Shoot type
+        if (explosionUpgrade > 0)
+        {
+            explosionEffect.SetActive(true);
+        }
+        else
+        {
+            explosionEffect.SetActive(false);
+        }
+
+        if (laserUpgrade > 0)
+        {
+            laserEffect.SetActive(true);
+        }
+        else
+        {
+            laserEffect.SetActive(false);
         }
         #endregion
     }

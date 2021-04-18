@@ -116,6 +116,8 @@ MonoBehaviour:
   rangeEffect: {fileID: 4529246248833969813}
   slowEffect: {fileID: 1701841811546388441}
   poisonEffect: {fileID: 775625780313325247}
+  explosionEffect: {fileID: 889451299596244949}
+  laserEffect: {fileID: 4772967294080065499}
   laserUpgrade: 0
   explosionUpgrade: 0
   slowUpgrade: 0
@@ -156,8 +158,8 @@ Transform:
   - {fileID: 6330312775921987464}
   - {fileID: 8983296450975542795}
   - {fileID: 6308008849751585985}
-  - {fileID: 3600649612182796525}
   - {fileID: 2564867128617936080}
+  - {fileID: 3600649612182796525}
   m_Father: {fileID: 2966204793164336109}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -177,6 +179,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Range Effect
+      objectReference: {fileID: 0}
+    - target: {fileID: 4464837750979988724, guid: d2793acc69a79fa4bae19e810f56bb6e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4987209530391379131, guid: d2793acc69a79fa4bae19e810f56bb6e,
         type: 3}
@@ -267,7 +274,7 @@ PrefabInstance:
     - target: {fileID: 165342609890713318, guid: 690593eb81a3f7647a703632cc50f7a1,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 165342609890713318, guid: 690593eb81a3f7647a703632cc50f7a1,
         type: 3}
@@ -346,6 +353,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 690593eb81a3f7647a703632cc50f7a1, type: 3}
+--- !u!1 &889451299596244949 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3279922439293578723, guid: 690593eb81a3f7647a703632cc50f7a1,
+    type: 3}
+  m_PrefabInstance: {fileID: 2437387662204385846}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2564867128617936080 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 165342609890713318, guid: 690593eb81a3f7647a703632cc50f7a1,
@@ -373,6 +386,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FireRate Effect
+      objectReference: {fileID: 0}
+    - target: {fileID: 1159465600133331695, guid: 29ab5584438825f468b4a8f1e2464b85,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1159465600133331695, guid: 29ab5584438825f468b4a8f1e2464b85,
         type: 3}
@@ -668,6 +686,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6563916319350780154, guid: dfc8f859bc516a543849fe1601605307,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6563916319350780154, guid: dfc8f859bc516a543849fe1601605307,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -755,7 +778,7 @@ PrefabInstance:
     - target: {fileID: 7354062585206154223, guid: cd94f9232f692e443b18d46eda0a9320,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7354062585206154223, guid: cd94f9232f692e443b18d46eda0a9320,
         type: 3}
@@ -814,6 +837,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd94f9232f692e443b18d46eda0a9320, type: 3}
+--- !u!1 &4772967294080065499 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1570084173984203993, guid: cd94f9232f692e443b18d46eda0a9320,
+    type: 3}
+  m_PrefabInstance: {fileID: 6338521032944098050}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3600649612182796525 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7354062585206154223, guid: cd94f9232f692e443b18d46eda0a9320,
@@ -836,6 +865,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Damage Effect
+      objectReference: {fileID: 0}
+    - target: {fileID: 2852981279752252529, guid: 063ae904a34d6a84197e4be19f37e587,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5040720820921737733, guid: 063ae904a34d6a84197e4be19f37e587,
         type: 3}

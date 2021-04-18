@@ -25,4 +25,6 @@ MonoBehaviour:
   score: 0
   blockChoice:
   - block: 1
-  - block: 1
+  - block: 0
+  - block: 4
+  - block: 6

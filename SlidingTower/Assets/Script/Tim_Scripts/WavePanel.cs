@@ -15,8 +15,9 @@ public class WavePanel : MonoBehaviour
     public int canBuildTurretIndex;
     public Transform[] slots;
     public GameObject[] buttons;
-    public List<GameObject> usedButtons = new List<GameObject>();
+    private List<GameObject> usedButtons = new List<GameObject>();
     private List<GameObject> cacheButtons = new List<GameObject>();
+    [Space]
     public GameObject basicTurret;
     public GameObject startWaveButton;
     public bool isBuildMode;
@@ -77,7 +78,6 @@ public class WavePanel : MonoBehaviour
         {
             isFirstWave = false;
         }
-
         else
         {
             for (int i = 0; i < 2; i++)
@@ -91,10 +91,10 @@ public class WavePanel : MonoBehaviour
                     usedButtons.Remove(usedButtons[random]);
                 }
             }
-            for (int i = 0; i < cacheButtons.Count; i++)
+            for (int i = 0; i < 2; i++)
             {
-                usedButtons.Add(cacheButtons[i]);
-                cacheButtons.Remove(cacheButtons[i]);
+                usedButtons.Add(cacheButtons[0]);
+                cacheButtons.Remove(cacheButtons[0]);
             }
         }
     }

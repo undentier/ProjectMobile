@@ -1112,6 +1112,7 @@ MonoBehaviour:
   explosionCanon: {fileID: 2878572928365857062}
   laserCanon: {fileID: 1290061818358504313}
   discoCanon: {fileID: 3266471228151374880}
+  shaderMat: {fileID: 2100000, guid: 62f9ad98025dd1943931c20d009d15db, type: 2}
   targetList: []
   laserUpgrade: 0
   explosionUpgrade: 0
@@ -1318,7 +1319,7 @@ PrefabInstance:
     - target: {fileID: 5273151981361383401, guid: 9ff010d7dfd10bd46be8feb77b0f38b1,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5802946922136057772, guid: 9ff010d7dfd10bd46be8feb77b0f38b1,
         type: 3}

@@ -66,6 +66,7 @@ public class Turret : MonoBehaviour
     public GameObject explosionCanon;
     public GameObject laserCanon;
     public GameObject discoCanon;
+    public Material shaderMat;
 
     [HideInInspector]
     public List<Enemy> targetList = new List<Enemy>();
@@ -468,6 +469,7 @@ public class Turret : MonoBehaviour
 
     void SetEffect()
     {
+        #region Canon
         if (explosionUpgrade > 0 && laserUpgrade == 0)
         {
             explosionCanon.SetActive(true);
@@ -499,6 +501,24 @@ public class Turret : MonoBehaviour
             explosionCanon.SetActive(false);
             laserCanon.SetActive(false);
             discoCanon.SetActive(false);
+        }
+        #endregion
+
+        if (slowUpgrade > 0 && poisonUpgrade == 0)
+        {
+            shaderMat.SetFloat("inputColorEmissive", 1);
+        }
+        else if (poisonUpgrade > 0 && slowUpgrade == 0)
+        {
+            shaderMat.SetFloat("inputColorEmissive", 2);
+        }
+        else if (poisonUpgrade > 0 && slowUpgrade > 0)
+        {
+            shaderMat.SetFloat("inputColorEmissive", 3);
+        }
+        else
+        {
+            shaderMat.SetFloat("inputColorEmissive", 0);
         }
     }
 

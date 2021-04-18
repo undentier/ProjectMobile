@@ -38,12 +38,15 @@ public class LifeManager : MonoBehaviour
     public void DamagePlayer(int damage)
     {
         life -= damage;
-        StartCoroutine(cameraShake.Shake(0.15f, 2f));
 
         if (life <= 0)
         {
             UIManager.instance.gameOverMenu.SetActive(true);
             Time.timeScale = 0f;
+        }
+        else
+        {
+            StartCoroutine(cameraShake.Shake(0.15f, 2f));
         }
     }
 

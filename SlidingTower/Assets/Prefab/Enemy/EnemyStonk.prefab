@@ -2772,6 +2772,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sparks Laser
       objectReference: {fileID: 0}
+    - target: {fileID: 837514342432910943, guid: 84f0734d831a96a46a2fb18cbc1bfa7b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8958846507326597336, guid: 84f0734d831a96a46a2fb18cbc1bfa7b,
         type: 3}
       propertyPath: m_RootOrder

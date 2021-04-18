@@ -66,6 +66,7 @@ public class Turret : MonoBehaviour
     public GameObject explosionCanon;
     public GameObject laserCanon;
     public GameObject discoCanon;
+    public Material shaderMat;
 
     [HideInInspector]
     public List<Enemy> targetList = new List<Enemy>();
@@ -468,27 +469,59 @@ public class Turret : MonoBehaviour
 
     void SetEffect()
     {
-        explosionCanon.SetActive(false);
-        laserCanon.SetActive(false);
-        discoCanon.SetActive(false);
-        basicCanon.SetActive(false);
-
+        #region Canon
         if (explosionUpgrade > 0 && laserUpgrade == 0)
         {
             explosionCanon.SetActive(true);
+
+            laserCanon.SetActive(false);
+            discoCanon.SetActive(false);
+            basicCanon.SetActive(false);
         }
         else if (laserUpgrade > 0 && explosionUpgrade == 0)
         {
             laserCanon.SetActive(true);
+
+            discoCanon.SetActive(false);
+            basicCanon.SetActive(false);
+            explosionCanon.SetActive(false);
         }
         else if (laserUpgrade > 0 && explosionUpgrade > 0)
         {
             discoCanon.SetActive(true);
+
+            explosionCanon.SetActive(false);
+            laserCanon.SetActive(false);
+            basicCanon.SetActive(false);
         }
         else
         {
             basicCanon.SetActive(true);
+
+            explosionCanon.SetActive(false);
+            laserCanon.SetActive(false);
+            discoCanon.SetActive(false);
         }
+        #endregion
+
+        #region Negatif effect
+        if (slowUpgrade > 0 && poisonUpgrade == 0)
+        {
+            shaderMat.SetFloat("inputColorEmissive", 1);
+        }
+        else if (poisonUpgrade > 0 && slowUpgrade == 0)
+        {
+            shaderMat.SetFloat("inputColorEmissive", 2);
+        }
+        else if (poisonUpgrade > 0 && slowUpgrade > 0)
+        {
+            shaderMat.SetFloat("inputColorEmissive", 3);
+        }
+        else
+        {
+            shaderMat.SetFloat("inputColorEmissive", 0);
+        }
+        #endregion
     }
 
     private void OnDrawGizmos()

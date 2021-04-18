@@ -195,7 +195,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5623976728855347933}
   m_LocalRotation: {x: 0.5, y: -0, z: -0, w: 0.8660254}
-  m_LocalPosition: {x: 7.5, y: 40, z: -10}
+  m_LocalPosition: {x: 8, y: 40, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4433981134485378250}
@@ -611,6 +611,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 71.61084
+      objectReference: {fileID: 0}
+    - target: {fileID: 425089363949859515, guid: 163218c4b7139064eb85c159f25454c1,
+        type: 3}
+      propertyPath: canBuildTurretWaves.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 425089363949859515, guid: 163218c4b7139064eb85c159f25454c1,
+        type: 3}
+      propertyPath: canBuildTurretWaves.Array.data[2]
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 163218c4b7139064eb85c159f25454c1, type: 3}

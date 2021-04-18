@@ -15,8 +15,8 @@ MonoBehaviour:
   levelSceneName: CH1_LVL1
   levelNumber: 1
   chapterNumber: 1
-  name: Tutorial
-  description: learn 2 play noob
+  name: The invasion
+  description: 
   blocks: {fileID: 21300000, guid: 6d2905dc8e5b7264a8627d25938a2426, type: 3}
   scoreSpriteZero: {fileID: 21300000, guid: 9ddc4b274ed351a448d0003c040ee9a8, type: 3}
   scoreSpriteOne: {fileID: 21300000, guid: cf8297890298a1746962fe7c477b5957, type: 3}

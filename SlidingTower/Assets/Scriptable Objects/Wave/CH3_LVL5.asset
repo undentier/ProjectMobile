@@ -77,15 +77,15 @@ MonoBehaviour:
       timeBtwSpawn: 0.7
     - wichEnemy: 0
       timeBeforeNextSpawn: 0.8
-      number: 8
+      number: 6
       timeBtwSpawn: 0.7
     - wichEnemy: 1
       timeBeforeNextSpawn: 0.8
-      number: 6
+      number: 3
       timeBtwSpawn: 0.5
     - wichEnemy: 1
       timeBeforeNextSpawn: 0
-      number: 5
+      number: 3
       timeBtwSpawn: 0.6
   - enemies:
     - wichEnemy: 0

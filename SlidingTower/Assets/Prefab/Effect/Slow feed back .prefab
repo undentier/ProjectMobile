@@ -111,7 +111,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1922404237381200427
 Transform:
   m_ObjectHideFlags: 0
@@ -315,9 +315,9 @@ ParticleSystem:
         m_RotationOrder: 4
     startColor:
       serializedVersion: 2
-      minMaxState: 3
-      minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      minMaxState: 2
+      minColor: {r: 0, g: 0.7822676, b: 1, a: 1}
+      maxColor: {r: 0.64705884, g: 1, b: 0.98039216, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 0.25015804, g: 0.14217694, b: 0.6698113, a: 1}
@@ -379,7 +379,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.75
+      scalar: 0.7
       minScalar: 0.1
       maxCurve:
         serializedVersion: 2
@@ -1457,7 +1457,7 @@ ParticleSystem:
   UVModule:
     serializedVersion: 2
     enabled: 1
-    mode: 0
+    mode: 1
     timeMode: 0
     fps: 30
     frameOverTime:
@@ -1575,7 +1575,8 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: 0}
+    - sprite: {fileID: 3606909855930261321, guid: 590541e3645da914fb614a7d9c4aecc5,
+        type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:

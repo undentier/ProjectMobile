@@ -315,9 +315,9 @@ ParticleSystem:
         m_RotationOrder: 4
     startColor:
       serializedVersion: 2
-      minMaxState: 3
-      minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.37591124, g: 1, b: 0, a: 1}
+      minMaxState: 2
+      minColor: {r: 0.0148843825, g: 0.3773585, b: 0, a: 1}
+      maxColor: {r: 0.1254902, g: 0.50980395, b: 0.12156863, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 0.027450984, g: 0.20784314, b: 0.04378643, a: 1}
@@ -379,8 +379,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1
-      minScalar: 0.5
+      scalar: 0.7
+      minScalar: 0.3
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -960,7 +960,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 7
+      scalar: 5
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -1457,7 +1457,7 @@ ParticleSystem:
   UVModule:
     serializedVersion: 2
     enabled: 1
-    mode: 0
+    mode: 1
     timeMode: 0
     fps: 30
     frameOverTime:
@@ -1575,7 +1575,8 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: 0}
+    - sprite: {fileID: -2318916836788861192, guid: 590541e3645da914fb614a7d9c4aecc5,
+        type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:

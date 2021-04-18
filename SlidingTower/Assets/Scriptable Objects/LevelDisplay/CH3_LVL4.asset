@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cefeb85208766c647aa45e47f34b00db, type: 3}
   m_Name: CH3_LVL4
   m_EditorClassIdentifier: 
-  levelSceneName: CH3_LVL3
+  levelSceneName: CH3_LVL4
   levelNumber: 3
   chapterNumber: 0
-  name: decent
-  description: woaw
+  name: Winding pathway
+  description: 
   blocks: {fileID: 21300000, guid: b91c0ef1743ec0a4f8d57f70930b6666, type: 3}
   scoreSpriteZero: {fileID: 21300000, guid: 9ddc4b274ed351a448d0003c040ee9a8, type: 3}
   scoreSpriteOne: {fileID: 21300000, guid: cf8297890298a1746962fe7c477b5957, type: 3}

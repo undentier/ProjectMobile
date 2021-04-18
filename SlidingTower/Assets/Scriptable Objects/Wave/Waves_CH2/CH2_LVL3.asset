@@ -23,71 +23,71 @@ MonoBehaviour:
   - enemies:
     - wichEnemy: 1
       timeBeforeNextSpawn: 1.5
-      number: 3
+      number: 2
       timeBtwSpawn: 0.8
     - wichEnemy: 2
       timeBeforeNextSpawn: 1.5
-      number: 2
+      number: 1
       timeBtwSpawn: 0.9
     - wichEnemy: 1
       timeBeforeNextSpawn: 0
-      number: 3
+      number: 2
       timeBtwSpawn: 0.5
   - enemies:
     - wichEnemy: 2
       timeBeforeNextSpawn: 1.5
-      number: 3
-      timeBtwSpawn: 0.7
+      number: 2
+      timeBtwSpawn: 1
     - wichEnemy: 1
       timeBeforeNextSpawn: 1
-      number: 4
-      timeBtwSpawn: 0.5
+      number: 2
+      timeBtwSpawn: 0.4
     - wichEnemy: 2
       timeBeforeNextSpawn: 0
-      number: 3
+      number: 1
       timeBtwSpawn: 0.5
   - enemies:
-    - wichEnemy: 2
+    - wichEnemy: 0
       timeBeforeNextSpawn: 1
-      number: 5
-      timeBtwSpawn: 0.7
+      number: 4
+      timeBtwSpawn: 0.6
     - wichEnemy: 1
       timeBeforeNextSpawn: 0.5
-      number: 5
+      number: 3
       timeBtwSpawn: 0.4
     - wichEnemy: 2
       timeBeforeNextSpawn: 1
-      number: 2
+      number: 1
       timeBtwSpawn: 0.3
-    - wichEnemy: 2
-      timeBeforeNextSpawn: 0
-      number: 5
+    - wichEnemy: 0
+      timeBeforeNextSpawn: 0.5
+      number: 4
       timeBtwSpawn: 0.3
     - wichEnemy: 1
       timeBeforeNextSpawn: 0.5
-      number: 10
+      number: 0
       timeBtwSpawn: 1
   - enemies:
     - wichEnemy: 0
       timeBeforeNextSpawn: 0.5
-      number: 10
+      number: 7
       timeBtwSpawn: 0.2
     - wichEnemy: 2
       timeBeforeNextSpawn: 1
-      number: 5
-      timeBtwSpawn: 1
+      number: 2
+      timeBtwSpawn: 0.4
     - wichEnemy: 1
       timeBeforeNextSpawn: 0
-      number: 8
-      timeBtwSpawn: 0.9
+      number: 6
+      timeBtwSpawn: 0.5
     - wichEnemy: 2
       timeBeforeNextSpawn: 1
-      number: 5
+      number: 2
       timeBtwSpawn: 1.2
     - wichEnemy: 1
       timeBeforeNextSpawn: 0
-      number: 10
-      timeBtwSpawn: 0.8
+      number: 6
+      timeBtwSpawn: 0.4
   - enemies:
     - wichEnemy: 2
       timeBeforeNextSpawn: 0.1
@@ -138,7 +138,7 @@ MonoBehaviour:
       timeBeforeNextSpawn: 0
       number: 0
       timeBtwSpawn: 0
-    - wichEnemy: 1
+    - wichEnemy: 0
       timeBeforeNextSpawn: 1
       number: 10
       timeBtwSpawn: 0.5
@@ -146,15 +146,15 @@ MonoBehaviour:
       timeBeforeNextSpawn: 2
       number: 6
       timeBtwSpawn: 0.8
-    - wichEnemy: 2
-      timeBeforeNextSpawn: 0
-      number: 3
-      timeBtwSpawn: 0.5
     - wichEnemy: 1
+      timeBeforeNextSpawn: 0
+      number: 7
+      timeBtwSpawn: 0.5
+    - wichEnemy: 0
       timeBeforeNextSpawn: 0.3
       number: 15
       timeBtwSpawn: 0.3
-    - wichEnemy: 0
+    - wichEnemy: 1
       timeBeforeNextSpawn: 0
-      number: 20
+      number: 10
       timeBtwSpawn: 0.6

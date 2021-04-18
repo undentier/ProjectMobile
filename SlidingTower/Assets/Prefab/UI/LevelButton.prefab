@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -3.100006, y: -122.6}
+  m_AnchoredPosition: {x: -3.0999756, y: -122.600006}
   m_SizeDelta: {x: -41.857544, y: -598.58496}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6777313580076503510
@@ -210,14 +210,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: d818cc630b10fd64ea4d97b28ac23435, type: 3}
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
@@ -292,7 +292,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6777313581318212155}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -304,8 +304,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: dbd4b471aca259d4d96129a83558e362, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -352,7 +352,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 6777313581318212150}
   m_OnClick:
     m_PersistentCalls:
@@ -405,8 +405,12 @@ MonoBehaviour:
   descriptionText: {fileID: 6777313580076503509}
   thumbnailImage: {fileID: 6777313581468005364}
   scoreImage: {fileID: 6777313580136547186}
+  zeroStarSprite: {fileID: 21300000, guid: 9ddc4b274ed351a448d0003c040ee9a8, type: 3}
+  oneStarSprite: {fileID: 21300000, guid: cf8297890298a1746962fe7c477b5957, type: 3}
+  twoStarSprite: {fileID: 21300000, guid: b539a765c0400a7499f5bc586feece24, type: 3}
+  threeStarSprite: {fileID: 21300000, guid: 1d0160202fdb0f7478bdd1a3a4075b9c, type: 3}
   levelNumberText: {fileID: 6777313581265828013}
-  score: 0
+  levelNumber: 0
 --- !u!1 &6777313581468005370
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,7 +445,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.674408, y: -11.127014}
+  m_AnchoredPosition: {x: -1.6744385, y: -11.127014}
   m_SizeDelta: {x: -436.89862, y: -523.5341}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6777313581468005365
@@ -539,14 +543,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: d818cc630b10fd64ea4d97b28ac23435, type: 3}
     m_FontSize: 100
     m_FontStyle: 0
     m_BestFit: 0

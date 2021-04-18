@@ -28,7 +28,7 @@ public class BuildManager : MonoBehaviour
     [Space]
     public bool isDraggingTurret;
     private Touch touch;
-    private GameObject currentPrevisualisationObject;
+    public GameObject currentPrevisualisationObject;
     private NodeSysteme selectedNodeToSlide;
 
     public GameObject GetTurretToBuild()
@@ -59,9 +59,10 @@ public class BuildManager : MonoBehaviour
 
     public void StartDragTurret()
     {
-        isDraggingTurret = true;
         TouchDetection.UpdateCurrentNode();
         currentPrevisualisationObject = Instantiate(turretPreviToBuild, TouchDetection.currentlyHoveredNode.transform.position, TouchDetection.currentlyHoveredNode.transform.rotation);
+
+        isDraggingTurret = true;
     }
 
     void DragUpdate()
@@ -87,11 +88,13 @@ public class BuildManager : MonoBehaviour
 
     private void CreateTurret()
     {
+        isDraggingTurret = false;
         TouchDetection.UpdateCurrentNode();
         TouchDetection.currentlyHoveredNode.CreateTurret();
-        isDraggingTurret = false;
-        Destroy(currentPrevisualisationObject);
         TouchDetection.currentlyHoveredNode = NodeManager.allNodes[0];
+
+        Destroy(currentPrevisualisationObject);
+        
     }
 
     void SlideDetection()

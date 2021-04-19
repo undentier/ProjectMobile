@@ -28,8 +28,8 @@ public class LevelDisplay : MonoBehaviour
     }
     public void ScoreTracker()
     {
-        level.score = Random.Range(0, 4);
-        UpdateScoreDisplay();
+        /*level.score = Random.Range(0, 4);
+        UpdateScoreDisplay();*/
         SceneManager.LoadScene(level.levelSceneName);
 
     }

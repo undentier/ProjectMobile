@@ -408,7 +408,7 @@ MonoBehaviour:
     type: 3}
   healhtBar: {fileID: 2084251078}
   ennemy: {fileID: 2225278652722171395}
-  slowMaterial: {fileID: 2100000, guid: 4417a1d6b8363f04a906d765aa2fd1e9, type: 2}
+  slowMaterial: {fileID: 2100000, guid: 6f8fadba2b280914980e6b5cdeefe911, type: 2}
   poisonMaterial: {fileID: 2100000, guid: 4586efa51d554b6448094787877102c3, type: 2}
   poisonParticule: {fileID: 7764092338958926686}
   distFromNexus: 0

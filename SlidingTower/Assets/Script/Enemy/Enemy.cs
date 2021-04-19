@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
     public Material slowMaterial;
     public Material poisonMaterial;
 
-    public GameObject poisonParticule;
+    public ParticleSystem poisonParticule;
 
     private Material startMaterial;
     private SkinnedMeshRenderer rend;
@@ -106,12 +106,14 @@ public class Enemy : MonoBehaviour
 
         poisonCoroutine = ApplyPoison(_poisonDamage, _poisonDuration, _poisonTick);
         StartCoroutine(poisonCoroutine);
+        
     }
 
     IEnumerator ApplyPoison(float poisonDamage, float poisonDuration, float poisonTick)
     {
         actualPoisonDuration = poisonDuration;
-        rend.material = poisonMaterial;
+        //rend.material = poisonMaterial;
+        poisonParticule.Play();
 
         while (actualPoisonDuration > 0)
         {
@@ -119,7 +121,8 @@ public class Enemy : MonoBehaviour
             TakeDamage(poisonDamage);
         }
 
-        rend.material = startMaterial;
+        //rend.material = startMaterial;
+        poisonParticule.Stop();
     }
     
     void Die()
@@ -127,10 +130,15 @@ public class Enemy : MonoBehaviour
         LifeManager.lifeInstance.AddKillScore(1);
         GameObject effect = Instantiate(deathEffect, transform.position, transform.rotation);
         Destroy(effect, 2f);
+
+        //GameObject animMort = Instantiate(EnnemyDead, transform.position, transform.rotation);
+        //Destroy(animMort, 8f);
+
         /*
         EnnemyAlive.SetActive(false);
         EnnemyDead.SetActive(true);
         */
+
         Destroy(gameObject);
     }
 

@@ -14,10 +14,6 @@ public class LevelsSO : ScriptableObject
     public new string name;
     public string description;
     public Sprite blocks;
-    public Sprite scoreSpriteZero;
-    public Sprite scoreSpriteOne;
-    public Sprite scoreSpriteTwo;
-    public Sprite scoreSpriteThree;
     public int score;
     public enum blockList
     {
@@ -32,6 +28,7 @@ public class LevelsSO : ScriptableObject
 
     public selectedBlock[] blockChoice;
 
+    public selectedBlock[] blockSprites;
     /*public bool fireRate;
     public bool damage;
     public bool range;

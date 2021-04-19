@@ -409,6 +409,13 @@ MonoBehaviour:
   oneStarSprite: {fileID: 21300000, guid: cf8297890298a1746962fe7c477b5957, type: 3}
   twoStarSprite: {fileID: 21300000, guid: b539a765c0400a7499f5bc586feece24, type: 3}
   threeStarSprite: {fileID: 21300000, guid: 1d0160202fdb0f7478bdd1a3a4075b9c, type: 3}
+  damageBlocSprite: {fileID: 21300000, guid: 1c18aedea1194d94f9eb2002345ad5c6, type: 3}
+  explosionBlocSprite: {fileID: 21300000, guid: 893b9f4dc0483eb44a6e537a1ec2cfe8,
+    type: 3}
+  speedBlocSprite: {fileID: 21300000, guid: c1d91ab7c6cf91d4fb89e8024581a498, type: 3}
+  laserBlocSprite: {fileID: 21300000, guid: d2856c7e220711b4ab0e407a678e3430, type: 3}
+  poisonBlocSprite: {fileID: 21300000, guid: a4e84afbf75ac28429c5ac9e96de0dbb, type: 3}
+  slowBlocSprite: {fileID: 21300000, guid: 1528b68477cf4044b85815a6e0d32e11, type: 3}
   levelNumberText: {fileID: 6777313581265828013}
   levelNumber: 0
 --- !u!1 &6777313581468005370

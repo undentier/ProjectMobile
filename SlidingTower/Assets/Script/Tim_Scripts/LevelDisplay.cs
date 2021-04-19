@@ -18,6 +18,13 @@ public class LevelDisplay : MonoBehaviour
     public Sprite twoStarSprite;
     public Sprite threeStarSprite;
 
+    public Sprite damageBlocSprite;
+    public Sprite explosionBlocSprite;
+    public Sprite speedBlocSprite;
+    public Sprite laserBlocSprite;
+    public Sprite poisonBlocSprite;
+    public Sprite slowBlocSprite;
+
     public Text levelNumberText;
     public int levelNumber;
 
@@ -58,7 +65,6 @@ public class LevelDisplay : MonoBehaviour
         descriptionText.text = level.description;
 
         thumbnailImage.sprite = level.blocks;
-        scoreImage.sprite = level.scoreSpriteZero;
 
         levelNumber = level.levelNumber;
         levelNumberText.text = levelNumber.ToString();

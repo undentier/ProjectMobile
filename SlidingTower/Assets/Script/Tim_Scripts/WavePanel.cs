@@ -32,7 +32,7 @@ public class WavePanel : MonoBehaviour
     private void Start()
     {
         anim = GetComponent<Animator>();
-        panel.SetActive(false);
+        //panel.SetActive(false);
         for (int i = 0; i < level.blockChoice.Length; i++)
         {
             switch (level.blockChoice[i].block)
@@ -69,12 +69,13 @@ public class WavePanel : MonoBehaviour
 
     public void DisplayPanel()
     {
-        panel.SetActive(true);
+        anim.SetInteger("state", 1);
+        LifeManager.lifeInstance.ChangeToken(1);
+
         if (canBuildTurretWaves[canBuildTurretIndex] == true)
         {
-        basicTurret.SetActive(true);
+            basicTurret.SetActive(true);
         }
-        canBuildTurretIndex++;
 
         if(isFirstWave == true)
         {
@@ -103,17 +104,27 @@ public class WavePanel : MonoBehaviour
 
     public void ActiveBuildMode()
     {
-        DisplayPanel();
         isBuildMode = true;
-        LifeManager.lifeInstance.ChangeToken(1);
+
+        if (isFirstWave && canBuildTurretWaves[0] == false)
+        {
+            isFirstWave = false;
+            return;
+        }
+        else
+        {
+            DisplayPanel();
+        }
+        canBuildTurretIndex++;
     }
     public void DisableBuildMode()
     {
+        anim.SetInteger("state", 2);
         for (int i = 0; i < buttons.Length; i++)
         {
             buttons[i].SetActive(false);
         }
-        panel.SetActive(false);
+        //panel.SetActive(false);
         basicTurret.SetActive(false);
     }
     public void StartWaveButton()

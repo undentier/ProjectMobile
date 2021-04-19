@@ -1267,7 +1267,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3894496108752991734
 Transform:
   m_ObjectHideFlags: 0
@@ -1276,7 +1276,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8752966527687771349}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -1.1567197, y: 1.3033495, z: 1.374341}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7607668907657221116}
@@ -1534,7 +1534,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 10
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -6255,15 +6255,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1bf3a51e68bc3944892633ef9e94724, type: 3}
---- !u!1 &2878572928365857062 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5273151981361383401, guid: b1bf3a51e68bc3944892633ef9e94724,
-    type: 3}
-  m_PrefabInstance: {fileID: 7989175845262249679}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3222728500871811996 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4784563767063158099, guid: b1bf3a51e68bc3944892633ef9e94724,
+    type: 3}
+  m_PrefabInstance: {fileID: 7989175845262249679}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2878572928365857062 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5273151981361383401, guid: b1bf3a51e68bc3944892633ef9e94724,
     type: 3}
   m_PrefabInstance: {fileID: 7989175845262249679}
   m_PrefabAsset: {fileID: 0}

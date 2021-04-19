@@ -11,7 +11,7 @@ public class LevelDisplay : MonoBehaviour
     public Text nameText;
     public Text descriptionText;
 
-    public Image thumbnailImage;
+    public Image[] blockImages;
     public Image scoreImage;
     public Sprite zeroStarSprite;
     public Sprite oneStarSprite;
@@ -64,7 +64,33 @@ public class LevelDisplay : MonoBehaviour
         nameText.text = level.name;
         descriptionText.text = level.description;
 
-        thumbnailImage.sprite = level.blocks;
+        for (int i = 0; i < level.blockSprites.Length; i++)
+        {
+            switch (level.blockSprites[i].block)
+            {
+                case LevelsSO.blockList.FIRERATE:
+                    blockImages[i].sprite = speedBlocSprite;
+                    break;
+                case LevelsSO.blockList.DAMAGE:
+                    blockImages[i].sprite = damageBlocSprite;
+                    break;
+                case LevelsSO.blockList.RANGE:
+                    // mettre ici l'icone de range
+                    break;
+                case LevelsSO.blockList.POISON:
+                    blockImages[i].sprite = poisonBlocSprite;
+                    break;
+                case LevelsSO.blockList.SLOW:
+                    blockImages[i].sprite = slowBlocSprite;
+                    break;
+                case LevelsSO.blockList.EXPLOSION:
+                    blockImages[i].sprite = explosionBlocSprite;
+                    break;
+                case LevelsSO.blockList.LASER:
+                    blockImages[i].sprite = laserBlocSprite;
+                    break;
+            }
+        }
 
         levelNumber = level.levelNumber;
         levelNumberText.text = levelNumber.ToString();

@@ -28,11 +28,7 @@ Material:
     - Vector1_A690897A: 0.5
     - Vector1_B9DF4BC4: 15
     - _inputColorEmissive: 6
-<<<<<<< HEAD
     - inputColorEmissive: 0
-=======
-    - inputColorEmissive: 3
->>>>>>> TaoWorks
     m_Colors:
     - Color_4FD7C505: {r: 0.4627451, g: 2, b: 1.8980392, a: 1}
     - Color_676DCBDD: {r: 2.2844017, g: 2.617801, b: 2.5638428, a: 1}

@@ -129,3 +129,4 @@ MonoBehaviour:
   laserBlock: {fileID: 5186712513458233651, guid: df20e587048a1564a846c6e971ab189b,
     type: 3}
   isDraggingTurret: 0
+  currentPrevisualisationObject: {fileID: 0}

@@ -881,6 +881,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Setup_Level
       objectReference: {fileID: 0}
+    - target: {fileID: 99930689339904240, guid: 3136da9772be55d408a376d4baa73a0a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2788021199555472187, guid: 3136da9772be55d408a376d4baa73a0a,
         type: 3}
       propertyPath: m_IsActive
@@ -3065,6 +3070,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Turret
       objectReference: {fileID: 0}
+    - target: {fileID: 7122458465355761990, guid: e144a754f77db1348aa3e8870f279a11,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7607668907657221116, guid: e144a754f77db1348aa3e8870f279a11,
         type: 3}
       propertyPath: m_RootOrder
@@ -3279,6 +3289,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ga_Stuff
+      objectReference: {fileID: 0}
+    - target: {fileID: 5387618065614868687, guid: 0a55a2d3fbc41764fbb001bcc216614c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6702833664362219984, guid: 0a55a2d3fbc41764fbb001bcc216614c,
         type: 3}

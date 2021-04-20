@@ -61,7 +61,7 @@ public class SlideManager : MonoBehaviour
             Vector3 dir = targetNode.transform.position - objToMove.transform.position;
             float distancePerFrame = Time.deltaTime * slidingSpeed;
 
-            if (dir.magnitude <= 0.7f)
+            if (dir.magnitude <= 0.1f)
             {
                 dir = Vector3.zero;
                 objToMove.transform.Translate(Vector3.zero);
@@ -71,7 +71,8 @@ public class SlideManager : MonoBehaviour
             }
             else
             {
-                objToMove.transform.Translate(dir.normalized * distancePerFrame, Space.World);
+                //objToMove.transform.Translate(dir.normalized * distancePerFrame, Space.World);
+                objToMove.transform.position = Vector3.MoveTowards(objToMove.transform.position, targetNode.transform.position, slidingSpeed * Time.deltaTime);
             }
         }
     }

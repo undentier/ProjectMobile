@@ -607,6 +607,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level UI
       objectReference: {fileID: 0}
+    - target: {fileID: 425089363653866288, guid: 163218c4b7139064eb85c159f25454c1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 425089363834710393, guid: 163218c4b7139064eb85c159f25454c1,
         type: 3}
       propertyPath: m_IsActive

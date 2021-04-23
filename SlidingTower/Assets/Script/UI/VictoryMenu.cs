@@ -13,6 +13,7 @@ public class VictoryMenu : MonoBehaviour
     public Text hpLostCounter;
     public Image[] stars;
     public Sprite fillStar;
+    private int finalScore;
 
     void Start()
     {
@@ -24,14 +25,26 @@ public class VictoryMenu : MonoBehaviour
 
     void ResultCalculating()
     {
-        if (LifeManager.lifeInstance.life > scoreLvl[0])
+        if (LifeManager.lifeInstance.life < scoreLvl[0])
+        {
+            finalScore = 1;
+        }
+        else if (LifeManager.lifeInstance.life > scoreLvl[0])
         {
             stars[1].sprite = fillStar;
+            finalScore = 2;
         }
         
-        if (LifeManager.lifeInstance.life > scoreLvl[1])
+        else if (LifeManager.lifeInstance.life > scoreLvl[1])
         {
             stars[2].sprite = fillStar;
+            finalScore = 3;
+        }
+
+        if (GameManager.instance != null)
+        {
+            GameManager.instance.SaveScore(finalScore);
+            GameManager.instance.SetScore();
         }
     }
 }

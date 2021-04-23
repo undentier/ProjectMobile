@@ -37,6 +37,7 @@ public class LevelDisplay : MonoBehaviour
     {
         /*level.score = Random.Range(0, 4);
         UpdateScoreDisplay();*/
+        GameManager.instance.GetLevelInfo(level);
         SceneManager.LoadScene(level.levelSceneName);
 
     }
@@ -94,7 +95,6 @@ public class LevelDisplay : MonoBehaviour
 
         levelNumber = level.levelNumber;
         levelNumberText.text = levelNumber.ToString();
-        Debug.Log(level.name);
         UpdateScoreDisplay();
     }
 }

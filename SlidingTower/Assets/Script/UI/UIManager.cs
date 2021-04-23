@@ -56,8 +56,14 @@ public class UIManager : MonoBehaviour
     public void MainMenuButton()
     {
         gamePause = false;
-        SceneManager.LoadScene("MainMenu_Scene");
         Time.timeScale = 1f;
+
+        if (GameManager.instance != null)
+        {
+            GameManager.instance.InfoReset();
+        }
+
+        SceneManager.LoadScene("MainMenu_Scene");
     }
     public void TryAgainButton()
     {

@@ -18,7 +18,7 @@ MonoBehaviour:
   name: The invasion
   description: 
   blocks: {fileID: 21300000, guid: 6d2905dc8e5b7264a8627d25938a2426, type: 3}
-  score: 2
+  score: 0
   blockChoice:
   - block: 1
   - block: 0

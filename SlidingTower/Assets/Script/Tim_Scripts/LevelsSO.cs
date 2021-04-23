@@ -24,6 +24,7 @@ public class LevelsSO : ScriptableObject
     public struct selectedBlock
     {
         public blockList block;
+        public float weight;
     }
 
     public selectedBlock[] blockChoice;

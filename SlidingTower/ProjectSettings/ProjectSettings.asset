@@ -767,10 +767,10 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   apiCompatibilityLevel: 6
-  cloudProjectId: 
+  cloudProjectId: 3fc18ae5-91f0-4670-9d4a-3a1d4a4eddcf
   framebufferDepthMemorylessMode: 0
-  projectName: 
-  organizationId: 
+  projectName: SlidingTower
+  organizationId: unity_ssuwwlwpdr9uig
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

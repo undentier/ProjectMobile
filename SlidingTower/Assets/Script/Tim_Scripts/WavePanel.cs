@@ -22,7 +22,9 @@ public class WavePanel : MonoBehaviour
     public GameObject startWaveButton;
     public bool isBuildMode;
     public bool isFirstWave = true;
-    public Animator anim;
+    private Animator anim;
+
+    float totalSpawnWeight;
     #endregion
 
     private void Awake()
@@ -31,7 +33,10 @@ public class WavePanel : MonoBehaviour
     }
     private void Start()
     {
-        //panel.SetActive(false);
+        anim = GetComponent<Animator>();
+
+        totalSpawnWeight = 0f;
+
         for (int i = 0; i < level.blockChoice.Length; i++)
         {
             switch (level.blockChoice[i].block)
@@ -58,6 +63,7 @@ public class WavePanel : MonoBehaviour
                     usedButtons.Add(buttons[6]);
                     break;
             }
+            totalSpawnWeight += level.blockChoice[i].weight;
         }
         for (int i = 0; i < buttons.Length; i++)
         {

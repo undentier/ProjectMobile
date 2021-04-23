@@ -65,7 +65,7 @@ public class LevelDisplay : MonoBehaviour
         nameText.text = level.name;
         descriptionText.text = level.description;
 
-        /*for (int i = 0; i < level.blockSprites.Length; i++)
+        for (int i = 0; i < level.blockSprites.Length; i++)
         {
             switch (level.blockSprites[i].block)
             {
@@ -91,7 +91,7 @@ public class LevelDisplay : MonoBehaviour
                     blockImages[i].sprite = laserBlocSprite;
                     break;
             }
-        }*/
+        }
 
         levelNumber = level.levelNumber;
         levelNumberText.text = levelNumber.ToString();

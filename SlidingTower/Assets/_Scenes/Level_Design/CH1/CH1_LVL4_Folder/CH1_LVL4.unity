@@ -3381,8 +3381,8 @@ Transform:
   - {fileID: 232482176}
   - {fileID: 1388055005}
   - {fileID: 1842172695}
-  - {fileID: 919966709}
   - {fileID: 91396451}
+  - {fileID: 919966709}
   - {fileID: 373617174}
   - {fileID: 1315220242}
   - {fileID: 39324641}
@@ -3653,6 +3653,11 @@ PrefabInstance:
         type: 3}
       propertyPath: canBuildTurretWaves.Array.size
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7192525008006030374, guid: 3136da9772be55d408a376d4baa73a0a,
+        type: 3}
+      propertyPath: canBuildTurretWaves.Array.data[2]
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7192525008006030374, guid: 3136da9772be55d408a376d4baa73a0a,
         type: 3}

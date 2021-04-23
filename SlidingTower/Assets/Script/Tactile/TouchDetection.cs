@@ -81,7 +81,7 @@ public class TouchDetection : MonoBehaviour
                 }
             }
         }
-        if (Input.GetButtonDown("LeftClick"))
+        else if (Input.GetButtonDown("LeftClick"))
         {
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 

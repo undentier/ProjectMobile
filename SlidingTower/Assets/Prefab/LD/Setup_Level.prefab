@@ -418,6 +418,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3339626323251534459, guid: dc58399b3bcafdb4d807a2c163b3cbe2,
         type: 3}
+      propertyPath: binAnim
+      value: 
+      objectReference: {fileID: 5335602840116215959}
+    - target: {fileID: 3339626323251534459, guid: dc58399b3bcafdb4d807a2c163b3cbe2,
+        type: 3}
       propertyPath: basiqueTurretPrevisualizePrefab
       value: 
       objectReference: {fileID: 2609717235347817975, guid: ca5ca142dda9b1b4d9505cf7b9f5e66f,
@@ -490,6 +495,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7009850310792597126}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5701347970331956477 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3339626323251534459, guid: dc58399b3bcafdb4d807a2c163b3cbe2,
+    type: 3}
+  m_PrefabInstance: {fileID: 7009850310792597126}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc2ee93f1c1ac764184a99d62b1cc4f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7365289629535639197
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -627,11 +644,37 @@ PrefabInstance:
       propertyPath: canBuildTurretWaves.Array.data[2]
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4267100092971161656, guid: 163218c4b7139064eb85c159f25454c1,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5701347970331956477}
+    - target: {fileID: 4267100092971161656, guid: 163218c4b7139064eb85c159f25454c1,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5701347970331956477}
+    - target: {fileID: 4267100092971161656, guid: 163218c4b7139064eb85c159f25454c1,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EnterCancel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4267100092971161656, guid: 163218c4b7139064eb85c159f25454c1,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CancelBuild
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 163218c4b7139064eb85c159f25454c1, type: 3}
 --- !u!224 &7192525008469626438 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 425089363339450587, guid: 163218c4b7139064eb85c159f25454c1,
+    type: 3}
+  m_PrefabInstance: {fileID: 7365289629535639197}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &5335602840116215959 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3187736438123157002, guid: 163218c4b7139064eb85c159f25454c1,
     type: 3}
   m_PrefabInstance: {fileID: 7365289629535639197}
   m_PrefabAsset: {fileID: 0}

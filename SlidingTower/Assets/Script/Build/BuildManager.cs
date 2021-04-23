@@ -29,7 +29,11 @@ public class BuildManager : MonoBehaviour
     public bool isDraggingTurret;
     private Touch touch;
     public GameObject currentPrevisualisationObject;
-    private NodeSysteme selectedNodeToSlide;
+    private bool wantCancel;
+
+    [Header("Bin Animator")]
+    public Animator binAnim;
+    
 
     public GameObject GetTurretToBuild()
     {
@@ -61,8 +65,8 @@ public class BuildManager : MonoBehaviour
     {
         TouchDetection.UpdateCurrentNode();
         currentPrevisualisationObject = Instantiate(turretPreviToBuild, TouchDetection.currentlyHoveredNode.transform.position, TouchDetection.currentlyHoveredNode.transform.rotation);
-
         isDraggingTurret = true;
+        binAnim.SetInteger("state", 1);
     }
 
     void DragUpdate()
@@ -76,12 +80,27 @@ public class BuildManager : MonoBehaviour
                 touch = Input.GetTouch(0);
                 if (touch.phase == TouchPhase.Ended)
                 {
-                    CreateTurret();
+
+                    if (!wantCancel)
+                    {
+                        CreateTurret();
+                    }
+                    else
+                    {
+                        CancelBuild();
+                    }
                 }
             }
-            if (Input.GetButtonUp("LeftClick"))
+            else if (Input.GetButtonUp("LeftClick"))
             {
-                CreateTurret();
+                if (!wantCancel)
+                {
+                    CreateTurret();
+                }
+                else
+                {
+                    CancelBuild();
+                }
             }
         }
     }
@@ -92,10 +111,20 @@ public class BuildManager : MonoBehaviour
         TouchDetection.UpdateCurrentNode();
         TouchDetection.currentlyHoveredNode.CreateTurret();
         TouchDetection.currentlyHoveredNode = NodeManager.allNodes[0];
-
         Destroy(currentPrevisualisationObject);
-        
+        binAnim.SetInteger("state", 2);
     }
+
+    public void CancelBuild()
+    {
+        TouchDetection.currentlyHoveredNode = NodeManager.allNodes[0];
+        Destroy(currentPrevisualisationObject);
+        isDraggingTurret = false;
+        wantCancel = false;
+
+        binAnim.SetInteger("state", 2);
+    }
+
 
     void SlideDetection()
     {
@@ -119,8 +148,7 @@ public class BuildManager : MonoBehaviour
                     }
                 }
             }
-
-            if (Input.GetButtonDown("LeftClick"))
+            else if (Input.GetButtonDown("LeftClick"))
             {
                 TouchDetection.UpdateCurrentNode();
                 TouchDetection.currentlyHoveredNode.SlideTurret();
@@ -133,5 +161,21 @@ public class BuildManager : MonoBehaviour
                 }
             }
         }
+    }
+
+
+    public void EnterCancel()
+    {
+        wantCancel = true;
+    }
+    public void ExitCancel()
+    {
+        StartCoroutine(MicroCooldown());
+    }
+
+    IEnumerator MicroCooldown()
+    {
+        yield return new WaitForEndOfFrame();
+        wantCancel = false;
     }
 }

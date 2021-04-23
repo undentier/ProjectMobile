@@ -22,7 +22,7 @@ public class WavePanel : MonoBehaviour
     public GameObject startWaveButton;
     public bool isBuildMode;
     public bool isFirstWave = true;
-    private Animator anim;
+    public Animator anim;
     #endregion
 
     private void Awake()
@@ -31,7 +31,6 @@ public class WavePanel : MonoBehaviour
     }
     private void Start()
     {
-        anim = GetComponent<Animator>();
         //panel.SetActive(false);
         for (int i = 0; i < level.blockChoice.Length; i++)
         {

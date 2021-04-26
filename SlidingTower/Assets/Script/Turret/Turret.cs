@@ -66,7 +66,8 @@ public class Turret : MonoBehaviour
     public GameObject explosionCanon;
     public GameObject laserCanon;
     public GameObject discoCanon;
-    public Material shaderMat;
+    public GameObject baseTurret;
+    public Material shaderMatEmissive;
 
     [HideInInspector]
     public List<Enemy> targetList = new List<Enemy>();
@@ -100,6 +101,11 @@ public class Turret : MonoBehaviour
         bulletToShoot = basicBullet;
         laserMultiplier = new float[numMaxTargets];
         laserCoolDown = new float[numMaxTargets];
+
+        //shaderMatEmissive = baseTurret.GetComponent<MeshRenderer>().material;
+        //Material[] mats = baseTurret.GetComponent<MeshRenderer>().materials;
+        //mats[1] = shaderMatEmissive;
+
     }
 
     void FixedUpdate()
@@ -507,19 +513,19 @@ public class Turret : MonoBehaviour
         #region Negatif effect
         if (slowUpgrade > 0 && poisonUpgrade == 0)
         {
-            shaderMat.SetFloat("inputColorEmissive", 1);
+            shaderMatEmissive.SetFloat("inputColorEmissive", 1);
         }
         else if (poisonUpgrade > 0 && slowUpgrade == 0)
         {
-            shaderMat.SetFloat("inputColorEmissive", 2);
+            shaderMatEmissive.SetFloat("inputColorEmissive", 2);
         }
         else if (poisonUpgrade > 0 && slowUpgrade > 0)
         {
-            shaderMat.SetFloat("inputColorEmissive", 3);
+            shaderMatEmissive.SetFloat("inputColorEmissive", 3);
         }
         else
         {
-            shaderMat.SetFloat("inputColorEmissive", 0);
+            shaderMatEmissive.SetFloat("inputColorEmissive", 0);
         }
         #endregion
     }

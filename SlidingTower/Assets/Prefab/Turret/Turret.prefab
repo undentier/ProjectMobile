@@ -1113,7 +1113,10 @@ MonoBehaviour:
   explosionCanon: {fileID: 2878572928365857062}
   laserCanon: {fileID: 1290061818358504313}
   discoCanon: {fileID: 3266471228151374880}
-  shaderMat: {fileID: 2100000, guid: 62f9ad98025dd1943931c20d009d15db, type: 2}
+  baseTurret: {fileID: 3018894392717185213}
+  shaderMatEmissive: {fileID: 2100000, guid: 62f9ad98025dd1943931c20d009d15db, type: 2}
+  damageLvl1: {fileID: 0}
+  damageLvl2: {fileID: 0}
   targetList: []
   laserUpgrade: 0
   explosionUpgrade: 0

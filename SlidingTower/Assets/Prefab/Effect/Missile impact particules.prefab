@@ -14509,7 +14509,7 @@ ParticleSystemRenderer:
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
-  m_VertexStreams: 0001030415
+  m_VertexStreams: 00010415
   m_Mesh: {fileID: 973877516759717424, guid: 5de3e6217ac87cd4daf4bea2e0541575, type: 3}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
@@ -28956,7 +28956,7 @@ ParticleSystemRenderer:
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
-  m_VertexStreams: 0001030415
+  m_VertexStreams: 00010415
   m_Mesh: {fileID: 973877516759717424, guid: 5de3e6217ac87cd4daf4bea2e0541575, type: 3}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
@@ -29065,7 +29065,7 @@ Animator:
   m_GameObject: {fileID: 6368515618644632670}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9696eaff4411dbf46810cf57381df1d5, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

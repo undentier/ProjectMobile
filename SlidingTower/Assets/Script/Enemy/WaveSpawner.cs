@@ -8,12 +8,19 @@ public class WaveSpawner : MonoBehaviour
     public static WaveSpawner instance;
 
     [Header("Put waveSO here")]
-    public WaveSO levelWaves;
+    public WaveSO[] levelWaves;
+
+    [Header("Info spawner")]
+    public Transform[] spawnPoints;
 
     [Header("Unity setup")]
     public GameObject smallEnemy;
     public GameObject mediumEnemy;
     public GameObject bigEnemy;
+
+
+    [Header("Macro info Wave")]
+    public float timeBeforeEndWave;
 
     [HideInInspector]
     public int waveIndex;
@@ -23,7 +30,6 @@ public class WaveSpawner : MonoBehaviour
     public bool waveSpawn;
     [HideInInspector]
     public List<Enemy> enemyList = new List<Enemy>();
-    private Transform spawnPoint;
     private bool canCheck;
 
     [HideInInspector]
@@ -43,7 +49,6 @@ public class WaveSpawner : MonoBehaviour
 
     private void Start()
     {
-        spawnPoint = StartInfo.startPoint;
         RefreshNextWaveComposition();
     }
     void Update()
@@ -52,31 +57,30 @@ public class WaveSpawner : MonoBehaviour
         CheckIfEnemyAlive();
     }
 
-    IEnumerator SpawnWave()
+    IEnumerator SpawnWave(WaveSO levelWave, Transform spawnPoint)
     {
-        waveSpawn = true;
-        yield return new WaitForSeconds(levelWaves.timeBeforeStartWave);
+        yield return new WaitForSeconds(levelWave.timeBeforeStartWave);
 
         enemyAlive = true;
 
-        for (int i = 0; i < levelWaves.waves[waveIndex].enemies.Length; i++)
+        for (int i = 0; i < levelWave.waves[waveIndex].enemies.Length; i++)
         {
-            for (int t = 0; t < levelWaves.waves[waveIndex].enemies[i].number; t++)
+            for (int t = 0; t < levelWave.waves[waveIndex].enemies[i].number; t++)
             {
-                GameObject enemyToSpawn = GetEnemyToSpawn(levelWaves.waves[waveIndex].enemies[i].wichEnemy);
+                GameObject enemyToSpawn = GetEnemyToSpawn(levelWave.waves[waveIndex].enemies[i].wichEnemy);
                 GameObject actualEnemy = Instantiate(enemyToSpawn, spawnPoint.position, spawnPoint.rotation);
                 enemyList.Add(actualEnemy.GetComponent<Enemy>());
-                yield return new WaitForSeconds(levelWaves.waves[waveIndex].enemies[i].timeBtwSpawn);
+                yield return new WaitForSeconds(levelWave.waves[waveIndex].enemies[i].timeBtwSpawn);
             }
 
-            yield return new WaitForSeconds(levelWaves.waves[waveIndex].enemies[i].timeBeforeNextSpawn);
+            yield return new WaitForSeconds(levelWave.waves[waveIndex].enemies[i].timeBeforeNextSpawn);
         }
         canCheck = true;
     }
 
     IEnumerator WaitBfrEndWave()
     {
-        yield return new WaitForSeconds(levelWaves.timeBeforeEndWave);
+        yield return new WaitForSeconds(timeBeforeEndWave);
         waveIndex++;
         waveSpawn = false;
 
@@ -111,15 +115,20 @@ public class WaveSpawner : MonoBehaviour
 
     public void StartWave()
     {
-        if (!waveSpawn && waveIndex < levelWaves.waves.Length)
+        if (!waveSpawn && waveIndex < levelWaves[0].waves.Length)
         {
-            StartCoroutine(SpawnWave());
+            waveSpawn = true;
+
+            for (int i = 0; i < levelWaves.Length; i++)
+            {
+                StartCoroutine(SpawnWave(levelWaves[i], spawnPoints[i]));
+            }
         }
     }
 
     void VictoryDetection()
     {
-        if (waveIndex >= levelWaves.waves.Length && !enemyAlive)
+        if (waveIndex >= levelWaves[0].waves.Length && !enemyAlive)
         {
             UIManager.instance.DisplayVictoryMenu();
         }
@@ -131,6 +140,7 @@ public class WaveSpawner : MonoBehaviour
 
     void RefreshNextWaveComposition()
     {
+        /*
         if (waveIndex < levelWaves.waves.Length)
         {
             nextLowEnemyNumber = 0;
@@ -153,5 +163,6 @@ public class WaveSpawner : MonoBehaviour
                 }
             }
         }
+        */
     }
 }

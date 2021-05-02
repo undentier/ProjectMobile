@@ -17,6 +17,6 @@ public class UiPlayerInfo : MonoBehaviour
         healthCounter.text = LifeManager.lifeInstance.life.ToString();
 
         actualWaveCounter.text = WaveSpawner.instance.waveIndex.ToString();
-        totalWaveCounter.text = WaveSpawner.instance.levelWaves.waves.Length.ToString();
+        //totalWaveCounter.text = WaveSpawner.instance.levelWaves.waves.Length.ToString();
     }
 }

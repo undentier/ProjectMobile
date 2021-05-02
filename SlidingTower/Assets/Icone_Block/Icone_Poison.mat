@@ -102,4 +102,4 @@ Material:
     - _MainColor: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
     - _SpriteRenderer_Color: {r: 0, g: 0, b: 0, a: 0}
-    - _color: {r: 0.1254902, g: 0.50980395, b: 0.121568635, a: 1}
+    - _color: {r: 0.0046820524, g: 0.6320754, b: 0, a: 1}

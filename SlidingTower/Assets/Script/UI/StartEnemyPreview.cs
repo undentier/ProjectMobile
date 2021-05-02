@@ -38,6 +38,7 @@ public class StartEnemyPreview : MonoBehaviour
 
     public void ActualiseEnemy()
     {
+        /*
         if (WaveSpawner.instance.nextLowEnemyNumber > 0)
         {
             lowGeneral.SetActive(true);
@@ -67,7 +68,7 @@ public class StartEnemyPreview : MonoBehaviour
         {
             bigGeneral.SetActive(false);
         }
-
+        */
     }
 
     public void GetingTouch()

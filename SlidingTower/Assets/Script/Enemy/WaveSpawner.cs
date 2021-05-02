@@ -31,13 +31,14 @@ public class WaveSpawner : MonoBehaviour
     [HideInInspector]
     public List<Enemy> enemyList = new List<Enemy>();
     private bool canCheck;
+    private int numOfWaveFinish;
 
-    [HideInInspector]
-    public int nextLowEnemyNumber;
-    [HideInInspector]
-    public int nextMidEnemyNumber;
-    [HideInInspector]
-    public int nextBigEnemyNumber;
+    //[HideInInspector]
+    public int nextTotalLowEnemyNumber;
+    //[HideInInspector]
+    public int nextTotalMidEnemyNumber;
+    //[HideInInspector]
+    public int nextTotalBigEnemyNumber;
 
     private void Awake()
     {
@@ -49,7 +50,8 @@ public class WaveSpawner : MonoBehaviour
 
     private void Start()
     {
-        RefreshNextWaveComposition();
+        //RefreshNextWaveComposition();
+        GetTotaleWaveCompo();
     }
     void Update()
     {
@@ -75,7 +77,7 @@ public class WaveSpawner : MonoBehaviour
 
             yield return new WaitForSeconds(levelWave.waves[waveIndex].enemies[i].timeBeforeNextSpawn);
         }
-        canCheck = true;
+        numOfWaveFinish++;
     }
 
     IEnumerator WaitBfrEndWave()
@@ -84,7 +86,7 @@ public class WaveSpawner : MonoBehaviour
         waveIndex++;
         waveSpawn = false;
 
-        RefreshNextWaveComposition();
+        //RefreshNextWaveComposition();
 
         VictoryDetection();
     }
@@ -96,6 +98,11 @@ public class WaveSpawner : MonoBehaviour
             enemyAlive = false;
             canCheck = false;
             StartCoroutine(WaitBfrEndWave());
+        }
+        else if (!canCheck && numOfWaveFinish == levelWaves.Length)
+        {
+            canCheck = true;
+            numOfWaveFinish = 0;
         }
     }
 
@@ -138,31 +145,47 @@ public class WaveSpawner : MonoBehaviour
         }
     }
 
-    void RefreshNextWaveComposition()
-    {
-        /*
-        if (waveIndex < levelWaves.waves.Length)
-        {
-            nextLowEnemyNumber = 0;
-            nextMidEnemyNumber = 0;
-            nextBigEnemyNumber = 0;
+        int lowEnemyNumber;
+        int midEnemyNumber;
+        int bigEnemyNumber;
 
-            for (int i = 0; i < levelWaves.waves[waveIndex].enemies.Length; i++)
+    void GetNextWaveComposition(WaveSO wichWave, int nextLowEnemyNumber, int nextMidEnemyNumber, int nextBigEnemyNumber)
+    {
+        lowEnemyNumber = 0;
+        midEnemyNumber = 0;
+        bigEnemyNumber = 0;
+
+        if (waveIndex < wichWave.waves.Length)
+        {
+            for (int i = 0; i < wichWave.waves[waveIndex].enemies.Length; i++)
             {
-                switch (levelWaves.waves[waveIndex].enemies[i].wichEnemy)
+                switch (wichWave.waves[waveIndex].enemies[i].wichEnemy)
                 {
                     case WaveSO.EnemyEnum.small:
-                        nextLowEnemyNumber += levelWaves.waves[waveIndex].enemies[i].number;
+                        lowEnemyNumber += wichWave.waves[waveIndex].enemies[i].number;
                         break;
                     case WaveSO.EnemyEnum.medium:
-                        nextMidEnemyNumber += levelWaves.waves[waveIndex].enemies[i].number;
+                        midEnemyNumber += wichWave.waves[waveIndex].enemies[i].number;
                         break;
                     case WaveSO.EnemyEnum.big:
-                        nextBigEnemyNumber += levelWaves.waves[waveIndex].enemies[i].number;
+                        bigEnemyNumber += wichWave.waves[waveIndex].enemies[i].number;
                         break;
                 }
             }
+
         }
-        */
+     
+            nextLowEnemyNumber += lowEnemyNumber;
+            nextMidEnemyNumber += midEnemyNumber;
+            nextBigEnemyNumber += bigEnemyNumber;
+    }
+
+    void GetTotaleWaveCompo()
+    {
+        for (int i = 0; i < levelWaves.Length; i++)
+        {
+            Debug.Log("get total wave");
+            GetNextWaveComposition(levelWaves[i], nextTotalLowEnemyNumber, nextTotalMidEnemyNumber, nextTotalBigEnemyNumber);
+        }
     }
 }

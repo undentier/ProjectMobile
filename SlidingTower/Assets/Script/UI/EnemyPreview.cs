@@ -27,6 +27,7 @@ public class EnemyPreview : MonoBehaviour
 
     public void ActualiseEnemy()
     {
+        /*
         generalEnemyPreview.SetActive(true);
 
         if (WaveSpawner.instance.nextLowEnemyNumber > 0)
@@ -58,6 +59,7 @@ public class EnemyPreview : MonoBehaviour
         {
             bigGeneral.SetActive(false);
         }
+        */
     }
 
     public void ContinueButton()

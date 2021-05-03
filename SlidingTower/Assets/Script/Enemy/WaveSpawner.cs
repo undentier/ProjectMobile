@@ -86,7 +86,7 @@ public class WaveSpawner : MonoBehaviour
         waveIndex++;
         waveSpawn = false;
 
-        //RefreshNextWaveComposition();
+        GetTotaleWaveCompo();
 
         VictoryDetection();
     }
@@ -145,16 +145,8 @@ public class WaveSpawner : MonoBehaviour
         }
     }
 
-        int lowEnemyNumber;
-        int midEnemyNumber;
-        int bigEnemyNumber;
-
-    void GetNextWaveComposition(WaveSO wichWave, int nextLowEnemyNumber, int nextMidEnemyNumber, int nextBigEnemyNumber)
+    void GetNextWaveComposition(WaveSO wichWave)
     {
-        lowEnemyNumber = 0;
-        midEnemyNumber = 0;
-        bigEnemyNumber = 0;
-
         if (waveIndex < wichWave.waves.Length)
         {
             for (int i = 0; i < wichWave.waves[waveIndex].enemies.Length; i++)
@@ -162,30 +154,25 @@ public class WaveSpawner : MonoBehaviour
                 switch (wichWave.waves[waveIndex].enemies[i].wichEnemy)
                 {
                     case WaveSO.EnemyEnum.small:
-                        lowEnemyNumber += wichWave.waves[waveIndex].enemies[i].number;
+                        nextTotalLowEnemyNumber += wichWave.waves[waveIndex].enemies[i].number;
                         break;
                     case WaveSO.EnemyEnum.medium:
-                        midEnemyNumber += wichWave.waves[waveIndex].enemies[i].number;
+                        nextTotalMidEnemyNumber += wichWave.waves[waveIndex].enemies[i].number;
                         break;
                     case WaveSO.EnemyEnum.big:
-                        bigEnemyNumber += wichWave.waves[waveIndex].enemies[i].number;
+                        nextTotalBigEnemyNumber += wichWave.waves[waveIndex].enemies[i].number;
                         break;
                 }
             }
 
         }
-     
-            nextLowEnemyNumber += lowEnemyNumber;
-            nextMidEnemyNumber += midEnemyNumber;
-            nextBigEnemyNumber += bigEnemyNumber;
     }
 
     void GetTotaleWaveCompo()
     {
         for (int i = 0; i < levelWaves.Length; i++)
         {
-            Debug.Log("get total wave");
-            GetNextWaveComposition(levelWaves[i], nextTotalLowEnemyNumber, nextTotalMidEnemyNumber, nextTotalBigEnemyNumber);
+            GetNextWaveComposition(levelWaves[i]);
         }
     }
 }

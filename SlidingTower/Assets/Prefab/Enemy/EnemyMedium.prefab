@@ -476,8 +476,8 @@ MonoBehaviour:
   poisonMaterial: {fileID: 2100000, guid: 4586efa51d554b6448094787877102c3, type: 2}
   poisonParticule: {fileID: 2112879051572457484}
   distFromNexus: 0
-  EnnemyAlive: {fileID: 2266769411134242098}
-  EnnemyDead: {fileID: 953137596633602646}
+  EnnemyDead: {fileID: 1589147418118740745, guid: 782acb96d5f2e674cbfaa6c276efe29e,
+    type: 3}
 --- !u!195 &-22901727225648796
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -582,12 +582,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d6d970df77047d48aae86f204f613cf, type: 3}
---- !u!1 &953137596633602646 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 925233371016865941, guid: 5d6d970df77047d48aae86f204f613cf,
-    type: 3}
-  m_PrefabInstance: {fileID: 138819121090818755}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &464408648422654188 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 548531464061088303, guid: 5d6d970df77047d48aae86f204f613cf,

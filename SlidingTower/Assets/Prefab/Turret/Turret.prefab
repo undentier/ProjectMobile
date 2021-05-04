@@ -1114,6 +1114,7 @@ MonoBehaviour:
   laserCanon: {fileID: 1290061818358504313}
   discoCanon: {fileID: 3266471228151374880}
   baseTurret: {fileID: 3018894392717185213}
+  matDisco: {fileID: 8817139894897165247}
   targetList: []
   laserUpgrade: 0
   explosionUpgrade: 0
@@ -1404,6 +1405,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ff010d7dfd10bd46be8feb77b0f38b1, type: 3}
+--- !u!1 &8817139894897165247 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2172405777888387190, guid: 9ff010d7dfd10bd46be8feb77b0f38b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 7239863571764372425}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2746921900286377626 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4784563767063158099, guid: 9ff010d7dfd10bd46be8feb77b0f38b1,
@@ -1669,7 +1676,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 62f9ad98025dd1943931c20d009d15db, type: 2}
+      objectReference: {fileID: 2100000, guid: b08d033c8b89cbd4cbc35ace9898c1b0, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e07ceec3906ed384e8f241d6cc070bf3, type: 3}
 --- !u!4 &4550106836022356243 stripped

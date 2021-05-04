@@ -518,11 +518,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Slow feed back '
       objectReference: {fileID: 0}
-    - target: {fileID: 6537367158145968435, guid: 35f9dd0179df79f45bad01c4f15c36ea,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35f9dd0179df79f45bad01c4f15c36ea, type: 3}
 --- !u!1 &1701841811546388441 stripped
@@ -623,6 +618,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 6850265170834540219, guid: dfc8f859bc516a543849fe1601605307,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 6850265170834540219, guid: dfc8f859bc516a543849fe1601605307,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 6850265170834540219, guid: dfc8f859bc516a543849fe1601605307,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.08
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dfc8f859bc516a543849fe1601605307, type: 3}

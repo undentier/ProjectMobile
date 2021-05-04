@@ -68,6 +68,7 @@ public class Turret : MonoBehaviour
     public GameObject discoCanon;
     public GameObject baseTurret;
     public Material shaderMatEmissive;
+    //MaterialPropertyBlock shaderMatEmissive;
 
     [HideInInspector]
     public List<Enemy> targetList = new List<Enemy>();
@@ -102,9 +103,17 @@ public class Turret : MonoBehaviour
         laserMultiplier = new float[numMaxTargets];
         laserCoolDown = new float[numMaxTargets];
 
-        //shaderMatEmissive = baseTurret.GetComponent<MeshRenderer>().material;
-        //Material[] mats = baseTurret.GetComponent<MeshRenderer>().materials;
+        shaderMatEmissive = basicCanon.GetComponent<MeshRenderer>().material;
+    }
+
+    void Start()
+    {
+        
+        //Material[] mats = basicCanon.GetComponent<MeshRenderer>().materials;
         //mats[1] = shaderMatEmissive;
+        //shaderMatEmissive = new MaterialPropertyBlock();
+        //Renderer renderer = basicCanon.GetComponent<MeshRenderer>();
+        //renderer.SetPropertyBlock(shaderMatEmissive);
 
     }
 

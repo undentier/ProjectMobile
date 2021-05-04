@@ -1114,9 +1114,6 @@ MonoBehaviour:
   laserCanon: {fileID: 1290061818358504313}
   discoCanon: {fileID: 3266471228151374880}
   baseTurret: {fileID: 3018894392717185213}
-  shaderMatEmissive: {fileID: 2100000, guid: 62f9ad98025dd1943931c20d009d15db, type: 2}
-  damageLvl1: {fileID: 0}
-  damageLvl2: {fileID: 0}
   targetList: []
   laserUpgrade: 0
   explosionUpgrade: 0
@@ -1668,6 +1665,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5802946922136057772, guid: e07ceec3906ed384e8f241d6cc070bf3,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 62f9ad98025dd1943931c20d009d15db, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e07ceec3906ed384e8f241d6cc070bf3, type: 3}
 --- !u!4 &4550106836022356243 stripped

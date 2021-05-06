@@ -1091,8 +1091,8 @@ MonoBehaviour:
   - 10
   - 14
   microLaserDamageReductionBonus:
+  - 6
   - 4
-  - 3
   - 2
   - 1
   partToRotate: {fileID: 4157377765548304516}

@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -3702,6 +3702,27 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 1d64e5b07f6b6a84f8f232694ce5d005,
         type: 2}
+    - target: {fileID: 5701347970331956472, guid: 3136da9772be55d408a376d4baa73a0a,
+        type: 3}
+      propertyPath: levelWaves.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5701347970331956472, guid: 3136da9772be55d408a376d4baa73a0a,
+        type: 3}
+      propertyPath: spawnPoints.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5701347970331956472, guid: 3136da9772be55d408a376d4baa73a0a,
+        type: 3}
+      propertyPath: levelWaves.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 1d64e5b07f6b6a84f8f232694ce5d005,
+        type: 2}
+    - target: {fileID: 5701347970331956472, guid: 3136da9772be55d408a376d4baa73a0a,
+        type: 3}
+      propertyPath: spawnPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 715613994}
     - target: {fileID: 7192525008006030374, guid: 3136da9772be55d408a376d4baa73a0a,
         type: 3}
       propertyPath: level

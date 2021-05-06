@@ -1150,6 +1150,27 @@ PrefabInstance:
       propertyPath: m_Lightmapping
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5701347970331956472, guid: 3136da9772be55d408a376d4baa73a0a,
+        type: 3}
+      propertyPath: levelWaves.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5701347970331956472, guid: 3136da9772be55d408a376d4baa73a0a,
+        type: 3}
+      propertyPath: spawnPoints.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5701347970331956472, guid: 3136da9772be55d408a376d4baa73a0a,
+        type: 3}
+      propertyPath: levelWaves.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 80218d4b5594dbc4f959ac09336cc9d5,
+        type: 2}
+    - target: {fileID: 5701347970331956472, guid: 3136da9772be55d408a376d4baa73a0a,
+        type: 3}
+      propertyPath: spawnPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 1003299450}
     - target: {fileID: 7192525007778151927, guid: 3136da9772be55d408a376d4baa73a0a,
         type: 3}
       propertyPath: m_AnchorMax.x

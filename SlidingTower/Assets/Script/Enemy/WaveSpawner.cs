@@ -33,11 +33,11 @@ public class WaveSpawner : MonoBehaviour
     private bool canCheck;
     private int numOfWaveFinish;
 
-    //[HideInInspector]
+    [HideInInspector]
     public int nextTotalLowEnemyNumber;
-    //[HideInInspector]
+    [HideInInspector]
     public int nextTotalMidEnemyNumber;
-    //[HideInInspector]
+    [HideInInspector]
     public int nextTotalBigEnemyNumber;
 
     private void Awake()
@@ -50,7 +50,6 @@ public class WaveSpawner : MonoBehaviour
 
     private void Start()
     {
-        //RefreshNextWaveComposition();
         GetTotaleWaveCompo();
     }
     void Update()

@@ -46,20 +46,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8d14f4b76369ee49ac15f3266c74a2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelWaves: {fileID: 11400000, guid: 80218d4b5594dbc4f959ac09336cc9d5, type: 2}
+  levelWaves:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  spawnPoints: []
   smallEnemy: {fileID: 6895374269467792441, guid: 52dfdf81d5f4b9042aebfb4a1ad7490f,
     type: 3}
   mediumEnemy: {fileID: 6895374269467792441, guid: a3ea6ffd8380b104ca941a2252a03535,
     type: 3}
   bigEnemy: {fileID: 6895374269467792441, guid: ea1fb89321b0ef74787e949a4dd75e98,
     type: 3}
+  timeBeforeEndWave: 2
   waveIndex: 0
   enemyAlive: 0
   waveSpawn: 0
   enemyList: []
-  nextLowEnemyNumber: 0
-  nextMidEnemyNumber: 0
-  nextBigEnemyNumber: 0
+  nextTotalLowEnemyNumber: 0
+  nextTotalMidEnemyNumber: 0
+  nextTotalBigEnemyNumber: 0
 --- !u!114 &3339626323251534461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,3 +135,4 @@ MonoBehaviour:
     type: 3}
   isDraggingTurret: 0
   currentPrevisualisationObject: {fileID: 0}
+  binAnim: {fileID: 0}

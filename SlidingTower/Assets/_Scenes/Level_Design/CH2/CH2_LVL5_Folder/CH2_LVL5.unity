@@ -719,6 +719,27 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 3ecb8a51e4637c74a85e7bc17548ccb7,
         type: 2}
+    - target: {fileID: 5701347970331956472, guid: 3136da9772be55d408a376d4baa73a0a,
+        type: 3}
+      propertyPath: levelWaves.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5701347970331956472, guid: 3136da9772be55d408a376d4baa73a0a,
+        type: 3}
+      propertyPath: spawnPoints.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5701347970331956472, guid: 3136da9772be55d408a376d4baa73a0a,
+        type: 3}
+      propertyPath: levelWaves.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: fd898ec37888cf849b72cf846608e2b5,
+        type: 2}
+    - target: {fileID: 5701347970331956472, guid: 3136da9772be55d408a376d4baa73a0a,
+        type: 3}
+      propertyPath: spawnPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 1975625647}
     - target: {fileID: 7192525008006030374, guid: 3136da9772be55d408a376d4baa73a0a,
         type: 3}
       propertyPath: level

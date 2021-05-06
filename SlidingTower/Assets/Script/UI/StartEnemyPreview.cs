@@ -38,36 +38,37 @@ public class StartEnemyPreview : MonoBehaviour
 
     public void ActualiseEnemy()
     {
-        if (WaveSpawner.instance.nextLowEnemyNumber > 0)
+        
+        if (WaveSpawner.instance.nextTotalLowEnemyNumber > 0)
         {
             lowGeneral.SetActive(true);
-            lowCounter.text = WaveSpawner.instance.nextLowEnemyNumber.ToString();
+            lowCounter.text = WaveSpawner.instance.nextTotalLowEnemyNumber.ToString();
         }
         else
         {
             lowGeneral.SetActive(false);
         }
 
-        if (WaveSpawner.instance.nextMidEnemyNumber > 0)
+        if (WaveSpawner.instance.nextTotalMidEnemyNumber > 0)
         {
             midGeneral.SetActive(true);
-            midCounter.text = WaveSpawner.instance.nextMidEnemyNumber.ToString();
+            midCounter.text = WaveSpawner.instance.nextTotalMidEnemyNumber.ToString();
         }
         else
         {
             midGeneral.SetActive(false);
         }
 
-        if (WaveSpawner.instance.nextBigEnemyNumber > 0)
+        if (WaveSpawner.instance.nextTotalBigEnemyNumber > 0)
         {
             bigGeneral.SetActive(true);
-            bigCounter.text = WaveSpawner.instance.nextBigEnemyNumber.ToString();
+            bigCounter.text = WaveSpawner.instance.nextTotalBigEnemyNumber.ToString();
         }
         else
         {
             bigGeneral.SetActive(false);
         }
-
+        
     }
 
     public void GetingTouch()

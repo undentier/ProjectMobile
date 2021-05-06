@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cefeb85208766c647aa45e47f34b00db, type: 3}
-  m_Name: GuiTest
+  m_Name: GuiTest 1
   m_EditorClassIdentifier: 
   levelSceneName: 
   levelNumber: 0
@@ -18,11 +18,10 @@ MonoBehaviour:
   name: 
   description: 
   blocks: {fileID: 0}
-  scoreSpriteZero: {fileID: 0}
-  scoreSpriteOne: {fileID: 0}
-  scoreSpriteTwo: {fileID: 0}
-  scoreSpriteThree: {fileID: 0}
   score: 0
   blockChoice:
   - block: 4
+    weight: 0
   - block: 3
+    weight: 0
+  blockSprites: []

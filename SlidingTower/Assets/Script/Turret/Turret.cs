@@ -77,6 +77,7 @@ public class Turret : MonoBehaviour
     private float[] laserCoolDown;
 
     #region Upgrade variable
+
     [HideInInspector]
     public int laserUpgrade;
     [HideInInspector]
@@ -93,19 +94,17 @@ public class Turret : MonoBehaviour
     public int damageUpgrade;
     [HideInInspector]
     public int rangeUpgrade;
-    #endregion
+
     #endregion
 
-    void Awake()
+    #endregion 
+
+    private void Awake()
     {
         bulletToShoot = basicBullet;
         laserMultiplier = new float[numMaxTargets];
         laserCoolDown = new float[numMaxTargets];
-
-        //shaderMatEmissive = baseTurret.GetComponent<MeshRenderer>().material;
-        //Material[] mats = baseTurret.GetComponent<MeshRenderer>().materials;
-        //mats[1] = shaderMatEmissive;
-
+        ResetLaser();
     }
 
     void FixedUpdate()

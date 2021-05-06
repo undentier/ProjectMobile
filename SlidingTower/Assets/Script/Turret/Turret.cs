@@ -67,7 +67,13 @@ public class Turret : MonoBehaviour
     public GameObject laserCanon;
     public GameObject discoCanon;
     public GameObject baseTurret;
-    public Material shaderMatEmissive;
+    public GameObject matDisco;
+
+    private Material shaderMatEmissive;
+    private Material shaderMatEmissive1;
+    private Material shaderMatEmissive2;
+    private Material shaderMatEmissive3;
+    private Material shaderMatEmissive4;
 
     [HideInInspector]
     public List<Enemy> targetList = new List<Enemy>();
@@ -104,6 +110,12 @@ public class Turret : MonoBehaviour
         bulletToShoot = basicBullet;
         laserMultiplier = new float[numMaxTargets];
         laserCoolDown = new float[numMaxTargets];
+
+        shaderMatEmissive = basicCanon.GetComponent<MeshRenderer>().materials[1];
+        shaderMatEmissive1 = baseTurret.GetComponent<MeshRenderer>().materials[1];
+        shaderMatEmissive2 = explosionCanon.GetComponent<MeshRenderer>().materials[1];
+        shaderMatEmissive3 = laserCanon.GetComponent<MeshRenderer>().materials[1];
+        shaderMatEmissive4 = matDisco.GetComponent<MeshRenderer>().materials[1];
         ResetLaser();
     }
 
@@ -513,18 +525,34 @@ public class Turret : MonoBehaviour
         if (slowUpgrade > 0 && poisonUpgrade == 0)
         {
             shaderMatEmissive.SetFloat("inputColorEmissive", 1);
+            shaderMatEmissive1.SetFloat("inputColorEmissive", 1);
+            shaderMatEmissive2.SetFloat("inputColorEmissive", 1);
+            shaderMatEmissive3.SetFloat("inputColorEmissive", 1);
+            shaderMatEmissive4.SetFloat("inputColorEmissive", 1);
         }
         else if (poisonUpgrade > 0 && slowUpgrade == 0)
         {
             shaderMatEmissive.SetFloat("inputColorEmissive", 2);
+            shaderMatEmissive1.SetFloat("inputColorEmissive", 2);
+            shaderMatEmissive2.SetFloat("inputColorEmissive", 2);
+            shaderMatEmissive3.SetFloat("inputColorEmissive", 2);
+            shaderMatEmissive4.SetFloat("inputColorEmissive", 2);
         }
         else if (poisonUpgrade > 0 && slowUpgrade > 0)
         {
             shaderMatEmissive.SetFloat("inputColorEmissive", 3);
+            shaderMatEmissive1.SetFloat("inputColorEmissive", 3);
+            shaderMatEmissive2.SetFloat("inputColorEmissive", 3);
+            shaderMatEmissive3.SetFloat("inputColorEmissive", 3);
+            shaderMatEmissive4.SetFloat("inputColorEmissive", 3);
         }
         else
         {
             shaderMatEmissive.SetFloat("inputColorEmissive", 0);
+            shaderMatEmissive1.SetFloat("inputColorEmissive", 0);
+            shaderMatEmissive2.SetFloat("inputColorEmissive", 0);
+            shaderMatEmissive3.SetFloat("inputColorEmissive", 0);
+            shaderMatEmissive4.SetFloat("inputColorEmissive", 0);
         }
         #endregion
     }

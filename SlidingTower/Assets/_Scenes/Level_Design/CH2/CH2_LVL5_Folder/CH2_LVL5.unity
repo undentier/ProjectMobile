@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2995,7 +2995,7 @@ PrefabInstance:
     - target: {fileID: 7649818041903500946, guid: 793a4bb2e3cdcfe48a02a6d96e9b1e4d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7649818041903500946, guid: 793a4bb2e3cdcfe48a02a6d96e9b1e4d,
         type: 3}
@@ -4089,11 +4089,41 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3299766408668038124, guid: e144a754f77db1348aa3e8870f279a11,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b08d033c8b89cbd4cbc35ace9898c1b0, type: 2}
     - target: {fileID: 5692954451146359907, guid: e144a754f77db1348aa3e8870f279a11,
         type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6211956119614899035, guid: e144a754f77db1348aa3e8870f279a11,
+        type: 3}
+      propertyPath: color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6211956119614899035, guid: e144a754f77db1348aa3e8870f279a11,
+        type: 3}
+      propertyPath: color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6211956119614899035, guid: e144a754f77db1348aa3e8870f279a11,
+        type: 3}
+      propertyPath: color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6211956119614899035, guid: e144a754f77db1348aa3e8870f279a11,
+        type: 3}
+      propertyPath: color.r
+      value: 0.9921248
+      objectReference: {fileID: 0}
+    - target: {fileID: 6211956119614899035, guid: e144a754f77db1348aa3e8870f279a11,
+        type: 3}
+      propertyPath: shaderMatEmissive
+      value: 
+      objectReference: {fileID: 2100000, guid: 62f9ad98025dd1943931c20d009d15db, type: 2}
     - target: {fileID: 7122458465355761990, guid: e144a754f77db1348aa3e8870f279a11,
         type: 3}
       propertyPath: m_Name
@@ -4102,7 +4132,7 @@ PrefabInstance:
     - target: {fileID: 7607668907657221116, guid: e144a754f77db1348aa3e8870f279a11,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7607668907657221116, guid: e144a754f77db1348aa3e8870f279a11,
         type: 3}

@@ -53,7 +53,9 @@ public class Bullet : MonoBehaviour
     {
         damage = _damage;
 
-      /*  switch (damageUpgrade)
+      /*  Bonjour, ceci est une tentative pour mettre des particules en fonction des dégats
+       *  
+       *  switch (damageUpgrade)
         {
             case 0:
                 shaderMatBullet.SetFloat("PowerFresnel", 1);

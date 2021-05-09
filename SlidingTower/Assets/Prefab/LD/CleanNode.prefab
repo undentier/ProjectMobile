@@ -50,7 +50,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2966204793164336097}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -245,7 +245,8 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1.61
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8345165492121433648, guid: d2793acc69a79fa4bae19e810f56bb6e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d2793acc69a79fa4bae19e810f56bb6e, type: 3}
 --- !u!1 &4529246248833969813 stripped
 GameObject:
@@ -351,7 +352,8 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6787288112669681576, guid: 690593eb81a3f7647a703632cc50f7a1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 690593eb81a3f7647a703632cc50f7a1, type: 3}
 --- !u!1 &889451299596244949 stripped
 GameObject:
@@ -376,11 +378,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FireRate Effect
-      objectReference: {fileID: 0}
-    - target: {fileID: 1159465600133331695, guid: 29ab5584438825f468b4a8f1e2464b85,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2717955617664344569, guid: 29ab5584438825f468b4a8f1e2464b85,
         type: 3}
@@ -437,7 +434,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6687570887163400280, guid: 29ab5584438825f468b4a8f1e2464b85,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6108414771841206234, guid: 29ab5584438825f468b4a8f1e2464b85, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 29ab5584438825f468b4a8f1e2464b85, type: 3}
 --- !u!1 &2415820547382070146 stripped
 GameObject:
@@ -518,7 +521,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Slow feed back '
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1403347228354981408, guid: 35f9dd0179df79f45bad01c4f15c36ea, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 35f9dd0179df79f45bad01c4f15c36ea, type: 3}
 --- !u!1 &1701841811546388441 stripped
 GameObject:
@@ -634,7 +638,8 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.08
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4440290696305553392, guid: dfc8f859bc516a543849fe1601605307, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: dfc8f859bc516a543849fe1601605307, type: 3}
 --- !u!1 &775625780313325247 stripped
 GameObject:
@@ -665,55 +670,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1570084173984203993, guid: cd94f9232f692e443b18d46eda0a9320,
+    - target: {fileID: 7027447464829342306, guid: cd94f9232f692e443b18d46eda0a9320,
         type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 1821113739705985008, guid: cd94f9232f692e443b18d46eda0a9320,
-        type: 3}
-      propertyPath: m_Materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
-    - target: {fileID: 1893458602579586398, guid: cd94f9232f692e443b18d46eda0a9320,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 4630883668160930402, guid: cd94f9232f692e443b18d46eda0a9320,
-        type: 3}
-      propertyPath: TrailModule.enabled
+      propertyPath: m_CastShadows
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4630883668160930402, guid: cd94f9232f692e443b18d46eda0a9320,
-        type: 3}
-      propertyPath: TrailModule.lifetime.scalar
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 4630883668160930402, guid: cd94f9232f692e443b18d46eda0a9320,
-        type: 3}
-      propertyPath: TrailModule.lifetime.minScalar
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 4630883668160930402, guid: cd94f9232f692e443b18d46eda0a9320,
-        type: 3}
-      propertyPath: TrailModule.lifetime.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4630883668160930402, guid: cd94f9232f692e443b18d46eda0a9320,
-        type: 3}
-      propertyPath: TrailModule.colorOverLifetime.maxColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4630883668160930402, guid: cd94f9232f692e443b18d46eda0a9320,
-        type: 3}
-      propertyPath: TrailModule.colorOverLifetime.maxColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4630883668160930402, guid: cd94f9232f692e443b18d46eda0a9320,
-        type: 3}
-      propertyPath: TrailModule.colorOverLifetime.maxColor.r
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7354062585206154223, guid: cd94f9232f692e443b18d46eda0a9320,
         type: 3}
@@ -770,12 +730,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7507771435920700649, guid: cd94f9232f692e443b18d46eda0a9320,
+    - target: {fileID: 8760617208341967810, guid: cd94f9232f692e443b18d46eda0a9320,
         type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7815289231323955107, guid: cd94f9232f692e443b18d46eda0a9320, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cd94f9232f692e443b18d46eda0a9320, type: 3}
 --- !u!1 &4772967294080065499 stripped
 GameObject:
@@ -796,20 +757,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4646324132857256233}
     m_Modifications:
-    - target: {fileID: 2169361241504196251, guid: 063ae904a34d6a84197e4be19f37e587,
+    - target: {fileID: 1898383395430547058, guid: 063ae904a34d6a84197e4be19f37e587,
         type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.61
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2852981279752252529, guid: 063ae904a34d6a84197e4be19f37e587,
         type: 3}
       propertyPath: m_Name
       value: Damage Effect
-      objectReference: {fileID: 0}
-    - target: {fileID: 2852981279752252529, guid: 063ae904a34d6a84197e4be19f37e587,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5551144836236275243, guid: 063ae904a34d6a84197e4be19f37e587,
         type: 3}
@@ -866,12 +822,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6456180835250267815, guid: 063ae904a34d6a84197e4be19f37e587,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2234442860996367275, guid: 063ae904a34d6a84197e4be19f37e587, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 063ae904a34d6a84197e4be19f37e587, type: 3}
 --- !u!1 &6115322262581709892 stripped
 GameObject:

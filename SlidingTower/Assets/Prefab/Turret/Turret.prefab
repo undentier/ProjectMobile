@@ -1060,13 +1060,13 @@ MonoBehaviour:
   - 3
   - 5
   poisonDamageBonus:
-  - 5
+  - 10
   - 10
   - 10
   - 15
   poisonDurationBonus:
   - 2
-  - 2
+  - 3
   - 3
   - 4
   poisonTickBonus:

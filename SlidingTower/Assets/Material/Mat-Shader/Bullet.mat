@@ -25,9 +25,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - PowerFresnel: 1
+    - PowerFresnel: 1.97
     - Vector1_FE617B95: 0.4
+    - powerFresnel: 1
     m_Colors:
     - Color_34193E1E: {r: 0, g: 1.372549, b: 2, a: 1}
     - Vector2_E7B634C7: {r: 1, g: 1.68, b: 0, a: 0}
     - _MainColor: {r: 0, g: 2.994331, b: 4.332708, a: 1}
+    - colorBullet: {r: 0, g: 0.6851115, b: 1, a: 1}

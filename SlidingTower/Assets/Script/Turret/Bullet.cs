@@ -23,6 +23,7 @@ public class Bullet : MonoBehaviour
     public ParticleSystem damageLvl2;
     public ParticleSystem damageLvl3;
     private Material shaderMatBullet;
+    public GameObject Renderer;
     private float damageUpgrade;
 
     [ColorUsageAttribute(true, true)]
@@ -41,7 +42,7 @@ public class Bullet : MonoBehaviour
 
     public void Start()
     {
-        shaderMatBullet = GetComponent<MeshRenderer>().material;
+        shaderMatBullet = Renderer.GetComponent<MeshRenderer>().material;
         actualColor = neutralColor;
         //damageUpgrade = GetComponent<Turret>().damageUpgrade;
     }

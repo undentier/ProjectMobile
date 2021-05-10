@@ -132,7 +132,7 @@ public class Enemy : MonoBehaviour
         Destroy(effect, 2f);
 
         GameObject animMort = Instantiate(EnnemyDead, transform.position, transform.rotation);
-        Destroy(animMort, 4f);
+        Destroy(animMort, 3f);
 
         /*
         EnnemyAlive.SetActive(false);

@@ -50,7 +50,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2966204793164336097}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -378,6 +378,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FireRate Effect
+      objectReference: {fileID: 0}
+    - target: {fileID: 1159465600133331695, guid: 29ab5584438825f468b4a8f1e2464b85,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2717955617664344569, guid: 29ab5584438825f468b4a8f1e2464b85,
         type: 3}

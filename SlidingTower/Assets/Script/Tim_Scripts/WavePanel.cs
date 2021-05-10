@@ -15,7 +15,7 @@ public class WavePanel : MonoBehaviour
     public int canBuildTurretIndex;
     public Transform[] slots;
     public GameObject[] buttons;
-    public List<GameObject> usedButtons = new List<GameObject>();
+    private List<GameObject> usedButtons = new List<GameObject>();
     [Space]
     public GameObject basicTurret;
     public GameObject startWaveButton;

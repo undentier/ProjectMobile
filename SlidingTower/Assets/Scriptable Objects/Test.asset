@@ -14,14 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelSceneName: 
   levelNumber: 0
+  chapterNumber: 0
   name: 
   description: 
   blocks: {fileID: 0}
-  scoreSpriteZero: {fileID: 0}
-  scoreSpriteOne: {fileID: 0}
-  scoreSpriteTwo: {fileID: 0}
-  scoreSpriteThree: {fileID: 0}
   score: 0
   blockChoice:
   - block: 1
+    percentage: 10
   - block: 0
+    percentage: 10
+  - block: 4
+    percentage: 50
+  - block: 6
+    percentage: 30
+  blockSprites: []

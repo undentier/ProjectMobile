@@ -6,16 +6,20 @@ public class LifeManager : MonoBehaviour
     public static LifeManager lifeInstance;
 
     [Header("Stats")]
-    public int life;
+    public float startLife;
     public int buildToken;
 
     [HideInInspector]
     public int numOfKill;
     [HideInInspector]
-    public int startLife;
+    public float life;
 
     [Header("GA")]
     public CameraShake cameraShake;
+    public Material faisseau;
+    public Material nexusEmissive;
+    public float powerEmissive;
+
 
     private void Awake()
     {
@@ -32,12 +36,15 @@ public class LifeManager : MonoBehaviour
 
     private void Start()
     {
-        startLife = life;
+        life = startLife;
+        SetupEmissive();
     }
 
     public void DamagePlayer(int damage)
     {
         life -= damage;
+
+        SetupEmissive();
 
         if (life <= 0)
         {
@@ -64,4 +71,13 @@ public class LifeManager : MonoBehaviour
     {
         numOfKill += score;
     }
+
+    void SetupEmissive()
+    {
+        powerEmissive = life / startLife;
+
+        faisseau.SetFloat("_Opacity", powerEmissive);
+        nexusEmissive.SetFloat("_PowerEmissive", powerEmissive);
+    }
 }
+

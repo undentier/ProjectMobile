@@ -98,11 +98,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffa7ba2cae64331408907fa3c28ebd5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 20
+  startLife: 20
   buildToken: 0
   numOfKill: 0
-  startLife: 0
+  life: 20
   cameraShake: {fileID: 0}
+  faisseau: {fileID: 2100000, guid: 6f07dc830e37d4e458ae5981c078ed67, type: 2}
+  nexusEmissive: {fileID: 2100000, guid: d7a69c36f968c29419f1218f0bddaa41, type: 2}
+  powerEmissive: 0
 --- !u!114 &3339626323251534459
 MonoBehaviour:
   m_ObjectHideFlags: 0

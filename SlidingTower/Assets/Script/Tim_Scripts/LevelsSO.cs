@@ -24,17 +24,10 @@ public class LevelsSO : ScriptableObject
     public struct selectedBlock
     {
         public blockList block;
-        public float weight;
+        public float percentage;
     }
 
     public selectedBlock[] blockChoice;
 
     public selectedBlock[] blockSprites;
-    /*public bool fireRate;
-    public bool damage;
-    public bool range;
-    public bool poison;
-    public bool slow;
-    public bool explosion;
-    public bool laser;*/
 }

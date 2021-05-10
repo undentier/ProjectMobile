@@ -5174,6 +5174,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PS_BackUI
       objectReference: {fileID: 0}
+    - target: {fileID: 4896357870995991729, guid: 3c5395361814b48428a0936cac63aeec,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4896357870995991730, guid: 3c5395361814b48428a0936cac63aeec,
         type: 3}
       propertyPath: m_RootOrder

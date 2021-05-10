@@ -23,6 +23,8 @@ public class Bullet : MonoBehaviour
     public ParticleSystem damageLvl2;
     public ParticleSystem damageLvl3;
     private Material shaderMatBullet;
+    public GameObject Renderer;
+    private float damageUpgrade;
 
     [ColorUsageAttribute(true, true)]
     private Color actualColor;
@@ -40,8 +42,9 @@ public class Bullet : MonoBehaviour
 
     public void Start()
     {
-        shaderMatBullet = GetComponent<MeshRenderer>().material;
+        shaderMatBullet = Renderer.GetComponent<MeshRenderer>().material;
         actualColor = neutralColor;
+        //damageUpgrade = GetComponent<Turret>().damageUpgrade;
     }
 
     public void GetTarget(Transform _target)
@@ -53,8 +56,8 @@ public class Bullet : MonoBehaviour
     {
         damage = _damage;
 
-      /*  Bonjour, ceci est une tentative pour mettre des particules en fonction des dégats
-       *  
+   
+      /* aled    
        *  switch (damageUpgrade)
         {
             case 0:
@@ -64,19 +67,19 @@ public class Bullet : MonoBehaviour
                 damageLvl3.Stop();
                 break;
             case 1:
-                shaderMatBullet.SetFloat("PowerFresnel", 0.7);
+                shaderMatBullet.SetFloat("PowerFresnel", 7);
                 damageLvl1.Play();
                 damageLvl2.Stop();
                 damageLvl3.Stop();
                 break;
             case 2:
-                shaderMatBullet.SetFloat("PowerFresnel", 0.4);
+                shaderMatBullet.SetFloat("PowerFresnel", 4);
                 damageLvl1.Stop();
                 damageLvl2.Play();
                 damageLvl3.Stop();
                 break;
             case 3:
-                shaderMatBullet.SetFloat("PowerFresnel", 0.2);
+                shaderMatBullet.SetFloat("PowerFresnel", 2);
                 damageLvl1.Play();
                 damageLvl2.Play();
                 damageLvl3.Stop();
@@ -89,6 +92,7 @@ public class Bullet : MonoBehaviour
                 break;
         }
         */
+        
     }
 
     public void GetPoisonInfo(float _poisonDamage, float _poisonDuration, float _poisonTick)

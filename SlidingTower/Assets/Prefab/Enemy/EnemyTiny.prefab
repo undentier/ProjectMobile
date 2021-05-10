@@ -475,7 +475,7 @@ MonoBehaviour:
   poisonMaterial: {fileID: 2100000, guid: 4586efa51d554b6448094787877102c3, type: 2}
   poisonParticule: {fileID: 2100455447268748812}
   distFromNexus: 0
-  EnnemyDead: {fileID: 8974753095907606880, guid: 07c011fdcefd5814499ed9340049501b,
+  EnnemyDead: {fileID: 5602111504818037302, guid: 5e09498962b137148853bcba60c33cf3,
     type: 3}
 --- !u!195 &-22901727225648796
 NavMeshAgent:

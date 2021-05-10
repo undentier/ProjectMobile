@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3292145801299872497
 Transform:
   m_ObjectHideFlags: 0
@@ -48,7 +48,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
   prewarm: 1
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -220,9 +220,9 @@ ParticleSystem:
         m_RotationOrder: 4
     startColor:
       serializedVersion: 2
-      minMaxState: 1
+      minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 0.8537736, g: 0.96446836, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 0.25015804, g: 0.14217694, b: 0.6698113, a: 1}
@@ -746,7 +746,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1
+      value: 1.5
       mode: 0
       spread: 0
       speed:
@@ -4786,8 +4786,8 @@ Transform:
   m_Children:
   - {fileID: 2295661971786134188}
   - {fileID: 3292145801299872497}
-  - {fileID: 435054668680708634}
   - {fileID: 7434716361245401508}
+  - {fileID: 435054668680708634}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4854,8 +4854,8 @@ MonoBehaviour:
   impactEffect: {fileID: 8426000529989753166, guid: ce72f2c56414fa54baa091e0f6c59f4f,
     type: 3}
   damageLvl1: {fileID: 7801914906079761145}
-  damageLvl2: {fileID: 1543790675555549712}
-  damageLvl3: {fileID: 4349249081332119714}
+  damageLvl2: {fileID: 4349249081332119714}
+  damageLvl3: {fileID: 1543790675555549712}
   Renderer: {fileID: 1664552637349654473}
   neutralColor: {r: 0.915, g: 1, b: 1, a: 1}
   slowColor: {r: 0, g: 0.84622765, b: 1, a: 1}
@@ -5017,7 +5017,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &435054668680708634
 Transform:
   m_ObjectHideFlags: 0
@@ -5030,7 +5030,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1664552637349654477}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!198 &1543790675555549712
 ParticleSystem:
@@ -5048,7 +5048,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
   prewarm: 1
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -5220,9 +5220,9 @@ ParticleSystem:
         m_RotationOrder: 4
     startColor:
       serializedVersion: 2
-      minMaxState: 1
+      minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 0.8537736, g: 0.96446836, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 0.25015804, g: 0.14217694, b: 0.6698113, a: 1}
@@ -5746,7 +5746,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1
+      value: 2
       mode: 0
       spread: 0
       speed:
@@ -7018,8 +7018,8 @@ ParticleSystem:
     speedModifier:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 5
-      minScalar: 2
+      scalar: 2
+      minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -9771,7 +9771,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7434716361245401508
 Transform:
   m_ObjectHideFlags: 0
@@ -9784,7 +9784,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1664552637349654477}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!198 &4349249081332119714
 ParticleSystem:
@@ -9802,7 +9802,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
   prewarm: 1
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -9974,9 +9974,9 @@ ParticleSystem:
         m_RotationOrder: 4
     startColor:
       serializedVersion: 2
-      minMaxState: 1
+      minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 0.8537736, g: 0.96446836, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 0.25015804, g: 0.14217694, b: 0.6698113, a: 1}

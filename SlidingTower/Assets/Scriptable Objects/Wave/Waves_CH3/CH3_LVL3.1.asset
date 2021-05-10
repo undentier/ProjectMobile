@@ -31,8 +31,8 @@ MonoBehaviour:
       number: 2
       timeBtwSpawn: 1
     - wichEnemy: 1
-      timeBeforeNextSpawn: 1.2
-      number: 1
+      timeBeforeNextSpawn: 2
+      number: 0
       timeBtwSpawn: 0.4
     - wichEnemy: 2
       timeBeforeNextSpawn: 1
@@ -41,7 +41,7 @@ MonoBehaviour:
   - enemies:
     - wichEnemy: 1
       timeBeforeNextSpawn: 1.2
-      number: 2
+      number: 1
       timeBtwSpawn: 0.8
     - wichEnemy: 2
       timeBeforeNextSpawn: 2

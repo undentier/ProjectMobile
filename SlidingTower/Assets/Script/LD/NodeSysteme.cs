@@ -13,6 +13,15 @@ public class NodeSysteme : MonoBehaviour
     public GameObject damageEffect;
     public GameObject rangeEffect;
     [Space]
+    public GameObject particlelvl1;
+    public GameObject particlelvl2;
+    public GameObject RendererFireRate;
+    private Material shaderMatFireRate;
+    public GameObject particlelvl1Damage;
+    public GameObject particlelvl2Damage;
+    public GameObject RendererDamage;
+    private Material shaderMatDamage;
+    [Space]
     public GameObject slowEffect;
     public GameObject poisonEffect;
     [Space]
@@ -59,6 +68,9 @@ public class NodeSysteme : MonoBehaviour
         {
             turretScript.GetNodeUpgrade(this);
         }
+
+        shaderMatFireRate = RendererFireRate.GetComponent<MeshRenderer>().material;
+        shaderMatDamage = RendererDamage.GetComponent<MeshRenderer>().material;
     }
 
     public void CreateTurret()
@@ -177,19 +189,79 @@ public class NodeSysteme : MonoBehaviour
         if (fireRateUpgrade > 0)
         {
             fireRateEffect.SetActive(true);
+
+            if (fireRateUpgrade == 1)
+            {
+                shaderMatFireRate.SetFloat("height", 0.31f);
+                particlelvl1.SetActive(false);
+                particlelvl2.SetActive(false);
+            }
+
+            if (fireRateUpgrade == 2)
+            {
+                shaderMatFireRate.SetFloat("height", 0.5f);
+                particlelvl1.SetActive(true); 
+                particlelvl2.SetActive(false);
+            }
+
+            if (fireRateUpgrade == 3)
+            {
+                shaderMatFireRate.SetFloat("height", 0.75f);
+                particlelvl1.SetActive(false);
+                particlelvl2.SetActive(true);
+            }
+
+            if (fireRateUpgrade == 4)
+            {
+                shaderMatFireRate.SetFloat("height", 0.75f);
+                particlelvl1.SetActive(true);
+                particlelvl2.SetActive(true);
+            }
         }
         else
         {
             fireRateEffect.SetActive(false);
+            particlelvl1.SetActive(false);
+            particlelvl2.SetActive(false);
         }
 
         if (damageUpgrade > 0)
         {
             damageEffect.SetActive(true);
+
+            if (damageUpgrade == 1)
+            {
+                shaderMatDamage.SetFloat("height", 0.31f);
+                particlelvl1Damage.SetActive(false);
+                particlelvl2Damage.SetActive(false);
+            }
+
+            if (damageUpgrade == 2)
+            {
+                shaderMatDamage.SetFloat("height", 0.5f);
+                particlelvl1Damage.SetActive(true);
+                particlelvl2Damage.SetActive(false);
+            }
+
+            if (damageUpgrade == 3)
+            {
+                shaderMatDamage.SetFloat("height", 0.75f);
+                particlelvl1Damage.SetActive(false);
+                particlelvl2Damage.SetActive(true);
+            }
+
+            if (damageUpgrade == 4)
+            {
+                shaderMatDamage.SetFloat("height", 0.75f);
+                particlelvl1Damage.SetActive(true);
+                particlelvl2Damage.SetActive(true);
+            }
         }
         else
         {
             damageEffect.SetActive(false);
+            particlelvl1Damage.SetActive(false);
+            particlelvl2Damage.SetActive(false);
         }
 
         if (rangeUpgrade > 0)

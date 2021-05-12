@@ -21,6 +21,9 @@ MonoBehaviour:
   score: 0
   blockChoice:
   - block: 0
+    percentage: 25
   - block: 1
+    percentage: 25
   - block: 5
+    percentage: 50
   blockSprites: []

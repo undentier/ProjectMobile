@@ -623,41 +623,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 919132148181691672, guid: 0a55a2d3fbc41764fbb001bcc216614c,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 69
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132148315761897, guid: 0a55a2d3fbc41764fbb001bcc216614c,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 69
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132148441584292, guid: 0a55a2d3fbc41764fbb001bcc216614c,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 69
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149018195894, guid: 0a55a2d3fbc41764fbb001bcc216614c,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 69
-      objectReference: {fileID: 0}
-    - target: {fileID: 1352252491986615924, guid: 0a55a2d3fbc41764fbb001bcc216614c,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 69
-      objectReference: {fileID: 0}
-    - target: {fileID: 4785235530592591296, guid: 0a55a2d3fbc41764fbb001bcc216614c,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 69
-      objectReference: {fileID: 0}
-    - target: {fileID: 5387618063772851296, guid: 0a55a2d3fbc41764fbb001bcc216614c,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 69
-      objectReference: {fileID: 0}
     - target: {fileID: 5387618065614868684, guid: 0a55a2d3fbc41764fbb001bcc216614c,
         type: 3}
       propertyPath: m_RootOrder
@@ -717,11 +682,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ga_Stuff
-      objectReference: {fileID: 0}
-    - target: {fileID: 5387618065614868687, guid: 0a55a2d3fbc41764fbb001bcc216614c,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 69
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a55a2d3fbc41764fbb001bcc216614c, type: 3}
@@ -1524,6 +1484,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5623976728784285732, guid: 3136da9772be55d408a376d4baa73a0a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.7
       objectReference: {fileID: 0}
     - target: {fileID: 5623976728784285786, guid: 3136da9772be55d408a376d4baa73a0a,
         type: 3}

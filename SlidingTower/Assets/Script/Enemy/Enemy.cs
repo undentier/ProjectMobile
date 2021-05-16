@@ -34,7 +34,6 @@ public class Enemy : MonoBehaviour
     private IEnumerator poisonCoroutine;
     private float actualPoisonDuration;
 
-    //public GameObject EnnemyAlive;
     public GameObject EnnemyDead;
     
     #endregion
@@ -132,13 +131,8 @@ public class Enemy : MonoBehaviour
         Destroy(effect, 2f);
 
         GameObject animMort = Instantiate(EnnemyDead, transform.position, transform.rotation);
-        Destroy(animMort, 3f);
-
-        /*
-        EnnemyAlive.SetActive(false);
-        EnnemyDead.SetActive(true);
-        */
-
+        Destroy(animMort, 2f);
+        
         Destroy(gameObject);
     }
 

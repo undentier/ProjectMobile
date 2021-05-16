@@ -19,9 +19,14 @@ public class Bullet : MonoBehaviour
 
     [Header ("Effect")]
     public GameObject impactEffect;
+    public GameObject impactEffectSlow;
+    public GameObject impactEffectPoison;
+    public GameObject impactEffectSP;
+
     public ParticleSystem damageLvl1;
     public ParticleSystem damageLvl2;
     public ParticleSystem damageLvl3;
+
     private Material shaderMatBullet;
     public GameObject Renderer;
 
@@ -152,9 +157,6 @@ public class Bullet : MonoBehaviour
     } // Translate the bullet to the target
     void HitTarget()
     {
-        GameObject effect = Instantiate(impactEffect, transform.position, transform.rotation);
-        Destroy(effect, 3f);
-
         if (explosionRadius > 0f)
         {
             Explosion();
@@ -162,6 +164,27 @@ public class Bullet : MonoBehaviour
         else
         {
             Damage(target);
+        }
+
+        if (slowForce == 0 && poisonDamage == 0)
+        {
+            GameObject effect = Instantiate(impactEffect, transform.position, transform.rotation);
+            Destroy(effect, 3f);
+        }
+        if (slowForce > 0 && poisonDamage == 0 )
+        {
+            GameObject effectSlow = Instantiate(impactEffectSlow, transform.position, transform.rotation);
+            Destroy(effectSlow, 3f);
+        }
+        if (poisonDamage > 0 && slowForce == 0 )
+        {
+            GameObject effectPoison = Instantiate(impactEffectPoison, transform.position, transform.rotation);
+            Destroy(effectPoison, 3f);
+        }
+        if (poisonDamage > 0 && slowForce > 0)
+        {
+            GameObject effectSP = Instantiate(impactEffectSP, transform.position, transform.rotation);
+            Destroy(effectSP, 3f);
         }
 
         Destroy(gameObject);

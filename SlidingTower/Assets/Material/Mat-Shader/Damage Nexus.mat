@@ -28,6 +28,8 @@ Material:
     - Vector1_1ABC8406: 1
     - Vector1_C300E7EA: 17
     - Vector1_FA85731E: 5
+    - inputColorExplosion: -0.78
     m_Colors:
     - Color_6C249602: {r: 0, g: 0, b: 0, a: 0}
     - Color_F6AFB7D3: {r: 2, g: 0.89812165, b: 0, a: 1}
+    - colorExplosion: {r: 2, g: 0.553736, b: 0, a: 1}

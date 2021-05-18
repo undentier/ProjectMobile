@@ -11,7 +11,7 @@ public class LevelDisplay : MonoBehaviour
     public Text nameText;
     public Text descriptionText;
 
-    public Image[] blockImages;
+    public List<Image> blockImages;
     public Image scoreImage;
     public Sprite zeroStarSprite;
     public Sprite oneStarSprite;
@@ -65,9 +65,9 @@ public class LevelDisplay : MonoBehaviour
         nameText.text = level.name;
         descriptionText.text = level.description;
 
-        for (int i = 0; i < level.blockSprites.Length; i++)
+        for (int i = 0; i < level.blockChoice.Length; i++)
         {
-            switch (level.blockSprites[i].block)
+            switch (level.blockChoice[i].block)
             {
                 case LevelsSO.blockList.FIRERATE:
                     blockImages[i].sprite = speedBlocSprite;
@@ -90,9 +90,15 @@ public class LevelDisplay : MonoBehaviour
                 case LevelsSO.blockList.LASER:
                     blockImages[i].sprite = laserBlocSprite;
                     break;
+                default:
+                    blockImages[i].enabled = false;
+                        break;
             }
         }
-
+        for (int i = level.blockChoice.Length; i < blockImages.Count; i++)
+        {
+            blockImages[i].enabled = false;
+        }
         levelNumber = level.levelNumber;
         levelNumberText.text = levelNumber.ToString();
         UpdateScoreDisplay();

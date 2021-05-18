@@ -17,7 +17,7 @@ public class LevelsSO : ScriptableObject
     public int score;
     public enum blockList
     {
-        FIRERATE, DAMAGE, RANGE, POISON, SLOW, EXPLOSION, LASER
+        FIRERATE, DAMAGE, RANGE, POISON, SLOW, EXPLOSION, LASER, NONE
     }
 
     [Serializable]
@@ -28,6 +28,4 @@ public class LevelsSO : ScriptableObject
     }
 
     public selectedBlock[] blockChoice;
-
-    public selectedBlock[] blockSprites;
 }

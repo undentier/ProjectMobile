@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Slow
+  m_Name: SlowStonk
   m_Shader: {fileID: -6465566751694194690, guid: 964b4cd5f37a0144aafb495c0064fabd,
     type: 3}
   m_ShaderKeywords: 
@@ -20,6 +20,26 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_8D07C933:
+        m_Texture: {fileID: 2800000, guid: dd5d85a846d9aa94b9a27f86a473661e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_9ACDAD97:
+        m_Texture: {fileID: 2800000, guid: d6dc26da576111244aafc9dcc0bf1da3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_A3AEF11E:
+        m_Texture: {fileID: 2800000, guid: 6257c5cf1796df94e9a0535dbb90343e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_ACC121D0:
+        m_Texture: {fileID: 2800000, guid: 2a1dd1bb7c8e1884cb5707397e4c33b8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_BFAA56B8:
+        m_Texture: {fileID: 2800000, guid: 9bc1fd0d05f9d294aa6356b365b4296d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_666181F_Texture_1:
         m_Texture: {fileID: 2800000, guid: 9bc1fd0d05f9d294aa6356b365b4296d, type: 3}
         m_Scale: {x: 1, y: 1}

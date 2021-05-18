@@ -7,12 +7,12 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LaserParticles
-  m_Shader: {fileID: -6465566751694194690, guid: 39725a31fb207d241867df3223f570b3,
+  m_Name: Explosion SP
+  m_Shader: {fileID: -6465566751694194690, guid: 00a2ca2d930337b419829e1144a6b8c8,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -20,22 +20,27 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - Texture2D_351719EE:
-        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
+    - Texture2D_39373BEC:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_B76398E3_Texture_1:
+    - _SampleTexture2D_208BB5C0_Texture_1:
         m_Texture: {fileID: 2800000, guid: 13241448af83c954ca51263ff97a66db, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_CFF325B4_Texture_1:
+    - _SampleTexture2D_4EFC08F2_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 6aa6a17b7f885e34f98426e77298fe1d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_5C18CF45_Texture_1:
         m_Texture: {fileID: 2800000, guid: 13241448af83c954ca51263ff97a66db, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_127030BF: 1
+    - Vector1_1ABC8406: 0
+    - Vector1_C300E7EA: 17
+    - Vector1_FA85731E: 5
+    - inputColorExplosion: 3
     m_Colors:
-    - Color_AFF59544: {r: 0.76532483, g: 1.5197165, b: 2.0882435, a: 1}
-    - Color_B523D876: {r: 0.36320752, g: 0.7829647, b: 1, a: 1}
-    - Vector2_6C580C6C: {r: 0.5, g: 0.05, b: 0, a: 0}
-    - Vector2_D11B4FFA: {r: 0.5, g: 0.1, b: 0, a: 0}
+    - Color_F6AFB7D3: {r: 0.07864823, g: 1.4862195, b: 0, a: 1}
+    - colorExplosion: {r: 0, g: 1.162303, b: 2, a: 1}

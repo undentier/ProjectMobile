@@ -75,6 +75,8 @@ public class Turret : MonoBehaviour
     private Material shaderMatEmissive3;
     private Material shaderMatEmissive4;
 
+    private Material shaderMatLaser;
+
     [HideInInspector]
     public List<Enemy> targetList = new List<Enemy>();
     private GameObject bulletToShoot;
@@ -191,6 +193,7 @@ public class Turret : MonoBehaviour
         {
             if (targetList.Count > i)
             {
+                shaderMatLaser = laserLines[i].GetComponent<LineRenderer>().material;
                 laserLines[i].enabled = true;
                 laserLines[i].SetPosition(0, shootPoint.position);
                 laserLines[i].SetPosition(1, targetList[i].transform.position);
@@ -206,14 +209,33 @@ public class Turret : MonoBehaviour
 
                 if (laserCoolDown[i] <= 0f)
                 {
+                    if (slowUpgrade == 0 && poisonUpgrade == 0 )
+                    {
+                        shaderMatLaser.SetFloat("inputColorLaser", 0);
+                    }
                     if (slowUpgrade > 0)
                     {
                         targetList[i].StartSlow(actualSlowForce, actualSlowDuration);
+
+                        if(poisonUpgrade == 0)
+                        {
+                            shaderMatLaser.SetFloat("inputColorLaser", 1);
+                        }
                     }
                     if (poisonUpgrade > 0)
                     {
                         targetList[i].Poison(actualpoisonDamage, actualPoisonDuration, actualPoisonTick);
+
+                        if (slowUpgrade == 0)
+                        {
+                            shaderMatLaser.SetFloat("inputColorLaser", 2);
+                        }
                     }
+                    if (slowUpgrade > 0 && poisonUpgrade > 0)
+                    {
+                        shaderMatLaser.SetFloat("inputColorLaser", 3);
+                    }
+
                     targetList[i].TakeDamage(actualDamage / actualLaserDamageReduction);
 
                     if (targetList[i].actualHealth <= 0)

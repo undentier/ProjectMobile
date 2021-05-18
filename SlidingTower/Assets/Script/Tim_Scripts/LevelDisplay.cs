@@ -69,25 +69,25 @@ public class LevelDisplay : MonoBehaviour
         {
             switch (level.blockChoice[i].block)
             {
-                case LevelsSO.blockList.FIRERATE:
+                case LevelsSO.BlockList.FIRERATE:
                     blockImages[i].sprite = speedBlocSprite;
                     break;
-                case LevelsSO.blockList.DAMAGE:
+                case LevelsSO.BlockList.DAMAGE:
                     blockImages[i].sprite = damageBlocSprite;
                     break;
-                case LevelsSO.blockList.RANGE:
+                case LevelsSO.BlockList.RANGE:
                     // mettre ici l'icone de range
                     break;
-                case LevelsSO.blockList.POISON:
+                case LevelsSO.BlockList.POISON:
                     blockImages[i].sprite = poisonBlocSprite;
                     break;
-                case LevelsSO.blockList.SLOW:
+                case LevelsSO.BlockList.SLOW:
                     blockImages[i].sprite = slowBlocSprite;
                     break;
-                case LevelsSO.blockList.EXPLOSION:
+                case LevelsSO.BlockList.EXPLOSION:
                     blockImages[i].sprite = explosionBlocSprite;
                     break;
-                case LevelsSO.blockList.LASER:
+                case LevelsSO.BlockList.LASER:
                     blockImages[i].sprite = laserBlocSprite;
                     break;
                 default:

@@ -25,6 +25,8 @@ public class LevelDisplay : MonoBehaviour
     public Sprite poisonBlocSprite;
     public Sprite slowBlocSprite;
 
+    public GameObject blockContainer;
+
     public Text levelNumberText;
     public int levelNumber;
 
@@ -91,14 +93,25 @@ public class LevelDisplay : MonoBehaviour
                     blockImages[i].sprite = laserBlocSprite;
                     break;
                 default:
-                    blockImages[i].enabled = false;
+                    Destroy(blockImages[i].gameObject);
                         break;
             }
         }
+        
         for (int i = level.blockChoice.Length; i < blockImages.Count; i++)
         {
-            blockImages[i].enabled = false;
+            Destroy(blockImages[i].gameObject);
         }
+        for (int i = 0; i < blockImages.Count; i++)
+        {
+            if (blockImages[i].sprite == null)
+            {
+                Debug.Log("hello there");
+                blockImages.RemoveAt(i);
+                //blockContainer.transform.position = new Vector3(transform.position.x + 80, transform.position.y, transform.position.z);
+            }
+        }
+
         levelNumber = level.levelNumber;
         levelNumberText.text = levelNumber.ToString();
         UpdateScoreDisplay();

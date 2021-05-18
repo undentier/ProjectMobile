@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CH3_LVL4
   m_EditorClassIdentifier: 
   levelSceneName: CH3_LVL4
-  levelNumber: 3
+  levelNumber: 4
   chapterNumber: 0
   name: Winding pathway
   description: 
@@ -32,4 +32,3 @@ MonoBehaviour:
     percentage: 10
   - block: 1
     percentage: 20
-  blockSprites: []

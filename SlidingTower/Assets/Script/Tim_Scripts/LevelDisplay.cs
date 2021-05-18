@@ -113,7 +113,7 @@ public class LevelDisplay : MonoBehaviour
         }
 
         levelNumber = level.levelNumber;
-        levelNumberText.text = levelNumber.ToString();
+        levelNumberText.text = "Level " + levelNumber.ToString();
         UpdateScoreDisplay();
     }
 }

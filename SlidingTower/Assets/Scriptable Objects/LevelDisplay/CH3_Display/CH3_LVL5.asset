@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CH3_LVL5
   m_EditorClassIdentifier: 
   levelSceneName: CH3_LVL5
-  levelNumber: 3
+  levelNumber: 5
   chapterNumber: 0
   name: Ultimatum
   description: 
@@ -32,4 +32,3 @@ MonoBehaviour:
     percentage: 10
   - block: 1
     percentage: 15
-  blockSprites: []

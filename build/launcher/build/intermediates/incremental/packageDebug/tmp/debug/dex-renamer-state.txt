@@ -1,4 +1,0 @@
-#Tue May 18 14:47:47 CEST 2021
-base.0=C\:\\Users\\a.rittano\\Documents\\projet mobile\\ProjetMobile\\build\\launcher\\build\\intermediates\\transforms\\dexMerger\\debug\\0
-path.0=classes.dex
-renamed.0=classes.dex

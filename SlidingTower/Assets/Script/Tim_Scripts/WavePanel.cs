@@ -93,43 +93,43 @@ public class WavePanel : MonoBehaviour
         {
             switch (level.blockChoice[i].block)
             {
-                case LevelsSO.blockList.FIRERATE:
+                case LevelsSO.BlockList.FIRERATE:
                     for (int fireRateIndex = 0; fireRateIndex < level.blockChoice[i].percentage; fireRateIndex++)
                     {
                         usedButtons.Add(buttons[0]);
                     }
                     break;
-                case LevelsSO.blockList.DAMAGE:
+                case LevelsSO.BlockList.DAMAGE:
                     for (int damageIndex = 0; damageIndex < level.blockChoice[i].percentage; damageIndex++)
                     {
                         usedButtons.Add(buttons[1]);
                     }
                     break;
-                case LevelsSO.blockList.RANGE:
+                case LevelsSO.BlockList.RANGE:
                     for (int rangeIndex = 0; rangeIndex < level.blockChoice[i].percentage; rangeIndex++)
                     {
                         usedButtons.Add(buttons[2]);
                     }
                     break;
-                case LevelsSO.blockList.POISON:
+                case LevelsSO.BlockList.POISON:
                     for (int poisonIndex = 0; poisonIndex < level.blockChoice[i].percentage; poisonIndex++)
                     {
                         usedButtons.Add(buttons[3]);
                     }
                     break;
-                case LevelsSO.blockList.SLOW:
+                case LevelsSO.BlockList.SLOW:
                     for (int slowIndex = 0; slowIndex < level.blockChoice[i].percentage; slowIndex++)
                     {
                         usedButtons.Add(buttons[4]);
                     }
                     break;
-                case LevelsSO.blockList.EXPLOSION:
+                case LevelsSO.BlockList.EXPLOSION:
                     for (int explosionIndex = 0; explosionIndex < level.blockChoice[i].percentage; explosionIndex++)
                     {
                         usedButtons.Add(buttons[5]);
                     }
                     break;
-                case LevelsSO.blockList.LASER:
+                case LevelsSO.BlockList.LASER:
                     for (int explosionIndex = 0; explosionIndex < level.blockChoice[i].percentage; explosionIndex++)
                     {
                         usedButtons.Add(buttons[6]);

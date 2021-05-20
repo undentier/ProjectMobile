@@ -11,7 +11,7 @@ public class LevelDisplay : MonoBehaviour
     public Text nameText;
     public Text descriptionText;
 
-    public Image[] blockImages;
+    public List<Image> blockImages;
     public Image scoreImage;
     public Sprite zeroStarSprite;
     public Sprite oneStarSprite;
@@ -24,6 +24,8 @@ public class LevelDisplay : MonoBehaviour
     public Sprite laserBlocSprite;
     public Sprite poisonBlocSprite;
     public Sprite slowBlocSprite;
+
+    public GameObject blockContainer;
 
     public Text levelNumberText;
     public int levelNumber;
@@ -65,36 +67,53 @@ public class LevelDisplay : MonoBehaviour
         nameText.text = level.name;
         descriptionText.text = level.description;
 
-        for (int i = 0; i < level.blockSprites.Length; i++)
+        for (int i = 0; i < level.blockChoice.Length; i++)
         {
-            switch (level.blockSprites[i].block)
+            switch (level.blockChoice[i].block)
             {
-                case LevelsSO.blockList.FIRERATE:
+                case LevelsSO.BlockList.FIRERATE:
                     blockImages[i].sprite = speedBlocSprite;
                     break;
-                case LevelsSO.blockList.DAMAGE:
+                case LevelsSO.BlockList.DAMAGE:
                     blockImages[i].sprite = damageBlocSprite;
                     break;
-                case LevelsSO.blockList.RANGE:
+                case LevelsSO.BlockList.RANGE:
                     // mettre ici l'icone de range
                     break;
-                case LevelsSO.blockList.POISON:
+                case LevelsSO.BlockList.POISON:
                     blockImages[i].sprite = poisonBlocSprite;
                     break;
-                case LevelsSO.blockList.SLOW:
+                case LevelsSO.BlockList.SLOW:
                     blockImages[i].sprite = slowBlocSprite;
                     break;
-                case LevelsSO.blockList.EXPLOSION:
+                case LevelsSO.BlockList.EXPLOSION:
                     blockImages[i].sprite = explosionBlocSprite;
                     break;
-                case LevelsSO.blockList.LASER:
+                case LevelsSO.BlockList.LASER:
                     blockImages[i].sprite = laserBlocSprite;
                     break;
+                default:
+                    Destroy(blockImages[i].gameObject);
+                        break;
+            }
+        }
+        
+        for (int i = level.blockChoice.Length; i < blockImages.Count; i++)
+        {
+            Destroy(blockImages[i].gameObject);
+        }
+        for (int i = 0; i < blockImages.Count; i++)
+        {
+            if (blockImages[i].sprite == null)
+            {
+                Debug.Log("hello there");
+                blockImages.RemoveAt(i);
+                //blockContainer.transform.position = new Vector3(transform.position.x + 80, transform.position.y, transform.position.z);
             }
         }
 
         levelNumber = level.levelNumber;
-        levelNumberText.text = levelNumber.ToString();
+        levelNumberText.text = "Level " + levelNumber.ToString();
         UpdateScoreDisplay();
     }
 }

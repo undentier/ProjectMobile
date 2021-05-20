@@ -15,19 +15,17 @@ public class LevelsSO : ScriptableObject
     public string description;
     public Sprite blocks;
     public int score;
-    public enum blockList
+    public enum BlockList
     {
-        FIRERATE, DAMAGE, RANGE, POISON, SLOW, EXPLOSION, LASER
+        FIRERATE, DAMAGE, RANGE, POISON, SLOW, EXPLOSION, LASER, NONE
     }
 
     [Serializable]
-    public struct selectedBlock
+    public struct SelectedBlock
     {
-        public blockList block;
+        public BlockList block;
         public float percentage;
     }
 
-    public selectedBlock[] blockChoice;
-
-    public selectedBlock[] blockSprites;
+    public SelectedBlock[] blockChoice;
 }

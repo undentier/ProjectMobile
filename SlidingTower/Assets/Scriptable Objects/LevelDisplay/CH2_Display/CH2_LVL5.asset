@@ -30,6 +30,3 @@ MonoBehaviour:
     percentage: 20
   - block: 5
     percentage: 30
-  - block: 0
-    percentage: 0
-  blockSprites: []

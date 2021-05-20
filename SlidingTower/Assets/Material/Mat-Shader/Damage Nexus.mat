@@ -32,4 +32,4 @@ Material:
     m_Colors:
     - Color_6C249602: {r: 0, g: 0, b: 0, a: 0}
     - Color_F6AFB7D3: {r: 2, g: 0.89812165, b: 0, a: 1}
-    - colorExplosion: {r: 2, g: 0.553736, b: 0, a: 1}
+    - colorExplosion: {r: 1.9999998, g: 0.5549738, b: 0, a: 1}

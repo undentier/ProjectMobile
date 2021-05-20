@@ -77,7 +77,7 @@ public class LifeManager : MonoBehaviour
         powerEmissive = life / startLife;
 
         faisseau.SetFloat("_Opacity", powerEmissive);
-        nexusEmissive.SetFloat("_PowerEmissive", powerEmissive);
+        nexusEmissive.SetFloat("_DamageColor", powerEmissive);
     }
 }
 

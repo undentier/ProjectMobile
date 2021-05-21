@@ -19,6 +19,7 @@ public class LifeManager : MonoBehaviour
     public Material faisseau;
     public Material nexusEmissive;
     public float powerEmissive;
+    public ParticleSystem PVLost;
 
 
     private void Awake()
@@ -54,6 +55,7 @@ public class LifeManager : MonoBehaviour
         else
         {
             StartCoroutine(cameraShake.Shake(0.15f, 2f));
+            PVLost.Play();
         }
     }
 

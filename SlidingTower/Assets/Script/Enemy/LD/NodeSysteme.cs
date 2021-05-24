@@ -27,7 +27,8 @@ public class NodeSysteme : MonoBehaviour
     [Space]
     public GameObject explosionEffect;
     public GameObject laserEffect;
-
+    [Space]
+    public GameObject[] conectorEffects;
     [HideInInspector]
     public int laserUpgrade;
     [HideInInspector]
@@ -124,7 +125,6 @@ public class NodeSysteme : MonoBehaviour
                     turretScript.ResetUpgrade();
                     turretScript = null;
                 }
-
                 SlideManager.instance.StartSlide(this);
             }
         } // Condition for start sliding
@@ -185,6 +185,7 @@ public class NodeSysteme : MonoBehaviour
 
     void SetEffect()
     {
+        Debug.Log("Set effect");
         #region Stats effect
         if (fireRateUpgrade > 0)
         {

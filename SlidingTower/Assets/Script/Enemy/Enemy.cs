@@ -25,6 +25,7 @@ public class Enemy : MonoBehaviour
     public Material poisonMaterial;
 
     public ParticleSystem poisonParticule;
+    public GameObject damageNexus;
 
     private Material startMaterial;
     private SkinnedMeshRenderer rend;
@@ -54,8 +55,12 @@ public class Enemy : MonoBehaviour
 
         if (distFromNexus <= 0.5f)
         {
+            GameObject destruction = Instantiate(damageNexus, transform.position, transform.rotation);
+            Destroy(destruction, 1f);
+
             LifeManager.lifeInstance.DamagePlayer(damageToNexus);
             Destroy(gameObject);
+            
             return;
         }
 

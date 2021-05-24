@@ -1258,6 +1258,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7607668907657221116}
     m_Modifications:
+    - target: {fileID: 437140675601555432, guid: 95409816015b7a349b94374aa0138732,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4198314695536124327, guid: 95409816015b7a349b94374aa0138732,
         type: 3}
       propertyPath: m_RootOrder
@@ -1317,6 +1322,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Particle System TourEnLair
+      objectReference: {fileID: 0}
+    - target: {fileID: 8446404094504046724, guid: 95409816015b7a349b94374aa0138732,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95409816015b7a349b94374aa0138732, type: 3}

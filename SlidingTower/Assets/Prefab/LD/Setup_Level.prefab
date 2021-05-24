@@ -127,7 +127,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5623976728784285786}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.903762, y: 4.6976867, z: 10.816141}
+  m_LocalPosition: {x: 7.7, y: 4.6976867, z: 10.816141}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4433981134485378250}
@@ -432,6 +432,27 @@ PrefabInstance:
       propertyPath: cameraShake
       value: 
       objectReference: {fileID: 1822817470896044782}
+    - target: {fileID: 3339626323251534460, guid: dc58399b3bcafdb4d807a2c163b3cbe2,
+        type: 3}
+      propertyPath: nexusEmissive
+      value: 
+      objectReference: {fileID: 2100000, guid: 40aa61c797e99c142ae95af55f7121bf, type: 2}
+    - target: {fileID: 3339626323251534462, guid: dc58399b3bcafdb4d807a2c163b3cbe2,
+        type: 3}
+      propertyPath: levelWaves.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3339626323251534462, guid: dc58399b3bcafdb4d807a2c163b3cbe2,
+        type: 3}
+      propertyPath: spawnPoints.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3339626323251534462, guid: dc58399b3bcafdb4d807a2c163b3cbe2,
+        type: 3}
+      propertyPath: levelWaves.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 1bf7b5b8201c72748b54a674659a4a02,
+        type: 2}
     - target: {fileID: 3339626323251534463, guid: dc58399b3bcafdb4d807a2c163b3cbe2,
         type: 3}
       propertyPath: m_RootOrder
@@ -641,8 +662,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 425089363949859515, guid: 163218c4b7139064eb85c159f25454c1,
         type: 3}
+      propertyPath: level
+      value: 
+      objectReference: {fileID: 11400000, guid: f5a6eef21237659428447e66b739c187,
+        type: 2}
+    - target: {fileID: 425089363949859515, guid: 163218c4b7139064eb85c159f25454c1,
+        type: 3}
       propertyPath: canBuildTurretWaves.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 425089363949859515, guid: 163218c4b7139064eb85c159f25454c1,
         type: 3}
@@ -668,6 +695,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: CancelBuild
+      objectReference: {fileID: 0}
+    - target: {fileID: 6707900216378024349, guid: 163218c4b7139064eb85c159f25454c1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -55.00006
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 163218c4b7139064eb85c159f25454c1, type: 3}

@@ -106,7 +106,6 @@ public class LevelDisplay : MonoBehaviour
         {
             if (blockImages[i].sprite == null)
             {
-                Debug.Log("hello there");
                 blockImages.RemoveAt(i);
                 //blockContainer.transform.position = new Vector3(transform.position.x + 80, transform.position.y, transform.position.z);
             }

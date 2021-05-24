@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public int scoreOfLastLevel;
+    public LevelList levellist;
 
     [HideInInspector] public LevelsSO levelScript;
 
@@ -32,6 +33,9 @@ public class GameManager : MonoBehaviour
         if (levelScript.score < scoreOfLastLevel)
         {
             levelScript.score = scoreOfLastLevel;
+            DataSave.SaveLevel(levellist.levelsChapter1);
+            DataSave.SaveLevel(levellist.levelsChapter2);
+            DataSave.SaveLevel(levellist.levelsChapter3);
         }
 
         InfoReset();

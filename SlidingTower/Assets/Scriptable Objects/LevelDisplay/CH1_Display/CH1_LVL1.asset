@@ -24,8 +24,3 @@ MonoBehaviour:
     percentage: 50
   - block: 0
     percentage: 50
-  blockSprites:
-  - block: 1
-    percentage: 0
-  - block: 0
-    percentage: 0

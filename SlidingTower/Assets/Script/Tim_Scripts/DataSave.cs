@@ -9,22 +9,28 @@ public class DataSave : MonoBehaviour
 {
     public static LevelManager levelmanager;
     public LevelManager _levelmanager;
+    public static LevelList levellist;
+    public LevelList _levellist;
 
     private void Start()
     {
         levelmanager = _levelmanager;
+        levellist = _levellist;
+        LoadSave();
+        LoadInManager();
     }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {   
-            SaveLevel(levelmanager.levelsChapter1);
+            SaveLevel(levellist.levelsChapter1);
+            Debug.Log("Saved");
         }
 
         if (Input.GetKeyDown(KeyCode.A))
         {
             LoadInManager();
-            Debug.Log("A");
+            Debug.Log("Loaded");
         }
     }
 

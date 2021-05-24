@@ -212,6 +212,10 @@ public class Turret : MonoBehaviour
                     if (slowUpgrade == 0 && poisonUpgrade == 0 )
                     {
                         shaderMatLaser.SetFloat("inputColorLaser", 0);
+                        targetList[i].transform.GetChild(0).gameObject.SetActive(true);
+                        targetList[i].transform.GetChild(1).gameObject.SetActive(false);
+                        targetList[i].transform.GetChild(2).gameObject.SetActive(false);
+                        targetList[i].transform.GetChild(3).gameObject.SetActive(false);
                     }
                     if (slowUpgrade > 0)
                     {
@@ -220,6 +224,10 @@ public class Turret : MonoBehaviour
                         if(poisonUpgrade == 0)
                         {
                             shaderMatLaser.SetFloat("inputColorLaser", 1);
+                            targetList[i].transform.GetChild(2).gameObject.SetActive(true);
+                            targetList[i].transform.GetChild(0).gameObject.SetActive(false);
+                            targetList[i].transform.GetChild(1).gameObject.SetActive(false);
+                            targetList[i].transform.GetChild(3).gameObject.SetActive(false);
                         }
                     }
                     if (poisonUpgrade > 0)
@@ -229,11 +237,19 @@ public class Turret : MonoBehaviour
                         if (slowUpgrade == 0)
                         {
                             shaderMatLaser.SetFloat("inputColorLaser", 2);
+                            targetList[i].transform.GetChild(1).gameObject.SetActive(true);
+                            targetList[i].transform.GetChild(0).gameObject.SetActive(false);
+                            targetList[i].transform.GetChild(2).gameObject.SetActive(false);
+                            targetList[i].transform.GetChild(3).gameObject.SetActive(false);
                         }
                     }
                     if (slowUpgrade > 0 && poisonUpgrade > 0)
                     {
                         shaderMatLaser.SetFloat("inputColorLaser", 3);
+                        targetList[i].transform.GetChild(3).gameObject.SetActive(true);
+                        targetList[i].transform.GetChild(0).gameObject.SetActive(false);
+                        targetList[i].transform.GetChild(2).gameObject.SetActive(false);
+                        targetList[i].transform.GetChild(1).gameObject.SetActive(false);
                     }
 
                     targetList[i].TakeDamage(actualDamage / actualLaserDamageReduction);

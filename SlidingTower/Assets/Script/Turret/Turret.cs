@@ -269,6 +269,11 @@ public class Turret : MonoBehaviour
                 laserLines[i].enabled = false;
                 laserMultiplier[i] = 1f;
                 laserCoolDown[i] = 0f;
+
+                targetList[i].transform.GetChild(3).gameObject.SetActive(false);
+                targetList[i].transform.GetChild(0).gameObject.SetActive(false);
+                targetList[i].transform.GetChild(2).gameObject.SetActive(false);
+                targetList[i].transform.GetChild(1).gameObject.SetActive(false);
             }
         }
     }

@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SlowNode
+  m_Name: PoisonNode
   m_Shader: {fileID: -6465566751694194690, guid: 4c77234832c45f649935f2c3317bc157,
     type: 3}
   m_ShaderKeywords: 
@@ -30,12 +30,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Vector1_1B843681: 0.73
-    - Vector1_7E8429F2: 0
-    - Vector1_A07A16D8: 0
-    - Vector1_CDC9856C: 3
-    - Vector1_DB7BD97E: 0.5
-    - Vector1_DC167336: 1
-    - Vector1_DFA807D0: 1
-    - amountIce: 0.73
+    - Vector1_7E8429F2: 0.174
+    - Vector1_A07A16D8: 1
+    - Vector1_CDC9856C: -2
+    - Vector1_DB7BD97E: 0.4
+    - Vector1_DC167336: 0.85
+    - Vector1_DFA807D0: 0
+    - amountIce: 0.7
     m_Colors:
-    - Color_DEDE9F43: {r: 0.8066038, g: 0.9785115, b: 1, a: 1}
+    - Color_DEDE9F43: {r: 0, g: 0.2924528, b: 0.033529647, a: 1}

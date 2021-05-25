@@ -23,7 +23,11 @@ public class NodeSysteme : MonoBehaviour
     private Material shaderMatDamage;
     [Space]
     public GameObject slowEffect;
+    public GameObject RendererSlow;
+    private Material shaderMatSlow;
     public GameObject poisonEffect;
+    public GameObject RendererPoison;
+    private Material shaderMatPoison;
     [Space]
     public GameObject explosionEffect;
     public GameObject laserEffect;
@@ -72,6 +76,8 @@ public class NodeSysteme : MonoBehaviour
 
         shaderMatFireRate = RendererFireRate.GetComponent<MeshRenderer>().material;
         shaderMatDamage = RendererDamage.GetComponent<MeshRenderer>().material;
+        shaderMatSlow = RendererSlow.GetComponent<MeshRenderer>().material;
+        shaderMatPoison = RendererPoison.GetComponent<MeshRenderer>().material;
     }
 
     public void CreateTurret()
@@ -279,19 +285,45 @@ public class NodeSysteme : MonoBehaviour
         if (slowUpgrade > 0)
         {
             slowEffect.SetActive(true);
+
+            if(slowUpgrade == 1)
+            { shaderMatSlow.SetFloat("amountIce", 0.73f); }
+
+            if (slowUpgrade == 2)
+            { shaderMatSlow.SetFloat("amountIce", 0.75f); }
+
+            if (slowUpgrade == 3)
+            { shaderMatSlow.SetFloat("amountIce", 0.8f); }
+
+            if (slowUpgrade == 4)
+            { shaderMatSlow.SetFloat("amountIce", 1); }
         }
         else
         {
             slowEffect.SetActive(false);
+            shaderMatSlow.SetFloat("amountIce", 0);
         }
 
         if (poisonUpgrade > 0)
         {
             poisonEffect.SetActive(true);
+
+            if (poisonUpgrade == 1)
+            { shaderMatPoison.SetFloat("amountIce", 0.73f); }
+
+            if (poisonUpgrade == 2)
+            { shaderMatPoison.SetFloat("amountIce", 0.75f); }
+
+            if (poisonUpgrade == 3)
+            { shaderMatPoison.SetFloat("amountIce", 0.8f); }
+
+            if (poisonUpgrade == 4)
+            { shaderMatPoison.SetFloat("amountIce", 1); }
         }
         else
         {
             poisonEffect.SetActive(false);
+            shaderMatPoison.SetFloat("amountIce", 0);
         }
         #endregion
 

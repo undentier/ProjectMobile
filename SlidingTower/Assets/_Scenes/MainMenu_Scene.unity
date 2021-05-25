@@ -2056,7 +2056,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1355526792}
+      - m_Target: {fileID: 1515181138}
         m_MethodName: SetInt
         m_Mode: 3
         m_Arguments:
@@ -3005,7 +3005,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1355526792}
+      - m_Target: {fileID: 1515181138}
         m_MethodName: SetInt
         m_Mode: 3
         m_Arguments:
@@ -4187,18 +4187,6 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 5f099ea581ac9fc46998f4d560bae76c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6d837f736e655d4ea0db2d9451543a8, type: 3}
---- !u!114 &1355526792 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1355526792, guid: 4624e28182789714a9dd68c820854a5d,
-    type: 3}
-  m_PrefabInstance: {fileID: 5623854476009731582}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a23273cb190d60f46835d0ca82a6bf4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1398687386
 GameObject:
   m_ObjectHideFlags: 0
@@ -4525,6 +4513,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1447541555}
   m_CullTransparentMesh: 0
+--- !u!114 &1515181138 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1515181138, guid: 4624e28182789714a9dd68c820854a5d,
+    type: 3}
+  m_PrefabInstance: {fileID: 5623854476009731582}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a781adb83d3c4f044a7f397c9e0bd49d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1545798671
 GameObject:
   m_ObjectHideFlags: 0
@@ -5230,7 +5230,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1355526792}
+      - m_Target: {fileID: 1515181138}
         m_MethodName: SetInt
         m_Mode: 3
         m_Arguments:
@@ -5909,6 +5909,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1974602228}
+  - component: {fileID: 1974602229}
   m_Layer: 5
   m_Name: Title Menu
   m_TagString: Untagged
@@ -5941,6 +5942,26 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1974602229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974602227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a23273cb190d60f46835d0ca82a6bf4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelmanager: {fileID: 1602317667}
+  playMenu: {fileID: 1602317665}
+  retourChapters: {fileID: 134964212}
+  retourMenu: {fileID: 449761848}
+  verticalPanel: {fileID: 482324203}
+  horizontalPanel: {fileID: 186439655}
+  titleMenu: {fileID: 1974602227}
+  gaStuff: {fileID: 815203258}
 --- !u!1 &2003676856
 GameObject:
   m_ObjectHideFlags: 0
@@ -6995,38 +7016,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1355526792, guid: 4624e28182789714a9dd68c820854a5d, type: 3}
-      propertyPath: gaStuff
-      value: 
-      objectReference: {fileID: 815203258}
-    - target: {fileID: 1355526792, guid: 4624e28182789714a9dd68c820854a5d, type: 3}
-      propertyPath: playMenu
-      value: 
-      objectReference: {fileID: 1602317665}
-    - target: {fileID: 1355526792, guid: 4624e28182789714a9dd68c820854a5d, type: 3}
-      propertyPath: titleMenu
-      value: 
-      objectReference: {fileID: 1974602227}
-    - target: {fileID: 1355526792, guid: 4624e28182789714a9dd68c820854a5d, type: 3}
-      propertyPath: retourMenu
-      value: 
-      objectReference: {fileID: 449761848}
-    - target: {fileID: 1355526792, guid: 4624e28182789714a9dd68c820854a5d, type: 3}
-      propertyPath: levelmanager
-      value: 
-      objectReference: {fileID: 1602317667}
-    - target: {fileID: 1355526792, guid: 4624e28182789714a9dd68c820854a5d, type: 3}
-      propertyPath: verticalPanel
-      value: 
-      objectReference: {fileID: 482324203}
-    - target: {fileID: 1355526792, guid: 4624e28182789714a9dd68c820854a5d, type: 3}
-      propertyPath: retourChapters
-      value: 
-      objectReference: {fileID: 134964212}
-    - target: {fileID: 1355526792, guid: 4624e28182789714a9dd68c820854a5d, type: 3}
-      propertyPath: horizontalPanel
-      value: 
-      objectReference: {fileID: 186439655}
     - target: {fileID: 1355526795, guid: 4624e28182789714a9dd68c820854a5d, type: 3}
       propertyPath: _levelmanager
       value: 

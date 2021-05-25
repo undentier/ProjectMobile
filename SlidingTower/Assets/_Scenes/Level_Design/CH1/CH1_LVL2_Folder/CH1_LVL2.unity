@@ -232,6 +232,11 @@ PrefabInstance:
       propertyPath: spawnPoints.Array.data[0]
       value: 
       objectReference: {fileID: 2142219569}
+    - target: {fileID: 7192525008006030372, guid: 3136da9772be55d408a376d4baa73a0a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7192525008006030374, guid: 3136da9772be55d408a376d4baa73a0a,
         type: 3}
       propertyPath: level
@@ -252,6 +257,11 @@ PrefabInstance:
         type: 3}
       propertyPath: canBuildTurretWaves.Array.data[3]
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7192525008192684490, guid: 3136da9772be55d408a376d4baa73a0a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3136da9772be55d408a376d4baa73a0a, type: 3}

@@ -18,7 +18,7 @@ public class UIManager : MonoBehaviour
     public EnemyPreview previewScript;
     private void Awake()
     {
-        instance = this;
+        instance = this;    
     }
 
     void Start()
@@ -62,8 +62,6 @@ public class UIManager : MonoBehaviour
         {
             GameManager.instance.InfoReset();
         }
-
-        MenuSave.instance.Load();
         SceneManager.LoadScene("MainMenu_Scene");
     }
     public void TryAgainButton()

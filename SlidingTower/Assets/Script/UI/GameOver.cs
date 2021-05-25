@@ -7,8 +7,7 @@ public class GameOver : MonoBehaviour
     public MenuSave menusave;
    public void TryAgainButton()
    {
-        Time.timeScale = 1f;
-        MenuSave.instance.Load();       
+        Time.timeScale = 1f;  
         SceneManager.LoadScene(0);
    }
 }

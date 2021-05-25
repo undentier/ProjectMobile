@@ -5,7 +5,7 @@ using UnityEngine;
 public class MenuSave : MonoBehaviour
 {
     public static MenuSave instance;
-    public int index;
+    private MenuCheck menucheck;
     public LevelManager levelmanager;
     public GameObject playMenu;
     public GameObject retourChapters;
@@ -25,31 +25,33 @@ public class MenuSave : MonoBehaviour
     private void Start()
     {
         instance = this;
+        menucheck = GameManager.instance.GetComponent<MenuCheck>();
+        Load();
     }
-    public void SetInt(int number)
-    {
-        index = number;
-    }
+
     public void Load()
     {
-        titleMenu.SetActive(false);
-        playMenu.SetActive(true);
-        retourMenu.SetActive(false);
-        retourChapters.SetActive(true);
-        verticalPanel.SetActive(false);
-        horizontalPanel.SetActive(true);
-        gaStuff.SetActive(false);
-        if(index == 1)
+        if (menucheck.index != 0)
         {
-            levelmanager.InitializeSelectionPanel(0);
-        }
-        else if (index == 2)
-        {
-            levelmanager.InitializeSelectionPanel(1);
-        }
-        else if (index == 3)
-        {
-            levelmanager.InitializeSelectionPanel(2);
+            playMenu.SetActive(true);
+            retourMenu.SetActive(false);
+            retourChapters.SetActive(true);
+            verticalPanel.SetActive(false);
+            horizontalPanel.SetActive(true);
+            gaStuff.SetActive(false);
+            if (menucheck.index == 1)
+            {
+                levelmanager.InitializeSelectionPanel(0);
+            }
+            else if (menucheck.index == 2)
+            {
+                levelmanager.InitializeSelectionPanel(1);
+            }
+            else if (menucheck.index == 3)
+            {
+                levelmanager.InitializeSelectionPanel(2);
+            }
+            titleMenu.SetActive(false);
         }
     }
 }

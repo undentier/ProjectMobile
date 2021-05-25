@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4358503515531776541}
   - component: {fileID: 1355526794}
   - component: {fileID: 1355526795}
-  - component: {fileID: 1355526792}
+  - component: {fileID: 1515181138}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -93,7 +93,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _levelmanager: {fileID: 0}
   _levellist: {fileID: 1355526794}
---- !u!114 &1355526792
+--- !u!114 &1515181138
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,15 +102,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5030009479078927741}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a23273cb190d60f46835d0ca82a6bf4b, type: 3}
+  m_Script: {fileID: 11500000, guid: a781adb83d3c4f044a7f397c9e0bd49d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   index: 0
-  levelmanager: {fileID: 0}
-  playMenu: {fileID: 0}
-  retourChapters: {fileID: 0}
-  retourMenu: {fileID: 0}
-  verticalPanel: {fileID: 0}
-  horizontalPanel: {fileID: 0}
-  titleMenu: {fileID: 0}
-  gaStuff: {fileID: 0}

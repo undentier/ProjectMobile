@@ -207,6 +207,7 @@ MonoBehaviour:
   poisonEffect: {fileID: 775625780313325247}
   explosionEffect: {fileID: 889451299596244949}
   laserEffect: {fileID: 4772967294080065499}
+  cooldownLinkFalse: 0.1
   conectorEffects:
   - {fileID: 8624854036360692019}
   - {fileID: 1149394362811051614}
@@ -220,6 +221,8 @@ MonoBehaviour:
   damageUpgrade: 0
   rangeUpgrade: 0
   objBuild: {fileID: 0}
+  neighbourTurrets: []
+  neighbourBlocks: []
 --- !u!1 &4748322445889086131
 GameObject:
   m_ObjectHideFlags: 0

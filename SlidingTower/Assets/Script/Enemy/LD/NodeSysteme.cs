@@ -28,6 +28,7 @@ public class NodeSysteme : MonoBehaviour
     public GameObject explosionEffect;
     public GameObject laserEffect;
     [Space]
+    public float cooldownLinkFalse;
     public GameObject[] conectorEffects;
     [HideInInspector]
     public int laserUpgrade;
@@ -408,7 +409,7 @@ public class NodeSysteme : MonoBehaviour
                 }
                 else
                 {
-                    conectorEffects[i].SetActive(false);
+                    StartCoroutine(CoolDownLinkFalse(conectorEffects[i]));
                 }
             }
         }
@@ -416,9 +417,14 @@ public class NodeSysteme : MonoBehaviour
         {
             for (int i = 0; i < conectorEffects.Length; i++)
             {
-                conectorEffects[i].SetActive(false);
+                StartCoroutine(CoolDownLinkFalse(conectorEffects[i]));
             }
         }
+    }
+    IEnumerator CoolDownLinkFalse(GameObject obj)
+    {
+        yield return new WaitForSeconds(cooldownLinkFalse);
+        obj.SetActive(false);
     }
     public void GetNeighbourObjs()
     {

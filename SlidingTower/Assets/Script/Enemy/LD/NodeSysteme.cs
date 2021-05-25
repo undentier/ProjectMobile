@@ -97,7 +97,7 @@ public class NodeSysteme : MonoBehaviour
 
             objBuild = Instantiate(objToBuild, transform.position, transform.rotation);
             LifeManager.lifeInstance.ChangeToken(-1);
-            WavePanel.instance.startWaveButton.SetActive(true);
+            WavePanel.instance.ShowStartWaveButton();
 
             ObjTypeDetection();
 

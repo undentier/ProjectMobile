@@ -55,7 +55,7 @@ public class LifeManager : MonoBehaviour
         else
         {
             StartCoroutine(cameraShake.Shake(0.15f, 2f));
-            PVLost.Play();
+            //PVLost.Play();
         }
     }
 

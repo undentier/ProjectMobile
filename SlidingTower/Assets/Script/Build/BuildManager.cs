@@ -29,11 +29,10 @@ public class BuildManager : MonoBehaviour
     public bool isDraggingTurret;
     private Touch touch;
     public GameObject currentPrevisualisationObject;
-    private bool wantCancel;
+    public bool wantCancel;
 
-    [Header("Bin Animator")]
-    public Animator binAnim;
-    
+    [Header("Unity setup")]
+    public GameObject bin;
 
     public GameObject GetTurretToBuild()
     {
@@ -59,6 +58,15 @@ public class BuildManager : MonoBehaviour
     {
         SlideDetection();
         DragUpdate();
+
+        if (isDraggingTurret)
+        {
+            bin.SetActive(true);
+        }
+        else
+        {
+            bin.SetActive(false);
+        }
     }
 
     public void StartDragTurret()
@@ -66,7 +74,6 @@ public class BuildManager : MonoBehaviour
         TouchDetection.UpdateCurrentNode();
         currentPrevisualisationObject = Instantiate(turretPreviToBuild, TouchDetection.currentlyHoveredNode.transform.position, TouchDetection.currentlyHoveredNode.transform.rotation);
         isDraggingTurret = true;
-        binAnim.SetInteger("state", 1);
     }
 
     void DragUpdate()
@@ -112,7 +119,6 @@ public class BuildManager : MonoBehaviour
         TouchDetection.currentlyHoveredNode.CreateTurret();
         TouchDetection.currentlyHoveredNode = NodeManager.allNodes[0];
         Destroy(currentPrevisualisationObject);
-        binAnim.SetInteger("state", 2);
     }
 
     public void CancelBuild()
@@ -121,8 +127,6 @@ public class BuildManager : MonoBehaviour
         Destroy(currentPrevisualisationObject);
         isDraggingTurret = false;
         wantCancel = false;
-
-        binAnim.SetInteger("state", 2);
     }
 
 

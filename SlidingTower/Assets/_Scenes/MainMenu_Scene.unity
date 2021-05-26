@@ -2056,6 +2056,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1515181138}
+        m_MethodName: SetInt
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &717164594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2990,6 +3001,17 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1515181138}
+        m_MethodName: SetInt
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
@@ -4165,56 +4187,6 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 5f099ea581ac9fc46998f4d560bae76c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6d837f736e655d4ea0db2d9451543a8, type: 3}
---- !u!1 &1355526791 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5030009479078927741, guid: 4624e28182789714a9dd68c820854a5d,
-    type: 3}
-  m_PrefabInstance: {fileID: 5623854476009731582}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1355526794
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1355526791}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46e5b50df9e99ac4ba4d934eea7031c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelsChapter1:
-  - {fileID: 11400000, guid: aca57f347255078438963b39d54c7df0, type: 2}
-  - {fileID: 11400000, guid: 06d52d52d28e8774d99ef6ee16a00bc4, type: 2}
-  - {fileID: 11400000, guid: f5a6eef21237659428447e66b739c187, type: 2}
-  - {fileID: 11400000, guid: 2eb33a0bfb420ef4f9320d8059828ccd, type: 2}
-  - {fileID: 11400000, guid: fb05f9f3d7bbdfb48b71df12429521ec, type: 2}
-  levelsChapter2:
-  - {fileID: 11400000, guid: 4cc8fe0aa47c7b84b880455331243dc1, type: 2}
-  - {fileID: 11400000, guid: 3abc646e5c3112145b3ff2c3721891db, type: 2}
-  - {fileID: 11400000, guid: 49dfd5db219f14d48ab2969c50fc53d3, type: 2}
-  - {fileID: 11400000, guid: 33c3999e3d7246c4aac93fb96d2a84a3, type: 2}
-  - {fileID: 11400000, guid: 9c7023d07610b674bbcb88f9cf703196, type: 2}
-  levelsChapter3:
-  - {fileID: 11400000, guid: c76678e8cb66d394bb95fad5e2269c70, type: 2}
-  - {fileID: 11400000, guid: 95d315fd4db30d6429d0acc8e5b28c74, type: 2}
-  - {fileID: 11400000, guid: e6fd923c145da8b45994e768ba399a95, type: 2}
-  - {fileID: 11400000, guid: 0c398a93270a1c64cac7410420b99789, type: 2}
-  - {fileID: 11400000, guid: 715629f0172ecf846a8b86e0860a5778, type: 2}
---- !u!114 &1355526795
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1355526791}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 984530f1402a7c7448b48ff18d0344a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _levelmanager: {fileID: 1602317667}
-  _levellist: {fileID: 1355526794}
 --- !u!1 &1398687386
 GameObject:
   m_ObjectHideFlags: 0
@@ -4541,6 +4513,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1447541555}
   m_CullTransparentMesh: 0
+--- !u!114 &1515181138 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1515181138, guid: 4624e28182789714a9dd68c820854a5d,
+    type: 3}
+  m_PrefabInstance: {fileID: 5623854476009731582}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a781adb83d3c4f044a7f397c9e0bd49d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1545798671
 GameObject:
   m_ObjectHideFlags: 0
@@ -5246,6 +5230,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1515181138}
+        m_MethodName: SetInt
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1685285516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5914,6 +5909,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1974602228}
+  - component: {fileID: 1974602229}
   m_Layer: 5
   m_Name: Title Menu
   m_TagString: Untagged
@@ -5946,6 +5942,26 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1974602229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974602227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a23273cb190d60f46835d0ca82a6bf4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelmanager: {fileID: 1602317667}
+  playMenu: {fileID: 1602317665}
+  retourChapters: {fileID: 134964212}
+  retourMenu: {fileID: 449761848}
+  verticalPanel: {fileID: 482324203}
+  horizontalPanel: {fileID: 186439655}
+  titleMenu: {fileID: 1974602227}
+  gaStuff: {fileID: 815203258}
 --- !u!1 &2003676856
 GameObject:
   m_ObjectHideFlags: 0
@@ -7000,11 +7016,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4358503515531776541, guid: 4624e28182789714a9dd68c820854a5d,
-        type: 3}
-      propertyPath: levellist
+    - target: {fileID: 1355526795, guid: 4624e28182789714a9dd68c820854a5d, type: 3}
+      propertyPath: _levelmanager
       value: 
-      objectReference: {fileID: 1355526794}
+      objectReference: {fileID: 1602317667}
     - target: {fileID: 5030009479078927741, guid: 4624e28182789714a9dd68c820854a5d,
         type: 3}
       propertyPath: m_Name

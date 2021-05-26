@@ -55,7 +55,7 @@ public class LevelManager : MonoBehaviour
     }
     void Write()
     {
-        totalScoreText.GetComponent<Text>().text = "Nombre d'étoiles: " + starTotal.ToString();
+        totalScoreText.GetComponent<Text>().text = "Stars : " + starTotal.ToString();
     }
     public void InitializeSelectionPanel(int chapter)
     {

@@ -75,7 +75,7 @@ public class NodeSysteme : MonoBehaviour
 
         if (boostBlockScript != null)
         {
-            GetUpgrade(boostBlockScript);
+            //GetUpgrade(boostBlockScript);
             UpgradeNeighbour(boostBlockScript);
             TurretNeighbour();
         }
@@ -95,7 +95,7 @@ public class NodeSysteme : MonoBehaviour
         if (objBuild == null && !SlideManager.instance.isSliding && LifeManager.lifeInstance.buildToken > 0)
         {
             GameObject objToBuild = BuildManager.instance.GetTurretToBuild();
-
+            TurretSoundManager.I.PlaceTurret(1);
             if (objToBuild == null)
             {
                 return;
@@ -439,6 +439,42 @@ public class NodeSysteme : MonoBehaviour
                 if (neighbourBlocks[i] != null)
                 {
                     GameObject actualLinkEffect = Instantiate(linkEffect, linkEffectSpawnPoints[i].position, linkEffectSpawnPoints[i].rotation);
+
+                    if (neighbourBlocks[i].fireRateBoost > 0)
+                    {
+                        TurretSoundManager.I.EffectSound(1, 2);
+                    }
+
+                    if (neighbourBlocks[i].damageBoost > 0)
+                    {
+                        TurretSoundManager.I.EffectSound(2, 2);
+                    }
+
+                    if (neighbourBlocks[i].rangeBoost > 0)
+                    {
+                        TurretSoundManager.I.EffectSound(3, 2);
+                    }
+
+                    if (neighbourBlocks[i].poisonValue > 0)
+                    {
+                        TurretSoundManager.I.EffectSound(4, 2);
+                    }
+
+                    if (neighbourBlocks[i].slowValue > 0)
+                    {
+                        TurretSoundManager.I.EffectSound(5, 2);
+                    }
+
+                    if (neighbourBlocks[i].explosion > 0)
+                    {
+                        TurretSoundManager.I.EffectSound(6, 2);
+                    }
+
+                    if (neighbourBlocks[i].lazer > 0)
+                    {
+                        TurretSoundManager.I.EffectSound(7, 2);
+                    }
+
                     Destroy(actualLinkEffect, 2f);
                 }
             }

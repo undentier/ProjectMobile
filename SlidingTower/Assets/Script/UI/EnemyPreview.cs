@@ -63,7 +63,7 @@ public class EnemyPreview : MonoBehaviour
     public void ContinueButton()
     {
         generalEnemyPreview.SetActive(false);
-
+        PlayerSoundManager.I.OK(1);
         lowGeneral.SetActive(false);
         midGeneral.SetActive(false);
         bigGeneral.SetActive(false);

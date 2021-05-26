@@ -71,6 +71,22 @@ public class WaveSpawner : MonoBehaviour
                 GameObject enemyToSpawn = GetEnemyToSpawn(levelWave.waves[waveIndex].enemies[i].wichEnemy);
                 GameObject actualEnemy = Instantiate(enemyToSpawn, spawnPoint.position, spawnPoint.rotation);
                 enemyList.Add(actualEnemy.GetComponent<Enemy>());
+
+                switch(levelWave.waves[waveIndex].enemies[i].wichEnemy)
+                {
+                    case WaveSO.EnemyEnum.small:
+                        EnemySoundManager.I.PlaySpawnSound(0, 0.5f);
+                        break;
+
+                    case WaveSO.EnemyEnum.medium:
+                        EnemySoundManager.I.PlaySpawnSound(1, 0.5f);
+                        break;
+
+                    case WaveSO.EnemyEnum.big:
+                        EnemySoundManager.I.PlaySpawnSound(2, 0.5f);
+                        break;
+                }
+
                 yield return new WaitForSeconds(levelWave.waves[waveIndex].enemies[i].timeBtwSpawn);
             }
 

@@ -213,6 +213,7 @@ public class Bullet : MonoBehaviour
     void Explosion()
     {
         Collider[] enemyInRange = Physics.OverlapSphere(transform.position, explosionRadius, enemyLayerMask);
+        TurretSoundManager.I.PlayExplodeSound(1);
 
         foreach (Collider enemyIn in enemyInRange)
         {

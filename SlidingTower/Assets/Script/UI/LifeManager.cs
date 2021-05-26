@@ -44,7 +44,7 @@ public class LifeManager : MonoBehaviour
     public void DamagePlayer(int damage)
     {
         life -= damage;
-
+        PlayerSoundManager.I.PlayDamageNexus(0.5f);
         SetupEmissive();
 
         if (life <= 0)

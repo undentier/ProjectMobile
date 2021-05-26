@@ -36,7 +36,6 @@ public class Enemy : MonoBehaviour
     private float actualPoisonDuration;
 
     public GameObject EnnemyDead;
-    
     #endregion
 
     private void Start()
@@ -74,6 +73,7 @@ public class Enemy : MonoBehaviour
     {
         actualHealth -= amount;
         healhtBar.fillAmount = actualHealth / startHealth;
+        EnemySoundManager.I.Hurt(0.4f);
 
         if (actualHealth <= 0f)
         {
@@ -131,13 +131,13 @@ public class Enemy : MonoBehaviour
     
     void Die()
     {
+        EnemySoundManager.I.Death(2);
         LifeManager.lifeInstance.AddKillScore(1);
         GameObject effect = Instantiate(deathEffect, transform.position, transform.rotation);
         Destroy(effect, 2f);
 
         GameObject animMort = Instantiate(EnnemyDead, transform.position, transform.rotation);
         Destroy(animMort, 2f);
-        
         Destroy(gameObject);
     }
 

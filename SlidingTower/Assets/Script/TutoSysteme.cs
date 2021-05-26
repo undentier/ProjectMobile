@@ -58,11 +58,4 @@ public class TutoSysteme : MonoBehaviour
             }
         }
     }
-
-
-    IEnumerator CoolDown(string boolName, Animator objAnimator, float coolDown, bool state)
-    {
-        yield return new WaitForSeconds(coolDown);
-        objAnimator.SetBool(boolName, state);
-    }
 }

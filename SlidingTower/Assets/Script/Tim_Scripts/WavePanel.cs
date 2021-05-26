@@ -68,6 +68,7 @@ public class WavePanel : MonoBehaviour
         if (isFirstWave && canBuildTurretWaves[0] == false)
         {
             isFirstWave = false;
+            startWaveButtonAnim.SetInteger("startState", 2);
             return;
         }
         else

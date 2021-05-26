@@ -72,10 +72,7 @@ public class BuildManager : MonoBehaviour
             }
             else
             {
-                if (currentPrevisualisationObject != null)
-                {
-                    currentPrevisualisationObject.SetActive(true);
-                }
+                StartCoroutine(PreviewCooldown());
             }
         }
         else
@@ -88,7 +85,6 @@ public class BuildManager : MonoBehaviour
     {
         TouchDetection.UpdateCurrentNode();
         currentPrevisualisationObject = Instantiate(turretPreviToBuild, TouchDetection.currentlyHoveredNode.transform.position, TouchDetection.currentlyHoveredNode.transform.rotation);
-        currentPrevisualisationObject.SetActive(true);
         isDraggingTurret = true;
     }
 
@@ -197,5 +193,14 @@ public class BuildManager : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
         wantCancel = false;
+    }
+
+    IEnumerator PreviewCooldown()
+    {
+        yield return new WaitForEndOfFrame();
+        if (currentPrevisualisationObject != null)
+        {
+            currentPrevisualisationObject.SetActive(true);
+        }
     }
 }

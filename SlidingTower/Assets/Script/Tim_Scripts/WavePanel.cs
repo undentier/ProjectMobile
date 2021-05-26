@@ -23,8 +23,8 @@ public class WavePanel : MonoBehaviour
     public GameObject[] buttons;
 
     private List<GameObject> usedButtons = new List<GameObject>();
-    [HideInInspector] public int canBuildTurretIndex;
-    [HideInInspector] public bool isBuildMode;
+     public int canBuildTurretIndex;
+ public bool isBuildMode;
     [HideInInspector] public bool isFirstWave = true;
     #endregion
 

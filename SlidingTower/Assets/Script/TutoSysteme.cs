@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TutoSysteme : MonoBehaviour
 {
+    [Header ("Move Tuto")]
     public GameObject handMoveObj;
     public GameObject turretMoveObj;
     [Space]
@@ -11,9 +12,18 @@ public class TutoSysteme : MonoBehaviour
     public Animator turretMoveAnim;
     private bool lockMoveAnim;
 
+    [Header("Drag and drop Tuto")]
+    public GameObject handDragObj;
+    public GameObject blackBackGroundObj;
+    public Animator blackBackGroundAnim;
+    private int dragTutoState;
+
     void Start()
     {
         handMoveAnim.SetBool("canMove", true);
+
+        blackBackGroundObj.SetActive(false);
+        handDragObj.SetActive(false);
     }
 
     
@@ -23,8 +33,28 @@ public class TutoSysteme : MonoBehaviour
         {
             if (SlideManager.instance.isSliding)
             {
+                lockMoveAnim = true;
                 handMoveObj.SetActive(false);
                 turretMoveObj.SetActive(false);
+            }
+        }
+
+        if (dragTutoState == 0)
+        {
+            if (WavePanel.instance.isBuildMode && WavePanel.instance.canBuildTurretIndex > 0)
+            {
+                dragTutoState = 1;
+                handDragObj.SetActive(true);
+                blackBackGroundObj.SetActive(true);
+            }
+        }
+        else if (dragTutoState == 1)
+        {
+            if (LifeManager.lifeInstance.buildToken < 1)
+            {
+                dragTutoState = 2;
+                handDragObj.SetActive(false);
+                blackBackGroundObj.SetActive(false);
             }
         }
     }

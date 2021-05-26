@@ -61,6 +61,14 @@ public class NodeSysteme : MonoBehaviour
     private Turret turretScript;
     #endregion
 
+    private void Awake()
+    {
+        shaderMatFireRate = RendererFireRate.GetComponent<MeshRenderer>().material;
+        shaderMatDamage = RendererDamage.GetComponent<MeshRenderer>().material;
+        shaderMatSlow = RendererSlow.GetComponent<MeshRenderer>().material;
+        shaderMatPoison = RendererPoison.GetComponent<MeshRenderer>().material;
+    }
+
     private void Start()
     {
         neighbourTurrets = new Turret[4];
@@ -84,10 +92,6 @@ public class NodeSysteme : MonoBehaviour
             turretScript.GetNodeUpgrade(this);
         }
 
-        shaderMatFireRate = RendererFireRate.GetComponent<MeshRenderer>().material;
-        shaderMatDamage = RendererDamage.GetComponent<MeshRenderer>().material;
-        shaderMatSlow = RendererSlow.GetComponent<MeshRenderer>().material;
-        shaderMatPoison = RendererPoison.GetComponent<MeshRenderer>().material;
     }
 
     public void CreateTurret()

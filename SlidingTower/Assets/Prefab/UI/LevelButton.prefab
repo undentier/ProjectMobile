@@ -704,13 +704,13 @@ MonoBehaviour:
   oneStarSprite: {fileID: 21300000, guid: bc302bef54c761e43af8e32dfe049dd6, type: 3}
   twoStarSprite: {fileID: 21300000, guid: 602bc827f6f32c547bfeeaa1c1e54b23, type: 3}
   threeStarSprite: {fileID: 21300000, guid: b500a04d04d1d6240a1edc358ce667f9, type: 3}
-  damageBlocSprite: {fileID: 21300000, guid: 1c18aedea1194d94f9eb2002345ad5c6, type: 3}
-  explosionBlocSprite: {fileID: 21300000, guid: 893b9f4dc0483eb44a6e537a1ec2cfe8,
+  damageBlocSprite: {fileID: 21300000, guid: eab85a6a174b8c348b88a8425f9ee398, type: 3}
+  explosionBlocSprite: {fileID: 21300000, guid: 7ae5bf1889e7b3042a0e83e3330eb53a,
     type: 3}
-  speedBlocSprite: {fileID: 21300000, guid: c1d91ab7c6cf91d4fb89e8024581a498, type: 3}
-  laserBlocSprite: {fileID: 21300000, guid: d2856c7e220711b4ab0e407a678e3430, type: 3}
-  poisonBlocSprite: {fileID: 21300000, guid: a4e84afbf75ac28429c5ac9e96de0dbb, type: 3}
-  slowBlocSprite: {fileID: 21300000, guid: 1528b68477cf4044b85815a6e0d32e11, type: 3}
+  speedBlocSprite: {fileID: 21300000, guid: 5e150256bf1afbb48beb38cea9e68964, type: 3}
+  laserBlocSprite: {fileID: 21300000, guid: 1d09bae05bcf03b4585fabe60c578fb0, type: 3}
+  poisonBlocSprite: {fileID: 21300000, guid: 225956b66bc15b0418cf0c6278e0ba4e, type: 3}
+  slowBlocSprite: {fileID: 21300000, guid: 35e7d029d3b5fff46b9b28a56a662498, type: 3}
   blockContainer: {fileID: 151079354708201678}
   levelNumberText: {fileID: 6777313581265828013}
   levelNumber: 0

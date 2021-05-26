@@ -22,6 +22,8 @@ public class Bullet : MonoBehaviour
     public GameObject impactEffectSlow;
     public GameObject impactEffectPoison;
     public GameObject impactEffectSP;
+    public GameObject impactSlowUp;
+    public GameObject impactPoisonUp;
 
     public ParticleSystem damageLvl1;
     public ParticleSystem damageLvl2;
@@ -29,12 +31,6 @@ public class Bullet : MonoBehaviour
 
     private Material shaderMatBullet;
     public GameObject Renderer;
-
-    [ColorUsageAttribute(true, true)]
-    private Color actualColor;
-    public Color neutralColor;
-    public Color slowColor;
-    public Color poisonColor;
 
     [Header("Unity SetUp")]
     public LayerMask enemyLayerMask;
@@ -47,7 +43,18 @@ public class Bullet : MonoBehaviour
     public void Start()
     {
         shaderMatBullet = Renderer.GetComponent<MeshRenderer>().material;
-        actualColor = neutralColor;
+        
+        if (slowForce == 0 && poisonDamage == 0)
+        { shaderMatBullet.SetFloat("inputColor", 0); }
+
+        if (slowForce > 0 && poisonDamage == 0)
+        { shaderMatBullet.SetFloat("inputColor", 1); }
+
+        if (poisonDamage > 0 && slowForce == 0)
+        { shaderMatBullet.SetFloat("inputColor", 2); }
+
+        if (poisonDamage > 0 && slowForce > 0)
+        { shaderMatBullet.SetFloat("inputColor", 3); }
     }
 
     public void GetTarget(Transform _target)
@@ -66,15 +73,12 @@ public class Bullet : MonoBehaviour
         poisonDamage = _poisonDamage;
         poisonDuration = _poisonDuration;
         poisonTick = _poisonTick;
-
-        actualColor = poisonColor;
     }
+
     public void GetSlowInfo(float _slowForce, float _slowDuration)
     {
         slowForce = _slowForce;
         slowDuration = _slowDuration;
-
-        actualColor = slowColor;
     }
 
     public void GetExplosiveInfo(float _explosionRadius)
@@ -97,18 +101,9 @@ public class Bullet : MonoBehaviour
             HitTarget();
         } // If the bullet touch the target
 
-        shaderMatBullet.SetVector("colorBullet", actualColor * 3f);
-
-        var main = damageLvl1.main;
-        main.startColor = actualColor;
-        var main2 = damageLvl2.main;
-        main2.startColor = actualColor;
-        var main3 = damageLvl3.main;
-        main3.startColor = actualColor;
-
         if (damage == 30)
         {
-            shaderMatBullet.SetFloat("powerFresnel", 3);
+            shaderMatBullet.SetFloat("powerFresnel", 1.5f);
             damageLvl1.Stop();
             damageLvl2.Stop();
             damageLvl3.Stop();
@@ -116,7 +111,7 @@ public class Bullet : MonoBehaviour
 
         if (damage == 50)
         {
-            shaderMatBullet.SetFloat("powerFresnel", 2);
+            shaderMatBullet.SetFloat("powerFresnel", 1.25f);
             damageLvl1.Play();
             damageLvl2.Stop();
             damageLvl3.Stop();
@@ -185,6 +180,16 @@ public class Bullet : MonoBehaviour
         {
             GameObject effectSP = Instantiate(impactEffectSP, transform.position, transform.rotation);
             Destroy(effectSP, 3f);
+        }
+        if(poisonDamage > 2)
+        {
+            GameObject effectPoisonUp = Instantiate(impactPoisonUp, transform.position, transform.rotation);
+            Destroy(effectPoisonUp, 3f);
+        }
+        if(slowForce > 2)
+        {
+            GameObject effectSlowUp = Instantiate(impactSlowUp, transform.position, transform.rotation);
+            Destroy(effectSlowUp, 3f);
         }
 
         Destroy(gameObject);

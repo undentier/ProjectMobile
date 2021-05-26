@@ -32,7 +32,9 @@ public class NodeSysteme : MonoBehaviour
     public GameObject explosionEffect;
     public GameObject laserEffect;
     [Space]
-    public GameObject[] conectorEffects;
+    public GameObject linkEffect;
+    public Transform[] linkEffectSpawnPoints;
+
     [HideInInspector]
     public int laserUpgrade;
     [HideInInspector]
@@ -52,6 +54,8 @@ public class NodeSysteme : MonoBehaviour
 
     [Header ("Object build on")]
     public GameObject objBuild;
+    public Turret[] neighbourTurrets;
+    public BoostBlock[] neighbourBlocks;
 
     private BoostBlock boostBlockScript;
     private Turret turretScript;
@@ -59,7 +63,13 @@ public class NodeSysteme : MonoBehaviour
 
     private void Start()
     {
+        neighbourTurrets = new Turret[4];
+        neighbourBlocks = new BoostBlock[4];
+
         FindCloseNodes();
+
+        GetNeighbourObjs();
+        SetAllNeighbourObjcs();
 
         ObjTypeDetection();
 
@@ -93,7 +103,7 @@ public class NodeSysteme : MonoBehaviour
 
             objBuild = Instantiate(objToBuild, transform.position, transform.rotation);
             LifeManager.lifeInstance.ChangeToken(-1);
-            WavePanel.instance.startWaveButton.SetActive(true);
+            WavePanel.instance.ShowStartWaveButton();
 
             ObjTypeDetection();
 
@@ -107,6 +117,8 @@ public class NodeSysteme : MonoBehaviour
             {
                 turretScript.GetNodeUpgrade(this);
             }
+            GetNeighbourObjs();
+            SetAllNeighbourObjcs();
         } //Condition for build
 
     }
@@ -132,6 +144,8 @@ public class NodeSysteme : MonoBehaviour
                     turretScript = null;
                 }
                 SlideManager.instance.StartSlide(this);
+                GetNeighbourObjs();
+                SetAllNeighbourObjcs();
             }
         } // Condition for start sliding
     }
@@ -191,7 +205,6 @@ public class NodeSysteme : MonoBehaviour
 
     void SetEffect()
     {
-        Debug.Log("Set effect");
         #region Stats effect
         if (fireRateUpgrade > 0)
         {
@@ -415,4 +428,61 @@ public class NodeSysteme : MonoBehaviour
         }
     }
     #endregion
+
+
+    void SetLinkEffect()
+    {
+        if (turretScript != null)
+        {
+            for (int i = 0; i < neighbourBlocks.Length; i++)
+            {
+                if (neighbourBlocks[i] != null)
+                {
+                    GameObject actualLinkEffect = Instantiate(linkEffect, linkEffectSpawnPoints[i].position, linkEffectSpawnPoints[i].rotation);
+                    Destroy(actualLinkEffect, 2f);
+                }
+            }
+        }
+    }
+
+    public void GetNeighbourObjs()
+    {
+        for (int i = 0; i < closestNodes.Count; i++)
+        {
+            if (closestNodes[i] != null)
+            {
+                if (closestNodes[i].turretScript != null)
+                {
+                    neighbourTurrets[i] = closestNodes[i].turretScript;
+                }
+                else if (closestNodes[i].boostBlockScript != null)
+                {
+                    neighbourBlocks[i] = closestNodes[i].boostBlockScript;
+                }
+                else
+                {
+                    neighbourTurrets[i] = null;
+                    neighbourBlocks[i] = null;
+                }
+            }
+            else
+            {
+                neighbourTurrets[i] = null;
+                neighbourBlocks[i] = null;
+            }
+        }
+
+        SetLinkEffect();
+    }
+    public void SetAllNeighbourObjcs()
+    {
+        for (int i = 0; i < closestNodes.Count; i++)
+        {
+            if (closestNodes[i] != null)
+            {
+                closestNodes[i].GetNeighbourObjs();
+            }
+        }
+        SetLinkEffect();
+    }
 }

@@ -71,7 +71,6 @@ public class SlideManager : MonoBehaviour
             }
             else
             {
-                //objToMove.transform.Translate(dir.normalized * distancePerFrame, Space.World);
                 objToMove.transform.position = Vector3.MoveTowards(objToMove.transform.position, targetNode.transform.position, slidingSpeed * Time.deltaTime);
             }
         }
@@ -159,10 +158,16 @@ public class SlideManager : MonoBehaviour
                 startNode.GetUpgrade(boostBlockScript);
                 startNode.UpgradeNeighbour(boostBlockScript);
                 startNode.TurretNeighbour();
+
+                startNode.GetNeighbourObjs();
+                startNode.SetAllNeighbourObjcs();
             }
             else if (turretScript != null)
             {
                 turretScript.GetNodeUpgrade(startNode);
+
+                startNode.GetNeighbourObjs();
+                startNode.SetAllNeighbourObjcs();
             }
 
             isSliding = false;

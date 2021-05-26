@@ -7,21 +7,25 @@ public class WavePanel : MonoBehaviour
     #region variable
     public static WavePanel instance;
 
+    [Header ("GD setup")]
     public LevelsSO level;
     public GameObject panel;
-
     public bool[] canBuildTurretWaves;
-    [HideInInspector]
-    public int canBuildTurretIndex;
-    public Transform[] slots;
-    public GameObject[] buttons;
-    private List<GameObject> usedButtons = new List<GameObject>();
+
+    [Header ("Unity setup")]
+    public Animator buildPanelAnim;
+    public Animator startWaveButtonAnim;
     [Space]
     public GameObject basicTurret;
     public GameObject startWaveButton;
-    public bool isBuildMode;
-    public bool isFirstWave = true;
-    private Animator anim;
+    [Space]
+    public Transform[] slots;
+    public GameObject[] buttons;
+
+    private List<GameObject> usedButtons = new List<GameObject>();
+    [HideInInspector] public int canBuildTurretIndex;
+    [HideInInspector] public bool isBuildMode;
+    [HideInInspector] public bool isFirstWave = true;
     #endregion
 
     private void Awake()
@@ -30,8 +34,6 @@ public class WavePanel : MonoBehaviour
     }
     private void Start()
     {
-        anim = GetComponent<Animator>();
-
         DisableAllButtons();
 
         ActiveBuildMode();
@@ -39,7 +41,7 @@ public class WavePanel : MonoBehaviour
 
     public void DisplayPanel()
     {
-        anim.SetInteger("state", 1);
+        buildPanelAnim.SetInteger("state", 1);
         LifeManager.lifeInstance.ChangeToken(1);
 
         if (canBuildTurretWaves[canBuildTurretIndex] == true)
@@ -58,6 +60,7 @@ public class WavePanel : MonoBehaviour
         }
     }
 
+    
     public void ActiveBuildMode()
     {
         isBuildMode = true;
@@ -75,16 +78,16 @@ public class WavePanel : MonoBehaviour
     }
     public void DisableBuildMode()
     {
-        anim.SetInteger("state", 2);
+        buildPanelAnim.SetInteger("state", 2);
         DisableAllButtons();
         basicTurret.SetActive(false);
     }
     public void StartWaveButton()
     {
+        startWaveButtonAnim.SetInteger("startState", 1);
         isBuildMode = false;
         DisableBuildMode();
         WaveSpawner.instance.StartWave();
-        startWaveButton.SetActive(false);
     }
 
     void SetButtonList()
@@ -195,5 +198,17 @@ public class WavePanel : MonoBehaviour
         {
             return null;
         }
+    }
+
+
+    public void ShowStartWaveButton()
+    {
+        StartCoroutine(WaitBeforeShowStartWave());
+    }
+
+    public IEnumerator WaitBeforeShowStartWave()
+    {
+        yield return new WaitForSeconds(1.3f);
+        startWaveButtonAnim.SetInteger("startState", 2);
     }
 }

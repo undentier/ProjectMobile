@@ -418,9 +418,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3339626323251534459, guid: dc58399b3bcafdb4d807a2c163b3cbe2,
         type: 3}
+      propertyPath: bin
+      value: 
+      objectReference: {fileID: 4604730123348824957}
+    - target: {fileID: 3339626323251534459, guid: dc58399b3bcafdb4d807a2c163b3cbe2,
+        type: 3}
       propertyPath: binAnim
       value: 
-      objectReference: {fileID: 5335602840116215959}
+      objectReference: {fileID: 0}
     - target: {fileID: 3339626323251534459, guid: dc58399b3bcafdb4d807a2c163b3cbe2,
         type: 3}
       propertyPath: basiqueTurretPrevisualizePrefab
@@ -686,20 +691,15 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 5701347970331956477}
-    - target: {fileID: 4267100092971161656, guid: 163218c4b7139064eb85c159f25454c1,
+    - target: {fileID: 4649906586240582169, guid: 163218c4b7139064eb85c159f25454c1,
         type: 3}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: EnterCancel
-      objectReference: {fileID: 0}
-    - target: {fileID: 4267100092971161656, guid: 163218c4b7139064eb85c159f25454c1,
-        type: 3}
-      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CancelBuild
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6707900216378024349, guid: 163218c4b7139064eb85c159f25454c1,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -55.00006
+      value: -55
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 163218c4b7139064eb85c159f25454c1, type: 3}
@@ -709,9 +709,9 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 7365289629535639197}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &5335602840116215959 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 3187736438123157002, guid: 163218c4b7139064eb85c159f25454c1,
+--- !u!1 &4604730123348824957 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6472106161434281440, guid: 163218c4b7139064eb85c159f25454c1,
     type: 3}
   m_PrefabInstance: {fileID: 7365289629535639197}
   m_PrefabAsset: {fileID: 0}

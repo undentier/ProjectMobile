@@ -43,7 +43,7 @@ public class TutoSysteme : MonoBehaviour
             {
                 dragTutoState = 1;
                 handDragObj.SetActive(true);
-                blackBackGroundObj.SetActive(true);
+                //blackBackGroundObj.SetActive(true);
             }
         }
         else if (dragTutoState == 1)

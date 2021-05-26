@@ -9,6 +9,7 @@ public class BuildManager : MonoBehaviour
     [Header ("Basique Turret")]
     public GameObject basiqueTurretPrefab;
     public GameObject basiqueTurretPrevisualizePrefab;
+    public GameObject blockPrevisualizePrefab; 
 
     [Header ("Boost block")]
     public GameObject fireRateBlock;

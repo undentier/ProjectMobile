@@ -18,7 +18,7 @@ public class BuildSelecteur : MonoBehaviour
     {
         if (TouchDetection.currentlyHoveredNode != null)
         {
-            BuildManager.instance.SetTurretToBuild(BuildManager.instance.fireRateBlock, BuildManager.instance.basiqueTurretPrevisualizePrefab);
+            BuildManager.instance.SetTurretToBuild(BuildManager.instance.fireRateBlock, BuildManager.instance.blockPrevisualizePrefab);
             BuildManager.instance.StartDragTurret();
         }
     }
@@ -27,7 +27,7 @@ public class BuildSelecteur : MonoBehaviour
     {
         if (TouchDetection.currentlyHoveredNode != null)
         {
-            BuildManager.instance.SetTurretToBuild(BuildManager.instance.damageBlock, BuildManager.instance.basiqueTurretPrevisualizePrefab);
+            BuildManager.instance.SetTurretToBuild(BuildManager.instance.damageBlock, BuildManager.instance.blockPrevisualizePrefab);
             BuildManager.instance.StartDragTurret();
         }
     }
@@ -36,7 +36,7 @@ public class BuildSelecteur : MonoBehaviour
     {
         if (TouchDetection.currentlyHoveredNode != null)
         {
-            BuildManager.instance.SetTurretToBuild(BuildManager.instance.rangeBlock, BuildManager.instance.basiqueTurretPrevisualizePrefab);
+            BuildManager.instance.SetTurretToBuild(BuildManager.instance.rangeBlock, BuildManager.instance.blockPrevisualizePrefab);
             BuildManager.instance.StartDragTurret();
         }
     }
@@ -45,7 +45,7 @@ public class BuildSelecteur : MonoBehaviour
     {
         if (TouchDetection.currentlyHoveredNode != null)
         {
-            BuildManager.instance.SetTurretToBuild(BuildManager.instance.poisonBlock, BuildManager.instance.basiqueTurretPrevisualizePrefab);
+            BuildManager.instance.SetTurretToBuild(BuildManager.instance.poisonBlock, BuildManager.instance.blockPrevisualizePrefab);
             BuildManager.instance.StartDragTurret();
         }
     }
@@ -54,7 +54,7 @@ public class BuildSelecteur : MonoBehaviour
     {
         if (TouchDetection.currentlyHoveredNode != null)
         {
-            BuildManager.instance.SetTurretToBuild(BuildManager.instance.slowBlock, BuildManager.instance.basiqueTurretPrevisualizePrefab);
+            BuildManager.instance.SetTurretToBuild(BuildManager.instance.slowBlock, BuildManager.instance.blockPrevisualizePrefab);
             BuildManager.instance.StartDragTurret();
         }
     }
@@ -63,7 +63,7 @@ public class BuildSelecteur : MonoBehaviour
     {
         if (TouchDetection.currentlyHoveredNode != null)
         {
-            BuildManager.instance.SetTurretToBuild(BuildManager.instance.explosionBlock, BuildManager.instance.basiqueTurretPrevisualizePrefab);
+            BuildManager.instance.SetTurretToBuild(BuildManager.instance.explosionBlock, BuildManager.instance.blockPrevisualizePrefab);
             BuildManager.instance.StartDragTurret();
         }
     }
@@ -72,7 +72,7 @@ public class BuildSelecteur : MonoBehaviour
     {
         if (TouchDetection.currentlyHoveredNode != null)
         {
-            BuildManager.instance.SetTurretToBuild(BuildManager.instance.laserBlock, BuildManager.instance.basiqueTurretPrevisualizePrefab);
+            BuildManager.instance.SetTurretToBuild(BuildManager.instance.laserBlock, BuildManager.instance.blockPrevisualizePrefab);
             BuildManager.instance.StartDragTurret();
         }
     }

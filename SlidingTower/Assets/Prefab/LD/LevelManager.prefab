@@ -106,6 +106,7 @@ MonoBehaviour:
   faisseau: {fileID: 2100000, guid: 6f07dc830e37d4e458ae5981c078ed67, type: 2}
   nexusEmissive: {fileID: 2100000, guid: d7a69c36f968c29419f1218f0bddaa41, type: 2}
   powerEmissive: 0
+  PVLost: {fileID: 0}
 --- !u!114 &3339626323251534459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,6 +122,8 @@ MonoBehaviour:
   basiqueTurretPrefab: {fileID: 7122458465355761990, guid: e144a754f77db1348aa3e8870f279a11,
     type: 3}
   basiqueTurretPrevisualizePrefab: {fileID: 2609717235347817975, guid: ca5ca142dda9b1b4d9505cf7b9f5e66f,
+    type: 3}
+  blockPrevisualizePrefab: {fileID: 3032868354518637624, guid: dd656f30d3b163244817de10d3f06642,
     type: 3}
   fireRateBlock: {fileID: 1437501445353532660, guid: 146cf4b384f8c394996470f8570f373f,
     type: 3}
@@ -138,4 +141,5 @@ MonoBehaviour:
     type: 3}
   isDraggingTurret: 0
   currentPrevisualisationObject: {fileID: 0}
-  binAnim: {fileID: 0}
+  wantCancel: 0
+  bin: {fileID: 0}

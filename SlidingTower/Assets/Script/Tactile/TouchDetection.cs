@@ -2,16 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class TouchDetection : MonoBehaviour
 {
     private static Ray ray;
     private static RaycastHit hit;
+    [SerializeField]
     public static NodeSysteme currentlyHoveredNode;
     static Touch touch;
 
     private void Start()
     {
-        currentlyHoveredNode = NodeManager.allNodes[0];
+        //currentlyHoveredNode = NodeManager.allNodes[0];
     }
 
     public static void UpdateCurrentNode()
@@ -63,6 +65,7 @@ public class TouchDetection : MonoBehaviour
 
     private void Update()
     {
+
         if (Input.touchCount > 0)
         {
             foreach (Touch touch in Input.touches)

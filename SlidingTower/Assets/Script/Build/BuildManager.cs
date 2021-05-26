@@ -62,6 +62,21 @@ public class BuildManager : MonoBehaviour
         if (isDraggingTurret)
         {
             bin.SetActive(true);
+
+            if (wantCancel)
+            {
+                if (currentPrevisualisationObject != null)
+                {
+                    currentPrevisualisationObject.SetActive(false);
+                }
+            }
+            else
+            {
+                if (currentPrevisualisationObject != null)
+                {
+                    currentPrevisualisationObject.SetActive(true);
+                }
+            }
         }
         else
         {
@@ -73,6 +88,7 @@ public class BuildManager : MonoBehaviour
     {
         TouchDetection.UpdateCurrentNode();
         currentPrevisualisationObject = Instantiate(turretPreviToBuild, TouchDetection.currentlyHoveredNode.transform.position, TouchDetection.currentlyHoveredNode.transform.rotation);
+        currentPrevisualisationObject.SetActive(true);
         isDraggingTurret = true;
     }
 

@@ -20,8 +20,6 @@ public class TutoSysteme : MonoBehaviour
 
     void Start()
     {
-        handMoveAnim.SetBool("canMove", true);
-
         blackBackGroundObj.SetActive(false);
         handDragObj.SetActive(false);
     }

@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -3540,6 +3540,66 @@ PrefabInstance:
       propertyPath: m_Name
       value: Start (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2207123424500062092, guid: 8debd5bf216fc82479e0a8d2d5a88608,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2207123424500062092, guid: 8debd5bf216fc82479e0a8d2d5a88608,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2207123424500062092, guid: 8debd5bf216fc82479e0a8d2d5a88608,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2207123424500062092, guid: 8debd5bf216fc82479e0a8d2d5a88608,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229747681192409776, guid: 8debd5bf216fc82479e0a8d2d5a88608,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229747681192409776, guid: 8debd5bf216fc82479e0a8d2d5a88608,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229747681192409776, guid: 8debd5bf216fc82479e0a8d2d5a88608,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229747681192409776, guid: 8debd5bf216fc82479e0a8d2d5a88608,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8631772425259333641, guid: 8debd5bf216fc82479e0a8d2d5a88608,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8631772425259333641, guid: 8debd5bf216fc82479e0a8d2d5a88608,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8631772425259333641, guid: 8debd5bf216fc82479e0a8d2d5a88608,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8631772425259333641, guid: 8debd5bf216fc82479e0a8d2d5a88608,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8debd5bf216fc82479e0a8d2d5a88608, type: 3}
 --- !u!4 &1751294977 stripped
@@ -3615,6 +3675,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4703266504199140833, guid: 3136da9772be55d408a376d4baa73a0a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -35.80005
+      objectReference: {fileID: 0}
     - target: {fileID: 5623976728855347930, guid: 3136da9772be55d408a376d4baa73a0a,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -3647,6 +3712,16 @@ PrefabInstance:
       propertyPath: spawnPoints.Array.data[0]
       value: 
       objectReference: {fileID: 1751294977}
+    - target: {fileID: 5701347970331956474, guid: 3136da9772be55d408a376d4baa73a0a,
+        type: 3}
+      propertyPath: startLife
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6261059061550389549, guid: 3136da9772be55d408a376d4baa73a0a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.00018310547
+      objectReference: {fileID: 0}
     - target: {fileID: 7192525008006030374, guid: 3136da9772be55d408a376d4baa73a0a,
         type: 3}
       propertyPath: level
@@ -3682,6 +3757,16 @@ PrefabInstance:
         type: 3}
       propertyPath: canBuildTurretWaves.Array.data[6]
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8722607032279402386, guid: 3136da9772be55d408a376d4baa73a0a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -35.80005
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893294347221872456, guid: 3136da9772be55d408a376d4baa73a0a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -35.80005
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3136da9772be55d408a376d4baa73a0a, type: 3}

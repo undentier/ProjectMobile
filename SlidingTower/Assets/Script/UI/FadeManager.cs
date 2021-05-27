@@ -26,16 +26,16 @@ public class FadeManager : MonoBehaviour
 
     private void Start()
     {
-        FadeOut(fadeImage, fadeOutTime);
+        FadeOut(fadeImage, fadeOutTime, false);
     }
 
-    public void FadeIn(Image image, float time)
+    public void FadeIn(Image image, float time, bool state)
     {
-        image.CrossFadeAlpha(1, time, false);
+        image.CrossFadeAlpha(1, time, state);
     }
 
-    public void FadeOut(Image image, float time)
+    public void FadeOut(Image image, float time, bool state)
     {
-        image.CrossFadeAlpha(0, time, false);
+        image.CrossFadeAlpha(0, time, state);
     }
 }

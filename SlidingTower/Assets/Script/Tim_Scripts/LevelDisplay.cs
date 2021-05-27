@@ -37,12 +37,10 @@ public class LevelDisplay : MonoBehaviour
     }
     public void ScoreTracker()
     {
-        /*level.score = Random.Range(0, 4);
-        UpdateScoreDisplay();*/
         UISoundsManager.uiSoundsManager.PlayStartSound(1);
         GameManager.instance.GetLevelInfo(level);
-        SceneManager.LoadScene(level.levelSceneName);
 
+        StartCoroutine(WaitFadeEnd());
     }
     public void UpdateScoreDisplay()
     {
@@ -115,5 +113,12 @@ public class LevelDisplay : MonoBehaviour
         levelNumber = level.levelNumber;
         levelNumberText.text = "Level " + levelNumber.ToString();
         UpdateScoreDisplay();
+    }
+
+    IEnumerator WaitFadeEnd()
+    {
+        FadeManager.instance.FadeIn(FadeManager.instance.fadeImage, FadeManager.instance.fadeInTime, false);
+        yield return new WaitForSeconds(FadeManager.instance.fadeInTime);
+        SceneManager.LoadScene(level.levelSceneName);
     }
 }

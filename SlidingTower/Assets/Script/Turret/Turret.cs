@@ -69,6 +69,10 @@ public class Turret : MonoBehaviour
     public GameObject baseTurret;
     public GameObject matDisco;
 
+    [Header("Material")]
+    private float timerEffect;
+    private Material baseTurretShader;
+     
     private Material shaderMatEmissive;
     private Material shaderMatEmissive1;
     private Material shaderMatEmissive2;
@@ -76,6 +80,7 @@ public class Turret : MonoBehaviour
     private Material shaderMatEmissive4;
 
     private Material shaderMatLaser;
+
     [Header("LaserSoundOption")]
     public AudioSource source;
     public float laserSoundFadeTime;
@@ -117,12 +122,18 @@ public class Turret : MonoBehaviour
         laserMultiplier = new float[numMaxTargets];
         laserCoolDown = new float[numMaxTargets];
 
+        baseTurretShader = baseTurret.GetComponent<MeshRenderer>().materials[0];
         shaderMatEmissive = basicCanon.GetComponent<MeshRenderer>().materials[1];
         shaderMatEmissive1 = baseTurret.GetComponent<MeshRenderer>().materials[1];
         shaderMatEmissive2 = explosionCanon.GetComponent<MeshRenderer>().materials[1];
         shaderMatEmissive3 = laserCanon.GetComponent<MeshRenderer>().materials[1];
         shaderMatEmissive4 = matDisco.GetComponent<MeshRenderer>().materials[1];
         ResetLaser();
+    }
+
+    private void Start()
+    {
+        StartCoroutine(CreateTurretEffect());
     }
 
     void FixedUpdate()
@@ -637,6 +648,18 @@ public class Turret : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         source.volume = 0;
+    }
+
+    public IEnumerator CreateTurretEffect()
+    {
+        timerEffect = 0;
+        while (timerEffect < 5)
+        {
+            timerEffect += Time.deltaTime;
+            Debug.Log(timerEffect);
+            baseTurretShader.SetFloat("_HoloToText", timerEffect);
+        }
+        return null;
     }
 
     private void OnDrawGizmos()

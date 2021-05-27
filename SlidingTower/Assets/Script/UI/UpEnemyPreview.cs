@@ -7,15 +7,12 @@ public class UpEnemyPreview : MonoBehaviour
     public static UpEnemyPreview instance;
 
     [Header("Low enemy")]
-    //public GameObject lowGeneral;
     public TextMeshProUGUI lowCounter;
 
     [Header("Mid enemy")]
-    //public GameObject midGeneral;
     public TextMeshProUGUI midCounter;
 
     [Header("Big enemy")]
-    //public GameObject bigGeneral;
     public TextMeshProUGUI bigCounter;
 
     private void Awake()

@@ -31,7 +31,8 @@ public class WaveSpawner : MonoBehaviour
     [HideInInspector]
     public List<Enemy> enemyList = new List<Enemy>();
     private bool canCheck;
-    private int numOfWaveFinish;
+    [HideInInspector]
+    public int numOfWaveFinish;
 
     [HideInInspector]
     public int nextTotalLowEnemyNumber;
@@ -99,7 +100,13 @@ public class WaveSpawner : MonoBehaviour
     IEnumerator WaitBfrEndWave()
     {
         yield return new WaitForSeconds(timeBeforeEndWave);
-        waveIndex++;
+
+        Debug.Log(levelWaves[0].waves.Length);
+        if (waveIndex < levelWaves[0].waves.Length)
+        {
+            waveIndex++;
+        }
+
         waveSpawn = false;
 
         GetTotaleWaveCompo();

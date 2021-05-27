@@ -22,7 +22,7 @@ public class WaveSpawner : MonoBehaviour
     [Header("Macro info Wave")]
     public float timeBeforeEndWave;
 
-    [HideInInspector]
+    //[HideInInspector]
     public int waveIndex;
     [HideInInspector]
     public bool enemyAlive;
@@ -51,6 +51,7 @@ public class WaveSpawner : MonoBehaviour
     private void Start()
     {
         GetTotaleWaveCompo();
+        UpEnemyPreview.instance.ActualyseEnemyCounter();
     }
     void Update()
     {
@@ -157,6 +158,7 @@ public class WaveSpawner : MonoBehaviour
         else
         {
             UIManager.instance.previewScript.ActualiseEnemy();
+            UpEnemyPreview.instance.ActualyseEnemyCounter();
         }
     }
 
@@ -164,6 +166,10 @@ public class WaveSpawner : MonoBehaviour
     {
         if (waveIndex < wichWave.waves.Length)
         {
+            nextTotalLowEnemyNumber = 0;
+            nextTotalMidEnemyNumber = 0;
+            nextTotalBigEnemyNumber = 0;
+
             for (int i = 0; i < wichWave.waves[waveIndex].enemies.Length; i++)
             {
                 switch (wichWave.waves[waveIndex].enemies[i].wichEnemy)

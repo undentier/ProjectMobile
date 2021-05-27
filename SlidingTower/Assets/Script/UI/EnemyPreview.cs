@@ -22,7 +22,7 @@ public class EnemyPreview : MonoBehaviour
 
     private void Start()
     {
-        generalEnemyPreview.SetActive(false);
+        //generalEnemyPreview.SetActive(false);
     }
 
     public void ActualiseEnemy()

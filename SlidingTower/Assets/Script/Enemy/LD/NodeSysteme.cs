@@ -176,7 +176,7 @@ public class NodeSysteme : MonoBehaviour
                     break;
             }
 
-            if (Physics.Raycast(transform.position, dir, out hit, 2f, nodeMask))
+            if (Physics.Raycast(transform.position, dir, out hit, 3f, nodeMask))
             {
                 closestNodes.Add(hit.transform.gameObject.GetComponent<NodeSysteme>());
             }

@@ -25,11 +25,13 @@ public class BuildManager : MonoBehaviour
     public GameObject laserBlock;
 
     private GameObject turretToBuild;
+    public int turretPlaceSoundIndex;
     private GameObject turretPreviToBuild;
     [Space]
     public bool isDraggingTurret;
     private Touch touch;
     public GameObject currentPrevisualisationObject;
+    private Vector3 lastPreviPos;
     public bool wantCancel;
 
     [Header("Unity setup")]
@@ -49,10 +51,11 @@ public class BuildManager : MonoBehaviour
         instance = this;
     }
 
-    public void SetTurretToBuild(GameObject turret, GameObject turretPrevi)
+    public void SetTurretToBuild(GameObject turret, GameObject turretPrevi, int _turretPlaceSoundIndex)
     {
         turretToBuild = turret;
         turretPreviToBuild = turretPrevi;
+        turretPlaceSoundIndex = _turretPlaceSoundIndex;
     }
 
     public void Update()
@@ -94,7 +97,14 @@ public class BuildManager : MonoBehaviour
         if (isDraggingTurret)
         {
             TouchDetection.UpdateCurrentNode();
+
             currentPrevisualisationObject.transform.position = TouchDetection.currentlyHoveredNode.transform.position;
+
+            if (lastPreviPos != currentPrevisualisationObject.transform.position)
+            {
+                TurretSoundManager.I.PlayPreviSlide(1);
+                lastPreviPos = currentPrevisualisationObject.transform.position;
+            }
             if (Input.touchCount > 0)
             {
                 touch = Input.GetTouch(0);
@@ -140,6 +150,7 @@ public class BuildManager : MonoBehaviour
         Destroy(currentPrevisualisationObject);
         isDraggingTurret = false;
         wantCancel = false;
+        PlayerSoundManager.I.UnSelectTurret(1);
     }
 
 

@@ -9,7 +9,8 @@ public class BuildSelecteur : MonoBehaviour
     {
         if (TouchDetection.currentlyHoveredNode != null)
         {
-            BuildManager.instance.SetTurretToBuild(BuildManager.instance.basiqueTurretPrefab, BuildManager.instance.basiqueTurretPrevisualizePrefab);
+            PlayerSoundManager.I.SelectTurret(1);
+            BuildManager.instance.SetTurretToBuild(BuildManager.instance.basiqueTurretPrefab, BuildManager.instance.basiqueTurretPrevisualizePrefab, 0);
             BuildManager.instance.StartDragTurret();
         }
     }
@@ -18,7 +19,8 @@ public class BuildSelecteur : MonoBehaviour
     {
         if (TouchDetection.currentlyHoveredNode != null)
         {
-            BuildManager.instance.SetTurretToBuild(BuildManager.instance.fireRateBlock, BuildManager.instance.blockPrevisualizePrefab);
+            PlayerSoundManager.I.SelectTurret(1);
+            BuildManager.instance.SetTurretToBuild(BuildManager.instance.fireRateBlock, BuildManager.instance.basiqueTurretPrevisualizePrefab, 1);
             BuildManager.instance.StartDragTurret();
         }
     }
@@ -27,7 +29,8 @@ public class BuildSelecteur : MonoBehaviour
     {
         if (TouchDetection.currentlyHoveredNode != null)
         {
-            BuildManager.instance.SetTurretToBuild(BuildManager.instance.damageBlock, BuildManager.instance.blockPrevisualizePrefab);
+            PlayerSoundManager.I.SelectTurret(1);
+            BuildManager.instance.SetTurretToBuild(BuildManager.instance.damageBlock, BuildManager.instance.basiqueTurretPrevisualizePrefab, 2);
             BuildManager.instance.StartDragTurret();
         }
     }
@@ -36,7 +39,8 @@ public class BuildSelecteur : MonoBehaviour
     {
         if (TouchDetection.currentlyHoveredNode != null)
         {
-            BuildManager.instance.SetTurretToBuild(BuildManager.instance.rangeBlock, BuildManager.instance.blockPrevisualizePrefab);
+            PlayerSoundManager.I.SelectTurret(1);
+            BuildManager.instance.SetTurretToBuild(BuildManager.instance.rangeBlock, BuildManager.instance.basiqueTurretPrevisualizePrefab, 3) ;
             BuildManager.instance.StartDragTurret();
         }
     }
@@ -45,7 +49,8 @@ public class BuildSelecteur : MonoBehaviour
     {
         if (TouchDetection.currentlyHoveredNode != null)
         {
-            BuildManager.instance.SetTurretToBuild(BuildManager.instance.poisonBlock, BuildManager.instance.blockPrevisualizePrefab);
+            PlayerSoundManager.I.SelectTurret(1);
+            BuildManager.instance.SetTurretToBuild(BuildManager.instance.poisonBlock, BuildManager.instance.basiqueTurretPrevisualizePrefab, 4);
             BuildManager.instance.StartDragTurret();
         }
     }
@@ -54,7 +59,8 @@ public class BuildSelecteur : MonoBehaviour
     {
         if (TouchDetection.currentlyHoveredNode != null)
         {
-            BuildManager.instance.SetTurretToBuild(BuildManager.instance.slowBlock, BuildManager.instance.blockPrevisualizePrefab);
+            PlayerSoundManager.I.SelectTurret(1);
+            BuildManager.instance.SetTurretToBuild(BuildManager.instance.slowBlock, BuildManager.instance.basiqueTurretPrevisualizePrefab, 5);
             BuildManager.instance.StartDragTurret();
         }
     }
@@ -63,7 +69,8 @@ public class BuildSelecteur : MonoBehaviour
     {
         if (TouchDetection.currentlyHoveredNode != null)
         {
-            BuildManager.instance.SetTurretToBuild(BuildManager.instance.explosionBlock, BuildManager.instance.blockPrevisualizePrefab);
+            PlayerSoundManager.I.SelectTurret(1);
+            BuildManager.instance.SetTurretToBuild(BuildManager.instance.explosionBlock, BuildManager.instance.basiqueTurretPrevisualizePrefab, 6);
             BuildManager.instance.StartDragTurret();
         }
     }
@@ -72,7 +79,8 @@ public class BuildSelecteur : MonoBehaviour
     {
         if (TouchDetection.currentlyHoveredNode != null)
         {
-            BuildManager.instance.SetTurretToBuild(BuildManager.instance.laserBlock, BuildManager.instance.blockPrevisualizePrefab);
+            PlayerSoundManager.I.SelectTurret(1);
+            BuildManager.instance.SetTurretToBuild(BuildManager.instance.laserBlock, BuildManager.instance.basiqueTurretPrevisualizePrefab, 7);
             BuildManager.instance.StartDragTurret();
         }
     }

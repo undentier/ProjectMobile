@@ -39,6 +39,7 @@ public class LevelDisplay : MonoBehaviour
     {
         /*level.score = Random.Range(0, 4);
         UpdateScoreDisplay();*/
+        UISoundsManager.uiSoundsManager.PlayStartSound(1);
         GameManager.instance.GetLevelInfo(level);
         SceneManager.LoadScene(level.levelSceneName);
 

@@ -181,6 +181,7 @@ public class SlideManager : MonoBehaviour
 
     void SwitchInformation(NodeSysteme _nextStartNode)
     {
+        TurretSoundManager.I.Slide(0.5f);
         startNode.objBuild = null;
 
         startNode = _nextStartNode;

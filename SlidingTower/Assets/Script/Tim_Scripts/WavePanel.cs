@@ -43,7 +43,7 @@ public class WavePanel : MonoBehaviour
     {
         buildPanelAnim.SetInteger("state", 1);
         LifeManager.lifeInstance.ChangeToken(1);
-
+        PlayerSoundManager.I.PlayBuildMode(1);
         if (canBuildTurretWaves[canBuildTurretIndex] == true)
         {
             basicTurret.SetActive(true);
@@ -86,6 +86,7 @@ public class WavePanel : MonoBehaviour
     public void StartWaveButton()
     {
         startWaveButtonAnim.SetInteger("startState", 1);
+        PlayerSoundManager.I.StartWave(1);
         isBuildMode = false;
         DisableBuildMode();
         WaveSpawner.instance.StartWave();

@@ -76,6 +76,10 @@ public class Turret : MonoBehaviour
     private Material shaderMatEmissive4;
 
     private Material shaderMatLaser;
+    [Header("LaserSoundOption")]
+    public AudioSource source;
+    public float laserSoundFadeTime;
+    private bool laserSoundIsPlaying;
 
     [HideInInspector]
     public List<Enemy> targetList = new List<Enemy>();
@@ -179,6 +183,7 @@ public class Turret : MonoBehaviour
 
             if (fireCoolDown <= 0f)
             {
+                TurretSoundManager.I.Shoot(1);
                 Fire(targetList[0]);
                 fireCoolDown = 1f / actualFireRate;
             }
@@ -193,6 +198,13 @@ public class Turret : MonoBehaviour
         {
             if (targetList.Count > i)
             {
+                if(!laserSoundIsPlaying)
+                {
+                    laserSoundIsPlaying = true;
+                    StopAllCoroutines();
+                    StartCoroutine(StartLaserSound());
+                }
+
                 shaderMatLaser = laserLines[i].GetComponent<LineRenderer>().material;
                 laserLines[i].enabled = true;
                 laserLines[i].SetPosition(0, shootPoint.position);
@@ -266,6 +278,12 @@ public class Turret : MonoBehaviour
             }
             else if (laserLines[i].enabled)
             {
+                if (laserSoundIsPlaying)
+                {
+                    laserSoundIsPlaying = false;
+                    StopAllCoroutines();
+                    StartCoroutine(StopLaserSound());
+                }
                 laserLines[i].enabled = false;
                 laserMultiplier[i] = 1f;
                 laserCoolDown[i] = 0f;
@@ -598,6 +616,27 @@ public class Turret : MonoBehaviour
             shaderMatEmissive4.SetFloat("inputColorEmissive", 0);
         }
         #endregion
+    }
+
+    private IEnumerator StartLaserSound()
+    {
+        source.volume = 0;
+        for (float i = 0; i < laserSoundFadeTime; i += Time.deltaTime)
+        {
+            source.volume = i / laserSoundFadeTime;
+            yield return new WaitForEndOfFrame();
+        }
+        source.volume = 1;
+    }
+    private IEnumerator StopLaserSound()
+    {
+        source.volume = 1;
+        for (float i = 0; i < laserSoundFadeTime; i += Time.deltaTime)
+        {
+            source.volume = 1 - (i / laserSoundFadeTime);
+            yield return new WaitForEndOfFrame();
+        }
+        source.volume = 0;
     }
 
     private void OnDrawGizmos()

@@ -22,7 +22,7 @@ public class WaveSpawner : MonoBehaviour
     [Header("Macro info Wave")]
     public float timeBeforeEndWave;
 
-    //[HideInInspector]
+    [HideInInspector]
     public int waveIndex;
     [HideInInspector]
     public bool enemyAlive;

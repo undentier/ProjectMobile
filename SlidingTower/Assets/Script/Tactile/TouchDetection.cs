@@ -14,7 +14,7 @@ public class TouchDetection : MonoBehaviour
 
     private void Start()
     {
-        currentlyHoveredNode = NodeManager.allNodes[0];
+        //currentlyHoveredNode = NodeManager.allNodes[0];
 
     }
 

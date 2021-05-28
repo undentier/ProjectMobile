@@ -87,7 +87,7 @@ public class BuildManager : MonoBehaviour
 
     public void StartDragTurret()
     {
-        TouchDetection.UpdateCurrentNode();
+        TouchDetection.currentlyHoveredNode = NodeManager.allNodes[0];
         currentPrevisualisationObject = Instantiate(turretPreviToBuild, TouchDetection.currentlyHoveredNode.transform.position, TouchDetection.currentlyHoveredNode.transform.rotation);
         isDraggingTurret = true;
     }
@@ -142,6 +142,7 @@ public class BuildManager : MonoBehaviour
         TouchDetection.currentlyHoveredNode.CreateTurret();
         TouchDetection.currentlyHoveredNode = NodeManager.allNodes[0];
         Destroy(currentPrevisualisationObject);
+        TouchDetection.currentlyHoveredNode = null;
     }
 
     public void CancelBuild()
@@ -150,6 +151,7 @@ public class BuildManager : MonoBehaviour
         Destroy(currentPrevisualisationObject);
         isDraggingTurret = false;
         wantCancel = false;
+        TouchDetection.currentlyHoveredNode = null;
         PlayerSoundManager.I.UnSelectTurret(1);
     }
 
@@ -172,6 +174,8 @@ public class BuildManager : MonoBehaviour
                         if (SlideManager.instance.isSliding)
                         {
                             SlideManager.instance.EndSlide();
+
+                            TouchDetection.currentlyHoveredNode = null;
                         }
                     }
                 }
@@ -179,13 +183,19 @@ public class BuildManager : MonoBehaviour
             else if (Input.GetButtonDown("LeftClick"))
             {
                 TouchDetection.UpdateCurrentNode();
-                TouchDetection.currentlyHoveredNode.SlideTurret();
+
+                if (TouchDetection.currentlyHoveredNode != null)
+                {
+                    TouchDetection.currentlyHoveredNode.SlideTurret();
+                }
             }
             else if (Input.GetButtonUp("LeftClick"))
             {
                 if (SlideManager.instance.isSliding)
                 {
                     SlideManager.instance.EndSlide();
+
+                    TouchDetection.currentlyHoveredNode = null;
                 }
             }
         }

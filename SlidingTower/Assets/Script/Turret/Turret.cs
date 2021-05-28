@@ -69,6 +69,10 @@ public class Turret : MonoBehaviour
     public GameObject baseTurret;
     public GameObject matDisco;
 
+    public GameObject particlesLaserlvl1;
+    public GameObject particlesLaserlvl2;
+    public GameObject particlesLaserlvl3;
+
     [Header("Material")]
     private float timerEffect;
     private Material baseTurretShader;
@@ -566,6 +570,7 @@ public class Turret : MonoBehaviour
             laserCanon.SetActive(false);
             discoCanon.SetActive(false);
             basicCanon.SetActive(false);
+
         }
         else if (laserUpgrade > 0 && explosionUpgrade == 0)
         {
@@ -574,6 +579,13 @@ public class Turret : MonoBehaviour
             discoCanon.SetActive(false);
             basicCanon.SetActive(false);
             explosionCanon.SetActive(false);
+
+            if (laserUpgrade == 1)
+            { 
+                particlesLaserlvl1.SetActive(true);
+                particlesLaserlvl2.SetActive(false);
+                particlesLaserlvl3.SetActive(false);
+            }
         }
         else if (laserUpgrade > 0 && explosionUpgrade > 0)
         {

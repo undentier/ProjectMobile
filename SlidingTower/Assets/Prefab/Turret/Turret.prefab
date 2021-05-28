@@ -1117,6 +1117,9 @@ MonoBehaviour:
   discoCanon: {fileID: 3266471228151374880}
   baseTurret: {fileID: 3018894392717185213}
   matDisco: {fileID: 8817139894897165247}
+  particlesLaserlvl1: {fileID: 2220126662434455797}
+  particlesLaserlvl2: {fileID: 137834253592475025}
+  particlesLaserlvl3: {fileID: 5255260197775941546}
   source: {fileID: 4334397598975662858}
   laserSoundFadeTime: 0.2
   targetList: []
@@ -1516,12 +1519,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ff010d7dfd10bd46be8feb77b0f38b1, type: 3}
---- !u!1 &8817139894897165247 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2172405777888387190, guid: 9ff010d7dfd10bd46be8feb77b0f38b1,
-    type: 3}
-  m_PrefabInstance: {fileID: 7239863571764372425}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2746921900286377626 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4784563767063158099, guid: 9ff010d7dfd10bd46be8feb77b0f38b1,
@@ -1531,6 +1528,12 @@ Transform:
 --- !u!1 &3266471228151374880 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5273151981361383401, guid: 9ff010d7dfd10bd46be8feb77b0f38b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 7239863571764372425}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8817139894897165247 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2172405777888387190, guid: 9ff010d7dfd10bd46be8feb77b0f38b1,
     type: 3}
   m_PrefabInstance: {fileID: 7239863571764372425}
   m_PrefabAsset: {fileID: 0}
@@ -1608,6 +1611,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 901355f79b5646f4eab21a83416e019e, type: 3}
+--- !u!1 &5255260197775941546 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2680101651201948022, guid: 901355f79b5646f4eab21a83416e019e,
+    type: 3}
+  m_PrefabInstance: {fileID: 7917272133904590556}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &137834253592475025 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7797528154250793805, guid: 901355f79b5646f4eab21a83416e019e,
+    type: 3}
+  m_PrefabInstance: {fileID: 7917272133904590556}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2220126662434455797 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8291325243327047209, guid: 901355f79b5646f4eab21a83416e019e,
+    type: 3}
+  m_PrefabInstance: {fileID: 7917272133904590556}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1922167117260374467 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8607264827792336671, guid: 901355f79b5646f4eab21a83416e019e,

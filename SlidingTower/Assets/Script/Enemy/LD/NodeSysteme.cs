@@ -83,7 +83,7 @@ public class NodeSysteme : MonoBehaviour
 
         if (boostBlockScript != null)
         {
-            //GetUpgrade(boostBlockScript);
+            GetUpgrade(boostBlockScript);
             UpgradeNeighbour(boostBlockScript);
             TurretNeighbour();
         }

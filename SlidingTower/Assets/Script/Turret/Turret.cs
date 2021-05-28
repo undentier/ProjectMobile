@@ -656,10 +656,9 @@ public class Turret : MonoBehaviour
         while (timerEffect < 5)
         {
             timerEffect += Time.deltaTime;
-            Debug.Log(timerEffect);
             baseTurretShader.SetFloat("_HoloToText", timerEffect);
         }
-        return null;
+        yield return new WaitForEndOfFrame();
     }
 
     private void OnDrawGizmos()

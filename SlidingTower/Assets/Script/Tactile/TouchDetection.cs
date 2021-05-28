@@ -9,11 +9,13 @@ public class TouchDetection : MonoBehaviour
     private static RaycastHit hit;
     [SerializeField]
     public static NodeSysteme currentlyHoveredNode;
+    public NodeSysteme test;
     static Touch touch;
 
     private void Start()
     {
-        currentlyHoveredNode = NodeManager.allNodes[0];
+        //currentlyHoveredNode = NodeManager.allNodes[0];
+
     }
 
     public static void UpdateCurrentNode()
@@ -62,39 +64,8 @@ public class TouchDetection : MonoBehaviour
         }
     }
 
-
     private void Update()
     {
-
-        if (Input.touchCount > 0)
-        {
-            foreach (Touch touch in Input.touches)
-            {
-                if (touch.phase == TouchPhase.Began)
-                {
-                    ray = Camera.main.ScreenPointToRay(touch.position);
-
-                    if (Physics.Raycast(ray, out hit))
-                    {
-                        if (hit.transform.gameObject.layer == 12)
-                        {
-                            hit.transform.gameObject.GetComponent<StartEnemyPreview>().GetingTouch();
-                        }
-                    }
-                }
-            }
-        }
-        else if (Input.GetButtonDown("LeftClick"))
-        {
-            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-            if (Physics.Raycast(ray, out hit))
-            {
-                if (hit.transform.gameObject.layer == 12)
-                {
-                    hit.transform.GetComponent<StartEnemyPreview>().GetingTouch();
-                }
-            }
-        }
+        test = currentlyHoveredNode;
     }
 }

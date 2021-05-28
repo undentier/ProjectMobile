@@ -45,6 +45,12 @@ public class UIManager : MonoBehaviour
 
         Time.timeScale = 0f;
     }
+
+    public void OptionButton()
+    {
+
+    }
+
     public void ResumeButton()
     {
         gamePause = false;
@@ -56,18 +62,27 @@ public class UIManager : MonoBehaviour
     public void MainMenuButton()
     {
         gamePause = false;
-        Time.timeScale = 1f;
+        //Time.timeScale = 1f;
 
         if (GameManager.instance != null)
         {
             GameManager.instance.InfoReset();
         }
-        SceneManager.LoadScene("MainMenu_Scene");
+
+        StartCoroutine(WaitFadeEnd("MainMenu_Scene"));
     }
     public void TryAgainButton()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        Time.timeScale = 1f;
+        gamePause = false;
+        StartCoroutine(WaitFadeEnd(SceneManager.GetActiveScene().name));
     }
 
+
+    IEnumerator WaitFadeEnd(string sceneName)
+    {
+        FadeManager.instance.FadeIn(FadeManager.instance.fadeImage, FadeManager.instance.fadeInTime, true);
+        yield return new WaitForSecondsRealtime(FadeManager.instance.fadeInTime);
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(sceneName);
+    }
 }

@@ -19,7 +19,7 @@ public class WavePanel : MonoBehaviour
     public GameObject basicTurret;
     public GameObject startWaveButton;
     [Space]
-    public Transform[] slots;
+    //public Transform[] slots;
     public GameObject[] buttons;
 
     private List<GameObject> usedButtons = new List<GameObject>();
@@ -159,7 +159,7 @@ public class WavePanel : MonoBehaviour
             {
                 int random = Random.Range(0, usedButtons.Count);
                 wichButton(usedButtons[random]).SetActive(true);
-                wichButton(usedButtons[random]).transform.position = slots[i].position;
+                //wichButton(usedButtons[random]).transform.position = slots[i].position;
 
                 usedButtons.RemoveAll(list_item => list_item == wichButton(usedButtons[random]));
             }

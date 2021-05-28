@@ -101,7 +101,6 @@ public class WaveSpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(timeBeforeEndWave);
 
-        Debug.Log(levelWaves[0].waves.Length);
         if (waveIndex < levelWaves[0].waves.Length)
         {
             waveIndex++;

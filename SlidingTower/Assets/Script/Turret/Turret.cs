@@ -213,7 +213,7 @@ public class Turret : MonoBehaviour
         {
             if (targetList.Count > i)
             {
-                if(!laserSoundIsPlaying)
+                if (!laserSoundIsPlaying)
                 {
                     laserSoundIsPlaying = true;
                     StartCoroutine(StartLaserSound());
@@ -235,7 +235,7 @@ public class Turret : MonoBehaviour
 
                 if (laserCoolDown[i] <= 0f)
                 {
-                    if (slowUpgrade == 0 && poisonUpgrade == 0 )
+                    if (slowUpgrade == 0 && poisonUpgrade == 0)
                     {
                         shaderMatLaser.SetFloat("inputColorLaser", 0);
                         targetList[i].transform.GetChild(0).gameObject.SetActive(true);
@@ -247,7 +247,7 @@ public class Turret : MonoBehaviour
                     {
                         targetList[i].StartSlow(actualSlowForce, actualSlowDuration);
 
-                        if(poisonUpgrade == 0)
+                        if (poisonUpgrade == 0)
                         {
                             shaderMatLaser.SetFloat("inputColorLaser", 1);
                             targetList[i].transform.GetChild(2).gameObject.SetActive(true);
@@ -301,10 +301,13 @@ public class Turret : MonoBehaviour
                 laserMultiplier[i] = 1f;
                 laserCoolDown[i] = 0f;
 
-                targetList[i].transform.GetChild(3).gameObject.SetActive(false);
-                targetList[i].transform.GetChild(0).gameObject.SetActive(false);
-                targetList[i].transform.GetChild(2).gameObject.SetActive(false);
-                targetList[i].transform.GetChild(1).gameObject.SetActive(false);
+                if (i <= targetList.Count)
+                {
+                    targetList[i].transform.GetChild(3).gameObject.SetActive(false);
+                    targetList[i].transform.GetChild(0).gameObject.SetActive(false);
+                    targetList[i].transform.GetChild(2).gameObject.SetActive(false);
+                    targetList[i].transform.GetChild(1).gameObject.SetActive(false);
+                }
             }
         }
     }

@@ -23,24 +23,39 @@ public class DataSave : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {   
-            SaveLevel(levellist.levelsChapter1);
+            //SaveLevel(levellist.levelsChapter1);
             Debug.Log("Saved");
         }
 
         if (Input.GetKeyDown(KeyCode.A))
         {
             LoadInManager();
-            Debug.Log("Loaded");
+
         }
     }
 
     public static void LoadInManager()
     {
-        List<LevelSave> saves = new List<LevelSave>();
+        List<List<LevelSave>> saves = new List<List<LevelSave>>();
         saves = LoadSave();
-        foreach (LevelSave level in saves)
+        for (int i = 0; i < saves.Count; i++)
         {
-            levelmanager.levelsChapter1[level.levelNumber - 1].score = level.score;
+            foreach (LevelSave level in saves[i])
+            {
+                Debug.Log(level.score);
+                if(i == 1)
+                {
+                    levellist.levelsChapter1[level.levelNumber - 1].score = level.score;
+                }
+                else if( i == 2)
+                {
+                    levellist.levelsChapter2[level.levelNumber - 1].score = level.score;
+                }
+                else if (i == 3)
+                {
+                    levellist.levelsChapter3[level.levelNumber - 1].score = level.score;
+                }
+            }
         }
 
         for (int i = 0; i < levelmanager.levelDisplays.Count; i++)
@@ -48,24 +63,30 @@ public class DataSave : MonoBehaviour
             levelmanager.levelDisplays[i].UpdateScoreDisplay();
         }
     }
-    public static void SaveLevel(List<LevelsSO> listSO)
+    public static void SaveLevel(List<List<LevelsSO>> listSO)
     {
 
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/save.bin";
         FileStream stream = new FileStream(path, FileMode.Create);
-        List<LevelSave> levelsaves = new List<LevelSave>();
-        foreach (LevelsSO level in listSO)
+        List<List<LevelSave>> levelsaves = new List<List<LevelSave>>();
+
+        for (int i = 0; i < listSO.Count; i++)
         {
-            levelsaves.Add(new LevelSave(level));
+            listSO[i] = new List<LevelsSO>();
+
+            foreach (LevelsSO level in listSO[i])
+            {
+                LevelSave t = new LevelSave(level);
+                levelsaves[i].Add(t);
+            }
         }
 
         formatter.Serialize(stream, levelsaves);
         stream.Close();
-        Debug.Log(path);
     }
 
-    public static List<LevelSave> LoadSave()
+    public static List<List<LevelSave>> LoadSave()
     {
         string path = Application.persistentDataPath + "/save.bin";
         if (File.Exists(path))
@@ -73,7 +94,7 @@ public class DataSave : MonoBehaviour
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);
 
-            List<LevelSave> saves = formatter.Deserialize(stream) as List<LevelSave>;
+            List<List<LevelSave>> saves = formatter.Deserialize(stream) as List<List<LevelSave>>;
             stream.Close();
 
             return saves;

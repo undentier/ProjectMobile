@@ -212,7 +212,6 @@ public class Turret : MonoBehaviour
                 if(!laserSoundIsPlaying)
                 {
                     laserSoundIsPlaying = true;
-                    StopAllCoroutines();
                     StartCoroutine(StartLaserSound());
                 }
 
@@ -292,7 +291,6 @@ public class Turret : MonoBehaviour
                 if (laserSoundIsPlaying)
                 {
                     laserSoundIsPlaying = false;
-                    StopAllCoroutines();
                     StartCoroutine(StopLaserSound());
                 }
                 laserLines[i].enabled = false;

@@ -7,6 +7,8 @@ public class EnemySoundManager : MonoBehaviour
     public AudioSource source;
     public AudioClip enemyDeath;
     public AudioClip enemyHurt;
+    public AudioClip enemyLaserHurt;
+    public bool playLaserHitSound;
     public AudioClip[] enemySpawnSounds;
 
     public static EnemySoundManager I;
@@ -22,6 +24,13 @@ public class EnemySoundManager : MonoBehaviour
     public void Hurt(float volume)
     {
         source.PlayOneShot(enemyHurt, volume);
+    }
+    public void LaserHurt(float volume)
+    {
+        if(playLaserHitSound)
+        {
+            source.PlayOneShot(enemyLaserHurt, volume);
+        }
     }
 
     public void PlaySpawnSound(int enemySize, float volume)

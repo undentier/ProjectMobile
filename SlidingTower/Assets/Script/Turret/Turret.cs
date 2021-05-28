@@ -275,7 +275,7 @@ public class Turret : MonoBehaviour
                         targetList[i].transform.GetChild(1).gameObject.SetActive(false);
                     }
 
-                    targetList[i].TakeDamage(actualDamage / actualLaserDamageReduction);
+                    targetList[i].TakeDamage(actualDamage / actualLaserDamageReduction, true);
 
                     if (targetList[i].actualHealth <= 0)
                     {

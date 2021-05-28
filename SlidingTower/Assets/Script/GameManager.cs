@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
@@ -33,10 +34,10 @@ public class GameManager : MonoBehaviour
         if (levelScript.score < scoreOfLastLevel)
         {
             levelScript.score = scoreOfLastLevel;
-            DataSave.SaveLevel(levellist.levelsChapter1);
-            DataSave.SaveLevel(levellist.levelsChapter2);
-            DataSave.SaveLevel(levellist.levelsChapter3);
         }
+
+
+        DataSave.SaveLevel(new List<List<LevelsSO>>() { levellist.levelsChapter1, levellist.levelsChapter2, levellist.levelsChapter3});
 
         InfoReset();
     }

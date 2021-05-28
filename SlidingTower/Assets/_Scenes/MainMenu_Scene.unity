@@ -2130,7 +2130,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1515181138}
+      - m_Target: {fileID: 1974602230}
         m_MethodName: SetInt
         m_Mode: 3
         m_Arguments:
@@ -3080,7 +3080,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1515181138}
+      - m_Target: {fileID: 1974602230}
         m_MethodName: SetInt
         m_Mode: 3
         m_Arguments:
@@ -4759,18 +4759,6 @@ MonoBehaviour:
   backSound: {fileID: 8300000, guid: 71f501030e14779419122b22a3dc3abc, type: 3}
   startSound: {fileID: 8300000, guid: 67b49e1ef94c6a24893ddf35a564bac9, type: 3}
   slideSound: {fileID: 8300000, guid: 5201c80b50f5bb94da416cc0c3c68019, type: 3}
---- !u!114 &1515181138 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1515181138, guid: 4624e28182789714a9dd68c820854a5d,
-    type: 3}
-  m_PrefabInstance: {fileID: 5623854476009731582}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a781adb83d3c4f044a7f397c9e0bd49d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1545798671
 GameObject:
   m_ObjectHideFlags: 0
@@ -4975,24 +4963,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0da67fcbb9ab4d48b3ac797dadf62b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelsChapter1:
-  - {fileID: 11400000, guid: aca57f347255078438963b39d54c7df0, type: 2}
-  - {fileID: 11400000, guid: 06d52d52d28e8774d99ef6ee16a00bc4, type: 2}
-  - {fileID: 11400000, guid: f5a6eef21237659428447e66b739c187, type: 2}
-  - {fileID: 11400000, guid: 2eb33a0bfb420ef4f9320d8059828ccd, type: 2}
-  - {fileID: 11400000, guid: fb05f9f3d7bbdfb48b71df12429521ec, type: 2}
-  levelsChapter2:
-  - {fileID: 11400000, guid: 4cc8fe0aa47c7b84b880455331243dc1, type: 2}
-  - {fileID: 11400000, guid: 3abc646e5c3112145b3ff2c3721891db, type: 2}
-  - {fileID: 11400000, guid: 49dfd5db219f14d48ab2969c50fc53d3, type: 2}
-  - {fileID: 11400000, guid: 33c3999e3d7246c4aac93fb96d2a84a3, type: 2}
-  - {fileID: 11400000, guid: 9c7023d07610b674bbcb88f9cf703196, type: 2}
-  levelsChapter3:
-  - {fileID: 11400000, guid: c76678e8cb66d394bb95fad5e2269c70, type: 2}
-  - {fileID: 11400000, guid: 95d315fd4db30d6429d0acc8e5b28c74, type: 2}
-  - {fileID: 11400000, guid: e6fd923c145da8b45994e768ba399a95, type: 2}
-  - {fileID: 11400000, guid: 0c398a93270a1c64cac7410420b99789, type: 2}
-  - {fileID: 11400000, guid: 715629f0172ecf846a8b86e0860a5778, type: 2}
   totalScoreText: {fileID: 1793652246}
   levelButton: {fileID: 6777313581318212145, guid: 107feb286b0881649a88685d61376d19,
     type: 3}
@@ -5477,7 +5447,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1515181138}
+      - m_Target: {fileID: 1974602230}
         m_MethodName: SetInt
         m_Mode: 3
         m_Arguments:
@@ -6237,6 +6207,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1974602228}
   - component: {fileID: 1974602229}
+  - component: {fileID: 1974602230}
   m_Layer: 5
   m_Name: Title Menu
   m_TagString: Untagged
@@ -6289,6 +6260,18 @@ MonoBehaviour:
   horizontalPanel: {fileID: 186439655}
   titleMenu: {fileID: 1974602227}
   gaStuff: {fileID: 815203258}
+--- !u!114 &1974602230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974602227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a781adb83d3c4f044a7f397c9e0bd49d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2003676856
 GameObject:
   m_ObjectHideFlags: 0

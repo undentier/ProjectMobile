@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MenuCheck : MonoBehaviour
 {
-    public int index;
+    public static int index;
     // Start is called before the first frame update
     void Start()
     {

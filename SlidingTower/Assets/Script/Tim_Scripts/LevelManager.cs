@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
-{
+{/*
     public List<LevelsSO> levelsChapter1;
     public List<LevelsSO> levelsChapter2;
-    public List<LevelsSO> levelsChapter3;
+    public List<LevelsSO> levelsChapter3;*/
     private List<LevelsSO> currentChapterLevels;
     int starTotal;
     public GameObject totalScoreText;
@@ -39,17 +39,17 @@ public class LevelManager : MonoBehaviour
     void StarNumber()
     {
         starTotal = 0;
-        for (int i = 0; i < levelsChapter1.Count; i++)
+        for (int i = 0; i < GameManager.instance.levellist.levelsChapter1.Count; i++)
         {
-            starTotal += levelsChapter1[i].score;
+            starTotal += GameManager.instance.levellist.levelsChapter1[i].score;
         }
-        for (int j = 0; j < levelsChapter2.Count; j++)
+        for (int j = 0; j < GameManager.instance.levellist.levelsChapter2.Count; j++)
         {
-            starTotal += levelsChapter2[j].score;
+            starTotal += GameManager.instance.levellist.levelsChapter2[j].score;
         }
-        for (int k = 0; k < levelsChapter3.Count; k++)
+        for (int k = 0; k < GameManager.instance.levellist.levelsChapter3.Count; k++)
         {
-            starTotal += levelsChapter3[k].score;
+            starTotal += GameManager.instance.levellist.levelsChapter3[k].score;
         }
         Write();
     }
@@ -68,13 +68,13 @@ public class LevelManager : MonoBehaviour
         switch (chapter)
         {
             case 0:
-                currentChapterLevels = levelsChapter1;
+                currentChapterLevels = GameManager.instance.levellist.levelsChapter1;
                 break;
             case 1:
-                currentChapterLevels = levelsChapter2;
+                currentChapterLevels = GameManager.instance.levellist.levelsChapter2;
                 break;
             case 2:
-                currentChapterLevels = levelsChapter3;
+                currentChapterLevels = GameManager.instance.levellist.levelsChapter3;
                 break;
         }
         for (int i = 0; i < currentChapterLevels.Count; i++)

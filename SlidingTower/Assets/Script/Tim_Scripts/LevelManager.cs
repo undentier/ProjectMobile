@@ -16,6 +16,7 @@ public class LevelManager : MonoBehaviour
     public List<LevelDisplay> levelDisplays;
     public Button chapter2Button;
     public Button chapter3Button;
+    public Image locked;
     int chapterSelected;
     // Start is called before the first frame update
     void Start()
@@ -97,10 +98,11 @@ public class LevelManager : MonoBehaviour
     
     void UnlockChapters()
     {
-        if (starTotal > 7)
+        if (starTotal > 10)
         {
             chapter2Button.interactable = true;
-            if (starTotal > 14)
+            chapter2Button.image = locked;
+            if (starTotal > 16)
             {
                 chapter3Button.interactable = true;
             }

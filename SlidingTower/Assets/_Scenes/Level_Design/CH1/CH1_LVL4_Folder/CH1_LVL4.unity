@@ -178,7 +178,7 @@ PrefabInstance:
     - target: {fileID: 7649818041903500946, guid: 793a4bb2e3cdcfe48a02a6d96e9b1e4d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7649818041903500946, guid: 793a4bb2e3cdcfe48a02a6d96e9b1e4d,
         type: 3}
@@ -2645,6 +2645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b3034bff529c424b9014ab7a43cf720, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  test: {fileID: 0}
 --- !u!4 &936883038
 Transform:
   m_ObjectHideFlags: 0
@@ -3036,6 +3037,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1789079117}
     m_Modifications:
+    - target: {fileID: 1148914190660142601, guid: 9ea7adbf8c638a2429301b927f8e2678,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 497e1f327878564438ab24d2de2b1900, type: 2}
     - target: {fileID: 1148914190660142603, guid: 9ea7adbf8c638a2429301b927f8e2678,
         type: 3}
       propertyPath: m_RootOrder

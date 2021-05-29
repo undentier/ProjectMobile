@@ -97,10 +97,10 @@ public class LevelManager : MonoBehaviour
     
     void UnlockChapters()
     {
-        if (starTotal > 7)
+        if (starTotal > 10)
         {
             chapter2Button.interactable = true;
-            if (starTotal > 14)
+            if (starTotal > 16)
             {
                 chapter3Button.interactable = true;
             }

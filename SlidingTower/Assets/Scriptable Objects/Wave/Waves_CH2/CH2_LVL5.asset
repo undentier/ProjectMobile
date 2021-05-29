@@ -43,7 +43,7 @@ MonoBehaviour:
       number: 2
       timeBtwSpawn: 0.8
     - wichEnemy: 1
-      timeBeforeNextSpawn: 1
+      timeBeforeNextSpawn: 1.5
       number: 6
       timeBtwSpawn: 0.5
     - wichEnemy: 2
@@ -52,7 +52,7 @@ MonoBehaviour:
       timeBtwSpawn: 0.5
   - enemies:
     - wichEnemy: 2
-      timeBeforeNextSpawn: 1
+      timeBeforeNextSpawn: 1.5
       number: 3
       timeBtwSpawn: 0.7
     - wichEnemy: 1
@@ -60,8 +60,8 @@ MonoBehaviour:
       number: 5
       timeBtwSpawn: 0.4
     - wichEnemy: 2
-      timeBeforeNextSpawn: 1
-      number: 3
+      timeBeforeNextSpawn: 1.5
+      number: 2
       timeBtwSpawn: 0.3
     - wichEnemy: 0
       timeBeforeNextSpawn: 1
@@ -73,15 +73,15 @@ MonoBehaviour:
       timeBtwSpawn: 0.5
   - enemies:
     - wichEnemy: 0
-      timeBeforeNextSpawn: 0.5
+      timeBeforeNextSpawn: 1
       number: 5
       timeBtwSpawn: 0.2
     - wichEnemy: 2
-      timeBeforeNextSpawn: 0.4
+      timeBeforeNextSpawn: 1.3
       number: 2
       timeBtwSpawn: 0.3
     - wichEnemy: 1
-      timeBeforeNextSpawn: 0.5
+      timeBeforeNextSpawn: 1.3
       number: 4
       timeBtwSpawn: 0.2
     - wichEnemy: 2
@@ -94,7 +94,7 @@ MonoBehaviour:
       timeBtwSpawn: 0.3
   - enemies:
     - wichEnemy: 2
-      timeBeforeNextSpawn: 0.5
+      timeBeforeNextSpawn: 1
       number: 3
       timeBtwSpawn: 0.3
     - wichEnemy: 1
@@ -102,22 +102,22 @@ MonoBehaviour:
       number: 5
       timeBtwSpawn: 0.3
     - wichEnemy: 1
-      timeBeforeNextSpawn: 0.5
+      timeBeforeNextSpawn: 1
       number: 2
-      timeBtwSpawn: 0
+      timeBtwSpawn: 1.5
     - wichEnemy: 1
-      timeBeforeNextSpawn: 0.5
+      timeBeforeNextSpawn: 1
       number: 2
       timeBtwSpawn: 0.3
     - wichEnemy: 2
-      timeBeforeNextSpawn: 0.4
+      timeBeforeNextSpawn: 1
       number: 2
       timeBtwSpawn: 0.5
     - wichEnemy: 1
-      timeBeforeNextSpawn: 0.6
+      timeBeforeNextSpawn: 2
       number: 4
       timeBtwSpawn: 0.4
     - wichEnemy: 0
-      timeBeforeNextSpawn: 0.4
-      number: 7
+      timeBeforeNextSpawn: 1
+      number: 5
       timeBtwSpawn: 0.3

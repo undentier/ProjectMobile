@@ -23,10 +23,10 @@ MonoBehaviour:
   - block: 4
     percentage: 20
   - block: 1
-    percentage: 15
+    percentage: 5
   - block: 0
     percentage: 15
   - block: 3
     percentage: 20
   - block: 5
-    percentage: 30
+    percentage: 40

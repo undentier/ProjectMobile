@@ -20,6 +20,7 @@ public class LifeManager : MonoBehaviour
     public Material nexusEmissive;
     public float powerEmissive;
     public ParticleSystem PVLost;
+    public ParticleSystem decoNexus;
 
 
     private void Awake()
@@ -39,6 +40,7 @@ public class LifeManager : MonoBehaviour
     {
         life = startLife;
         SetupEmissive();
+        decoNexus.startLifetime = 3f;
     }
 
     public void DamagePlayer(int damage)
@@ -46,6 +48,7 @@ public class LifeManager : MonoBehaviour
         life -= damage;
         PlayerSoundManager.I.PlayDamageNexus(0.5f);
         SetupEmissive();
+        decoNexus.startLifetime = 4f * life / startLife;
 
         if (life <= 0)
         {

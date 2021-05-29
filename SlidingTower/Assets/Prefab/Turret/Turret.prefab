@@ -1703,16 +1703,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Explosion
       objectReference: {fileID: 0}
-    - target: {fileID: 5273151981361383401, guid: b1bf3a51e68bc3944892633ef9e94724,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5921393181674366524, guid: b1bf3a51e68bc3944892633ef9e94724,
-        type: 3}
-      propertyPath: m_CastShadows
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1bf3a51e68bc3944892633ef9e94724, type: 3}
 --- !u!1 &3683662730523065456 stripped

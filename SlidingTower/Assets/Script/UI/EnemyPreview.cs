@@ -28,6 +28,12 @@ public class EnemyPreview : MonoBehaviour
     public void ActualiseEnemy()
     {
         generalEnemyPreview.SetActive(true);
+        UIManager.instance.enemyPreviewActive = true;
+
+        if (SlideManager.instance.isSliding)
+        {
+            SlideManager.instance.EndSlide();
+        }
 
         if (WaveSpawner.instance.nextTotalLowEnemyNumber > 0)
         {
@@ -62,6 +68,8 @@ public class EnemyPreview : MonoBehaviour
 
     public void ContinueButton()
     {
+        UIManager.instance.enemyPreviewActive = false;
+
         generalEnemyPreview.SetActive(false);
         PlayerSoundManager.I.OK(1);
         lowGeneral.SetActive(false);

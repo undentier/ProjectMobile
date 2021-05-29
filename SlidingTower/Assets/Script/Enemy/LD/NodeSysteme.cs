@@ -479,7 +479,7 @@ public class NodeSysteme : MonoBehaviour
                         TurretSoundManager.I.EffectSound(7, 2);
                     }
 
-                    Destroy(actualLinkEffect, 2f);
+                    Destroy(actualLinkEffect, 1f);
                 }
             }
         }

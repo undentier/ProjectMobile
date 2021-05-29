@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TutoSysteme : MonoBehaviour
 {
+    public static TutoSysteme instance;
+
     [Header ("Move Tuto")]
     public GameObject handMoveObj;
     public GameObject turretMoveObj;
@@ -17,6 +19,11 @@ public class TutoSysteme : MonoBehaviour
     public GameObject blackBackGroundObj;
     public Animator blackBackGroundAnim;
     private int dragTutoState;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     void Start()
     {
@@ -34,6 +41,10 @@ public class TutoSysteme : MonoBehaviour
                 lockMoveAnim = true;
                 handMoveObj.SetActive(false);
                 turretMoveObj.SetActive(false);
+
+                WavePanel.instance.isTuto = false;
+                WavePanel.instance.isFirstWave = false;
+                WavePanel.instance.startWaveButtonAnim.SetInteger("startState", 2);
             }
         }
 

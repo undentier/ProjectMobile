@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,7 +6,8 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
 
-    public bool gamePause;
+    [HideInInspector] public bool gamePause;
+    [HideInInspector] public bool enemyPreviewActive;
 
     public GameObject pauseButton;
     public GameObject pauseMenu;
@@ -16,6 +16,7 @@ public class UIManager : MonoBehaviour
     public GameObject victoryMenu;
 
     public EnemyPreview previewScript;
+
     private void Awake()
     {
         instance = this;    
@@ -33,6 +34,7 @@ public class UIManager : MonoBehaviour
     public void DisplayVictoryMenu()
     {
         victoryMenu.SetActive(true);
+        gamePause = true;
     }
 
 

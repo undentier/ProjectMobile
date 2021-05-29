@@ -52,6 +52,8 @@ MonoBehaviour:
   source: {fileID: 3652470811706675046}
   enemyDeath: {fileID: 8300000, guid: fd086d8bef228b04d9aaa6f9a371e14f, type: 3}
   enemyHurt: {fileID: 8300000, guid: b7fb323c01a93364fbfd9a2bcddb6301, type: 3}
+  enemyLaserHurt: {fileID: 8300000, guid: a46a9d9aaa8e62c4e852f6d02c84e3bc, type: 3}
+  playLaserHitSound: 1
   enemySpawnSounds:
   - {fileID: 8300000, guid: bb970e8d53708ac4886d70124cfe72d8, type: 3}
   - {fileID: 8300000, guid: f0e618c607fcfde41be19e49eb28fa2f, type: 3}

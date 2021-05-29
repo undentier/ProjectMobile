@@ -69,11 +69,18 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float amount)
+    public void TakeDamage(float amount, bool isLaserDamage)
     {
         actualHealth -= amount;
         healhtBar.fillAmount = actualHealth / startHealth;
-        EnemySoundManager.I.Hurt(0.4f);
+        if(isLaserDamage)
+        {
+            EnemySoundManager.I.LaserHurt(1f);
+        }
+        else
+        {
+            EnemySoundManager.I.Hurt(0.4f);
+        }
 
         if (actualHealth <= 0f)
         {
@@ -122,7 +129,7 @@ public class Enemy : MonoBehaviour
         while (actualPoisonDuration > 0)
         {
             yield return new WaitForSeconds(1/poisonTick);
-            TakeDamage(poisonDamage);
+            TakeDamage(poisonDamage, true);
         }
 
         //rend.material = startMaterial;

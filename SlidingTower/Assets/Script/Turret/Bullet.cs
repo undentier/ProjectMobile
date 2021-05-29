@@ -198,7 +198,7 @@ public class Bullet : MonoBehaviour
     void Damage(Transform enemy)
     {
         Enemy e = enemy.GetComponent<Enemy>();
-        e.TakeDamage(damage);
+        e.TakeDamage(damage, false);
 
         if (slowForce > 0)
         {

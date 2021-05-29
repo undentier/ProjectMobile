@@ -71,7 +71,8 @@ public class Turret : MonoBehaviour
 
     public GameObject particlesLaserlvl1;
     public GameObject particlesLaserlvl2;
-    public GameObject particlesLaserlvl3;
+    public GameObject particlesExplosionlvl1;
+    public GameObject particlesExplosionlvl2;
 
     [Header("Material")]
     private float timerEffect;
@@ -572,6 +573,26 @@ public class Turret : MonoBehaviour
             discoCanon.SetActive(false);
             basicCanon.SetActive(false);
 
+            particlesLaserlvl1.SetActive(false);
+            particlesLaserlvl2.SetActive(false);
+
+            if (explosionUpgrade == 1)
+            {
+                particlesExplosionlvl1.SetActive(false);
+                particlesExplosionlvl2.SetActive(false);
+            }
+
+            if (explosionUpgrade == 2)
+            {
+                particlesExplosionlvl1.SetActive(true);
+                particlesExplosionlvl2.SetActive(false);
+            }
+
+            if (explosionUpgrade == 3)
+            {
+                particlesExplosionlvl1.SetActive(false);
+                particlesExplosionlvl2.SetActive(true);
+            }
         }
         else if (laserUpgrade > 0 && explosionUpgrade == 0)
         {
@@ -581,11 +602,25 @@ public class Turret : MonoBehaviour
             basicCanon.SetActive(false);
             explosionCanon.SetActive(false);
 
+            particlesExplosionlvl1.SetActive(false);
+            particlesExplosionlvl2.SetActive(false);
+
             if (laserUpgrade == 1)
+            {
+                particlesLaserlvl1.SetActive(false);
+                particlesLaserlvl2.SetActive(false);
+            }
+
+            if (laserUpgrade == 2)
             { 
                 particlesLaserlvl1.SetActive(true);
                 particlesLaserlvl2.SetActive(false);
-                particlesLaserlvl3.SetActive(false);
+            }
+
+            if (laserUpgrade == 3)
+            {
+                particlesLaserlvl1.SetActive(false);
+                particlesLaserlvl2.SetActive(true);
             }
         }
         else if (laserUpgrade > 0 && explosionUpgrade > 0)

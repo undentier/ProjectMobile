@@ -93,6 +93,46 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 403155745026601281, guid: 88cfd0e892b5d5a4293e5f3d509180fb,
+        type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 403155745026601281, guid: 88cfd0e892b5d5a4293e5f3d509180fb,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 403155745026601281, guid: 88cfd0e892b5d5a4293e5f3d509180fb,
+        type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 403155745026601281, guid: 88cfd0e892b5d5a4293e5f3d509180fb,
+        type: 3}
+      propertyPath: TrailModule.widthOverTrail.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 403155745026601281, guid: 88cfd0e892b5d5a4293e5f3d509180fb,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 403155745026601281, guid: 88cfd0e892b5d5a4293e5f3d509180fb,
+        type: 3}
+      propertyPath: VelocityModule.speedModifier.scalar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1086712106068223037, guid: 88cfd0e892b5d5a4293e5f3d509180fb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1167012902181605721, guid: 88cfd0e892b5d5a4293e5f3d509180fb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1174974490764697375, guid: 88cfd0e892b5d5a4293e5f3d509180fb,
         type: 3}
       propertyPath: m_Name
@@ -103,9 +143,59 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2631993892610264652, guid: 88cfd0e892b5d5a4293e5f3d509180fb,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 32c161fcabca2444e8e1e60afa26153a, type: 2}
     - target: {fileID: 4031890023047083747, guid: 88cfd0e892b5d5a4293e5f3d509180fb,
         type: 3}
       propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4031890023047083747, guid: 88cfd0e892b5d5a4293e5f3d509180fb,
+        type: 3}
+      propertyPath: ShapeModule.type
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4031890023047083747, guid: 88cfd0e892b5d5a4293e5f3d509180fb,
+        type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4031890023047083747, guid: 88cfd0e892b5d5a4293e5f3d509180fb,
+        type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4031890023047083747, guid: 88cfd0e892b5d5a4293e5f3d509180fb,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4031890023047083747, guid: 88cfd0e892b5d5a4293e5f3d509180fb,
+        type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4031890023047083747, guid: 88cfd0e892b5d5a4293e5f3d509180fb,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4031890023047083747, guid: 88cfd0e892b5d5a4293e5f3d509180fb,
+        type: 3}
+      propertyPath: VelocityModule.speedModifier.scalar
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4031890023047083747, guid: 88cfd0e892b5d5a4293e5f3d509180fb,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.minScalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4031890023047083747, guid: 88cfd0e892b5d5a4293e5f3d509180fb,
+        type: 3}
+      propertyPath: VelocityModule.speedModifier.minScalar
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4130596354357311469, guid: 88cfd0e892b5d5a4293e5f3d509180fb,

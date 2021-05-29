@@ -101,7 +101,7 @@ public class LevelManager : MonoBehaviour
         if (starTotal > 10)
         {
             chapter2Button.interactable = true;
-            chapter2Button.image = locked;
+            //chapter2Button.image = locked;
             if (starTotal > 16)
             {
                 chapter3Button.interactable = true;

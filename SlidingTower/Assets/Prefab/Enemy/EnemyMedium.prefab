@@ -1360,30 +1360,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5864534612215932342, guid: 2c9dc83e052e56845b65d500e245b646,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-    - target: {fileID: 6011266566266439052, guid: 2c9dc83e052e56845b65d500e245b646,
-        type: 3}
-      propertyPath: ShapeModule.m_Scale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6011266566266439052, guid: 2c9dc83e052e56845b65d500e245b646,
-        type: 3}
-      propertyPath: ShapeModule.m_Scale.y
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 6563916319350780154, guid: 2c9dc83e052e56845b65d500e245b646,
         type: 3}
       propertyPath: m_Name
       value: Poison particles
-      objectReference: {fileID: 0}
-    - target: {fileID: 6563916319350780154, guid: 2c9dc83e052e56845b65d500e245b646,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c9dc83e052e56845b65d500e245b646, type: 3}

@@ -11,6 +11,7 @@ public class WavePanel : MonoBehaviour
     public LevelsSO level;
     public GameObject panel;
     public bool[] canBuildTurretWaves;
+    public bool isTuto;
 
     [Header ("Unity setup")]
     public Animator buildPanelAnim;
@@ -26,6 +27,7 @@ public class WavePanel : MonoBehaviour
     public int canBuildTurretIndex;
     public bool isBuildMode;
     [HideInInspector] public bool isFirstWave = true;
+
     #endregion
 
     private void Awake()
@@ -35,7 +37,6 @@ public class WavePanel : MonoBehaviour
     private void Start()
     {
         DisableAllButtons();
-
         ActiveBuildMode();
     }
 
@@ -65,13 +66,13 @@ public class WavePanel : MonoBehaviour
     {
         isBuildMode = true;
 
-        if (isFirstWave && canBuildTurretWaves[0] == false)
+        if (isFirstWave && canBuildTurretWaves[0] == false && !isTuto)
         {
             isFirstWave = false;
             startWaveButtonAnim.SetInteger("startState", 2);
             return;
         }
-        else
+        else if (!isTuto)
         {
             DisplayPanel();
         }

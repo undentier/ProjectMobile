@@ -968,6 +968,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gamePause: 0
+  enemyPreviewActive: 0
   pauseButton: {fileID: 425089364202409521}
   pauseMenu: {fileID: 425089363653866288}
   gameOverMenu: {fileID: 425089363130609898}
@@ -1796,8 +1797,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -6.7025146, y: 0.2999878}
+  m_SizeDelta: {x: 55.880005, y: 32.625}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &425089363653866301
 CanvasRenderer:
@@ -2414,6 +2415,7 @@ MonoBehaviour:
   level: {fileID: 11400000, guid: aca57f347255078438963b39d54c7df0, type: 2}
   panel: {fileID: 4649906586240582169}
   canBuildTurretWaves: 
+  isTuto: 0
   buildPanelAnim: {fileID: 5969841315470376881}
   startWaveButtonAnim: {fileID: 1936592273303634208}
   basicTurret: {fileID: 4649906585803701670}

@@ -383,8 +383,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05dcf020a848da84b9100f29496bf416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMovSpeed: 9.3
-  startHealth: 120
+  startMovSpeed: 10
+  startHealth: 90
   actualHealth: 0
   damageToNexus: 1
   agent: {fileID: -22901727225648796}

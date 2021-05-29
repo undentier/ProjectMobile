@@ -383,7 +383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05dcf020a848da84b9100f29496bf416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMovSpeed: 8.5
+  startMovSpeed: 8
   startHealth: 120
   actualHealth: 0
   damageToNexus: 2
@@ -400,7 +400,6 @@ MonoBehaviour:
   distFromNexus: 0
   EnnemyDead: {fileID: 8399010319994526838, guid: ed043eeaf653cd849825b48945bc5935,
     type: 3}
-  deathSound: {fileID: 8300000, guid: fd086d8bef228b04d9aaa6f9a371e14f, type: 3}
 --- !u!195 &-22901727225648796
 NavMeshAgent:
   m_ObjectHideFlags: 0

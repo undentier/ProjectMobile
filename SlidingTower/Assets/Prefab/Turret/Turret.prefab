@@ -1041,7 +1041,7 @@ MonoBehaviour:
   rotationSpeed: 7
   numMaxTargets: 7
   fireRateBonus:
-  - 2.5
+  - 2
   - 3.2
   - 4.2
   - 5.3

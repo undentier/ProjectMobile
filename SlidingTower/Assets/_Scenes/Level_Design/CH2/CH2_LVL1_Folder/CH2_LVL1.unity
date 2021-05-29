@@ -2822,6 +2822,11 @@ PrefabInstance:
       propertyPath: spawnPoints.Array.data[0]
       value: 
       objectReference: {fileID: 468967513}
+    - target: {fileID: 6261059061550389549, guid: 3136da9772be55d408a376d4baa73a0a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -7.647766
+      objectReference: {fileID: 0}
     - target: {fileID: 7192525008006030372, guid: 3136da9772be55d408a376d4baa73a0a,
         type: 3}
       propertyPath: m_IsActive
@@ -3876,6 +3881,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2415820547382070146, guid: 263ba8b066f77594fae50851e2792f0f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2415820547382070146, guid: 263ba8b066f77594fae50851e2792f0f,
         type: 3}

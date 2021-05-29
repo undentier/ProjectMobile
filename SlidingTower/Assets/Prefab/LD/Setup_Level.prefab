@@ -686,6 +686,11 @@ PrefabInstance:
       propertyPath: canBuildTurretWaves.Array.data[2]
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3518723006293905329, guid: 163218c4b7139064eb85c159f25454c1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4267100092971161656, guid: 163218c4b7139064eb85c159f25454c1,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target

@@ -113,7 +113,7 @@ public class LevelManager : MonoBehaviour
                 else if (starTotal <= 16)
                 {
                     chapter3Button.interactable = false;
-                    chapter3UnlockText.GetComponent<Text>().text = "Stars required to unlock: " + (17 - starTotal);
+                    chapter3UnlockText.GetComponent<Text>().text = "Stars required to unlock: " + (16 - starTotal);
                     chapter3UnlockText.SetActive(true);
                     chapter3Lock.SetActive(true);
                 }
@@ -121,13 +121,13 @@ public class LevelManager : MonoBehaviour
             else if (starTotal <= 10)
             {
                 chapter2Button.interactable = false;
-                chapter2UnlockText.GetComponent<Text>().text = "Remaining Stars to unlock: " + (11 - starTotal);
+                chapter2UnlockText.GetComponent<Text>().text = "Remaining Stars to unlock: " + (10 - starTotal);
                 chapter2Lock.SetActive(true);
                 chapter2UnlockText.SetActive(true);
                 if (starTotal <= 16)
                 {
                     chapter3Button.interactable = false;
-                    chapter3UnlockText.GetComponent<Text>().text = "Remaining Stars to unlock: " + (17 - starTotal);
+                    chapter3UnlockText.GetComponent<Text>().text = "Remaining Stars to unlock: " + (16 - starTotal);
                     chapter3UnlockText.SetActive(true);
                     chapter3Lock.SetActive(true);
                 }

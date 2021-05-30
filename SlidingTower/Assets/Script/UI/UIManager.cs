@@ -11,7 +11,7 @@ public class UIManager : MonoBehaviour
 
     public GameObject pauseButton;
     public GameObject pauseMenu;
-
+    public GameObject optionMenu;
     public GameObject gameOverMenu;
     public GameObject victoryMenu;
 
@@ -50,7 +50,8 @@ public class UIManager : MonoBehaviour
 
     public void OptionButton()
     {
-
+        optionMenu.SetActive(true);
+        pauseMenu.SetActive(false);
     }
 
     public void ResumeButton()

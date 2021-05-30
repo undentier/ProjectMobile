@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Secret : MonoBehaviour
 {
-
+    /*
     public float rotatespeed = 10f;
     private float _startingPosition;
 
@@ -33,5 +33,5 @@ public class Secret : MonoBehaviour
                     break;
             }
         }
-    }
+    }*/
 }

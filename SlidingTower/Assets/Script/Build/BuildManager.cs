@@ -27,6 +27,7 @@ public class BuildManager : MonoBehaviour
     private GameObject turretToBuild;
     public int turretPlaceSoundIndex;
     private GameObject turretPreviToBuild;
+    public bool isTurretPreview;
     [Space]
     public bool isDraggingTurret;
     private Touch touch;
@@ -51,11 +52,12 @@ public class BuildManager : MonoBehaviour
         instance = this;
     }
 
-    public void SetTurretToBuild(GameObject turret, GameObject turretPrevi, int _turretPlaceSoundIndex)
+    public void SetTurretToBuild(GameObject turret, GameObject turretPrevi, int _turretPlaceSoundIndex, bool isTurret)
     {
         turretToBuild = turret;
         turretPreviToBuild = turretPrevi;
         turretPlaceSoundIndex = _turretPlaceSoundIndex;
+        isTurretPreview = isTurret;
     }
 
     public void Update()
@@ -72,6 +74,11 @@ public class BuildManager : MonoBehaviour
                 if (currentPrevisualisationObject != null)
                 {
                     currentPrevisualisationObject.SetActive(false);
+
+                    if (isTurretPreview)
+                    {
+                        turretPreviToBuild.transform.GetChild(0).gameObject.SetActive(true);
+                    }
                 }
             }
             else
@@ -226,6 +233,11 @@ public class BuildManager : MonoBehaviour
         if (currentPrevisualisationObject != null)
         {
             currentPrevisualisationObject.SetActive(true);
+
+            if (isTurretPreview)
+            {
+                turretPreviToBuild.transform.GetChild(0).gameObject.SetActive(true);
+            }
         }
     }
 }

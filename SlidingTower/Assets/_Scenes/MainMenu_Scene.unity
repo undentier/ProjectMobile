@@ -1279,7 +1279,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 16}
+  m_AnchoredPosition: {x: 0, y: 63.25}
   m_SizeDelta: {x: 332.3314, y: 771.29}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &484110258
@@ -1540,7 +1540,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.0009460449}
+  m_AnchoredPosition: {x: 0, y: -0.0008239746}
   m_SizeDelta: {x: 333.32, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &597734519
@@ -1957,7 +1957,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -26.399998, y: -107.91281}
+  m_AnchoredPosition: {x: -26.399998, y: -147.7}
   m_SizeDelta: {x: 942.8967, y: 195}
   m_Pivot: {x: 0.5, y: 0.44289386}
 --- !u!114 &698083143
@@ -5227,10 +5227,10 @@ MonoBehaviour:
   m_text: "Timothe Huerre \nProducer, Macro Game Programmer\n\nGuillaume Roge \nLead
     & Gameplay Programmer\n\nLouis Lefebvre \nLead Game Designer, Level Designer
     \n\n\nAubane Rittano\nTech Artist\n\nTao Pecqueriaux \nLead GA, Tech Artist\n\nJustine
-    Catteau \nGame Artist\n\nLeo Gosselet \nGame Artist\n\nSpecial thanks to:\n\nAntoine
-    Grugeon\nSFX Designer, Programmer\n\n&\n\nAntoine Villecroze, Nicolas Albo, Sebastien
-    Cordelette, Angelique Delporte & Vincent Beck\nFor the advices and support\n\nCopyright
-    Free Music\n\nMenu music:\nTime perception by Purple Planet\nhttps://www.purple-planet.com\n\nIn
+    Catteau \nGame Artist\n\nLeo Gosselet \nGame Artist\n\n\nSpecial thanks to:\n\nAntoine
+    Grugeon\nSFX Designer, Programmer\n\n\n&\n\nAntoine Villecroze, Nicolas Albo,
+    Sebastien Cordelette, Angelique Delporte & Vincent Beck\nFor the advices and
+    support\n\nCopyright Free Music\n\nMenu music:\nTime perception by Purple Planet\nhttps://www.purple-planet.com\n\nIn
     game music:\nInception by White Bat Audio\nhttps://whitebataudio.com/"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0706e74a304560745bd9924171017e56, type: 2}
@@ -5669,7 +5669,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -220}
+  m_AnchoredPosition: {x: 0, y: -206}
   m_SizeDelta: {x: 0, y: -22}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1646248498
@@ -6608,8 +6608,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000011444, y: 0}
-  m_SizeDelta: {x: 295.7297, y: 50}
+  m_AnchoredPosition: {x: -6.1, y: -10.7}
+  m_SizeDelta: {x: 335.59665, y: 71.4668}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1891013525
 MonoBehaviour:
@@ -6630,7 +6630,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: God Mode
+  m_text: Unlock All
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0706e74a304560745bd9924171017e56, type: 2}
   m_sharedMaterial: {fileID: 5019445080831899743, guid: 0706e74a304560745bd9924171017e56,
@@ -8566,7 +8566,7 @@ PrefabInstance:
     - target: {fileID: 1071619247051846602, guid: 12e7e11a3fb94c14886257e562e5a966,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 5.4799337
       objectReference: {fileID: 0}
     - target: {fileID: 1071619247051846602, guid: 12e7e11a3fb94c14886257e562e5a966,
         type: 3}
@@ -8611,7 +8611,7 @@ PrefabInstance:
     - target: {fileID: 1071619247051846602, guid: 12e7e11a3fb94c14886257e562e5a966,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -1.6100464
       objectReference: {fileID: 0}
     - target: {fileID: 1071619247051846602, guid: 12e7e11a3fb94c14886257e562e5a966,
         type: 3}

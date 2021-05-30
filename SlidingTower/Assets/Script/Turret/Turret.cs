@@ -748,7 +748,7 @@ public class Turret : MonoBehaviour
         timerEffect = 0;
         while (timerEffect < 40)
         {
-            timerEffect += Time.deltaTime * 5f;
+            timerEffect += Time.deltaTime * 10f;
             baseTurretShader.SetFloat("_HoloToText", timerEffect);
             baseTurretShader1.SetFloat("_HoloToEmi", timerEffect);
             shaderMatEmissive.SetFloat("_HoloToEmi", timerEffect);

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3032868354518637627}
   - component: {fileID: 3032868354518637626}
   - component: {fileID: 7442743203647017530}
-  - component: {fileID: 7371719140834836576}
   m_Layer: 9
   m_Name: PreviewBlock
   m_TagString: Untagged
@@ -101,25 +100,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7371719140834836576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3032868354518637624}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8794c70a13e41d648831f25d6c1c6744, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fireRateBoost: 0
-  damageBoost: 0
-  rangeBoost: 0
-  slowValue: 1
-  poisonValue: 0
-  lazer: 0
-  explosion: 0
 --- !u!1 &6472120515926760867
 GameObject:
   m_ObjectHideFlags: 0

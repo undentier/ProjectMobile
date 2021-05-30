@@ -20,28 +20,32 @@ public class BoostBlock : MonoBehaviour
     private float timerEffect;
     private Material boostBlockShader1;
     private Material boostBlockShader2;
+    private Material boostBlockIcone;
     public GameObject boostBlock;
+    public GameObject icone;
 
 
     private void Awake()
     {
-        //boostBlockShader1 = boostBlock.GetComponent<MeshRenderer>().materials[0];
-        //boostBlockShader2 = boostBlock.GetComponent<MeshRenderer>().materials[1];
+        boostBlockShader1 = boostBlock.GetComponent<MeshRenderer>().materials[0];
+        boostBlockShader2 = boostBlock.GetComponent<MeshRenderer>().materials[1];
+        boostBlockIcone = icone.GetComponent<SpriteRenderer>().material;
     }
 
     private void Start()
     {
-        //StartCoroutine(CreateBlockEffect());
+        StartCoroutine(CreateBlockEffect());
     }
 
     public IEnumerator CreateBlockEffect()
     {
         timerEffect = 0;
-        while (timerEffect < 10)
+        while (timerEffect < 35)
         {
-            timerEffect += Time.deltaTime * 5f;
+            timerEffect += Time.deltaTime * 25f;
             boostBlockShader1.SetFloat("_HoloToText", timerEffect);
             boostBlockShader2.SetFloat("_HoloToEmi", timerEffect);
+            boostBlockIcone.SetFloat("_HoloToEmi", timerEffect);
             yield return new WaitForEndOfFrame();
         }
     }

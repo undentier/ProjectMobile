@@ -26,5 +26,7 @@ Material:
     - Vector1_8B4E7097: 0.43
     - Vector1_A690897A: 0.5
     - Vector1_DE4BADFD: 1
+    - _DamageColor: 0
+    - _PowerEmissive: 1
     m_Colors:
-    - Color_DFE0107C: {r: 1, g: 0, b: 0.88550186, a: 0}
+    - Color_DFE0107C: {r: 1, g: 0, b: 0.88627434, a: 0}

@@ -746,11 +746,16 @@ public class Turret : MonoBehaviour
     public IEnumerator CreateTurretEffect()
     {
         timerEffect = 0;
-        while (timerEffect < 10)
+        while (timerEffect < 40)
         {
             timerEffect += Time.deltaTime * 5f;
             baseTurretShader.SetFloat("_HoloToText", timerEffect);
             baseTurretShader1.SetFloat("_HoloToEmi", timerEffect);
+            shaderMatEmissive.SetFloat("_HoloToEmi", timerEffect);
+            shaderMatEmissive1.SetFloat("_HoloToEmi", timerEffect);
+            shaderMatEmissive2.SetFloat("_HoloToEmi", timerEffect);
+            shaderMatEmissive3.SetFloat("_HoloToEmi", timerEffect);
+            shaderMatEmissive4.SetFloat("_HoloToEmi", timerEffect);
             yield return new WaitForEndOfFrame();
         }
     }

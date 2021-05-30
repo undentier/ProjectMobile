@@ -16,28 +16,28 @@ public class LevelManager : MonoBehaviour
     public List<LevelDisplay> levelDisplays;
     public Button chapter2Button;
     public Button chapter3Button;
-    public Image locked;
+    public GameObject chapter2Lock;
+    public GameObject chapter3Lock;
     int chapterSelected;
+    public GameObject chapter2UnlockText;
+    public GameObject chapter3UnlockText;
+    public bool godMode;
     // Start is called before the first frame update
     void Start()
     {
         levelDisplays = new List<LevelDisplay>();
         StarNumber();
+        UnlockChapters();
         //InitializeSelectionPanel();
     }
 
     // Update is called once per frame
     void Update()
     {
- /*      if (Input.GetKeyDown(KeyCode.Space))
-        {
 
-        }*/
-            StarNumber();
-        UnlockChapters();
     }
 
-    void StarNumber()
+    public void StarNumber()
     {
         starTotal = 0;
         for (int i = 0; i < GameManager.instance.levellist.levelsChapter1.Count; i++)
@@ -84,28 +84,66 @@ public class LevelManager : MonoBehaviour
             newleveldisplay.level = currentChapterLevels[i];
             levelDisplays.Add(newleveldisplay);
         }
-        levelSelectionPanelTransform.sizeDelta = new Vector2((currentChapterLevels.Count-1)*(levelButton.GetComponent<RectTransform>().sizeDelta.x+levelSelectionPanelTransform.GetComponent<HorizontalLayoutGroup>().spacing), levelSelectionPanelTransform.sizeDelta.y);
+        levelSelectionPanelTransform.sizeDelta = new Vector2((currentChapterLevels.Count - 1) * (levelButton.GetComponent<RectTransform>().sizeDelta.x + levelSelectionPanelTransform.GetComponent<HorizontalLayoutGroup>().spacing), levelSelectionPanelTransform.sizeDelta.y);
         levelSelectionPanelTransform.GetComponent<ScrollRect>().normalizedPosition = Vector2.zero;
     }
-  /*  public void ClearList()
+    /*  public void ClearList()
+      {
+          levelDisplays.Clear();
+          for (int i = 0; i < levelSelectionPanelTransform.childCount; i++)
+          {
+              DestroyImmediate(levelSelectionPanelTransform.GetChild(0).gameObject);
+          }
+      }*/
+
+    public void UnlockChapters()
     {
-        levelDisplays.Clear();
-        for (int i = 0; i < levelSelectionPanelTransform.childCount; i++)
+        if (godMode == false)
         {
-            DestroyImmediate(levelSelectionPanelTransform.GetChild(0).gameObject);
-        }
-    }*/
-    
-    void UnlockChapters()
-    {
-        if (starTotal > 10)
-        {
-            chapter2Button.interactable = true;
-            //chapter2Button.image = locked;
-            if (starTotal > 16)
+            if (starTotal > 10)
             {
-                chapter3Button.interactable = true;
+                chapter2Button.interactable = true;
+                chapter2Lock.SetActive(false);
+                chapter2UnlockText.SetActive(false);
+                if (starTotal > 16)
+                {
+                    chapter3Button.interactable = true;
+                    chapter3Lock.SetActive(false);
+                }
+                else if (starTotal <= 16)
+                {
+                    chapter3Button.interactable = false;
+                    chapter3UnlockText.GetComponent<Text>().text = "Stars required to unlock: " + (17 - starTotal);
+                    chapter3UnlockText.SetActive(true);
+                    chapter3Lock.SetActive(true);
+                }
+            }
+            else if (starTotal <= 10)
+            {
+                chapter2Button.interactable = false;
+                chapter2UnlockText.GetComponent<Text>().text = "Remaining Stars to unlock: " + (11 - starTotal);
+                chapter2Lock.SetActive(true);
+                chapter2UnlockText.SetActive(true);
+                if (starTotal <= 16)
+                {
+                    chapter3Button.interactable = false;
+                    chapter3UnlockText.GetComponent<Text>().text = "Remaining Stars to unlock: " + (17 - starTotal);
+                    chapter3UnlockText.SetActive(true);
+                    chapter3Lock.SetActive(true);
+                }
             }
         }
+        else
+        {
+            chapter2Button.interactable = true;
+            chapter2Lock.SetActive(false);
+            chapter3Lock.SetActive(false);
+            chapter3Button.interactable = true;
+        }
+    }
+
+    public void ActiveGodMode()
+    {
+        godMode = true;
     }
 }

@@ -242,6 +242,11 @@ PrefabInstance:
       propertyPath: spawnPoints.Array.data[0]
       value: 
       objectReference: {fileID: 2142219569}
+    - target: {fileID: 5701347970331956474, guid: 3136da9772be55d408a376d4baa73a0a,
+        type: 3}
+      propertyPath: decoNexus
+      value: 
+      objectReference: {fileID: 1754480554}
     - target: {fileID: 7192525007568086446, guid: 3136da9772be55d408a376d4baa73a0a,
         type: 3}
       propertyPath: m_AnchoredPosition.y

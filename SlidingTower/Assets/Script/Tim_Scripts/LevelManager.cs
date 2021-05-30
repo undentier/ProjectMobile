@@ -145,5 +145,7 @@ public class LevelManager : MonoBehaviour
     public void ActiveGodMode()
     {
         godMode = true;
+        chapter2UnlockText.SetActive(false);
+        chapter3UnlockText.SetActive(false);
     }
 }

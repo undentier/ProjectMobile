@@ -19,8 +19,9 @@ public class LifeManager : MonoBehaviour
     public Material faisseau;
     public Material nexusEmissive;
     public float powerEmissive;
-    public ParticleSystem PVLost;
+    //public ParticleSystem PVLost;
     public ParticleSystem decoNexus;
+    public GameObject kaBoom;
 
 
     private void Awake()
@@ -41,6 +42,7 @@ public class LifeManager : MonoBehaviour
         life = startLife;
         SetupEmissive();
         decoNexus.startLifetime = 3f;
+        kaBoom.SetActive(false);
     }
 
     public void DamagePlayer(int damage)
@@ -54,6 +56,7 @@ public class LifeManager : MonoBehaviour
         {
             UIManager.instance.gameOverMenu.SetActive(true);
             Time.timeScale = 0f;
+            kaBoom.SetActive(true);
         }
         else
         {

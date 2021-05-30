@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: HoloToText
-  m_Shader: {fileID: -6465566751694194690, guid: 579f24e06fda5b14abb452ed59c6e5fb,
+  m_Name: HoloToEmissive
+  m_Shader: {fileID: -6465566751694194690, guid: 6f1021eed18e4c54fb42fd93340a5703,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -95,6 +95,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
+    - _HoloToEmi: 0
     - _HoloToText: 0
     - _Metallic: 0
     - _OcclusionStrength: 1

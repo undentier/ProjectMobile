@@ -47,6 +47,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreOfLastLevel: 0
   levellist: {fileID: 1355526794}
+  musicSliderValue: 0.5
+  sfxSliderValue: 0.5
   levelScript: {fileID: 0}
 --- !u!114 &1355526794
 MonoBehaviour:

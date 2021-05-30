@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour
     public int scoreOfLastLevel;
     public LevelList levellist;
 
+    public float musicSliderValue;
+    public float sfxSliderValue;
+
     [HideInInspector] public LevelsSO levelScript;
 
     private void Awake()

@@ -120,6 +120,8 @@ MonoBehaviour:
   poisonValue: 0
   lazer: 0
   explosion: 0
+  boostBlock: {fileID: 5441130956697621407}
+  icone: {fileID: 8641419220511059059}
 --- !u!1 &8641419220511059059
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,6 +334,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2ef4a4a19961d746ba4aaf5b226ccfa, type: 3}
+--- !u!1 &5441130956697621407 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e2ef4a4a19961d746ba4aaf5b226ccfa,
+    type: 3}
+  m_PrefabInstance: {fileID: 5135139414986125006}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4668288233869117733 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e2ef4a4a19961d746ba4aaf5b226ccfa,

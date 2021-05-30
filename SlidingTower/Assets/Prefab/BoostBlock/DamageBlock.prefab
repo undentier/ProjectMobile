@@ -234,6 +234,7 @@ MonoBehaviour:
   lazer: 0
   explosion: 0
   boostBlock: {fileID: 4692952134375738789}
+  icone: {fileID: 5387736596009228005}
 --- !u!1001 &5612011578190573812
 PrefabInstance:
   m_ObjectHideFlags: 0

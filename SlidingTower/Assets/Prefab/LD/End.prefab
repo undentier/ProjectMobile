@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 7144141241570914368}
   - component: {fileID: 4642577790929230347}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: DecoNexus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

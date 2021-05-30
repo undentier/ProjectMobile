@@ -25,14 +25,15 @@ public class BoostBlock : MonoBehaviour
 
     private void Awake()
     {
-        boostBlockShader1 = boostBlock.GetComponent<MeshRenderer>().materials[0];
-        boostBlockShader2 = boostBlock.GetComponent<MeshRenderer>().materials[1];
+        //boostBlockShader1 = boostBlock.GetComponent<MeshRenderer>().materials[0];
+        //boostBlockShader2 = boostBlock.GetComponent<MeshRenderer>().materials[1];
     }
 
     private void Start()
     {
-        StartCoroutine(CreateBlockEffect());
+        //StartCoroutine(CreateBlockEffect());
     }
+
     public IEnumerator CreateBlockEffect()
     {
         timerEffect = 0;

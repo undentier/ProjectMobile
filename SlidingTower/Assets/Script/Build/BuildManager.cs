@@ -236,7 +236,6 @@ public class BuildManager : MonoBehaviour
 
             if (isTurretPreview)
             {
-                Debug.Log("je rentre");
                 turretPreviToBuild.transform.GetChild(0).gameObject.SetActive(true);
             }
         }

@@ -703,9 +703,9 @@ public class Turret : MonoBehaviour
     public IEnumerator CreateTurretEffect()
     {
         timerEffect = 0;
-        while (timerEffect < 5)
+        while (timerEffect < 10)
         {
-            timerEffect += Time.deltaTime;
+            timerEffect += Time.deltaTime * 5f;
             baseTurretShader.SetFloat("_HoloToText", timerEffect);
             yield return new WaitForEndOfFrame();
         }

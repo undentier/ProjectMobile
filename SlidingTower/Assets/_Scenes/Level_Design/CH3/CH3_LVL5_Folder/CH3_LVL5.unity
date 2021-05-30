@@ -4254,6 +4254,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2903598717604051754, guid: 3136da9772be55d408a376d4baa73a0a,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2903598717604051754, guid: 3136da9772be55d408a376d4baa73a0a,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: 176d1ab44d1258541a41dc12ff99e96a, type: 2}
+    - target: {fileID: 2903598717604051754, guid: 3136da9772be55d408a376d4baa73a0a,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4094336870982801636, guid: 3136da9772be55d408a376d4baa73a0a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -5089,6 +5104,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6537804741180319856, guid: e144a754f77db1348aa3e8870f279a11,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7122458465355761990, guid: e144a754f77db1348aa3e8870f279a11,
         type: 3}

@@ -40,5 +40,7 @@ Material:
     - Vector1_1ABC8406: 0
     - Vector1_C300E7EA: 17
     - Vector1_FA85731E: 5
+    - inputColorExplosion: 1
     m_Colors:
     - Color_F6AFB7D3: {r: 0, g: 1.162303, b: 2, a: 1}
+    - colorExplosion: {r: 0, g: 1.162303, b: 2, a: 1}

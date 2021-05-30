@@ -172,10 +172,6 @@ public class WaveSpawner : MonoBehaviour
     {
         if (waveIndex < wichWave.waves.Length)
         {
-            nextTotalLowEnemyNumber = 0;
-            nextTotalMidEnemyNumber = 0;
-            nextTotalBigEnemyNumber = 0;
-
             for (int i = 0; i < wichWave.waves[waveIndex].enemies.Length; i++)
             {
                 switch (wichWave.waves[waveIndex].enemies[i].wichEnemy)
@@ -197,6 +193,10 @@ public class WaveSpawner : MonoBehaviour
 
     void GetTotaleWaveCompo()
     {
+        nextTotalLowEnemyNumber = 0;
+        nextTotalMidEnemyNumber = 0;
+        nextTotalBigEnemyNumber = 0;
+
         for (int i = 0; i < levelWaves.Length; i++)
         {
             GetNextWaveComposition(levelWaves[i]);

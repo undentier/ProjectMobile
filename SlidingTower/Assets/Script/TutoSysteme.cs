@@ -50,8 +50,9 @@ public class TutoSysteme : MonoBehaviour
 
         if (dragTutoState == 0)
         {
-            if (WavePanel.instance.isBuildMode && WavePanel.instance.canBuildTurretIndex > 0)
+            if (WavePanel.instance.isBuildMode && WavePanel.instance.canBuildTurretIndex > 1)
             {
+                Debug.Log("je rentre");
                 dragTutoState = 1;
                 handDragObj.SetActive(true);
                 //blackBackGroundObj.SetActive(true);

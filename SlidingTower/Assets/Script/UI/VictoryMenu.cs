@@ -27,18 +27,18 @@ public class VictoryMenu : MonoBehaviour
     {
         if (LifeManager.lifeInstance.life < scoreLvl[0])
         {
+            StartCoroutine(StarAnim(1));
             finalScore = 1;
         }
         else if (LifeManager.lifeInstance.life >= scoreLvl[0] && LifeManager.lifeInstance.life < scoreLvl[1])
         {
-            stars[1].sprite = fillStar;
+            StartCoroutine(StarAnim(2));
             finalScore = 2;
         }
         
         else if (LifeManager.lifeInstance.life >= scoreLvl[1])
         {
-            stars[1].sprite = fillStar;
-            stars[2].sprite = fillStar;
+            StartCoroutine(StarAnim(3));
             finalScore = 3;
         }
 
@@ -48,4 +48,17 @@ public class VictoryMenu : MonoBehaviour
             GameManager.instance.SetScore();
         }
     }
+
+
+    IEnumerator StarAnim(int numOfStar)
+    {
+        for (int i = 0; i < numOfStar; i++)
+        {
+            yield return new WaitForSeconds(1);
+            stars[i].sprite = fillStar;
+            stars[i].GetComponent<Animator>().SetTrigger("Bounce");
+        }
+    }
+
+
 }

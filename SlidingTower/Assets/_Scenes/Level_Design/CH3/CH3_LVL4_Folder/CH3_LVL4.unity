@@ -4529,6 +4529,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a55a2d3fbc41764fbb001bcc216614c, type: 3}
+--- !u!1 &1769235576 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1892416675343711108, guid: 0a55a2d3fbc41764fbb001bcc216614c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1769235575}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1782926615
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4628,6 +4634,11 @@ PrefabInstance:
       propertyPath: spawnPoints.Array.data[0]
       value: 
       objectReference: {fileID: 1751294977}
+    - target: {fileID: 5701347970331956474, guid: 3136da9772be55d408a376d4baa73a0a,
+        type: 3}
+      propertyPath: kaBoom
+      value: 
+      objectReference: {fileID: 1769235576}
     - target: {fileID: 5701347970331956474, guid: 3136da9772be55d408a376d4baa73a0a,
         type: 3}
       propertyPath: decoNexus

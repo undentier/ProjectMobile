@@ -234,6 +234,11 @@ PrefabInstance:
       objectReference: {fileID: 1269953184}
     - target: {fileID: 5701347970331956474, guid: 3136da9772be55d408a376d4baa73a0a,
         type: 3}
+      propertyPath: kaBoom
+      value: 
+      objectReference: {fileID: 448110337}
+    - target: {fileID: 5701347970331956474, guid: 3136da9772be55d408a376d4baa73a0a,
+        type: 3}
       propertyPath: decoNexus
       value: 
       objectReference: {fileID: 1848974347}
@@ -1622,6 +1627,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 27204e6fa597d63488cc2d2772c6f876, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a55a2d3fbc41764fbb001bcc216614c, type: 3}
+--- !u!1 &448110337 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1892416675343711108, guid: 0a55a2d3fbc41764fbb001bcc216614c,
+    type: 3}
+  m_PrefabInstance: {fileID: 448110336}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &489187202
 PrefabInstance:
   m_ObjectHideFlags: 0

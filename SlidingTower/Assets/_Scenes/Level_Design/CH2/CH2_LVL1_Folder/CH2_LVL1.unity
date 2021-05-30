@@ -2885,6 +2885,11 @@ PrefabInstance:
       objectReference: {fileID: 468967513}
     - target: {fileID: 5701347970331956474, guid: 3136da9772be55d408a376d4baa73a0a,
         type: 3}
+      propertyPath: kaBoom
+      value: 
+      objectReference: {fileID: 1891084107}
+    - target: {fileID: 5701347970331956474, guid: 3136da9772be55d408a376d4baa73a0a,
+        type: 3}
       propertyPath: decoNexus
       value: 
       objectReference: {fileID: 384131875}
@@ -6643,6 +6648,86 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2966204793164336109, guid: 263ba8b066f77594fae50851e2792f0f,
     type: 3}
   m_PrefabInstance: {fileID: 1839468669}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1891084106
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4829044461585173672, guid: 7bdf1086ad971f44da95a5e55c8a2931,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4829044461585173672, guid: 7bdf1086ad971f44da95a5e55c8a2931,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4829044461585173672, guid: 7bdf1086ad971f44da95a5e55c8a2931,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4829044461585173672, guid: 7bdf1086ad971f44da95a5e55c8a2931,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4829044461585173672, guid: 7bdf1086ad971f44da95a5e55c8a2931,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4829044461585173672, guid: 7bdf1086ad971f44da95a5e55c8a2931,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4829044461585173672, guid: 7bdf1086ad971f44da95a5e55c8a2931,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4829044461585173672, guid: 7bdf1086ad971f44da95a5e55c8a2931,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4829044461585173672, guid: 7bdf1086ad971f44da95a5e55c8a2931,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4829044461585173672, guid: 7bdf1086ad971f44da95a5e55c8a2931,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4829044461585173672, guid: 7bdf1086ad971f44da95a5e55c8a2931,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4829044461585173677, guid: 7bdf1086ad971f44da95a5e55c8a2931,
+        type: 3}
+      propertyPath: m_Name
+      value: Death Nexus
+      objectReference: {fileID: 0}
+    - target: {fileID: 4829044461585173677, guid: 7bdf1086ad971f44da95a5e55c8a2931,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7bdf1086ad971f44da95a5e55c8a2931, type: 3}
+--- !u!1 &1891084107 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4829044461585173677, guid: 7bdf1086ad971f44da95a5e55c8a2931,
+    type: 3}
+  m_PrefabInstance: {fileID: 1891084106}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1947074579
 GameObject:

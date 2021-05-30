@@ -78,7 +78,8 @@ public class Turret : MonoBehaviour
     [Header("Material")]
     private float timerEffect;
     private Material baseTurretShader;
-     
+    private Material baseTurretShader1;
+
     private Material shaderMatEmissive;
     private Material shaderMatEmissive1;
     private Material shaderMatEmissive2;
@@ -129,6 +130,7 @@ public class Turret : MonoBehaviour
         laserCoolDown = new float[numMaxTargets];
 
         baseTurretShader = baseTurret.GetComponent<MeshRenderer>().materials[0];
+        baseTurretShader1 = baseTurret.GetComponent<MeshRenderer>().materials[1];
         shaderMatEmissive = basicCanon.GetComponent<MeshRenderer>().materials[1];
         shaderMatEmissive1 = baseTurret.GetComponent<MeshRenderer>().materials[1];
         shaderMatEmissive2 = explosionCanon.GetComponent<MeshRenderer>().materials[1];
@@ -707,6 +709,7 @@ public class Turret : MonoBehaviour
         {
             timerEffect += Time.deltaTime * 5f;
             baseTurretShader.SetFloat("_HoloToText", timerEffect);
+            baseTurretShader1.SetFloat("_HoloToEmi", timerEffect);
             yield return new WaitForEndOfFrame();
         }
     }

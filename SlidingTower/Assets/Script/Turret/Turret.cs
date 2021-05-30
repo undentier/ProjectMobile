@@ -59,6 +59,7 @@ public class Turret : MonoBehaviour
     public GameObject explosiveBullet;
     public Transform shootPoint;
     public LineRenderer[] laserLines;
+    public GameObject rangePreviewObj;
 
 
     [Header("Mesh")]
@@ -139,6 +140,7 @@ public class Turret : MonoBehaviour
     private void Start()
     {
         StartCoroutine(CreateTurretEffect());
+        rangePreviewObj.SetActive(false);
     }
 
     void FixedUpdate()
@@ -712,6 +714,6 @@ public class Turret : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, actualRange);
+        Gizmos.DrawWireSphere(transform.position, startRange);
     }
 }

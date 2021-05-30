@@ -59,11 +59,9 @@ public class SlideManager : MonoBehaviour
         {
             canSlide = false;
             Vector3 dir = targetNode.transform.position - objToMove.transform.position;
-            float distancePerFrame = Time.deltaTime * slidingSpeed;
 
             if (dir.magnitude <= 0.1f)
             {
-                dir = Vector3.zero;
                 objToMove.transform.Translate(Vector3.zero);
                 targetNode = null;
                 objToMove = null;
@@ -143,6 +141,11 @@ public class SlideManager : MonoBehaviour
             selectedObj.GetComponent<Animator>().SetBool("Selected", true);
 
             ObjectDetection();
+
+            if (turretScript != null)
+            {
+                turretScript.rangePreviewObj.SetActive(true);
+            }
         }
     }
     public void EndSlide()
@@ -165,9 +168,10 @@ public class SlideManager : MonoBehaviour
             else if (turretScript != null)
             {
                 turretScript.GetNodeUpgrade(startNode);
-
                 startNode.GetNeighbourObjs();
                 startNode.SetAllNeighbourObjcs();
+
+                turretScript.rangePreviewObj.SetActive(false);
             }
 
             isSliding = false;

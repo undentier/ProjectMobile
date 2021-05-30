@@ -9533,6 +9533,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6085699263115376848, guid: e144a754f77db1348aa3e8870f279a11,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6235741209221971210, guid: e144a754f77db1348aa3e8870f279a11,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6235741209221971210, guid: e144a754f77db1348aa3e8870f279a11,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6235741209221971210, guid: e144a754f77db1348aa3e8870f279a11,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6257318432327608800, guid: e144a754f77db1348aa3e8870f279a11,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6257318432327608800, guid: e144a754f77db1348aa3e8870f279a11,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7122458465355761990, guid: e144a754f77db1348aa3e8870f279a11,
         type: 3}
       propertyPath: m_Name

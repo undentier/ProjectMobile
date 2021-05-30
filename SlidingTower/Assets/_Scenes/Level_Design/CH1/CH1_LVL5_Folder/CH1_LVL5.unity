@@ -305,6 +305,11 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 7192525008006030374, guid: 3136da9772be55d408a376d4baa73a0a,
         type: 3}
+      propertyPath: isTuto
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7192525008006030374, guid: 3136da9772be55d408a376d4baa73a0a,
+        type: 3}
       propertyPath: canBuildTurretWaves.Array.size
       value: 7
       objectReference: {fileID: 0}

@@ -40,7 +40,7 @@ public class BoostBlock : MonoBehaviour
     public IEnumerator CreateBlockEffect()
     {
         timerEffect = 0;
-        while (timerEffect < 35)
+        while (timerEffect < 40)
         {
             timerEffect += Time.deltaTime * 25f;
             boostBlockShader1.SetFloat("_HoloToText", timerEffect);

@@ -7192,6 +7192,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1848974345}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &1848974347 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7144141241570914368, guid: 74ccf60e9462170498cfe68a22c93764,
+    type: 3}
+  m_PrefabInstance: {fileID: 1848974345}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1910074458
 PrefabInstance:
   m_ObjectHideFlags: 0

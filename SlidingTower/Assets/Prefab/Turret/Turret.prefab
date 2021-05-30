@@ -1118,8 +1118,8 @@ MonoBehaviour:
   discoCanon: {fileID: 3266471228151374880}
   baseTurret: {fileID: 3018894392717185213}
   matDisco: {fileID: 8817139894897165247}
-  particlesLaserlvl1: {fileID: 2220126662434455797}
-  particlesLaserlvl2: {fileID: 137834253592475025}
+  particlesLaserlvl1: {fileID: 7800332315663992559}
+  particlesLaserlvl2: {fileID: 2484020994307230604}
   particlesExplosionlvl1: {fileID: 1786499835072387385}
   particlesExplosionlvl2: {fileID: 3683662730523065456}
   particlesLaserDlvl1: {fileID: 3700493063083907133}

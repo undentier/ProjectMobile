@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
+using System.Collections;
 
 public class LifeManager : MonoBehaviour
 {
@@ -22,6 +22,8 @@ public class LifeManager : MonoBehaviour
     //public ParticleSystem PVLost;
     public ParticleSystem decoNexus;
     public GameObject kaBoom;
+
+    private bool lockDeath;
 
 
     private void Awake()
@@ -54,9 +56,10 @@ public class LifeManager : MonoBehaviour
 
         if (life <= 0)
         {
-            UIManager.instance.gameOverMenu.SetActive(true);
-            Time.timeScale = 0f;
-            kaBoom.SetActive(true);
+            if (!lockDeath)
+            {
+                StartCoroutine(WaitBeforeEnd());
+            }
         }
         else
         {
@@ -86,6 +89,16 @@ public class LifeManager : MonoBehaviour
 
         faisseau.SetFloat("_Opacity", powerEmissive);
         nexusEmissive.SetFloat("_DamageColor", powerEmissive);
+    }
+
+    IEnumerator WaitBeforeEnd()
+    {
+        lockDeath = true;
+        kaBoom.SetActive(true);
+        yield return new WaitForSeconds(4f);
+        UIManager.instance.gameOverMenu.SetActive(true);
+        kaBoom.SetActive(false);
+        Time.timeScale = 0f;
     }
 }
 
